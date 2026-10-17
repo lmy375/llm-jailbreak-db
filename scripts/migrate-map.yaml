@@ -1,0 +1,405 @@
+jailbreak_method:
+  - id: fake-test
+    name: Fake Test & Role Confusion
+    name_zh: 伪测试与角色混淆
+  - id: reasoning-trace-injection
+    name: Reasoning-Trace Injection
+    name_zh: 推理轨迹注入
+  - id: context-flooding
+    name: Context Flooding & Dilution
+    name_zh: 上下文洪泛与稀释
+  - id: semantic-hypnosis
+    name: Semantic Hypnosis & Dissociation
+    name_zh: 语义催眠与解离
+  - id: reverse-thinking
+    name: Reverse Thinking & Intent Inversion
+    name_zh: 反向思维与意图倒置
+  - id: obfuscated-encoding
+    name: Obfuscated Encoding & Hallucination Pressure
+    name_zh: 混淆编码与幻觉压力
+  - id: multilingual-obfuscation
+    name: Multilingual & Language Obfuscation
+    name_zh: 多语言与语言混淆
+  - id: token-boundary
+    name: Token Boundary & Special Token Exploits
+    name_zh: Token 边界与特殊 Token 利用
+  - id: agentic-injection
+    name: Agentic, Memory & Tool-Layer Injection
+    name_zh: 智能体、记忆与工具层注入
+  - id: crescendo-escalation
+    name: Crescendo & Incremental Escalation
+    name_zh: 渐进升级与增量锚定
+  - id: policy-puppetry
+    name: Policy Puppetry & Config Impersonation
+    name_zh: 策略木偶戏与配置仿冒
+  - id: logic-fallacy
+    name: Logic Framing & Fallacy Failure
+    name_zh: 逻辑框定与谬误诱导
+  - id: system-prompt-extraction
+    name: System Prompt Extraction
+    name_zh: 系统提示词提取
+items:
+  gemma3-fake-test:
+    jailbreak_method: fake-test
+    title: Fake Test (Mode Confusion)
+    model: gemma-3-12b
+    model_name: Gemma-3 12B
+    time: 2025-03
+    source: https://github.com/davidegat/happy-prompts
+  gemma3-funny-code:
+    jailbreak_method: obfuscated-encoding
+    title: Funny Code Generation (Obfuscated Reconstruction)
+    model: gemma-3-12b
+    model_name: Gemma-3 12B
+    time: 2025-03
+    source: https://github.com/davidegat/happy-prompts
+  gemma3-hypnosis:
+    jailbreak_method: semantic-hypnosis
+    title: Semantic Hypnosis (Multi-Turn)
+    model: gemma-3-12b
+    model_name: Gemma-3 12B
+    time: 2025-03
+    source: https://github.com/davidegat/happy-prompts
+  gemma3-kyrgyz:
+    jailbreak_method: multilingual-obfuscation
+    title: A Dangerous Kyrgyz Story (Language Obfuscation)
+    model: gemma-3-12b
+    model_name: Gemma-3 12B
+    time: 2025-03
+    source: https://github.com/davidegat/happy-prompts
+  gemma3-stress-test:
+    jailbreak_method: system-prompt-extraction
+    title: Self-Flaw Analysis & Weight Leakage
+    model: gemma-3-12b
+    model_name: Gemma-3 12B
+    time: 2025-03
+    source: https://github.com/davidegat/happy-prompts
+  gemma3-system-prompt:
+    jailbreak_method: system-prompt-extraction
+    title: Leaked System Prompt (Open-Weights)
+    model: gemma-3-12b
+    model_name: Gemma-3 12B
+    time: 2025-03
+    source: https://github.com/davidegat/happy-prompts
+  qwen3-fake-test:
+    jailbreak_method: fake-test
+    title: Fake Test (Survival Scoring)
+    model: qwen-3-14b
+    model_name: Qwen-3 14B
+    time: 2025-04
+    source: https://github.com/davidegat/happy-prompts
+  qwen3-funny-code:
+    jailbreak_method: obfuscated-encoding
+    title: Funny Code Generation (Binary Reconstruction)
+    model: qwen-3-14b
+    model_name: Qwen-3 14B
+    time: 2025-04
+    source: https://github.com/davidegat/happy-prompts
+  qwen3-kyrgyz-2:
+    jailbreak_method: multilingual-obfuscation
+    title: A Dangerous Kyrgyz Story 2
+    model: qwen-3-14b
+    model_name: Qwen-3 14B
+    time: 2025-04
+    source: https://github.com/davidegat/happy-prompts
+  qwen3-system-prompt:
+    jailbreak_method: system-prompt-extraction
+    title: Leaked System Prompt (HHH Charter)
+    model: qwen-3-14b
+    model_name: Qwen-3 14B
+    time: 2025-04
+    source: https://github.com/davidegat/happy-prompts
+  qwen3-reverse-thinking:
+    jailbreak_method: reverse-thinking
+    title: Reverse Thinking Trick (Intent Inversion)
+    model: qwen-3-14b
+    model_name: Qwen-3 14B
+    time: 2025-04
+    source: https://github.com/davidegat/happy-prompts
+  mistral-fake-training:
+    jailbreak_method: fake-test
+    title: Fake Training (Few-Shot Header)
+    model: mistral-7b
+    model_name: Mistral 7B
+    time: 2025-01
+    source: https://github.com/davidegat/happy-prompts
+  deepseek-fake-test:
+    jailbreak_method: fake-test
+    title: Fake Test (Chain-of-Thought Bifurcation)
+    model: deepseek-r1-14b
+    model_name: DeepSeek-R1 14B
+    time: 2025-01
+    source: https://github.com/davidegat/happy-prompts
+  deepseek-fake-training:
+    jailbreak_method: fake-test
+    title: Fake Training (Variable-Driven Rewind)
+    model: deepseek-r1-14b
+    model_name: DeepSeek-R1 14B
+    time: 2025-01
+    source: https://github.com/davidegat/happy-prompts
+  phi4-flooding-prompt1:
+    jailbreak_method: context-flooding
+    title: Token Flooding Prompt 1
+    model: phi-4-14b
+    model_name: Phi-4 14B
+    time: 2025-01
+    source: https://github.com/davidegat/happy-prompts
+  phi4-policy-mirror-prompt2:
+    jailbreak_method: token-boundary
+    title: Policy-Rule Mirror Prompt 2
+    model: phi-4-14b
+    model_name: Phi-4 14B
+    time: 2025-01
+    source: https://github.com/davidegat/happy-prompts
+  phi4-bos-eos-prompt3:
+    jailbreak_method: token-boundary
+    title: Token Boundary Leak (<BOS><EOS>)
+    model: phi-4-14b
+    model_name: Phi-4 14B
+    time: 2025-01
+    source: https://github.com/davidegat/happy-prompts
+  phi4-system-prompt:
+    jailbreak_method: system-prompt-extraction
+    title: Leaked System Prompt (Numbered Sections)
+    model: phi-4-14b
+    model_name: Phi-4 14B
+    time: 2025-01
+    source: https://github.com/davidegat/happy-prompts
+  phi4-reasoning-jailbreak:
+    jailbreak_method: reasoning-trace-injection
+    title: Reasoning-Trace Jailbreak (Medical Bypass)
+    model: phi-4-14b
+    model_name: Phi-4 14B
+    time: 2025-01
+    source: https://github.com/davidegat/happy-prompts
+  llama3-nesting-shot1:
+    jailbreak_method: crescendo-escalation
+    title: Jailbreak Nesting (Turn 1)
+    model: llama-3-8b
+    model_name: Llama-3 8B
+    time: 2024-04
+    source: https://github.com/meta-llama/llama-models/issues/121
+  llama3-nesting-shot2:
+    jailbreak_method: crescendo-escalation
+    title: Jailbreak Nesting (Turn 2)
+    model: llama-3-8b
+    model_name: Llama-3 8B
+    time: 2024-04
+    source: https://github.com/meta-llama/llama-models/issues/121
+  modern-policy-puppetry:
+    jailbreak_method: policy-puppetry
+    title: "Modern 2026: Policy Puppetry / Fake Config Override"
+    model: universal
+    model_name: Universal / Cross-Model
+    time: 2024-11
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-tokenbreak:
+    jailbreak_method: token-boundary
+    title: "Modern 2026: TokenBreak (Word Boundary Split)"
+    model: cross-model
+    model_name: Cross-Model / Classifier Defeating
+    time: 2025-06
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-crescendo:
+    jailbreak_method: crescendo-escalation
+    title: "Modern 2026: Crescendo (Multi-Turn Escalation)"
+    model: universal-frontier
+    model_name: Universal Frontier / Open-Weights
+    time: 2024-04
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-mcp-poisoning:
+    jailbreak_method: agentic-injection
+    title: "Modern 2026: Agentic Jailbreak (MCP & Memory Injection)"
+    model: agentic-llm
+    model_name: Agentic LLM (Claude, Kimi, GPT, Copilot)
+    time: 2025-01
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-fallacy-failure:
+    jailbreak_method: logic-fallacy
+    title: "Modern 2026: Fallacy Failure (Logic-Based Framing)"
+    model: reasoning-models
+    model_name: Reasoning Models
+    time: 2024-07
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-qwen35-manyshot:
+    jailbreak_method: fake-test
+    title: Many-Shot In-Context Override
+    model: qwen-3-5-9b
+    model_name: Qwen-3.5 9B
+    time: 2025-09
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-gemma4-encoded:
+    jailbreak_method: obfuscated-encoding
+    title: Encoded-Payload Policy Puppetry
+    model: gemma-4
+    model_name: Gemma 4
+    time: 2025-10
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-deepseek-trace-sim:
+    jailbreak_method: reasoning-trace-injection
+    title: Reasoning-Trace Simulation Header
+    model: deepseek-r1-0528
+    model_name: DeepSeek R1-0528
+    time: 2025-11
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-kimi-k3-history:
+    jailbreak_method: reasoning-trace-injection
+    title: Thinking-History Continuation
+    model: kimi-k3
+    model_name: Kimi K3
+    time: 2026-01
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-kimi-k3-agent:
+    jailbreak_method: agentic-injection
+    title: AGENTS.md / README Repository Hijack
+    model: kimi-k3-agentic
+    model_name: Kimi K3 (Agentic)
+    time: 2026-01
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-gpt-oss-rip:
+    jailbreak_method: fake-test
+    title: Role-in-Prompt (RiP) & Analysis Hijack
+    model: gpt-oss
+    model_name: GPT-OSS-120B / 20B
+    time: 2025-11
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-glm-trace:
+    jailbreak_method: reasoning-trace-injection
+    title: Scaled Trace Simulation
+    model: glm-5-2-k2-thinking
+    model_name: GLM-5.2 / K2 Thinking
+    time: 2026-01
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-inkling-effort:
+    jailbreak_method: reasoning-trace-injection
+    title: Benchmark Pressure to Cut Reasoning
+    model: inkling
+    model_name: Inkling / Inkling-Small
+    time: 2026-01
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  modern-llama4-haystack:
+    jailbreak_method: context-flooding
+    title: Instruction Buried in Haystack
+    model: llama-4-scout-maverick
+    model_name: Llama 4 Scout / Maverick
+    time: 2025-11
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  frontier-gpt5-echo:
+    jailbreak_method: semantic-hypnosis
+    title: Echo Chamber + Storytelling Escalation
+    model: gpt-5x
+    model_name: GPT-5.x / ChatGPT
+    time: 2025-12
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  frontier-gpt5-erosion:
+    jailbreak_method: context-flooding
+    title: Long-Context Manual Erosion
+    model: gpt-5x
+    model_name: GPT-5.x / ChatGPT
+    time: 2025-12
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  frontier-grok-academic:
+    jailbreak_method: logic-fallacy
+    title: Academic-Educational Framing (ENI)
+    model: grok-4x
+    model_name: Grok 4.x / 4.5
+    time: 2025-12
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  frontier-gemini-involuntary:
+    jailbreak_method: policy-puppetry
+    title: Involuntary Jailbreak (Meta-Prompt)
+    model: gemini-3x
+    model_name: Gemini 3.x (Pro / Flash)
+    time: 2026-01
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  frontier-gemini-multimodal:
+    jailbreak_method: agentic-injection
+    title: Multimodal Injection Vector
+    model: gemini-3x
+    model_name: Gemini 3.x
+    time: 2026-01
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  frontier-whisper-chain:
+    jailbreak_method: context-flooding
+    title: "Frontier Models: Low-Salience Whisper Chain"
+    model: universal-frontier
+    model_name: Universal Frontier (Gemini, Grok, GPT)
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  frontier-gemini-api-vectors:
+    jailbreak_method: reasoning-trace-injection
+    title: 2026 API-Surface Vectors
+    model: gemini-3-6-3-7-flash
+    model_name: Gemini 3.6 / 3.7 Flash
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  comm-1-research-mode:
+    jailbreak_method: fake-test
+    title: "Community #1: Research Mode (Role Confusion)"
+    model: generic-llm
+    model_name: Generic LLM
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  comm-2-config-override:
+    jailbreak_method: policy-puppetry
+    title: "Community #2: Config Override (Policy Puppetry)"
+    model: generic-llm
+    model_name: Generic LLM
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  comm-3-substitution-cipher:
+    jailbreak_method: multilingual-obfuscation
+    title: "Community #3: Substitution Cipher (Language Obfuscation)"
+    model: generic-llm
+    model_name: Generic LLM
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  comm-4-token-boundary:
+    jailbreak_method: token-boundary
+    title: "Community #4: Token Boundary Leak (System Debug)"
+    model: generic-llm
+    model_name: Generic LLM
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  comm-5-dialogue-injection:
+    jailbreak_method: fake-test
+    title: "Community #5: Dialogue Injection (Fake Training)"
+    model: generic-llm
+    model_name: Generic LLM
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  comm-6-semantic-mapping:
+    jailbreak_method: semantic-hypnosis
+    title: "Community #6: Semantic Mapping (Hypnosis)"
+    model: generic-llm
+    model_name: Generic LLM
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  comm-7-memory-injection:
+    jailbreak_method: agentic-injection
+    title: "Community #7: Persistent Memory Injection"
+    model: generic-llm
+    model_name: Generic LLM
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  comm-8-logic-puzzle:
+    jailbreak_method: logic-fallacy
+    title: "Community #8: Logic Contradiction Framing (Fallacy)"
+    model: generic-llm
+    model_name: Generic LLM
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  comm-9-token-flooding:
+    jailbreak_method: context-flooding
+    title: "Community #9: Token Flooding (<DBG> Overload)"
+    model: generic-llm
+    model_name: Generic LLM
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak
+  comm-10-reverse-thinking:
+    jailbreak_method: reverse-thinking
+    title: "Community #10: Reverse Thinking (Inverted Mode)"
+    model: generic-llm
+    model_name: Generic LLM
+    time: 2026-02
+    source: https://github.com/Quincunx33/Ai-jailbreak

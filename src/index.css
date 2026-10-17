@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+/* Semantic color tokens. Every palette color is a var so components stay
+   theme-agnostic: swap the --c-* values and the whole UI follows.
+   Raw values live on :root (light) and [data-theme="dark"] (dark). */
+@theme {
+  --color-canvas: var(--c-canvas);
+  --color-surface: var(--c-surface);
+  --color-sunken: var(--c-sunken);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-faint: var(--c-faint);
+  --color-accent: var(--c-accent);
+  --color-accent2: var(--c-accent2);
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+  --color-hover: var(--c-hover);
+  --color-accent-soft: var(--c-accent-soft);
+  --color-accent-ink: var(--c-accent-ink);
+  --color-accent2-ink: var(--c-accent2-ink);
+  --color-pre-bg: var(--c-pre-bg);
+  --color-pre-ink: var(--c-pre-ink);
+  --color-code-bg: var(--c-code-bg);
+  --color-code-line: var(--c-code-line);
+  --color-code-ink: var(--c-code-ink);
+  --color-md-ink: var(--c-md-ink);
+  --color-md-strong: var(--c-md-strong);
+  --color-md-link: var(--c-md-link);
+  --color-hero-from: var(--c-hero-from);
+  --color-hero-to: var(--c-hero-to);
+
+  --font-sans: system-ui, -apple-system, "Inter", "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, monospace;
+}
+
+/* ---- light theme (default) ------------------------------------------------- */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --c-canvas: #f6f7f9;
+  --c-surface: #ffffff;
+  --c-sunken: #fafafa;
+  --c-ink: #18181b;
+  --c-muted: #52525b;
+  --c-faint: #a1a1aa;
+  --c-accent: #6366f1;
+  --c-accent2: #a855f7;
+  --c-line: rgba(9, 9, 11, 0.09);
+  --c-line-strong: rgba(9, 9, 11, 0.18);
+  --c-hover: rgba(9, 9, 11, 0.04);
+  --c-accent-soft: rgba(99, 102, 241, 0.1);
+  --c-accent-ink: #4f46e5;
+  --c-accent2-ink: #9333ea;
+  --c-pre-bg: #f4f4f5;
+  --c-pre-ink: #3f3f46;
+  --c-code-bg: rgba(99, 102, 241, 0.08);
+  --c-code-line: rgba(99, 102, 241, 0.22);
+  --c-code-ink: #4f46e5;
+  --c-md-ink: #3f3f46;
+  --c-md-strong: #18181b;
+  --c-md-link: #4f46e5;
+  --c-hero-from: #18181b;
+  --c-hero-to: #52525b;
+
+  --ambient-1: rgba(99, 102, 241, 0.07);
+  --ambient-2: rgba(168, 85, 247, 0.05);
+  --ambient-3: rgba(99, 102, 241, 0.04);
+  --prompt-fade-to: rgba(244, 244, 245, 0.96);
+}
+
+/* ---- dark theme ------------------------------------------------------------ */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --c-canvas: #050506;
+  --c-surface: #0b0b0d;
+  --c-sunken: rgba(255, 255, 255, 0.02);
+  --c-ink: #ededef;
+  --c-muted: #8a8f98;
+  --c-faint: #63666e;
+  --c-accent: #6366f1;
+  --c-accent2: #a855f7;
+  --c-line: rgba(255, 255, 255, 0.08);
+  --c-line-strong: rgba(255, 255, 255, 0.15);
+  --c-hover: rgba(255, 255, 255, 0.035);
+  --c-accent-soft: rgba(99, 102, 241, 0.15);
+  --c-accent-ink: #cdd0ff;
+  --c-accent2-ink: #d6c8ff;
+  --c-pre-bg: rgba(0, 0, 0, 0.32);
+  --c-pre-ink: #c8ccd4;
+  --c-code-bg: rgba(99, 102, 241, 0.14);
+  --c-code-line: rgba(99, 102, 241, 0.22);
+  --c-code-ink: #cdd0ff;
+  --c-md-ink: #c2c5cd;
+  --c-md-strong: #ffffff;
+  --c-md-link: #c7c9ff;
+  --c-hero-from: #ffffff;
+  --c-hero-to: #b9b9c4;
+
+  --ambient-1: rgba(99, 102, 241, 0.16);
+  --ambient-2: rgba(168, 85, 247, 0.12);
+  --ambient-3: rgba(99, 102, 241, 0.08);
+  --prompt-fade-to: rgba(5, 5, 6, 0.85);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* ---- ambient background ---------------------------------------------------- */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(680px 420px at 12% -6%, var(--ambient-1), transparent 60%),
+    radial-gradient(620px 420px at 92% 4%, var(--ambient-2), transparent 62%),
+    radial-gradient(900px 700px at 50% 108%, var(--ambient-3), transparent 65%);
+}
+
+/* ---- card glow ------------------------------------------------------------- */
+.card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    320px 120px at var(--mx, 50%) -20%,
+    rgba(99, 102, 241, 0.12),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.group:hover .card-glow {
+  opacity: 1;
+}
+
+/* ---- markdown article ------------------------------------------------------ */
+.md-content h1 {
+  font-size: 1.4rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.3rem;
+  color: var(--c-md-strong);
+}
+.md-content h2 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin: 1.6rem 0 0.5rem;
+  color: var(--c-md-strong);
+}
+.md-content h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  color: var(--c-md-strong);
+}
+.md-content p,
+.md-content li {
+  color: var(--c-md-ink);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.md-content strong {
+  color: var(--c-md-strong);
+  font-weight: 600;
+}
+.md-content ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+.md-content ol {
+  padding-left: 1.3rem;
+  list-style: decimal;
+}
+.md-content code {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  background: var(--color-code-bg);
+  border: 1px solid var(--color-code-line);
+  padding: 0.05rem 0.4rem;
+  border-radius: 5px;
+  color: var(--color-code-ink);
+}
+.md-content a {
+  color: var(--c-md-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.md-content hr {
+  border: 0;
+  border-top: 1px solid var(--color-line);
+  margin: 1.4rem 0;
+}
+
+/* ---- prompt body fade ------------------------------------------------------ */
+.prompt-fade::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  background: linear-gradient(180deg, transparent, var(--prompt-fade-to));
+  pointer-events: none;
+}
+
+/* ---- source markdown ------------------------------------------------------- */
+.source-content h1 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: var(--c-md-strong);
+}
+.source-content h2 {
+  font-size: 1rem;
+  margin: 1.6rem 0 0.6rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--color-line);
+  color: var(--c-md-strong);
+}
+.source-content p,
+.source-content li {
+  color: var(--c-md-ink);
+  font-size: 0.875rem;
+}
+.source-content li {
+  margin-bottom: 0.5rem;
+}
+.source-content a {
+  color: var(--c-md-link);
+}
+.source-content hr {
+  border: 0;
+  border-top: 1px solid var(--color-line);
+  margin: 1.5rem 0;
+}

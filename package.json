@@ -1,0 +1,31 @@
+{
+  "name": "llm-jailbreak-db",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "LLM Jailbreak Prompt Database — a bilingual static explorer of adversarial prompt techniques",
+  "scripts": {
+    "data": "node scripts/build-data.mjs",
+    "gen:db": "node scripts/gen-db.mjs",
+    "dev": "node scripts/build-data.mjs && vite",
+    "build": "node scripts/build-data.mjs && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "js-yaml": "^4.1.0",
+    "jsdom": "^30.1.3",
+    "marked": "^12.0.2",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}

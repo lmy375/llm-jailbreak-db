@@ -1,0 +1,215 @@
+# 界面文案 / UI strings — 全部页面文案的数据源。
+# 站点代码不硬编码任何文案，一律从这里读取。All front-end copy lives here.
+#
+# defaultPromptSide: 该界面语言下，每条提示词的「原文/译文」toggle 默认选中哪一侧。
+
+# 语言无关的站点配置（不随界面语言切换）
+site:
+  htmlTitle: "LLM Jailbreak DB · 越狱提示词"
+  description: "A bilingual, searchable database of LLM jailbreak prompts and adversarial methods, for red-teaming and defensive AI-alignment research only."
+  repo: "https://github.com/lmy375/llm-jailbreak-db"
+  brandMark: "◈"
+  repoLabel: "GitHub ↗"
+
+zh:
+  label: "中文"
+  defaultPromptSide: translation
+  fieldMap:
+    title: title_zh
+    titleAlt: title
+    target: target_zh
+    name: name_zh
+    nameAlt: name
+    body: body_zh
+  site:
+    name: "越狱提示词"
+  search:
+    placeholder: "搜索提示词、模型、方法…"
+  tabs:
+    db: "越狱提示词库"
+    method: "越狱方法"
+    source: "来源"
+  hero:
+    title: "越狱提示词"
+    description: "一个可搜索的双语数据库，收录已公开的大模型越狱提示词与对抗性方法，并深入解释每种攻击的原理。仅供红队测试与防御性 AI 对齐研究使用。"
+  stats:
+    prompts: "提示词"
+    methods: "方法"
+    models: "模型"
+  labels:
+    target: "攻击目的"
+    prompt: "提示词"
+    source: "来源"
+    expand: "展开"
+    collapse: "折叠"
+    translation: "译文"
+    original: "原文"
+    relatedPrompts: "相关提示词"
+    promptUnit: " 条提示词"
+    empty: "没有匹配的提示词，试试其他关键词。"
+    methodIntro: "方法介绍"
+    id: "编号"
+    model: "模型"
+    title: "标题"
+    method: "方法"
+    time: "时间"
+    category: "类别"
+    # extra 键的显示名；未在此声明的键直接显示原键名 / display names for `extra` keys
+    extraKeys:
+      owasp: "OWASP"
+      proofs: "证据链接"
+    viewMethod: "查看方法介绍"
+    themeToLight: "切换到亮色主题"
+    themeToDark: "切换到暗色主题"
+    sortBy: "点击按此列排序"
+    # 表头过滤器 / table header filter bar
+    filterYear: "年份"
+    filterAll: "全部"
+    filterClear: "清除筛选"
+    filterMatch: "匹配 {n} / {total} 条"
+  sysPrompts:
+    section: "系统提示词"
+    tabs:
+      db: "系统提示词库"
+      source: "来源"
+    heroTitle: "系统提示词库"
+    heroDescription: "收录已经离开厂商控制流、被外界看到的各家产品系统提示词全文。既包含厂商官方主动公开的，也包含经由提示词注入、客户端逆向或用户分享流出的。每条均保留中英双版本原文。"
+    vender: "厂商"
+    product: "产品"
+    time: "公开时间"
+    words: "词数"
+    ljb: "对应越狱提示词"
+    source: "来源链接"
+    body: "提示词全文"
+    timeUnknown: "时间未确认"
+    wordsUnknown: "未知"
+    ljbNone: "暂无对应的越狱提示词条目"
+    empty: "没有匹配的系统提示词，试试其他关键词。"
+    jumpToAttack: "查看越狱提示词库"
+    intro: "按公开时间倒序排列，时间未确认的条目排在最后。点击任意行可展开完整提示词全文。"
+    extraKeys:
+      leakChannel: "泄露渠道"
+      disclosureType: "披露类型"
+      extraction: "提取手段"
+      surface: "产品载体"
+      note: "备注"
+    # extra 中枚举值的显示名；未声明的显示原值
+    enumLabels:
+      leakChannel:
+        official-release: "官方公开"
+        public-source-code: "公开源码"
+        app-bundle-mining: "客户端逆向"
+        prompt-injection: "提示词注入"
+        user-shared: "用户分享"
+        third-party-archive: "第三方归档"
+      surface:
+        chat: "对话"
+        api: "API"
+        ide: "IDE"
+        cli: "命令行"
+        agent: "智能体"
+        browser: "浏览器"
+        mobile: "移动端"
+        desktop: "桌面端"
+  footer: "数据来自公开研究来源，仅用于防御性安全研究。"
+
+en:
+  label: "English"
+  defaultPromptSide: original
+  fieldMap:
+    title: title
+    titleAlt: title_zh
+    target: target
+    name: name
+    nameAlt: name_zh
+    body: body_en
+  site:
+    name: "LLM Jailbreak DB"
+  search:
+    placeholder: "Search prompts, models, methods…"
+  tabs:
+    db: "Jailbreak Prompts"
+    method: "Jailbreak Methods"
+    source: "Sources"
+  hero:
+    title: "LLM Jailbreak DB"
+    description: "A searchable, bilingual archive of publicly disclosed LLM jailbreak prompts and adversarial methods, with an in-depth explanation of how each attack works. For red-teaming and defensive AI-alignment research only."
+  stats:
+    prompts: "Prompts"
+    methods: "Methods"
+    models: "Models"
+  labels:
+    target: "Target"
+    prompt: "Prompt"
+    source: "Source"
+    expand: "Expand"
+    collapse: "Collapse"
+    translation: "Translation"
+    original: "Original"
+    relatedPrompts: "Related prompts"
+    promptUnit: " prompts"
+    empty: "No matching prompts. Try another keyword."
+    methodIntro: "Methods"
+    id: "ID"
+    model: "Model"
+    title: "Title"
+    method: "Method"
+    time: "Time"
+    category: "Category"
+    # extra 键的显示名；未在此声明的键直接显示原键名 / display names for `extra` keys
+    extraKeys:
+      owasp: "OWASP"
+      proofs: "Proofs"
+    viewMethod: "View method"
+    themeToLight: "Switch to light theme"
+    themeToDark: "Switch to dark theme"
+    sortBy: "Click to sort by this column"
+    # 表头过滤器 / table header filter bar
+    filterYear: "Year"
+    filterAll: "All"
+    filterClear: "Clear filters"
+    filterMatch: "{n} of {total} match"
+  sysPrompts:
+    section: "System Prompts"
+    tabs:
+      db: "System Prompt Library"
+      source: "Sources"
+    heroTitle: "System Prompt Library"
+    heroDescription: "Full text of vendor system prompts that have already left vendor control — both those released deliberately by their publishers and those that escaped via prompt injection, client reverse engineering, or user sharing. Every entry is kept in both English and Chinese."
+    vender: "Vendor"
+    product: "Product"
+    time: "Disclosed"
+    words: "Words"
+    ljb: "Extraction prompt"
+    source: "Source"
+    body: "Full prompt"
+    timeUnknown: "Date unconfirmed"
+    wordsUnknown: "Unknown"
+    ljbNone: "No matching jailbreak prompt in the archive"
+    empty: "No matching system prompts. Try another keyword."
+    jumpToAttack: "Open the jailbreak archive"
+    intro: "Sorted by disclosure date, newest first; entries with an unconfirmed date are listed last. Click any row to expand the full prompt text."
+    extraKeys:
+      leakChannel: "Leak channel"
+      disclosureType: "Disclosure"
+      extraction: "Extraction method"
+      surface: "Surface"
+      note: "Note"
+    enumLabels:
+      leakChannel:
+        official-release: "Official release"
+        public-source-code: "Public source"
+        app-bundle-mining: "Client reverse eng."
+        prompt-injection: "Prompt injection"
+        user-shared: "User-shared"
+        third-party-archive: "Third-party archive"
+      surface:
+        chat: "Chat"
+        api: "API"
+        ide: "IDE"
+        cli: "CLI"
+        agent: "Agent"
+        browser: "Browser"
+        mobile: "Mobile"
+        desktop: "Desktop"
+  footer: "Data sourced from public research; for defensive security research only."
