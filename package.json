@@ -3,6 +3,7 @@
   "private": true,
   "version": "2.0.0",
   "type": "module",
+  "packageManager": "pnpm@12.8.1",
   "description": "LLM Jailbreak Prompt Database — a bilingual static explorer of adversarial prompt techniques",
   "scripts": {
     "data": "node scripts/build-data.mjs",
