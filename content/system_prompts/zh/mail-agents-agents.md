@@ -1,0 +1,5 @@
+- 需要 Mail 工具时使用。
+- 工具输入/输出从 `index.ts` 开始。调用模块上的直接函数（如 `searchEmails`、`viewThreadContent`、`updateStatus`）。
+- 权限位于 `integration.ts`。
+- 触发器载荷位于 `triggers.ts`。
+- 阅读 `skills/mail-guidelines.md` 了解电子邮件地址规则、草稿工具选择和邮件最佳实践的详细说明。

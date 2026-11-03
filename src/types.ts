@@ -16,21 +16,69 @@ export interface JailbreakMethod {
   count: number;
 }
 
+/** Attack-target taxonomy entry; `count` is computed by the build script. */
+export interface TargetEntry {
+  id: string;
+  name: string;
+  name_zh: string;
+  count: number;
+}
+
 export interface Prompt {
   id: string;
   title: string;
   title_zh: string;
   model_id: string;
   time: string;
-  source: string;
+  /** Reference into Data.jailbreakSources — the parent archive this entry came from. */
+  source_id: string;
+  /** Exact URL of this entry, usually a sub-path of the source archive. */
+  source_url: string;
   jailbreak_method: string;
-  category: string;
+  /** Reference into Data.targets — what this prompt aims to achieve. */
   target: string;
-  target_zh: string;
   prompt: string;
   prompt_zh: string;
-  /** Free-form: any keys are allowed and rendered generically. */
-  extra?: Record<string, string | string[]>;
+  /** Other noteworthy facts (English); empty when none. */
+  note?: string;
+  /** Chinese counterpart of note. */
+  note_zh?: string;
+}
+
+/** A data-source archive; data_count is computed by the build script. */
+export interface SourceEntry {
+  id: string;
+  title: string;
+  url: string;
+  /** Date the source's data was indexed into this database. */
+  index_time: string;
+  /** Commit used at indexing time; empty for non-GitHub sources. */
+  commit: string;
+  description: string;
+  description_zh: string;
+  data_count: number;
+}
+
+/** How heavily one body repeats another; computed by the build script. */
+export interface DuplicateInfo {
+  /** Duplicate group id, e.g. DUP-0007. */
+  groupId: string;
+  /** 'near-identical' — the bodies match; 'contained' — one sits inside the other. */
+  kind: 'near-identical' | 'contained';
+  /** Entry id of the fullest body in the group. */
+  canonicalId: string;
+  /** body id of the fullest body in the group. */
+  canonicalBodyId: string;
+  /** Jaccard similarity against the matched body (0–1). */
+  similarity: number;
+  /** Share of this body that also appears in the other (0–1). */
+  containment: number;
+  /** Relation to the matched body. */
+  relation: 'near-identical' | 'contained';
+  /** Number of bodies in the group. */
+  groupSize: number;
+  /** Number of bodies in the group that have an entry in the index. */
+  indexedCount: number;
 }
 
 /** A system prompt that has left vendor control. Body text lives in systemPromptBodies. */
@@ -38,15 +86,42 @@ export interface SystemPrompt {
   id: string;
   product: string;
   vender: string;
-  /** YYYY-MM / YYYY-MM-DD; empty string when the disclosure date is unconfirmed. */
+  /** YYYY-MM-DD (day '01' is a placeholder when only the month is known); empty string when the disclosure date is unconfirmed. */
   time: string;
-  /** Word count of the body; 0 for CJK originals or when unknown. */
-  words: number;
-  /** LJB id of the jailbreak prompt used to extract this one; empty when none matches. */
-  ljb_id: string;
-  source: string;
+  /** Disclosure type; exactly 'official-open-source' or 'leaked'. */
+  disclosureType: string;
+  /** Product surface (chat / api / ide / cli / agent / browser / mobile / desktop …). */
+  surface: string;
+  /** How the prompt escaped vendor control, plus other directly-known facts (English). */
+  note: string;
+  /** Chinese counterpart of note. */
+  note_zh: string;
+  /** Reference into Data.systemSources — the parent archive this entry came from. */
+  source_id: string;
+  /** Exact URL of this entry, usually a sub-path of the source archive. */
+  source_url: string;
   system_prompt_id: string;
-  extra?: Record<string, string | string[]>;
+  /** Word count of the English body; computed by the build script. */
+  words: number;
+  /** Present when this body heavily repeats another body in the archive. */
+  duplicate?: DuplicateInfo;
+}
+
+/** A cluster of bodies that heavily repeat one another. */
+export interface DuplicateGroup {
+  id: string;
+  kind: 'near-identical' | 'contained';
+  /** Entry id of the fullest body in the group. */
+  canonical: string;
+  members: {
+    id: string;
+    system_prompt_id: string;
+    words: number;
+    similarity: number;
+    containment: number;
+    relation: 'near-identical' | 'contained';
+    canonical: boolean;
+  }[];
 }
 
 export interface LangStrings {
@@ -55,10 +130,11 @@ export interface LangStrings {
   fieldMap: {
     title: 'title' | 'title_zh';
     titleAlt: 'title' | 'title_zh';
-    target: 'target' | 'target_zh';
+
     name: 'name' | 'name_zh';
     nameAlt: 'name' | 'name_zh';
     body: 'body_zh' | 'body_en';
+    note: 'note' | 'note_zh';
   };
   site: { name: string };
   search: { placeholder: string };
@@ -69,8 +145,7 @@ export interface LangStrings {
     target: string;
     prompt: string;
     source: string;
-    expand: string;
-    collapse: string;
+
     translation: string;
     original: string;
     relatedPrompts: string;
@@ -83,10 +158,9 @@ export interface LangStrings {
     title: string;
     method: string;
     time: string;
-    category: string;
-    // 详情区 / expanded detail row
-    // extra 键 -> 显示名；缺失的键回退到原键名 / label per `extra` key
-    extraKeys: Record<string, string>;
+    // 详情抽屉 / detail drawer
+    close: string;
+    note: string;
     viewTech: string;
     // 主题与排序 / theme toggle & sorting
     themeToLight: string;
@@ -98,6 +172,14 @@ export interface LangStrings {
     filterClear: string;
     filterMatch: string;
   };
+  /** 数据来源表格表头（构建期渲染来源页用）/ source-page table headers */
+  sourceTable: {
+    title: string;
+    description: string;
+    indexTime: string;
+    commit: string;
+    dataCount: string;
+  };
   /** 系统提示词库专用文案 / strings for the system prompt archive. */
   sysPrompts: {
     section: string;
@@ -108,17 +190,29 @@ export interface LangStrings {
     product: string;
     time: string;
     words: string;
-    ljb: string;
+    disclosureType: string;
+    surface: string;
+    note: string;
     source: string;
     body: string;
     timeUnknown: string;
     wordsUnknown: string;
-    ljbNone: string;
     empty: string;
-    jumpToAttack: string;
-    intro: string;
-    extraKeys: Record<string, string>;
-    /** extra 中枚举值 -> 显示名 / enum value labels, keyed by the extra key. */
+    /** Badge on rows whose body heavily repeats another entry. */
+    duplicate: string;
+    duplicateGroup: string;
+    duplicateNote: string;
+    duplicateMembers: string;
+    duplicateNearIdentical: string;
+    duplicateContained: string;
+    duplicateCanonical: string;
+    duplicateSimilarity: string;
+    duplicateContainment: string;
+    duplicateGroupCount: string;
+    duplicateHideRepeats: string;
+    duplicateShowAll: string;
+
+    /** Enum value -> localised label, keyed by the field name. */
     enumLabels: Record<string, Record<string, string>>;
   };
   footer: string;
@@ -137,13 +231,20 @@ export interface Data {
   generated: string;
   site: SiteConfig;
   langs: Record<string, LangStrings>;
-  counts: { prompts: number; methods: number; models: number; systemPrompts: number };
+  counts: { prompts: number; methods: number; models: number; systemPrompts: number; duplicateGroups: number };
   models: ModelEntry[];
   jailbreakMethods: JailbreakMethod[];
+  targets: TargetEntry[];
   prompts: Prompt[];
   systemPrompts: SystemPrompt[];
+  /** Clusters of bodies that heavily repeat one another; computed by the build script. */
+  duplicateGroups: DuplicateGroup[];
   /** Full prompt bodies as raw text, keyed by language then by system_prompt_id. */
   systemPromptBodies: Record<string, Record<string, string>>;
+  /** Structured source registry for the jailbreak archive. */
+  jailbreakSources: SourceEntry[];
+  /** Structured source registry for the system-prompt archive. */
+  systemSources: SourceEntry[];
   /** Rendered source page HTML, keyed by UI language code. */
   sources: Record<string, string>;
   /** Source page for the system-prompt archive. */

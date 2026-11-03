@@ -1,0 +1,5 @@
+- 通过 `search` 搜索 Asana 任务和项目。
+- 通过 `loadTask` 查看 Asana 任务。
+- 输入/输出位于 `index.ts`。
+- 权限位于 `integration.ts`。
+- 无触发器。

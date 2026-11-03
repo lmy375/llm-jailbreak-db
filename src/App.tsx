@@ -9,6 +9,7 @@ import type {
   Section,
   SystemView,
   JailbreakMethod,
+  TargetEntry,
 } from './types';
 import { loadData } from './lib/data';
 import { useTheme } from './lib/theme';
@@ -44,9 +45,11 @@ export default function App() {
   const [venderFilter, setVenderFilter] = useState('');
   const [yearFilter, setYearFilter] = useState('');
   const [sides, setSides] = useState<Record<string, PromptSide>>({});
-  // Accordion: at most one table row is expanded at a time, per archive.
-  const [expandedPrompt, setExpandedPrompt] = useState<string | null>(null);
-  const [expandedSys, setExpandedSys] = useState<string | null>(null);
+  // System-prompt body language per row; falls back to the current UI language.
+  const [sysSides, setSysSides] = useState<Record<string, string>>({});
+  // Detail drawers: at most one row is open per archive.
+  const [openPrompt, setOpenPrompt] = useState<string | null>(null);
+  const [openSys, setOpenSys] = useState<string | null>(null);
   const [theme, toggleTheme] = useTheme();
 
   useEffect(() => {
@@ -78,6 +81,12 @@ export default function App() {
     return m;
   }, [data]);
 
+  const targetMap = useMemo(() => {
+    const m = new Map<string, TargetEntry>();
+    data?.targets.forEach((t) => m.set(t.id, t));
+    return m;
+  }, [data]);
+
   const venders = useMemo(
     () =>
       [...new Set((data?.systemPrompts ?? []).map((p) => p.vender).filter(Boolean))].sort((a, b) =>
@@ -98,6 +107,7 @@ export default function App() {
     return [...ys].sort((a, b) => b.localeCompare(a));
   }, [data]);
 
+
   const visiblePrompts = useMemo(() => {
     const all = data?.prompts ?? [];
     const q = query.trim().toLowerCase();
@@ -108,6 +118,7 @@ export default function App() {
       if (!q) return true;
       const method = methodMap.get(p.jailbreak_method);
       const model = modelMap.get(p.model_id);
+      const target = targetMap.get(p.target);
       const hay = [
         p.id,
         p.title,
@@ -115,7 +126,8 @@ export default function App() {
         p.model_id,
         model?.name ?? '',
         p.target,
-        p.target_zh,
+        target?.name ?? '',
+        target?.name_zh ?? '',
         p.time,
         method?.name ?? '',
         method?.name_zh ?? '',
@@ -124,7 +136,7 @@ export default function App() {
         .toLowerCase();
       return hay.includes(q);
     });
-  }, [data, query, methodMap, modelMap, modelFilter, methodFilter, yearFilter]);
+  }, [data, query, methodMap, modelMap, targetMap, modelFilter, methodFilter, yearFilter]);
 
   const activeBodies = useMemo(
     () => data?.systemPromptBodies?.[lang] ?? {},
@@ -138,12 +150,24 @@ export default function App() {
       if (venderFilter && p.vender !== venderFilter) return false;
       if (yearFilter && !p.time.startsWith(yearFilter)) return false;
       if (!q) return true;
-      return [p.id, p.product, p.vender, p.source, activeBodies[p.system_prompt_id] ?? '']
+      return [p.id, p.product, p.vender, p.source_url, activeBodies[p.system_prompt_id] ?? '']
         .join(' ')
         .toLowerCase()
         .includes(q);
     });
   }, [data, query, activeBodies, venderFilter, yearFilter]);
+
+  // Collapsing repeats keeps one row per prompt: the fullest body of each
+  // duplicate group stays, the repeats drop out.
+  const hiddenDuplicateIds = useMemo(() => {
+    const hidden = new Set<string>();
+    for (const g of data?.duplicateGroups ?? []) {
+      for (const m of g.members) {
+        if (!m.canonical && m.id !== g.canonical) hidden.add(m.id);
+      }
+    }
+    return hidden;
+  }, [data]);
 
   if (error) {
     return <div className="grid min-h-screen place-items-center p-8 text-muted">{error}</div>;
@@ -205,6 +229,8 @@ export default function App() {
         section={section}
         onSection={(s) => {
           setSection(s);
+          setOpenPrompt(null);
+          setOpenSys(null);
           clearFilters();
           scrollTop();
         }}
@@ -230,15 +256,18 @@ export default function App() {
           counts={{
             db: system ? data.counts.systemPrompts : data.counts.prompts,
             method: data.counts.methods,
+            source: system ? data.systemSources.length : data.jailbreakSources.length,
           }}
           jailbreakView={jailbreakView}
           systemView={systemView}
           onJailbreakView={(v) => {
             setJailbreakView(v);
+            setOpenPrompt(null);
             scrollTop();
           }}
           onSystemView={(v) => {
             setSystemView(v);
+            setOpenSys(null);
             scrollTop();
           }}
         />
@@ -272,12 +301,16 @@ export default function App() {
               prompts={visiblePrompts}
               methodMap={methodMap}
               modelMap={modelMap}
+              targetMap={targetMap}
               strings={strings}
               sideOf={sideOf}
               onSide={(id, side) => setSides((s) => ({ ...s, [id]: side }))}
-              expandedId={expandedPrompt}
-              onExpand={(id) => setExpandedPrompt((cur) => (cur === id ? null : id))}
-              onOpenMethod={openMethod}
+              selectedId={openPrompt}
+              onSelect={setOpenPrompt}
+              onOpenMethod={(id) => {
+                setOpenPrompt(null);
+                openMethod(id);
+              }}
             />
           )}
           {!system && jailbreakView === 'method' && (
@@ -296,10 +329,16 @@ export default function App() {
           {system && systemView === 'db' && (
             <SystemPromptView
               prompts={visibleSysPrompts}
-              bodies={activeBodies}
+              bodiesByLang={data.systemPromptBodies}
+              lang={lang}
+              languages={langs.map((k) => ({ key: k, label: data.langs[k].label }))}
+              sideOf={(p) => sysSides[p.id] ?? lang}
+              onSide={(id, key) => setSysSides((s) => ({ ...s, [id]: key }))}
               strings={strings}
-              expandedId={expandedSys}
-              onExpand={(id) => setExpandedSys((cur) => (cur === id ? null : id))}
+              selectedId={openSys}
+              onSelect={setOpenSys}
+              duplicateGroups={data.duplicateGroups}
+              hiddenDuplicateIds={hiddenDuplicateIds}
             />
           )}
           {system && systemView === 'source' && (

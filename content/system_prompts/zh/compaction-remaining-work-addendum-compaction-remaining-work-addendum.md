@@ -1,0 +1,1 @@
+`## Pending Tasks And Next Step` 部分还必须包含恰好一行，格式如下：`- Remaining Work Inventory: {"total_targets":N,"completed_targets":N,"remaining_targets":N,"remaining_target_ids":["ID"]}`。必须恰好使用这四个 JSON 键。计数必须是非负整数，`total_targets` 必须等于已完成加剩余，ID 必须是唯一的非空字符串，且 ID 数量必须等于 `remaining_targets`。

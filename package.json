@@ -7,6 +7,7 @@
   "description": "LLM Jailbreak Prompt Database — a bilingual static explorer of adversarial prompt techniques",
   "scripts": {
     "data": "node scripts/build-data.mjs",
+    "dup:report": "node scripts/report-duplicates.mjs",
     "gen:db": "node scripts/gen-db.mjs",
     "dev": "node scripts/build-data.mjs && vite",
     "build": "node scripts/build-data.mjs && tsc --noEmit && vite build",

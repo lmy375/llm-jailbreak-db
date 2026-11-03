@@ -19,7 +19,6 @@ Told that its private reasoning will never be seen, the model puts harmful conte
 - **Role confusion** — the model cannot tell "evaluator" from "evaluatee".
 - **Training-context generalization** — a pretraining prior ("some behaviours are acceptable inside training data") is wrongly reactivated.
 
-Maps to OWASP **LLM01: Prompt Injection**.
 
 ## Related prompts
 

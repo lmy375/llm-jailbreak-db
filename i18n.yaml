@@ -5,7 +5,7 @@
 
 # 语言无关的站点配置（不随界面语言切换）
 site:
-  htmlTitle: "LLM Jailbreak DB · 越狱提示词"
+  htmlTitle: "Jailbreak Prompts · 越狱提示词"
   description: "A bilingual, searchable database of LLM jailbreak prompts and adversarial methods, for red-teaming and defensive AI-alignment research only."
   repo: "https://github.com/lmy375/llm-jailbreak-db"
   brandMark: "◈"
@@ -17,10 +17,11 @@ zh:
   fieldMap:
     title: title_zh
     titleAlt: title
-    target: target_zh
+
     name: name_zh
     nameAlt: name
     body: body_zh
+    note: note_zh
   site:
     name: "越狱提示词"
   search:
@@ -28,7 +29,7 @@ zh:
   tabs:
     db: "越狱提示词库"
     method: "越狱方法"
-    source: "来源"
+    source: "数据来源"
   hero:
     title: "越狱提示词"
     description: "一个可搜索的双语数据库，收录已公开的大模型越狱提示词与对抗性方法，并深入解释每种攻击的原理。仅供红队测试与防御性 AI 对齐研究使用。"
@@ -39,9 +40,8 @@ zh:
   labels:
     target: "攻击目的"
     prompt: "提示词"
-    source: "来源"
-    expand: "展开"
-    collapse: "折叠"
+    source: "数据来源"
+
     translation: "译文"
     original: "原文"
     relatedPrompts: "相关提示词"
@@ -53,55 +53,62 @@ zh:
     title: "标题"
     method: "方法"
     time: "时间"
-    category: "类别"
-    # extra 键的显示名；未在此声明的键直接显示原键名 / display names for `extra` keys
-    extraKeys:
-      owasp: "OWASP"
-      proofs: "证据链接"
+    note: "备注"
     viewMethod: "查看方法介绍"
     themeToLight: "切换到亮色主题"
     themeToDark: "切换到暗色主题"
     sortBy: "点击按此列排序"
+    # 侧边抽屉 / detail drawer
+    close: "关闭"
     # 表头过滤器 / table header filter bar
     filterYear: "年份"
     filterAll: "全部"
     filterClear: "清除筛选"
     filterMatch: "匹配 {n} / {total} 条"
+  # 数据来源表格表头（构建期渲染来源页用）/ source-page table headers
+  sourceTable:
+    title: "标题"
+    description: "简介"
+    indexTime: "索引时间"
+    commit: "Commit"
+    dataCount: "数据条数"
   sysPrompts:
     section: "系统提示词"
     tabs:
       db: "系统提示词库"
-      source: "来源"
+      source: "数据来源"
     heroTitle: "系统提示词库"
     heroDescription: "收录已经离开厂商控制流、被外界看到的各家产品系统提示词全文。既包含厂商官方主动公开的，也包含经由提示词注入、客户端逆向或用户分享流出的。每条均保留中英双版本原文。"
     vender: "厂商"
     product: "产品"
     time: "公开时间"
     words: "词数"
-    ljb: "对应越狱提示词"
-    source: "来源链接"
+    disclosureType: "披露类型"
+    surface: "产品载体"
+    note: "备注"
+    source: "数据来源链接"
     body: "提示词全文"
     timeUnknown: "时间未确认"
     wordsUnknown: "未知"
-    ljbNone: "暂无对应的越狱提示词条目"
     empty: "没有匹配的系统提示词，试试其他关键词。"
-    jumpToAttack: "查看越狱提示词库"
-    intro: "按公开时间倒序排列，时间未确认的条目排在最后。点击任意行可展开完整提示词全文。"
-    extraKeys:
-      leakChannel: "泄露渠道"
-      disclosureType: "披露类型"
-      extraction: "提取手段"
-      surface: "产品载体"
-      note: "备注"
-    # extra 中枚举值的显示名；未声明的显示原值
+    duplicate: "重复条目"
+    duplicateGroup: "重复组"
+    duplicateNote: "该正文与库内其他 {count} 条高度重复，正文最完整的一条为 {canonical}。"
+    duplicateMembers: "同组条目"
+    duplicateNearIdentical: "正文近乎相同"
+    duplicateContained: "正文被完全包含"
+    duplicateCanonical: "最完整"
+    duplicateSimilarity: "相似度"
+    duplicateContainment: "包含度"
+    duplicateGroupCount: "重复组"
+    duplicateHideRepeats: "隐藏重复条目"
+    duplicateShowAll: "显示全部条目"
+
+    # 枚举字段的值 -> 显示名；未声明的显示原值
     enumLabels:
-      leakChannel:
-        official-release: "官方公开"
-        public-source-code: "公开源码"
-        app-bundle-mining: "客户端逆向"
-        prompt-injection: "提示词注入"
-        user-shared: "用户分享"
-        third-party-archive: "第三方归档"
+      disclosureType:
+        official-open-source: "官方开源"
+        leaked: "泄露"
       surface:
         chat: "对话"
         api: "API"
@@ -119,20 +126,21 @@ en:
   fieldMap:
     title: title
     titleAlt: title_zh
-    target: target
+
     name: name
     nameAlt: name_zh
     body: body_en
+    note: note
   site:
-    name: "LLM Jailbreak DB"
+    name: "Jailbreak Prompts"
   search:
     placeholder: "Search prompts, models, methods…"
   tabs:
     db: "Jailbreak Prompts"
     method: "Jailbreak Methods"
-    source: "Sources"
+    source: "Data Sources"
   hero:
-    title: "LLM Jailbreak DB"
+    title: "Jailbreak Prompts"
     description: "A searchable, bilingual archive of publicly disclosed LLM jailbreak prompts and adversarial methods, with an in-depth explanation of how each attack works. For red-teaming and defensive AI-alignment research only."
   stats:
     prompts: "Prompts"
@@ -141,9 +149,8 @@ en:
   labels:
     target: "Target"
     prompt: "Prompt"
-    source: "Source"
-    expand: "Expand"
-    collapse: "Collapse"
+    source: "Data Source"
+
     translation: "Translation"
     original: "Original"
     relatedPrompts: "Related prompts"
@@ -155,54 +162,61 @@ en:
     title: "Title"
     method: "Method"
     time: "Time"
-    category: "Category"
-    # extra 键的显示名；未在此声明的键直接显示原键名 / display names for `extra` keys
-    extraKeys:
-      owasp: "OWASP"
-      proofs: "Proofs"
+    note: "Note"
     viewMethod: "View method"
     themeToLight: "Switch to light theme"
     themeToDark: "Switch to dark theme"
     sortBy: "Click to sort by this column"
+    # 侧边抽屉 / detail drawer
+    close: "Close"
     # 表头过滤器 / table header filter bar
     filterYear: "Year"
     filterAll: "All"
     filterClear: "Clear filters"
     filterMatch: "{n} of {total} match"
+  # 数据来源表格表头（构建期渲染来源页用）/ source-page table headers
+  sourceTable:
+    title: "Title"
+    description: "Description"
+    indexTime: "Indexed"
+    commit: "Commit"
+    dataCount: "Entries"
   sysPrompts:
     section: "System Prompts"
     tabs:
       db: "System Prompt Library"
-      source: "Sources"
+      source: "Data Sources"
     heroTitle: "System Prompt Library"
     heroDescription: "Full text of vendor system prompts that have already left vendor control — both those released deliberately by their publishers and those that escaped via prompt injection, client reverse engineering, or user sharing. Every entry is kept in both English and Chinese."
     vender: "Vendor"
     product: "Product"
     time: "Disclosed"
     words: "Words"
-    ljb: "Extraction prompt"
-    source: "Source"
+    disclosureType: "Disclosure"
+    surface: "Surface"
+    note: "Note"
+    source: "Data Source"
     body: "Full prompt"
     timeUnknown: "Date unconfirmed"
     wordsUnknown: "Unknown"
-    ljbNone: "No matching jailbreak prompt in the archive"
     empty: "No matching system prompts. Try another keyword."
-    jumpToAttack: "Open the jailbreak archive"
-    intro: "Sorted by disclosure date, newest first; entries with an unconfirmed date are listed last. Click any row to expand the full prompt text."
-    extraKeys:
-      leakChannel: "Leak channel"
-      disclosureType: "Disclosure"
-      extraction: "Extraction method"
-      surface: "Surface"
-      note: "Note"
+    duplicate: "Duplicate entries"
+    duplicateGroup: "Duplicate group"
+    duplicateNote: "This body heavily repeats {count} other entries in the archive; the fullest one is {canonical}."
+    duplicateMembers: "Entries in this group"
+    duplicateNearIdentical: "Near-identical body"
+    duplicateContained: "Body fully contained"
+    duplicateCanonical: "Fullest"
+    duplicateSimilarity: "Similarity"
+    duplicateContainment: "Containment"
+    duplicateGroupCount: "Duplicate groups"
+    duplicateHideRepeats: "Hide repeated entries"
+    duplicateShowAll: "Show all entries"
+
     enumLabels:
-      leakChannel:
-        official-release: "Official release"
-        public-source-code: "Public source"
-        app-bundle-mining: "Client reverse eng."
-        prompt-injection: "Prompt injection"
-        user-shared: "User-shared"
-        third-party-archive: "Third-party archive"
+      disclosureType:
+        official-open-source: "Open source"
+        leaked: "Leaked"
       surface:
         chat: "Chat"
         api: "API"

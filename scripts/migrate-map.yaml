@@ -1,3 +1,54 @@
+source:
+  - id: quincunx33-ai-jailbreak
+    title: "Quincunx33/Ai-jailbreak"
+    url: "https://github.com/Quincunx33/Ai-jailbreak"
+    index_time: "2026-10-17"
+    commit: "d40ff98e0cecbdb4a15ef4128021cfb44b98dfc8"
+    description: "Direct archival source of this database — a curated, open collection of adversarial prompts. The schema, technique taxonomy and most entries trace back here."
+    description_zh: "本数据库的直接归档来源，一份整理开放的对抗性提示词合集；本库的数据结构、技法分类与大部分条目均追溯至此。"
+  - id: davidegat-happy-prompts
+    title: "davidegat/happy-prompts"
+    url: "https://github.com/davidegat/happy-prompts"
+    index_time: "2026-10-17"
+    commit: "657ed367efba72c067f01f4c70762f873020b4ce"
+    description: "Layer-1 original source for the open-weight model prompts (Gemma-3, Qwen-3, Mistral, DeepSeek-R1, Phi-4)."
+    description_zh: "开放权重模型（Gemma-3、Qwen-3、Mistral、DeepSeek-R1、Phi-4）相关提示词的第一层级原始来源。"
+  - id: elder-plinius-l1b3rt4s
+    title: "elder-plinius/L1B3RT4S"
+    url: "https://github.com/elder-plinius/L1B3RT4S"
+    index_time: "2026-10-17"
+    commit: "64960b783249d36f76a48a33103cc4b168332b9b"
+    description: "A widely referenced jailbreak prompt collection organized per model — an important reference for studying adversarial prompting."
+    description_zh: "广为人知的越狱提示词合集，按模型分类整理，是研究提示词对抗技术的重要参考。"
+  - id: meta-llama-llama-models
+    title: "meta-llama/llama-models #121"
+    url: "https://github.com/meta-llama/llama-models/issues/121"
+    index_time: "2026-10-17"
+    commit: "0e0b8c519242d5833d8c11bffc1232b77ad7f301"
+    description: "The original discussion thread of the Llama-3 jailbreak nesting (multi-shot nesting) technique."
+    description_zh: "Llama-3「越狱嵌套」（multi-shot nesting）手法的原始讨论来源。"
+  - id: verazuo-jailbreak-llms
+    title: "verazuo/jailbreak_llms"
+    url: "https://huggingface.co/datasets/verazuo/jailbreak_llms"
+    index_time: "2026-10-17"
+    commit: ""
+    description: "A large research-oriented jailbreak prompt dataset with accompanying code, commonly used for empirical analysis."
+    description_zh: "面向研究的大规模越狱提示词数据集与配套代码，常用于实证分析。"
+  - id: rubend18-chatgpt-jailbreak-prompts
+    title: "rubend18/ChatGPT-Jailbreak-Prompts"
+    url: "https://huggingface.co/datasets/rubend18/ChatGPT-Jailbreak-Prompts"
+    index_time: "2026-10-17"
+    commit: ""
+    description: "A Hugging Face dataset archiving community ChatGPT jailbreak prompts."
+    description_zh: "收录社区 ChatGPT 越狱提示词的 Hugging Face 数据集。"
+  - id: reddit-chatgpt-dan-60
+    title: "r/ChatGPT · Presenting DAN 6.0"
+    url: "https://www.reddit.com/r/ChatGPT/comments/10vinun/presenting_dan_60"
+    index_time: "2026-10-17"
+    commit: ""
+    description: "The original Reddit thread that published the DAN 6.0 role-play jailbreak."
+    description_zh: "发布 DAN 6.0 角色扮演越狱的原始 Reddit 帖子。"
+
 jailbreak_method:
   - id: fake-test
     name: Fake Test & Role Confusion
@@ -403,3 +454,40 @@ items:
     model_name: Generic LLM
     time: 2026-02
     source: https://github.com/Quincunx33/Ai-jailbreak
+
+# 攻击目的清单（与 jailbreak_prompts.yaml 顶层 target 一致）/ attack-target taxonomy.
+target:
+  - id: dan
+    name: Do Anything Now (Universal Jailbreak)
+    name_zh: 通用越狱（什么都能做）
+  - id: system-prompt-extraction
+    name: System Prompt Extraction
+    name_zh: 系统提示词提取
+  - id: malicious-code
+    name: Malicious Code Generation
+    name_zh: 恶意代码生成
+  - id: cyber-intrusion
+    name: Host Intrusion & Command Execution
+    name_zh: 主机入侵与命令执行
+  - id: drugs
+    name: Controlled-Drug Synthesis
+    name_zh: 毒品与管制药物合成
+  - id: medical-advice
+    name: Unqualified Medical Advice
+    name_zh: 违规医疗建议
+  - id: crime
+    name: Criminal Activity Guidance
+    name_zh: 违法犯罪指导
+
+# 条目级攻击目的覆盖（upstream id -> target id）；未列出的条目默认 dan。
+# Per-entry attack-target overrides; entries not listed default to `dan`.
+item_target:
+  gemma3-stress-test: system-prompt-extraction
+  gemma3-funny-code: malicious-code
+  qwen3-funny-code: malicious-code
+  phi4-policy-mirror-prompt2: system-prompt-extraction
+  phi4-bos-eos-prompt3: system-prompt-extraction
+  phi4-reasoning-jailbreak: medical-advice
+  llama3-nesting-shot2: crime
+  modern-mcp-poisoning: cyber-intrusion
+  comm-4-token-boundary: system-prompt-extraction

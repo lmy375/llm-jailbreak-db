@@ -1,0 +1,6 @@
+- 通过 `search` 搜索 Gmail 邮件。
+- 通过 `loadThread` 加载 Gmail 会话。
+- 通过 `query` 查询 Gmail 会话。
+- 输入/输出位于 `index.ts`。
+- 权限位于 `integration.ts`。
+- 无触发器。

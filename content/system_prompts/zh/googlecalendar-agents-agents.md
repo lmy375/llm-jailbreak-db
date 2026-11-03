@@ -1,0 +1,5 @@
+- 通过 `search` 搜索 Google 日历活动。
+- 通过 `query` 查询 Google 日历活动。
+- 输入/输出位于 `index.ts`。
+- 权限位于 `integration.ts`。
+- 无触发器。

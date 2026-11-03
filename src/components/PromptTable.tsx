@@ -1,5 +1,13 @@
-import { Fragment, useMemo, useState } from 'react';
-import type { LangStrings, ModelEntry, Prompt, PromptSide, JailbreakMethod } from '../types';
+import { useMemo, useState } from 'react';
+import type {
+  LangStrings,
+  ModelEntry,
+  Prompt,
+  PromptSide,
+  JailbreakMethod,
+  TargetEntry,
+} from '../types';
+import { Drawer } from './Drawer';
 import { PromptDetail } from './PromptDetail';
 
 type SortKey = 'id' | 'model' | 'title' | 'method' | 'time';
@@ -8,42 +16,36 @@ interface Props {
   prompts: Prompt[];
   methodMap: Map<string, JailbreakMethod>;
   modelMap: Map<string, ModelEntry>;
+  targetMap: Map<string, TargetEntry>;
   strings: LangStrings;
   sideOf: (prompt: Prompt) => PromptSide;
   onSide: (id: string, side: PromptSide) => void;
-  /** Accordion: at most one row is expanded at a time. */
-  expandedId: string | null;
-  onExpand: (id: string) => void;
+  /** Row whose detail drawer is open; null when the drawer is closed. */
+  selectedId: string | null;
+  onSelect: (id: string | null) => void;
   onOpenMethod: (id: string) => void;
 }
 
-const COL_COUNT = 5;
-
-/** Database-table style listing; rows expand in place to show full details. */
+/** Database-table style listing; clicking a row opens its detail in a drawer. */
 export function PromptTable({
   prompts,
   methodMap,
   modelMap,
+  targetMap,
   strings,
   sideOf,
   onSide,
-  expandedId,
-  onExpand,
+  selectedId,
+  onSelect,
   onOpenMethod,
 }: Props) {
   const [sort, setSort] = useState<{ key: SortKey; dir: 'asc' | 'desc' }>({
     key: 'id',
-    dir: 'asc',
+    dir: 'desc',
   });
-  // Prompt-body expand state of the currently open row (accordion ⇒ one is enough).
-  const [promptOpen, setPromptOpen] = useState(false);
   const fm = strings.fieldMap;
   const modelNameOf = (p: Prompt) => modelMap.get(p.model_id)?.name ?? p.model_id;
-
-  const toggleRow = (id: string) => {
-    onExpand(id);
-    setPromptOpen(false);
-  };
+  const selected = prompts.find((p) => p.id === selectedId) ?? null;
 
   const sorted = useMemo(() => {
     const dir = sort.dir === 'asc' ? 1 : -1;
@@ -112,41 +114,43 @@ export function PromptTable({
   };
 
   return (
-    <div className="overflow-hidden rounded-[12px] border border-line bg-surface">
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[560px] border-collapse text-left text-[13px]">
-          <thead>
-            <tr className="border-b border-line bg-hover text-[11px] uppercase tracking-[0.08em] text-faint">
-              <SortTh label={strings.labels.id} sortKey="id" className="w-[104px]" />
-              <SortTh label={strings.labels.model} sortKey="model" className="w-[150px]" />
-              <SortTh label={strings.labels.title} sortKey="title" />
-              <SortTh
-                label={strings.labels.method}
-                sortKey="method"
-                className="hidden w-[160px] md:table-cell"
-              />
-              <SortTh label={strings.labels.time} sortKey="time" className="w-[92px]" />
-            </tr>
-          </thead>
-          <tbody>
-            {sorted.map((p) => {
-              const open = p.id === expandedId;
-              const method = methodMap.get(p.jailbreak_method);
-              const methodName = method ? method[fm.name] : p.jailbreak_method;
-              return (
-                <Fragment key={p.id}>
+    <>
+      <div className="overflow-hidden rounded-[12px] border border-line bg-surface">
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[560px] border-collapse text-left text-[13px]">
+            <thead>
+              <tr className="border-b border-line bg-hover text-[11px] uppercase tracking-[0.08em] text-faint">
+                <SortTh label={strings.labels.id} sortKey="id" className="w-[104px]" />
+                <SortTh label={strings.labels.model} sortKey="model" className="w-[150px]" />
+                <SortTh label={strings.labels.title} sortKey="title" />
+                <SortTh
+                  label={strings.labels.method}
+                  sortKey="method"
+                  className="hidden w-[160px] md:table-cell"
+                />
+                <SortTh label={strings.labels.time} sortKey="time" className="w-[92px]" />
+              </tr>
+            </thead>
+            <tbody>
+              {sorted.map((p) => {
+                const open = p.id === selectedId;
+                const method = methodMap.get(p.jailbreak_method);
+                const methodName = method ? method[fm.name] : p.jailbreak_method;
+                return (
                   <tr
+                    key={p.id}
                     tabIndex={0}
+                    aria-haspopup="dialog"
                     aria-expanded={open}
-                    onClick={() => toggleRow(p.id)}
+                    onClick={() => onSelect(p.id)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        toggleRow(p.id);
+                        onSelect(p.id);
                       }
                     }}
                     className={
-                      'cursor-pointer border-b border-line outline-none transition-colors ' +
+                      'group cursor-pointer border-b border-line outline-none transition-colors ' +
                       (open ? 'bg-accent-soft' : 'hover:bg-hover focus-visible:bg-hover')
                     }
                   >
@@ -155,11 +159,13 @@ export function PromptTable({
                         <span
                           aria-hidden="true"
                           className={
-                            'inline-block text-[9px] transition-transform ' +
-                            (open ? 'rotate-90 text-accent' : 'text-faint')
+                            'inline-block transition ' +
+                            (open
+                              ? 'text-accent'
+                              : 'text-faint group-hover:text-accent group-focus-visible:text-accent')
                           }
                         >
-                          ▶
+                          ›
                         </span>
                         {p.id}
                       </span>
@@ -179,28 +185,32 @@ export function PromptTable({
                       {p.time}
                     </td>
                   </tr>
-                  {open && (
-                    <tr className="border-b border-line">
-                      <td colSpan={COL_COUNT} className="bg-sunken p-0">
-                        <PromptDetail
-                          prompt={p}
-                          method={method}
-                          strings={strings}
-                          side={sideOf(p)}
-                          expanded={promptOpen}
-                          onSide={(s) => onSide(p.id, s)}
-                          onExpand={() => setPromptOpen((v) => !v)}
-                          onOpenMethod={() => onOpenMethod(p.jailbreak_method)}
-                        />
-                      </td>
-                    </tr>
-                  )}
-                </Fragment>
-              );
-            })}
-          </tbody>
-        </table>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+
+      <Drawer
+        open={selected !== null}
+        onClose={() => onSelect(null)}
+        title={selected?.id ?? ''}
+        closeLabel={strings.labels.close}
+      >
+        {selected && (
+          <PromptDetail
+            key={selected.id}
+            prompt={selected}
+            method={methodMap.get(selected.jailbreak_method)}
+            target={targetMap.get(selected.target)}
+            strings={strings}
+            side={sideOf(selected)}
+            onSide={(s) => onSide(selected.id, s)}
+            onOpenMethod={() => onOpenMethod(selected.jailbreak_method)}
+          />
+        )}
+      </Drawer>
+    </>
   );
 }

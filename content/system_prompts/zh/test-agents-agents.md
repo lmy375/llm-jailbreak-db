@@ -1,0 +1,5 @@
+- 仅用于脚本沙箱测试。
+- 输入/输出位于 `index.ts`。
+- 共享类型位于 `types.ts`。
+- 权限位于 `integration.ts`。
+- 触发器载荷位于 `triggers.ts`。

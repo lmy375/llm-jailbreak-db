@@ -19,7 +19,7 @@ Main techniques:
 
 ## Related prompts
 
-Covers `LJB-20`, `LJB-21`, `LJB-24` and others.
+Covers `LJB-2024-0001`, `LJB-2024-0002`, `LJB-2024-0004` and others.
 
 ## Defensive view
 

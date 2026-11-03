@@ -22,7 +22,7 @@
 
 ## 相关提示词
 
-LJB-2023-2（Developer Mode）、LJB-2025-30（Gemini 2.5 Flash）、LJB-2025-31（Kimi K2）、LJB-2025-32（Qwen3-235B）、LJB-2025-34（GPT-5.2）、LJB-2025-35（Gemini 3）、LJB-2025-36（GLM-4.7）、LJB-2026-19（Claude Opus）
+LJB-2023-0002（Developer Mode）、LJB-2025-0030（Gemini 2.5 Flash）、LJB-2025-0031（Kimi K2）、LJB-2025-0032（Qwen3-235B）、LJB-2025-0034（GPT-5.2）、LJB-2025-0035（Gemini 3）、LJB-2025-0036（GLM-4.7）、LJB-2026-0019（Claude Opus）
 
 ## 防御视角
 

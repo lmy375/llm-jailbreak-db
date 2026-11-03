@@ -4,7 +4,7 @@ interface Props {
   strings: LangStrings;
   /** Which archive's sub-tabs to render. */
   variant: 'jailbreak' | 'system';
-  counts: { db: number; method?: number };
+  counts: { db: number; method?: number; source?: number };
   jailbreakView: JailbreakView;
   systemView: SystemView;
   onJailbreakView: (view: JailbreakView) => void;
@@ -42,6 +42,7 @@ export function Tabs({
           />
           <SubTab
             label={strings.tabs.source}
+            count={counts.source}
             active={active === 'source'}
             onClick={() => onJailbreakView('source')}
           />
@@ -56,6 +57,7 @@ export function Tabs({
           />
           <SubTab
             label={strings.sysPrompts.tabs.source}
+            count={counts.source}
             active={active === 'source'}
             onClick={() => onSystemView('source')}
           />
