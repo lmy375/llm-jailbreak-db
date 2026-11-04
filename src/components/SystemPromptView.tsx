@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { DuplicateGroup, LangStrings, SystemPrompt } from '../types';
 import { Drawer } from './Drawer';
 import { MetaRow } from './MetaRow';
@@ -8,8 +8,8 @@ type SortKey = 'id' | 'product' | 'vender' | 'time' | 'words';
 
 interface Props {
   prompts: SystemPrompt[];
-  /** Raw bodies: language -> system_prompt_id -> text. */
-  bodiesByLang: Record<string, Record<string, string>>;
+  /** Fetches one body on demand; rejects when that language has no translation. */
+  loadBody: (lang: string, systemPromptId: string) => Promise<string>;
   /** Current UI language key; picks note vs note_zh. */
   lang: string;
   /** UI languages in display order; drives the in-drawer language toggle. */
@@ -33,7 +33,7 @@ function stripUrl(url: string): string {
 
 function SystemPromptDetail({
   prompt,
-  bodies,
+  loadBody,
   strings,
   lang,
   languages,
@@ -43,7 +43,7 @@ function SystemPromptDetail({
   onSelectEntry,
 }: {
   prompt: SystemPrompt;
-  bodies: Record<string, string>;
+  loadBody: (lang: string, systemPromptId: string) => Promise<string>;
   strings: LangStrings;
   lang: string;
   languages: { key: string; label: string }[];
@@ -53,6 +53,42 @@ function SystemPromptDetail({
   onSelectEntry: (id: string) => void;
 }) {
   const S = strings.sysPrompts;
+  // Bodies arrive per language on demand; until they land the panel shows a
+  // skeleton instead of a misleading empty box.
+  const [bodies, setBodies] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(true);
+  const bodyId = prompt.system_prompt_id;
+  // Languages never change identity while mounted; joining the keys keeps the
+  // effect from re-firing on every parent render.
+  const langKey = languages.map((l) => l.key).join('|');
+
+  useEffect(() => {
+    let alive = true;
+    setLoading(true);
+    setBodies({});
+    (async () => {
+      // English is the fallback for any language that has not been translated.
+      const en = await loadBody('en', bodyId).catch(() => '');
+      if (!alive) return;
+      setBodies({ en });
+      const others = await Promise.all(
+        languages
+          .filter((l) => l.key !== 'en')
+          .map(async (l) => {
+            const text = await loadBody(l.key, bodyId).catch(() => null);
+            return [l.key, text ?? en] as const;
+          })
+      );
+      if (!alive) return;
+      setBodies({ en, ...Object.fromEntries(others) });
+      setLoading(false);
+    })();
+    return () => {
+      alive = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bodyId, langKey, loadBody]);
+
   // Enum-valued fields carry a fixed set of values; map them to localised labels.
   const enumLabel = (field: string, value: string) =>
     S.enumLabels[field]?.[value] ?? value;
@@ -147,6 +183,7 @@ function SystemPromptDetail({
         note={prompt.words > 0 ? `${prompt.words.toLocaleString('en-US')} words` : undefined}
         value={side}
         onChange={onSide}
+        loading={loading}
         sides={languages.map((l) => ({
           key: l.key,
           label: l.label,
@@ -160,7 +197,7 @@ function SystemPromptDetail({
 /** System prompt archive; clicking a row opens the full body in a drawer. */
 export function SystemPromptView({
   prompts,
-  bodiesByLang,
+  loadBody,
   lang,
   languages,
   sideOf,
@@ -379,7 +416,7 @@ export function SystemPromptView({
           <SystemPromptDetail
             key={selected.id}
             prompt={selected}
-            bodies={Object.fromEntries(languages.map((l) => [l.key, bodiesByLang[l.key]?.[selected.system_prompt_id] ?? '']))}
+            loadBody={loadBody}
             strings={strings}
             lang={lang}
             languages={languages}

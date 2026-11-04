@@ -37,12 +37,18 @@ export interface Prompt {
   jailbreak_method: string;
   /** Reference into Data.targets — what this prompt aims to achieve. */
   target: string;
-  prompt: string;
-  prompt_zh: string;
   /** Other noteworthy facts (English); empty when none. */
   note?: string;
   /** Chinese counterpart of note. */
   note_zh?: string;
+}
+
+/** Both language sides of one jailbreak prompt; fetched when its drawer opens. */
+export interface PromptBody {
+  /** The prompt as published (usually English). */
+  original: string;
+  /** Chinese translation of the same prompt. */
+  translation: string;
 }
 
 /** A data-source archive; data_count is computed by the build script. */
@@ -81,7 +87,7 @@ export interface DuplicateInfo {
   indexedCount: number;
 }
 
-/** A system prompt that has left vendor control. Body text lives in systemPromptBodies. */
+/** A system prompt that has left vendor control. Body text is fetched on demand. */
 export interface SystemPrompt {
   id: string;
   product: string;
@@ -239,8 +245,6 @@ export interface Data {
   systemPrompts: SystemPrompt[];
   /** Clusters of bodies that heavily repeat one another; computed by the build script. */
   duplicateGroups: DuplicateGroup[];
-  /** Full prompt bodies as raw text, keyed by language then by system_prompt_id. */
-  systemPromptBodies: Record<string, Record<string, string>>;
   /** Structured source registry for the jailbreak archive. */
   jailbreakSources: SourceEntry[];
   /** Structured source registry for the system-prompt archive. */

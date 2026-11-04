@@ -32,10 +32,12 @@ content/jailbreak_method/en/*.md # 越狱方法原理文章（英文）
 content/jailbreak_source/{zh,en}.md # 越狱提示词板块的数据来源清单
 content/system_source/{zh,en}.md # 系统提示词板块的数据来源清单
 scripts/
-  build-data.mjs        # 汇总 yaml + md → public/data.json
+  build-data.mjs        # 汇总 yaml + md → public/ 下的数据与正文文件
   gen-db.mjs            # 一次性上游迁移脚本（重跑会覆盖 jailbreak_prompts.yaml）
   migrate-map.yaml      # 迁移期补充元数据
-public/data.json        # 构建产物（gitignore）
+public/data.json        # 构建产物：索引与元数据（gitignore）
+public/system-bodies/   # 构建产物：系统提示词正文，按语言一条一个文件（gitignore）
+public/prompt-bodies/   # 构建产物：越狱提示词正文，一条一个文件（gitignore）
 src/                    # 站点前端（React + Tailwind CSS v4）
 index.html
 ```

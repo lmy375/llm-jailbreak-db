@@ -1,6 +1,8 @@
 node_modules/
 dist/
 public/data.json
+public/system-bodies/
+public/prompt-bodies/
 .DS_Store
 .arts/
 .codeartsdoer/

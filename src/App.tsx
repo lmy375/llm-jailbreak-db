@@ -11,7 +11,7 @@ import type {
   JailbreakMethod,
   TargetEntry,
 } from './types';
-import { loadData } from './lib/data';
+import { loadBody, loadData, loadPromptBody } from './lib/data';
 import { useTheme } from './lib/theme';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -108,6 +108,12 @@ export default function App() {
   }, [data]);
 
 
+  // Stable across renders: the drawer body loader keys its effect on this.
+  const langOptions = useMemo(() => {
+    const table = data?.langs ?? {};
+    return Object.keys(table).map((k) => ({ key: k, label: table[k].label }));
+  }, [data]);
+
   const visiblePrompts = useMemo(() => {
     const all = data?.prompts ?? [];
     const q = query.trim().toLowerCase();
@@ -138,11 +144,8 @@ export default function App() {
     });
   }, [data, query, methodMap, modelMap, targetMap, modelFilter, methodFilter, yearFilter]);
 
-  const activeBodies = useMemo(
-    () => data?.systemPromptBodies?.[lang] ?? {},
-    [data, lang]
-  );
-
+  // Search runs over the indexed metadata only: bodies are fetched per drawer
+  // on demand and are not available to filter the list.
   const visibleSysPrompts = useMemo(() => {
     const all = data?.systemPrompts ?? [];
     const q = query.trim().toLowerCase();
@@ -150,12 +153,12 @@ export default function App() {
       if (venderFilter && p.vender !== venderFilter) return false;
       if (yearFilter && !p.time.startsWith(yearFilter)) return false;
       if (!q) return true;
-      return [p.id, p.product, p.vender, p.source_url, activeBodies[p.system_prompt_id] ?? '']
+      return [p.id, p.product, p.vender, p.source_url, p.note, p.note_zh]
         .join(' ')
         .toLowerCase()
         .includes(q);
     });
-  }, [data, query, activeBodies, venderFilter, yearFilter]);
+  }, [data, query, venderFilter, yearFilter]);
 
   // Collapsing repeats keeps one row per prompt: the fullest body of each
   // duplicate group stays, the repeats drop out.
@@ -181,7 +184,6 @@ export default function App() {
   }
 
   const strings: LangStrings = data.langs[lang];
-  const langs = Object.keys(data.langs);
   const activeId = activeMethod ?? data.jailbreakMethods[0]?.id ?? '';
   const system = section === 'system';
 
@@ -221,7 +223,7 @@ export default function App() {
       <Header
         site={data.site}
         strings={strings}
-        langOptions={langs.map((k) => ({ key: k, label: data.langs[k].label }))}
+        langOptions={langOptions}
         lang={lang}
         onLang={setLang}
         theme={theme}
@@ -299,6 +301,7 @@ export default function App() {
           {!system && jailbreakView === 'db' && (
             <PromptTable
               prompts={visiblePrompts}
+              loadPromptBody={loadPromptBody}
               methodMap={methodMap}
               modelMap={modelMap}
               targetMap={targetMap}
@@ -329,9 +332,9 @@ export default function App() {
           {system && systemView === 'db' && (
             <SystemPromptView
               prompts={visibleSysPrompts}
-              bodiesByLang={data.systemPromptBodies}
+              loadBody={loadBody}
               lang={lang}
-              languages={langs.map((k) => ({ key: k, label: data.langs[k].label }))}
+              languages={langOptions}
               sideOf={(p) => sysSides[p.id] ?? lang}
               onSide={(id, key) => setSysSides((s) => ({ ...s, [id]: key }))}
               strings={strings}

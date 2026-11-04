@@ -1,4 +1,5 @@
-import type { LangStrings, Prompt, PromptSide, JailbreakMethod, TargetEntry } from '../types';
+import { useEffect, useState } from 'react';
+import type { LangStrings, Prompt, PromptBody, PromptSide, JailbreakMethod, TargetEntry } from '../types';
 import { MetaRow } from './MetaRow';
 import { PromptBodyPanel } from './PromptBodyPanel';
 
@@ -7,6 +8,8 @@ const pill =
 
 interface Props {
   prompt: Prompt;
+  /** Fetches the entry's two language sides; the drawer opens before they land. */
+  loadPromptBody: (id: string) => Promise<PromptBody>;
   method?: JailbreakMethod;
   target?: TargetEntry;
   strings: LangStrings;
@@ -22,6 +25,7 @@ function stripUrl(url: string): string {
 /** Side-drawer detail panel for one prompt row. */
 export function PromptDetail({
   prompt,
+  loadPromptBody,
   method,
   target,
   strings,
@@ -35,6 +39,28 @@ export function PromptDetail({
   const targetName = target ? target[fm.name] : prompt.target;
   const note = prompt[fm.note];
   const methodName = method ? method[fm.name] : prompt.jailbreak_method;
+  const [body, setBody] = useState<PromptBody | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let alive = true;
+    setLoading(true);
+    setBody(null);
+    loadPromptBody(prompt.id)
+      .then((b) => {
+        if (!alive) return;
+        setBody(b);
+        setLoading(false);
+      })
+      .catch(() => {
+        if (!alive) return;
+        setBody({ original: '', translation: '' });
+        setLoading(false);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [prompt.id, loadPromptBody]);
 
   return (
     <div className="flex min-w-0 flex-col gap-5 p-5">
@@ -72,9 +98,10 @@ export function PromptDetail({
         label={strings.labels.prompt}
         value={side}
         onChange={onSide}
+        loading={loading}
         sides={[
-          { key: 'translation', label: strings.labels.translation, text: prompt.prompt_zh },
-          { key: 'original', label: strings.labels.original, text: prompt.prompt },
+          { key: 'translation', label: strings.labels.translation, text: body?.translation ?? '' },
+          { key: 'original', label: strings.labels.original, text: body?.original ?? '' },
         ]}
       />
     </div>

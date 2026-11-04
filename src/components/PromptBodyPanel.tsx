@@ -13,6 +13,8 @@ interface Props<T extends string> {
   sides: BodySide<T>[];
   value: T;
   onChange: (key: T) => void;
+  /** Body text still on its way; shows placeholder lines instead of an empty box. */
+  loading?: boolean;
 }
 
 /**
@@ -25,6 +27,7 @@ export function PromptBodyPanel<T extends string>({
   sides,
   value,
   onChange,
+  loading = false,
 }: Props<T>) {
   const active = sides.find((s) => s.key === value) ?? sides[0];
 
@@ -51,9 +54,21 @@ export function PromptBodyPanel<T extends string>({
         </span>
       </div>
       {/* Raw prompt text: whitespace preserved, never parsed as markup. */}
-      <pre className="m-0 max-h-[520px] overflow-auto whitespace-pre-wrap break-words p-3 font-mono text-xs leading-relaxed text-pre-ink">
-        {active?.text ?? ''}
-      </pre>
+      {loading && !active?.text ? (
+        <div className="flex flex-col gap-2 p-3" aria-busy="true">
+          {[92, 78, 86, 64, 88, 47].map((w, i) => (
+            <span
+              key={i}
+              className="h-2.5 animate-pulse rounded-full bg-line"
+              style={{ width: `${w}%`, animationDelay: `${i * 90}ms` }}
+            />
+          ))}
+        </div>
+      ) : (
+        <pre className="m-0 max-h-[520px] overflow-auto whitespace-pre-wrap break-words p-3 font-mono text-xs leading-relaxed text-pre-ink">
+          {active?.text ?? ''}
+        </pre>
+      )}
     </div>
   );
 }

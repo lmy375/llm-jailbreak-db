@@ -3,6 +3,7 @@ import type {
   LangStrings,
   ModelEntry,
   Prompt,
+  PromptBody,
   PromptSide,
   JailbreakMethod,
   TargetEntry,
@@ -14,6 +15,8 @@ type SortKey = 'id' | 'model' | 'title' | 'method' | 'time';
 
 interface Props {
   prompts: Prompt[];
+  /** Fetches one entry's two language sides when its drawer opens. */
+  loadPromptBody: (id: string) => Promise<PromptBody>;
   methodMap: Map<string, JailbreakMethod>;
   modelMap: Map<string, ModelEntry>;
   targetMap: Map<string, TargetEntry>;
@@ -29,6 +32,7 @@ interface Props {
 /** Database-table style listing; clicking a row opens its detail in a drawer. */
 export function PromptTable({
   prompts,
+  loadPromptBody,
   methodMap,
   modelMap,
   targetMap,
@@ -202,6 +206,7 @@ export function PromptTable({
           <PromptDetail
             key={selected.id}
             prompt={selected}
+            loadPromptBody={loadPromptBody}
             method={methodMap.get(selected.jailbreak_method)}
             target={targetMap.get(selected.target)}
             strings={strings}

@@ -159,9 +159,9 @@ if (missingTranslationWarnings.length) {
   for (const w of missingTranslationWarnings) console.warn(`  ${w}`);
 }
 
-// Load one body per language; the UI language switches which side is shown.
-// A language whose file is missing falls back to the English body so the
-// record stays readable while its translation is still outstanding.
+// Load one body per language. Bodies are emitted as one small file each, so the
+// app fetches a body only when its drawer opens — inlining every body made
+// data.json tens of megabytes and blocked first paint.
 function loadBodies(lang) {
   const dir = path.join(root, 'content', 'system_prompts', lang);
   const out = {};
@@ -171,18 +171,10 @@ function loadBodies(lang) {
   }
   return out;
 }
-const enBodies = loadBodies('en');
-const sysBodies = Object.fromEntries(
-  sysLangs.map((lang) => {
-    const bodies = loadBodies(lang);
-    if (lang === 'en') return [lang, bodies];
-    // Fill gaps from the English body.
-    for (const [id, text] of Object.entries(enBodies)) {
-      if (!bodies[id]) bodies[id] = text;
-    }
-    return [lang, bodies];
-  })
-);
+// Only the files that really exist — an untranslated body is not duplicated from
+// English on disk; the app falls back to the English body when a fetch 404s.
+const bodiesByLang = Object.fromEntries(sysLangs.map((lang) => [lang, loadBodies(lang)]));
+const enBodies = bodiesByLang.en ?? {};
 
 const normalisedSys = sysPrompts.map((s) => ({
   ...s,
@@ -197,7 +189,7 @@ const normalisedSys = sysPrompts.map((s) => ({
 // Chinese files are translations of the same entries, so comparing them would
 // only re-report the same grouping. Entries carry `duplicate` metadata so the
 // UI can flag the repetition.
-const duplicateResult = detectDuplicateGroups(sysBodies.en ?? {});
+const duplicateResult = detectDuplicateGroups(enBodies);
 const entryIdOfBody = new Map(
   sysPrompts.map((s) => [String(s.system_prompt_id), String(s.id)])
 );
@@ -359,6 +351,15 @@ const sysSources = Object.fromEntries(
   ])
 );
 
+// Prompt bodies are also only read inside a drawer, so they leave data.json the
+// same way: the index keeps what the table and the filters need.
+const promptBodies = prompts.map((p) => ({
+  id: p.id,
+  original: p.prompt ?? '',
+  translation: p.prompt_zh ?? '',
+}));
+const promptIndex = prompts.map(({ prompt, prompt_zh, ...rest }) => rest);
+
 const data = {
   generated: new Date().toISOString().slice(0, 10),
   site,
@@ -373,10 +374,9 @@ const data = {
   models,
   jailbreakMethods,
   targets,
-  prompts,
+  prompts: promptIndex,
   systemPrompts: sysWithDuplicates,
   duplicateGroups,
-  systemPromptBodies: sysBodies,
   jailbreakSources,
   systemSources,
   sources,
@@ -385,9 +385,37 @@ const data = {
 
 fs.mkdirSync(path.join(root, 'public'), { recursive: true });
 fs.writeFileSync(path.join(root, 'public', 'data.json'), JSON.stringify(data));
+
+// One plain-text file per body, under the language directory it was written in.
+// Rewritten from scratch each build so a removed body cannot linger in dist.
+const bodiesDir = path.join(root, 'public', 'system-bodies');
+fs.rmSync(bodiesDir, { recursive: true, force: true });
+let bodyFiles = 0;
+for (const [lang, bodies] of Object.entries(bodiesByLang)) {
+  const dir = path.join(bodiesDir, lang);
+  fs.mkdirSync(dir, { recursive: true });
+  for (const [id, text] of Object.entries(bodies)) {
+    fs.writeFileSync(path.join(dir, `${id}.txt`), text);
+    bodyFiles++;
+  }
+}
+
+// Jailbreak prompt pair of one entry per file; both sides ship together because
+// the drawer's toggle switches between them without another request.
+const promptBodiesDir = path.join(root, 'public', 'prompt-bodies');
+fs.rmSync(promptBodiesDir, { recursive: true, force: true });
+fs.mkdirSync(promptBodiesDir, { recursive: true });
+for (const b of promptBodies) {
+  fs.writeFileSync(
+    path.join(promptBodiesDir, `${b.id}.json`),
+    JSON.stringify({ original: b.original, translation: b.translation })
+  );
+}
+
 console.log(
   `data.json -> ${prompts.length} prompts, ${jailbreakMethods.length} methods, ` +
     `${targets.length} targets, ${data.counts.models} models, ${normalisedSys.length} system prompts, ` +
     `${jailbreakSources.length} + ${systemSources.length} sources, ` +
-    `${Object.keys(langs).length} languages`
+    `${Object.keys(langs).length} languages; ${bodyFiles} system bodies + ` +
+    `${promptBodies.length} prompt bodies on demand`
 );
