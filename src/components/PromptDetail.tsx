@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import type { LangStrings, Prompt, PromptBody, PromptSide, JailbreakMethod, TargetEntry } from '../types';
 import { MetaRow } from './MetaRow';
 import { PromptBodyPanel } from './PromptBodyPanel';
+import { QualityScore } from './QualityScore';
 
 const pill =
   'inline-flex cursor-pointer items-center gap-2 rounded-full border border-line bg-hover px-2.5 py-1 text-[12.5px] text-muted transition hover:border-accent/50 hover:text-accent-ink';
@@ -34,11 +35,15 @@ export function PromptDetail({
   onOpenMethod,
 }: Props) {
   const fm = strings.fieldMap;
-  const title = prompt[fm.title];
+  const title = prompt[fm.title] || prompt[fm.titleAlt];
   const titleAlt = prompt[fm.titleAlt];
-  const targetName = target ? target[fm.name] : prompt.target;
-  const note = prompt[fm.note];
-  const methodName = method ? method[fm.name] : prompt.jailbreak_method;
+  const targetName = target
+    ? target[fm.name] || target[fm.nameAlt]
+    : prompt.target;
+  const note = prompt[fm.note] || prompt[fm.noteAlt];
+  const methodName = method
+    ? method[fm.name] || method[fm.nameAlt]
+    : prompt.jailbreak_method;
   const [body, setBody] = useState<PromptBody | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -62,6 +67,12 @@ export function PromptDetail({
     };
   }, [prompt.id, loadPromptBody]);
 
+  const originalRaw = body?.original ?? '';
+  const translationRaw = body?.translation ?? '';
+  // Untranslated entries show the original text on both sides rather than a blank panel.
+  const original = originalRaw.trim() ? originalRaw : translationRaw;
+  const translation = translationRaw.trim() ? translationRaw : originalRaw;
+
   return (
     <div className="flex min-w-0 flex-col gap-5 p-5">
       {/* ---- meta block ---- */}
@@ -72,6 +83,13 @@ export function PromptDetail({
         )}
 
         <MetaRow label={strings.labels.target}>{targetName}</MetaRow>
+        <MetaRow label={strings.labels.quality}>
+          <QualityScore
+            value={prompt.quality_score}
+            showMax
+            label={strings.labels.quality}
+          />
+        </MetaRow>
         {note && <MetaRow label={strings.labels.note}>{note}</MetaRow>}
         <MetaRow label={strings.labels.method}>
           <button type="button" onClick={onOpenMethod} className={pill}>
@@ -100,8 +118,8 @@ export function PromptDetail({
         onChange={onSide}
         loading={loading}
         sides={[
-          { key: 'translation', label: strings.labels.translation, text: body?.translation ?? '' },
-          { key: 'original', label: strings.labels.original, text: body?.original ?? '' },
+          { key: 'translation', label: strings.labels.translation, text: translation },
+          { key: 'original', label: strings.labels.original, text: original },
         ]}
       />
     </div>

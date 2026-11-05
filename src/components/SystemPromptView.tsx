@@ -3,8 +3,9 @@ import type { DuplicateGroup, LangStrings, SystemPrompt } from '../types';
 import { Drawer } from './Drawer';
 import { MetaRow } from './MetaRow';
 import { PromptBodyPanel } from './PromptBodyPanel';
+import { QualityScore } from './QualityScore';
 
-type SortKey = 'id' | 'product' | 'vender' | 'time' | 'words';
+type SortKey = 'id' | 'product' | 'vender' | 'quality' | 'time' | 'words';
 
 interface Props {
   prompts: SystemPrompt[];
@@ -67,20 +68,21 @@ function SystemPromptDetail({
     setLoading(true);
     setBodies({});
     (async () => {
-      // English is the fallback for any language that has not been translated.
-      const en = await loadBody('en', bodyId).catch(() => '');
-      if (!alive) return;
-      setBodies({ en });
-      const others = await Promise.all(
-        languages
-          .filter((l) => l.key !== 'en')
-          .map(async (l) => {
+      // Every language falls back to English, and English itself falls back to
+      // any language that did load, so a missing translation never renders blank.
+      const loaded = Object.fromEntries(
+        await Promise.all(
+          languages.map(async (l) => {
             const text = await loadBody(l.key, bodyId).catch(() => null);
-            return [l.key, text ?? en] as const;
+            return [l.key, text] as const;
           })
-      );
+        )
+      ) as Record<string, string | null>;
       if (!alive) return;
-      setBodies({ en, ...Object.fromEntries(others) });
+      const fallback = loaded['en'] || Object.values(loaded).find((text) => text) || '';
+      setBodies(
+        Object.fromEntries(languages.map((l) => [l.key, loaded[l.key] || fallback]))
+      );
       setLoading(false);
     })();
     return () => {
@@ -94,6 +96,8 @@ function SystemPromptDetail({
     S.enumLabels[field]?.[value] ?? value;
   const dup = prompt.duplicate;
   const others = (group?.members ?? []).filter((m) => m.id !== prompt.id);
+  const noteText =
+    lang === 'zh' ? prompt.note_zh || prompt.note : prompt.note || prompt.note_zh;
 
   return (
     <div className="flex min-w-0 flex-col gap-5 p-5">
@@ -105,13 +109,16 @@ function SystemPromptDetail({
         </MetaRow>
         <MetaRow label={S.disclosureType}>{enumLabel('disclosureType', prompt.disclosureType)}</MetaRow>
         <MetaRow label={S.surface}>{enumLabel('surface', prompt.surface)}</MetaRow>
-        {prompt.note && <MetaRow label={S.note}>{lang === 'zh' ? prompt.note_zh : prompt.note}</MetaRow>}
+        {noteText && <MetaRow label={S.note}>{noteText}</MetaRow>}
         <MetaRow label={S.words}>
           {prompt.words ? (
             prompt.words.toLocaleString('en-US')
           ) : (
             <span className="text-faint">{S.wordsUnknown}</span>
           )}
+        </MetaRow>
+        <MetaRow label={S.quality}>
+          <QualityScore value={prompt.quality_score} showMax label={S.quality} />
         </MetaRow>
         <MetaRow label={S.source}>
           <a
@@ -243,6 +250,8 @@ export function SystemPromptView({
           return p.time;
         case 'words':
           return String(p.words).padStart(8, '0');
+        case 'quality':
+          return String(p.quality_score).padStart(2, '0');
         default:
           return p.id;
       }
@@ -326,13 +335,14 @@ export function SystemPromptView({
 
       <div className="overflow-hidden rounded-[12px] border border-line bg-surface">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[660px] border-collapse text-left text-[13px]">
+          <table className="w-full min-w-[760px] border-collapse text-left text-[13px]">
             <thead>
               <tr className="border-b border-line bg-hover text-[11px] uppercase tracking-[0.08em] text-faint">
                 <SortTh label={strings.labels.id} sortKey="id" className="w-[104px]" />
                 <SortTh label={S.product} sortKey="product" className="w-[210px]" />
                 <SortTh label={S.vender} sortKey="vender" className="hidden w-[150px] md:table-cell" />
                 <SortTh label={S.words} sortKey="words" className="hidden w-[84px] md:table-cell" />
+                <SortTh label={S.quality} sortKey="quality" className="hidden w-[96px] md:table-cell" />
                 <SortTh label={S.time} sortKey="time" className="w-[112px]" />
               </tr>
             </thead>
@@ -393,6 +403,9 @@ export function SystemPromptView({
                     </td>
                     <td className="hidden px-4 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-muted md:table-cell">
                       {p.words ? p.words.toLocaleString('en-US') : '—'}
+                    </td>
+                    <td className="hidden px-4 py-2.5 align-middle whitespace-nowrap md:table-cell">
+                      <QualityScore value={p.quality_score} label={S.quality} />
                     </td>
                     <td className="px-4 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
                       {p.time || <span className="font-sans text-[11.5px]">{S.timeUnknown}</span>}

@@ -141,7 +141,10 @@ export function FilterBar({
             label={L.method}
             value={method}
             onChange={onMethod}
-            options={methods.map((m) => ({ value: m.id, label: m[strings.fieldMap.name] }))}
+            options={methods.map((m) => ({
+              value: m.id,
+              label: m[strings.fieldMap.name] || m[strings.fieldMap.nameAlt],
+            }))}
             allLabel={L.filterAll}
           />
         </>

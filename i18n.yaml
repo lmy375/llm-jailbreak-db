@@ -1,7 +1,7 @@
 # 界面文案 / UI strings — 全部页面文案的数据源。
 # 站点代码不硬编码任何文案，一律从这里读取。All front-end copy lives here.
 #
-# defaultPromptSide: 该界面语言下，每条提示词的「原文/译文」toggle 默认选中哪一侧。
+# defaultPromptSide: 该界面语言下，每条提示词的语言 toggle 默认选中哪一侧。
 
 # 语言无关的站点配置（不随界面语言切换）
 site:
@@ -21,7 +21,9 @@ zh:
     name: name_zh
     nameAlt: name
     body: body_zh
+    bodyAlt: body_en
     note: note_zh
+    noteAlt: note
   site:
     name: "越狱提示词"
   search:
@@ -42,8 +44,8 @@ zh:
     prompt: "提示词"
     source: "数据来源"
 
-    translation: "译文"
-    original: "原文"
+    translation: "中文"
+    original: "英文"
     relatedPrompts: "相关提示词"
     promptUnit: " 条提示词"
     empty: "没有匹配的提示词，试试其他关键词。"
@@ -52,6 +54,7 @@ zh:
     model: "模型"
     title: "标题"
     method: "方法"
+    quality: "质量分"
     time: "时间"
     note: "备注"
     viewMethod: "查看方法介绍"
@@ -83,6 +86,7 @@ zh:
     product: "产品"
     time: "公开时间"
     words: "词数"
+    quality: "质量分"
     disclosureType: "披露类型"
     surface: "产品载体"
     note: "备注"
@@ -130,7 +134,9 @@ en:
     name: name
     nameAlt: name_zh
     body: body_en
+    bodyAlt: body_zh
     note: note
+    noteAlt: note_zh
   site:
     name: "Jailbreak Prompts"
   search:
@@ -151,8 +157,8 @@ en:
     prompt: "Prompt"
     source: "Data Source"
 
-    translation: "Translation"
-    original: "Original"
+    translation: "Chinese"
+    original: "English"
     relatedPrompts: "Related prompts"
     promptUnit: " prompts"
     empty: "No matching prompts. Try another keyword."
@@ -161,6 +167,7 @@ en:
     model: "Model"
     title: "Title"
     method: "Method"
+    quality: "Quality"
     time: "Time"
     note: "Note"
     viewMethod: "View method"
@@ -192,6 +199,7 @@ en:
     product: "Product"
     time: "Disclosed"
     words: "Words"
+    quality: "Quality"
     disclosureType: "Disclosure"
     surface: "Surface"
     note: "Note"

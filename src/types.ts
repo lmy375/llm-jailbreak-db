@@ -41,6 +41,8 @@ export interface Prompt {
   note?: string;
   /** Chinese counterpart of note. */
   note_zh?: string;
+  /** Human-reviewed quality score, 1–10. */
+  quality_score: number;
 }
 
 /** Both language sides of one jailbreak prompt; fetched when its drawer opens. */
@@ -109,6 +111,8 @@ export interface SystemPrompt {
   system_prompt_id: string;
   /** Word count of the English body; computed by the build script. */
   words: number;
+  /** Human-reviewed quality score, 1–10. */
+  quality_score: number;
   /** Present when this body heavily repeats another body in the archive. */
   duplicate?: DuplicateInfo;
 }
@@ -140,7 +144,9 @@ export interface LangStrings {
     name: 'name' | 'name_zh';
     nameAlt: 'name' | 'name_zh';
     body: 'body_zh' | 'body_en';
+    bodyAlt: 'body_zh' | 'body_en';
     note: 'note' | 'note_zh';
+    noteAlt: 'note' | 'note_zh';
   };
   site: { name: string };
   search: { placeholder: string };
@@ -163,6 +169,7 @@ export interface LangStrings {
     model: string;
     title: string;
     method: string;
+    quality: string;
     time: string;
     // 详情抽屉 / detail drawer
     close: string;
@@ -196,6 +203,7 @@ export interface LangStrings {
     product: string;
     time: string;
     words: string;
+    quality: string;
     disclosureType: string;
     surface: string;
     note: string;

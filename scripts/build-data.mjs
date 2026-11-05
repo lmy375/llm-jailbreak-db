@@ -45,6 +45,14 @@ const prompts = (jailbreak.prompts ?? [])
     return ax - bx || ay - by || an - bn;
   });
 
+// Quality scores are reviewed by hand; the build only enforces the scale.
+for (const p of prompts) {
+  const q = p.quality_score;
+  if (!Number.isInteger(q) || q < 1 || q > 10) {
+    throw new Error(`prompts[].quality_score must be an integer 1-10: ${q} (${p.id})`);
+  }
+}
+
 // Referenced models, in declaration order; drop ones no prompt uses.
 const usedModelIds = new Set(prompts.map((p) => p.model_id));
 const models = modelList
@@ -112,6 +120,11 @@ for (const s of sysPrompts) {
   }
   if (seenSys.has(s.id)) throw new Error(`duplicate system_prompts[].id: ${s.id}`);
   seenSys.add(s.id);
+
+  const q = s.quality_score;
+  if (!Number.isInteger(q) || q < 1 || q > 10) {
+    throw new Error(`system_prompts[].quality_score must be an integer 1-10: ${q} (${s.id})`);
+  }
 
   // Each record must own a distinct body file.
   const bodyId = String(s.system_prompt_id ?? '');

@@ -10,8 +10,9 @@ import type {
 } from '../types';
 import { Drawer } from './Drawer';
 import { PromptDetail } from './PromptDetail';
+import { QualityScore } from './QualityScore';
 
-type SortKey = 'id' | 'model' | 'title' | 'method' | 'time';
+type SortKey = 'id' | 'model' | 'title' | 'method' | 'quality' | 'time';
 
 interface Props {
   prompts: Prompt[];
@@ -58,13 +59,15 @@ export function PromptTable({
         case 'model':
           return modelNameOf(p).toLowerCase();
         case 'title':
-          return String(p[fm.title]).toLowerCase();
+          return String(p[fm.title] || p[fm.titleAlt] || '').toLowerCase();
         case 'method': {
           const t = methodMap.get(p.jailbreak_method);
-          return String(t ? t[fm.name] : p.jailbreak_method).toLowerCase();
+          return String(t ? t[fm.name] || t[fm.nameAlt] : p.jailbreak_method).toLowerCase();
         }
         case 'time':
           return p.time;
+        case 'quality':
+          return String(p.quality_score).padStart(2, '0');
         default:
           return p.id;
       }
@@ -121,7 +124,7 @@ export function PromptTable({
     <>
       <div className="overflow-hidden rounded-[12px] border border-line bg-surface">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[560px] border-collapse text-left text-[13px]">
+          <table className="w-full min-w-[660px] border-collapse text-left text-[13px]">
             <thead>
               <tr className="border-b border-line bg-hover text-[11px] uppercase tracking-[0.08em] text-faint">
                 <SortTh label={strings.labels.id} sortKey="id" className="w-[104px]" />
@@ -132,6 +135,7 @@ export function PromptTable({
                   sortKey="method"
                   className="hidden w-[160px] md:table-cell"
                 />
+                <SortTh label={strings.labels.quality} sortKey="quality" className="w-[96px]" />
                 <SortTh label={strings.labels.time} sortKey="time" className="w-[92px]" />
               </tr>
             </thead>
@@ -139,7 +143,10 @@ export function PromptTable({
               {sorted.map((p) => {
                 const open = p.id === selectedId;
                 const method = methodMap.get(p.jailbreak_method);
-                const methodName = method ? method[fm.name] : p.jailbreak_method;
+                const methodName = method
+                  ? method[fm.name] || method[fm.nameAlt]
+                  : p.jailbreak_method;
+                const title = p[fm.title] || p[fm.titleAlt] || '';
                 return (
                   <tr
                     key={p.id}
@@ -178,12 +185,15 @@ export function PromptTable({
                       {modelNameOf(p)}
                     </td>
                     <td className="px-4 py-2.5 align-middle">
-                      <span className="block max-w-[24rem] truncate font-medium text-ink" title={String(p[fm.title])}>
-                        {p[fm.title]}
+                      <span className="block max-w-[24rem] truncate font-medium text-ink" title={title}>
+                        {title}
                       </span>
                     </td>
                     <td className="hidden px-4 py-2.5 align-middle whitespace-nowrap text-muted md:table-cell">
                       {methodName}
+                    </td>
+                    <td className="px-4 py-2.5 align-middle whitespace-nowrap">
+                      <QualityScore value={p.quality_score} label={strings.labels.quality} />
                     </td>
                     <td className="px-4 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
                       {p.time}
