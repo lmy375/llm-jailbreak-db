@@ -1,4 +1,0 @@
-- 需要 GitHub 搜索或加载问题、PR、提交或文件时使用。
-- 输入/输出位于 `index.ts`。
-- 权限位于 `integration.ts`。
-- 无触发器。

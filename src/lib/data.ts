@@ -22,6 +22,12 @@ export function loadBody(lang: string, systemPromptId: string): Promise<string> 
     pending = fetch(`${import.meta.env.BASE_URL}system-bodies/${lang}/${systemPromptId}.txt`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        // A dev server answers an unknown path with the SPA shell and a 200, so a
+        // successful status alone does not prove this is a body file. Treat HTML
+        // as a miss so the caller falls back instead of rendering the app itself.
+        if ((res.headers.get('content-type') ?? '').includes('text/html')) {
+          throw new Error('not a body file');
+        }
         return res.text();
       })
       .catch((e: unknown) => {

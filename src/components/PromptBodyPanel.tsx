@@ -3,6 +3,8 @@ export interface BodySide<T extends string> {
   key: T;
   label: string;
   text: string;
+  /** Set when this language has no body and `text` comes from another language. */
+  missing?: { label: string; hint: string };
 }
 
 interface Props<T extends string> {
@@ -36,6 +38,14 @@ export function PromptBodyPanel<T extends string>({
       <div className="flex flex-wrap items-center gap-2.5 border-b border-line px-3 py-2">
         <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-faint">{label}</span>
         {note && <span className="text-[11px] text-faint/80">{note}</span>}
+        {active?.missing && (
+          <span
+            title={active.missing.hint}
+            className="cursor-help rounded-full border border-line px-1.5 py-px text-[10px] whitespace-nowrap text-faint"
+          >
+            {active.missing.label}
+          </span>
+        )}
         <span className="flex-1" />
         <span className="inline-flex overflow-hidden rounded-[7px] border border-line">
           {sides.map((s) => (
@@ -43,6 +53,7 @@ export function PromptBodyPanel<T extends string>({
               key={s.key}
               type="button"
               onClick={() => onChange(s.key)}
+              title={s.missing?.hint}
               className={
                 'cursor-pointer px-2.5 py-1 text-[11px] transition ' +
                 (active?.key === s.key ? 'bg-accent/15 text-accent-ink' : 'text-muted hover:text-ink')

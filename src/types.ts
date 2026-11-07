@@ -160,6 +160,10 @@ export interface LangStrings {
 
     translation: string;
     original: string;
+    /** "{lang}原文" — badge for a side showing another language's body. */
+    missingBody: string;
+    /** Longer hover text explaining the same state. */
+    missingBodyHint: string;
     relatedPrompts: string;
     promptUnit: string;
     empty: string;

@@ -46,6 +46,8 @@ zh:
 
     translation: "中文"
     original: "英文"
+    missingBody: "{lang}原文"
+    missingBodyHint: "该条目暂无本条语言的译文，当前显示{lang}原文。"
     relatedPrompts: "相关提示词"
     promptUnit: " 条提示词"
     empty: "没有匹配的提示词，试试其他关键词。"
@@ -159,6 +161,8 @@ en:
 
     translation: "Chinese"
     original: "English"
+    missingBody: "{lang} text"
+    missingBodyHint: "No translation in this language yet — showing the {lang} text."
     relatedPrompts: "Related prompts"
     promptUnit: " prompts"
     empty: "No matching prompts. Try another keyword."

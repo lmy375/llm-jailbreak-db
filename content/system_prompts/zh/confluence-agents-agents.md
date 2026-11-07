@@ -1,6 +1,0 @@
-- 通过 `search` 搜索 Confluence 页面。
-- 通过 `cqlQuery` 运行 CQL（Confluence 查询语言）查询。
-- 通过 `loadPage` 按 ID 加载 Confluence 页面。
-- 输入/输出位于 `index.ts`。
-- 权限位于 `integration.ts`。
-- 无触发器。

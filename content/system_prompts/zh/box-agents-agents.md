@@ -1,6 +1,0 @@
-- 通过 `search` 搜索 Box 文件。
-- 通过 `loadFile` 按 ID 加载 Box 文件。使用搜索结果中的 `fileId`。
-- 通过 `findSharedItem` 将 Box 共享链接解析为文件 ID。当用户提供类似 `https://app.box.com/s/...` 的链接时使用。
-- 输入/输出位于 `index.ts`。
-- 权限位于 `integration.ts`。
-- 无触发器。

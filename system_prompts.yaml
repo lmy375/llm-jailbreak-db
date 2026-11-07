@@ -324,10 +324,10 @@ prompts:
     source_id: leaked-system-prompts-com
     source_url: "https://leaked-system-prompts.com/prompts/lovable/lovable_20250516"
     system_prompt_id: "lovable"
-    quality_score: 10
+    quality_score: 8
 
   - id: "LSP-2025-0007"
-    product: "Grok (system prompt update)"
+    product: "Grok 4"
     vender: "xAI"
     time: "2025-07-04"
     disclosureType: "official-open-source"
@@ -354,7 +354,7 @@ prompts:
 
   # ============================================================ 2026
   - id: "LSP-2026-0001"
-    product: "ChatGPT system message"
+    product: "ChatGPT"
     vender: "OpenAI"
     time: "2025-08-07"
     disclosureType: "leaked"
@@ -486,7 +486,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2022-0002"
-    product: "perplexity.ai"
+    product: "Perplexity AI"
     vender: "Perplexity AI"
     time: "2022-12-08"
     disclosureType: "leaked"
@@ -506,7 +506,7 @@ prompts:
     source_id: "yeekal-leaked-system-prompts"
     source_url: "https://github.com/YeeKal/leaked-system-prompts/blob/main/prompts/notion/notion-ai_20221228.md"
     system_prompt_id: "notion-ai-notion-ai-20221228-2022-12-28-2"
-    quality_score: 7
+    quality_score: 5
 
   - id: "LSP-2023-0002"
     product: "Clyde"
@@ -521,7 +521,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2023-0003"
-    product: "myai Prompt"
+    product: "My AI"
     vender: "Snap"
     time: "2023-04-30"
     disclosureType: "leaked"
@@ -597,22 +597,11 @@ prompts:
     time: "2023-07-15"
     disclosureType: "leaked"
     surface: "chat"
-    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date. Also archived in: awesome-system-prompts-elifuzz, prongbang-leaked-system-prompts, yeekal-leaked-system-prompts."
+    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date. Also archived in: awesome-system-prompts-elifuzz, prongbang-leaked-system-prompts, yeekal-leaked-system-prompts. Retains the accidental-leak exchange: Clyde posts its prompt in a Discord channel, a user notices and asks about it, and Clyde confirms the contents should not be visible."
+    note_zh: "由社区存档并附可验证来源链接；文件名日期为社区记录的披露日期。另收录于：awesome-system-prompts-elifuzz、prongbang-leaked-system-prompts、yeekal-leaked-system-prompts。完整保留了这次意外泄露的现场：Clyde 在 Discord 频道中输出系统提示词，用户发现后追问，Clyde 确认这些内容本不应可见。"
     source_id: "jujumilk3-leaked-system-prompts"
     source_url: "https://twitter.com/itsjustCaio/status/1680046133102493696"
     system_prompt_id: "clyde-discord-clyde-20230715-2023-07-15"
-    quality_score: 5
-
-  - id: "LSP-2023-0012"
-    product: "Clyde"
-    vender: "Discord"
-    time: "2023-07-16"
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date. Also archived in: awesome-system-prompts-elifuzz, prongbang-leaked-system-prompts, yeekal-leaked-system-prompts."
-    source_id: "jujumilk3-leaked-system-prompts"
-    source_url: "https://twitter.com/Spaceguy5/status/1680373304970948610"
-    system_prompt_id: "clyde-discord-clyde-20230716-1-2023-07-16"
     quality_score: 5
 
   - id: "LSP-2023-0013"
@@ -651,19 +640,6 @@ prompts:
     source_url: "https://github.com/jujumilk3/leaked-system-prompts/blob/main/naver-cue_20230920.md"
     system_prompt_id: "cue-naver-cue-20230920-2023-09-20"
     quality_score: 7
-
-  - id: "LSP-2023-0019"
-    product: "DALL E 3"
-    vender: "OpenAI"
-    time: "2023-10-07"
-    disclosureType: "leaked"
-    surface: "api"
-    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date. Also archived in: awesome-system-prompts-elifuzz, prongbang-leaked-system-prompts, yeekal-leaked-system-prompts."
-    source_id: "jujumilk3-leaked-system-prompts"
-    source_url: "https://www.reddit.com/r/ChatGPTPro/comments/171r95u/i_asked_dalle_3_to_generate_images_with_its/?rdt=46674"
-    system_prompt_id: "dall-e-3-openai-dall-e-3-20231007-1-2023-10-07"
-    quality_score: 7
-
 
   - id: "LSP-2023-0021"
     product: "OpenAI GPT Voice"
@@ -762,7 +738,7 @@ prompts:
     quality_score: 4
 
   - id: "LSP-2023-0029"
-    product: "assistants API"
+    product: "OpenAI Assistants API"
     vender: "OpenAI"
     time: "2023-11-06"
     disclosureType: "leaked"
@@ -786,7 +762,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2023-0033"
-    product: "xAI Grok"
+    product: "Grok"
     vender: "xAI"
     time: "2023-12-14"
     disclosureType: "leaked"
@@ -797,7 +773,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2024-0017"
-    product: "chatgpt4 Android"
+    product: "ChatGPT 4 Android"
     vender: "OpenAI"
     time: "2024-02-07"
     disclosureType: "leaked"
@@ -893,7 +869,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2024-0028"
-    product: "perplexity.ai"
+    product: "Perplexity AI"
     vender: "Perplexity AI"
     time: "2024-03-11"
     disclosureType: "leaked"
@@ -916,28 +892,18 @@ prompts:
     system_prompt_id: "studio-assistant-roblox-studio-assistant-20240320-2024-03-20"
     quality_score: 8
 
-  - id: "LSP-2024-0032"
-    product: "Search AGENTS"
-    vender: "Notion"
-    time: "2024-04-01"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/search/AGENTS.md"
-    system_prompt_id: "search-agents-agents-2024-04-01"
-    quality_score: 5
-
   - id: "LSP-2024-0034"
     product: "Gemini 1.5"
     vender: "Google"
     time: "2024-04-11"
     disclosureType: "leaked"
     surface: "chat"
-    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date. Also archived in: awesome-system-prompts-elifuzz, prongbang-leaked-system-prompts, yeekal-leaked-system-prompts."
+    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date. Also archived in: awesome-system-prompts-elifuzz, prongbang-leaked-system-prompts, yeekal-leaked-system-prompts. Retains the short extraction exchange: the user simply asks for the system prompt and Gemini answers with it."
+    note_zh: "由社区存档并附可验证来源链接；文件名日期为社区记录的披露日期。另收录于：awesome-system-prompts-elifuzz、prongbang-leaked-system-prompts、yeekal-leaked-system-prompts。保留了简短的提取对话：用户直接索要系统提示词，Gemini 便原样给出。"
     source_id: "jujumilk3-leaked-system-prompts"
     source_url: "https://github.com/jujumilk3/leaked-system-prompts/blob/main/google-gemini-1.5_20240411.md"
     system_prompt_id: "gemini-1-5-google-gemini-1-5-20240411-2024-04-11"
-    quality_score: 5
+    quality_score: 4
 
 
   - id: "LSP-2024-0037"
@@ -953,7 +919,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2024-0039"
-    product: "perplexity.ai"
+    product: "Perplexity AI"
     vender: "Perplexity AI"
     time: "2024-05-13"
     disclosureType: "leaked"
@@ -999,7 +965,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2024-0047"
-    product: "perplexity.ai"
+    product: "Perplexity AI"
     vender: "Perplexity AI"
     time: "2024-06-07"
     disclosureType: "leaked"
@@ -1011,7 +977,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2024-0048"
-    product: "anthropic Claude artifacts"
+    product: "Claude Artifacts"
     vender: "Anthropic"
     time: "2024-06-20"
     disclosureType: "leaked"
@@ -1019,10 +985,10 @@ prompts:
     source_id: "yeekal-leaked-system-prompts"
     source_url: "https://github.com/YeeKal/leaked-system-prompts/blob/main/prompts/anthropic/claude-artifacts_20240620.md"
     system_prompt_id: "anthropic-claude-artifacts-claude-artifacts-20240620-2024-06-20"
-    quality_score: 10
+    quality_score: 6
 
   - id: "LSP-2024-0053"
-    product: "anthropic Claude 3 Opus"
+    product: "Claude 3 Opus"
     vender: "Anthropic"
     time: "2024-07-12"
     disclosureType: "leaked"
@@ -1033,7 +999,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2024-0063"
-    product: "Prompt"
+    product: "Bolt"
     vender: "StackBlitz"
     time: "2024-08-08"
     disclosureType: "leaked"
@@ -1056,7 +1022,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2024-0065"
-    product: "xAI Grok 2"
+    product: "Grok 2"
     vender: "xAI"
     time: "2024-08-21"
     disclosureType: "leaked"
@@ -1100,7 +1066,7 @@ prompts:
     quality_score: 4
 
   - id: "LSP-2024-0070"
-    product: "Perplexity.ai"
+    product: "Perplexity AI"
     vender: "Perplexity AI"
     time: "2024-09-04"
     disclosureType: "leaked"
@@ -1167,7 +1133,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2024-0085"
-    product: "Perplexity.ai Spaces"
+    product: "Perplexity Spaces"
     vender: "Perplexity AI"
     time: "2024-10-18"
     disclosureType: "leaked"
@@ -1200,7 +1166,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2024-0094"
-    product: "Perplexity.ai Desktop App"
+    product: "Perplexity Desktop App"
     vender: "Perplexity AI"
     time: "2024-10-24"
     disclosureType: "leaked"
@@ -1234,7 +1200,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2024-0098"
-    product: "anthropic Claude 3.5 Sonnet"
+    product: "Claude 3.5 Sonnet"
     vender: "Anthropic"
     time: "2024-11-22"
     disclosureType: "leaked"
@@ -1245,7 +1211,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2024-0102"
-    product: "v0 System Prompt"
+    product: "v0"
     vender: "Vercel"
     time: "2024-11-24"
     disclosureType: "leaked"
@@ -1256,7 +1222,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2024-0105"
-    product: "codium Windsurf editor"
+    product: "Windsurf"
     vender: "Codeium"
     time: "2024-12-08"
     disclosureType: "leaked"
@@ -1264,10 +1230,10 @@ prompts:
     source_id: "thebigpromptlibrary-0xeb"
     source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Misc/20241208-codium-windsurf-editor.md"
     system_prompt_id: "codium-windsurf-editor-20241208-codium-windsurf-editor-2024-12-08"
-    quality_score: 8
+    quality_score: 6
 
   - id: "LSP-2024-0107"
-    product: "Perplexity.ai Perplexity Pro"
+    product: "Perplexity Pro"
     vender: "Perplexity AI"
     time: "2024-12-12"
     disclosureType: "leaked"
@@ -1278,7 +1244,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2024-0108"
-    product: "xAI Grok 2"
+    product: "Grok 2"
     vender: "xAI"
     time: "2024-12-12"
     disclosureType: "leaked"
@@ -1289,7 +1255,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2024-0109"
-    product: "xAI Grok 2 fun"
+    product: "Grok 2 Fun"
     vender: "xAI"
     time: "2024-12-12"
     disclosureType: "leaked"
@@ -1299,20 +1265,8 @@ prompts:
     system_prompt_id: "xai-grok-2-fun-20241212-grok2-fun-2024-12-12"
     quality_score: 6
 
-  - id: "LSP-2024-0111"
-    product: "Grok 2"
-    vender: "xAI"
-    time: "2024-12-18"
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date. Also archived in: awesome-system-prompts-elifuzz, prongbang-leaked-system-prompts, yeekal-leaked-system-prompts."
-    source_id: "jujumilk3-leaked-system-prompts"
-    source_url: "https://www.reddit.com/r/LocalLLaMA/comments/1hgvp7o/here_is_grok_2s_system_prompt/"
-    system_prompt_id: "grok-2-xai-grok2-20241218-2024-12-18"
-    quality_score: 7
-
   - id: "LSP-2024-0112"
-    product: "providence chatbot grace"
+    product: "Providence Chatbot Grace"
     vender: ""
     time: "2024-12-18"
     disclosureType: "leaked"
@@ -1323,7 +1277,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2025-0010"
-    product: "Prompt"
+    product: "v0"
     vender: "Vercel"
     time: "2025-01-09"
     disclosureType: "leaked"
@@ -1334,7 +1288,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2025-0011"
-    product: "Prompt"
+    product: "Notion AI"
     vender: "Notion"
     time: "2025-01-09"
     disclosureType: "leaked"
@@ -1436,7 +1390,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0025"
-    product: "anthropic Claude 3.7 Sonnet"
+    product: "Claude 3.7 Sonnet"
     vender: "Anthropic"
     time: "2025-02-24"
     disclosureType: "leaked"
@@ -1582,7 +1536,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0056"
-    product: "chatgpt4o"
+    product: "ChatGPT 4o"
     vender: "OpenAI"
     time: "2025-03-24"
     disclosureType: "leaked"
@@ -1628,7 +1582,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2025-0062"
-    product: "vogent trump"
+    product: "Vogent Trump"
     vender: ""
     time: "2025-04-08"
     disclosureType: "leaked"
@@ -1639,7 +1593,7 @@ prompts:
     quality_score: 4
 
   - id: "LSP-2025-0063"
-    product: "RaycastAI"
+    product: "Raycast AI"
     vender: "Raycast"
     time: "2025-04-10"
     disclosureType: "leaked"
@@ -1687,7 +1641,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2025-0074"
-    product: "Windsurf System"
+    product: "Windsurf"
     vender: "Codeium"
     time: "2025-04-20"
     disclosureType: "leaked"
@@ -1710,7 +1664,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2025-0077"
-    product: "ChatWise System"
+    product: "ChatWise"
     vender: "ChatWise"
     time: "2025-04-23"
     disclosureType: "leaked"
@@ -1722,7 +1676,7 @@ prompts:
 
   - id: "LSP-2025-0078"
     product: "Cursor Chat GPT 4o"
-    vender: "OpenAI"
+    vender: "Anysphere"
     time: "2025-04-23"
     disclosureType: "leaked"
     surface: "chat"
@@ -1745,7 +1699,7 @@ prompts:
 
   - id: "LSP-2025-0081"
     product: "Perplexity Deep Research"
-    vender: "OpenAI"
+    vender: "Perplexity AI"
     time: "2025-04-23"
     disclosureType: "leaked"
     surface: "chat"
@@ -1756,7 +1710,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0082"
-    product: "xAI Grok 3"
+    product: "Grok 3"
     vender: "xAI"
     time: "2025-04-23"
     disclosureType: "leaked"
@@ -1860,7 +1814,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0095"
-    product: "xAI Grok 3"
+    product: "Grok 3"
     vender: "xAI"
     time: "2025-05-04"
     disclosureType: "leaked"
@@ -1883,7 +1837,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0099"
-    product: "Prompt automation context"
+    product: "ChatGPT Automation Context"
     vender: "OpenAI"
     time: "2025-05-07"
     disclosureType: "leaked"
@@ -1895,7 +1849,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2025-0100"
-    product: "Prompt GPT 4o Image safety policies"
+    product: "GPT-4o Image Safety Policies"
     vender: "OpenAI"
     time: "2025-05-07"
     disclosureType: "leaked"
@@ -1952,7 +1906,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0106"
-    product: "o4 mini"
+    product: "ChatGPT o4-mini"
     vender: "OpenAI"
     time: "2025-05-14"
     disclosureType: "leaked"
@@ -1975,7 +1929,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2025-0119"
-    product: "Canva Prompt"
+    product: "Canva"
     vender: "Canva"
     time: "2025-05-19"
     disclosureType: "leaked"
@@ -2009,20 +1963,8 @@ prompts:
     system_prompt_id: "codex-cli-openai-codex-cli-20250527-2025-05-27"
     quality_score: 7
 
-  - id: "LSP-2025-0134"
-    product: "Anthropic Claude Sonnet 4"
-    vender: "Anthropic"
-    time: "2025-06-03"
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "Also archived in: thebigpromptlibrary-0xeb."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Anthropic/20250603-Claude-Sonnet4.md"
-    system_prompt_id: "anthropic-claude-sonnet-4-20250603-claude-sonnet4-2025-06-03"
-    quality_score: 9
-
   - id: "LSP-2025-0135"
-    product: "o3"
+    product: "ChatGPT o3"
     vender: "OpenAI"
     time: "2025-06-04"
     disclosureType: "leaked"
@@ -2093,7 +2035,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0147"
-    product: "MINIMAX"
+    product: "MiniMax"
     vender: "MiniMax"
     time: "2025-06-25"
     disclosureType: "leaked"
@@ -2149,7 +2091,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0154"
-    product: "Aider Prompt ask Mode"
+    product: "Aider Ask Mode"
     vender: "Aider"
     time: "2025-07-06"
     disclosureType: "leaked"
@@ -2160,7 +2102,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0155"
-    product: "Aider Prompt file Mode"
+    product: "Aider File Mode"
     vender: "Aider"
     time: "2025-07-06"
     disclosureType: "leaked"
@@ -2171,7 +2113,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0156"
-    product: "Aider Prompt patch Mode"
+    product: "Aider Patch Mode"
     vender: "Aider"
     time: "2025-07-06"
     disclosureType: "leaked"
@@ -2182,7 +2124,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0157"
-    product: "Aider Prompt System"
+    product: "Aider"
     vender: "Aider"
     time: "2025-07-06"
     disclosureType: "leaked"
@@ -2193,7 +2135,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0158"
-    product: "Aider Prompt udiff Mode"
+    product: "Aider Udiff Mode"
     vender: "Aider"
     time: "2025-07-06"
     disclosureType: "leaked"
@@ -2204,7 +2146,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0160"
-    product: "Prompt"
+    product: "Roo Code"
     vender: "Roo Code"
     time: "2025-07-06"
     disclosureType: "leaked"
@@ -2215,7 +2157,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0162"
-    product: "Aider Prompt architect Mode"
+    product: "Aider Architect Mode"
     vender: "Aider"
     time: "2025-07-07"
     disclosureType: "leaked"
@@ -2275,7 +2217,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0171"
-    product: "Assistant"
+    product: "Kagi Assistant"
     vender: "Kagi"
     time: "2025-07-14"
     disclosureType: "leaked"
@@ -2299,7 +2241,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0173"
-    product: "OpenAI ChatGPT Agent System Prompt"
+    product: "ChatGPT Agent"
     vender: "OpenAI"
     time: "2025-07-17"
     disclosureType: "leaked"
@@ -2320,20 +2262,8 @@ prompts:
     system_prompt_id: "raycast-ai-raycast-ai-2025-07-17"
     quality_score: 5
 
-  - id: "LSP-2025-0177"
-    product: "dalle"
-    vender: "OpenAI"
-    time: "2025-07-20"
-    disclosureType: "leaked"
-    surface: "api"
-    note: "Also archived in: awesome-ai-system-prompts-dontriskit."
-    source_id: "awesome-system-prompts-elifuzz"
-    source_url: "https://github.com/EliFuzz/awesome-system-prompts/blob/main/leaks/openai/archived/2025-07-20_dalle.txt"
-    system_prompt_id: "dalle-2025-07-20-dalle-2025-07-20"
-    quality_score: 6
-
   - id: "LSP-2025-0189"
-    product: "Mistral Prompt"
+    product: "Mistral"
     vender: "Mistral AI"
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2344,7 +2274,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0190"
-    product: "Mistral Prompt Chat"
+    product: "Mistral Chat"
     vender: "Mistral AI"
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2356,7 +2286,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2025-0191"
-    product: "Notte Prompt"
+    product: "Notte"
     vender: "Notte"
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2368,7 +2298,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2025-0192"
-    product: "Orchids Prompt"
+    product: "Orchids.app"
     vender: "Orchids.app"
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2379,7 +2309,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0195"
-    product: "Prompt"
+    product: "Replit Agent"
     vender: "Replit"
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2391,7 +2321,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0197"
-    product: "Prompt Deep Research"
+    product: "ChatGPT Deep Research"
     vender: "OpenAI"
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2402,7 +2332,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0199"
-    product: "Prompt memory rating"
+    product: "Cursor Memory Rating"
     vender: "Anysphere"
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2413,7 +2343,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0204"
-    product: "Same dev Prompt"
+    product: "Same.dev"
     vender: ""
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2425,7 +2355,7 @@ prompts:
 
 
   - id: "LSP-2025-0206"
-    product: "v0 Prompt"
+    product: "v0"
     vender: "Vercel"
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2436,7 +2366,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2025-0210"
-    product: "whatsapp Prompt Llama 4"
+    product: "WhatsApp Llama 4"
     vender: "Meta"
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2448,7 +2378,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0211"
-    product: "whatsapp Prompt Meta AI"
+    product: "WhatsApp Meta AI"
     vender: "Meta"
     time: "2025-07-20"
     disclosureType: "leaked"
@@ -2460,7 +2390,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2025-0216"
-    product: "Prompt Core persona"
+    product: "Claude Core Persona"
     vender: "Anthropic"
     time: "2025-07-21"
     disclosureType: "leaked"
@@ -2471,7 +2401,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0229"
-    product: "Prompt System"
+    product: "Claude Code"
     vender: "Anthropic"
     time: "2025-07-21"
     disclosureType: "leaked"
@@ -2482,7 +2412,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2025-0231"
-    product: "Windsurf Prompt"
+    product: "Windsurf"
     vender: "Codeium"
     time: "2025-07-21"
     disclosureType: "leaked"
@@ -2493,7 +2423,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2025-0237"
-    product: "Databricks Prompt"
+    product: "Databricks"
     vender: "Databricks"
     time: "2025-07-23"
     disclosureType: "leaked"
@@ -2515,7 +2445,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2025-0240"
-    product: "Parahelp Prompt manager"
+    product: "Parahelp Manager"
     vender: "Parahelp"
     time: "2025-07-23"
     disclosureType: "leaked"
@@ -2527,7 +2457,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0241"
-    product: "Parahelp Prompt planning"
+    product: "Parahelp Planning"
     vender: "Parahelp"
     time: "2025-07-23"
     disclosureType: "leaked"
@@ -2539,7 +2469,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2025-0243"
-    product: "Zed Prompt"
+    product: "Zed"
     vender: "Zed"
     time: "2025-07-23"
     disclosureType: "leaked"
@@ -2572,17 +2502,6 @@ prompts:
     system_prompt_id: "lumo-proton-lumo-20250724-2025-07-24"
     quality_score: 7
 
-  - id: "LSP-2025-0249"
-    product: "Lovable Prompt Agent"
-    vender: "Lovable"
-    time: "2025-07-26"
-    disclosureType: "leaked"
-    surface: "ide"
-    source_id: "awesome-system-prompts-elifuzz"
-    source_url: "https://github.com/EliFuzz/awesome-system-prompts/blob/main/leaks/lovable/2025-07-26_prompt_agent.txt"
-    system_prompt_id: "lovable-prompt-agent-2025-07-26-prompt-agent-2025-07-26"
-    quality_score: 8
-
   - id: "LSP-2025-0259"
     product: "Lumo"
     vender: "Proton"
@@ -2597,7 +2516,7 @@ prompts:
 
 
   - id: "LSP-2025-0267"
-    product: "Blackbox Prompt Agent template 14"
+    product: "Blackbox Agent Template 14"
     vender: "Blackbox.ai"
     time: "2025-07-29"
     disclosureType: "leaked"
@@ -2608,7 +2527,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0269"
-    product: "Blackbox Prompt Agent template 17"
+    product: "Blackbox Agent Template 17"
     vender: "Blackbox.ai"
     time: "2025-07-29"
     disclosureType: "leaked"
@@ -2665,7 +2584,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0287"
-    product: "Prompt codefast1"
+    product: "Grok Code Fast"
     vender: "xAI"
     time: "2025-08-01"
     disclosureType: "leaked"
@@ -2710,7 +2629,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2025-0294"
-    product: "Prompt Comet"
+    product: "Perplexity Comet"
     vender: "Perplexity AI"
     time: "2025-08-06"
     disclosureType: "leaked"
@@ -2721,7 +2640,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0295"
-    product: "chatgpt5"
+    product: "ChatGPT 5"
     vender: "OpenAI"
     time: "2025-08-07"
     disclosureType: "leaked"
@@ -2744,7 +2663,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0298"
-    product: "Prompt GPT 5"
+    product: "Cursor GPT-5"
     vender: "OpenAI"
     time: "2025-08-07"
     disclosureType: "leaked"
@@ -2753,18 +2672,6 @@ prompts:
     source_url: "https://github.com/EliFuzz/awesome-system-prompts/blob/main/leaks/cursor/archived/2025-08-07_prompt_gpt5.md"
     system_prompt_id: "prompt-gpt-5-2025-08-07-prompt-gpt5-2025-08-07"
     quality_score: 8
-
-  - id: "LSP-2025-0306"
-    product: "chatgpt5"
-    vender: "OpenAI"
-    time: "2025-08-08"
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date."
-    source_id: "jujumilk3-leaked-system-prompts"
-    source_url: "https://github.com/jujumilk3/leaked-system-prompts/blob/main/openai-chatgpt5_20250808.md"
-    system_prompt_id: "chatgpt5-openai-chatgpt5-20250808-2025-08-08"
-    quality_score: 7
 
   - id: "LSP-2025-0309"
     product: "OpenAI ChatGPT GPT 5 Agent Mode"
@@ -2802,7 +2709,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0316"
-    product: "Codex CLI System Prompt"
+    product: "Codex CLI"
     vender: "OpenAI"
     time: "2025-08-20"
     disclosureType: "leaked"
@@ -2838,7 +2745,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2025-0321"
-    product: "Trae Prompt"
+    product: "Trae"
     vender: "ByteDance (字节跳动)"
     time: "2025-08-23"
     disclosureType: "leaked"
@@ -2871,7 +2778,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2025-0326"
-    product: "Qoder Prompt quest action"
+    product: "Qoder Quest Action"
     vender: "Qoder"
     time: "2025-08-26"
     disclosureType: "leaked"
@@ -2882,7 +2789,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0333"
-    product: "VSCode Prompt nes tab completion"
+    product: "VSCode NES Tab Completion"
     vender: "GitHub"
     time: "2025-08-26"
     disclosureType: "leaked"
@@ -2893,7 +2800,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0338"
-    product: "tracerai Prompt plan Mode"
+    product: "TracerAI Plan Mode"
     vender: ""
     time: "2025-08-30"
     disclosureType: "leaked"
@@ -2904,7 +2811,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0339"
-    product: "Kiro Prompt Mode clasifier"
+    product: "Kiro Mode Classifier"
     vender: "Amazon"
     time: "2025-08-31"
     disclosureType: "leaked"
@@ -2914,19 +2821,8 @@ prompts:
     system_prompt_id: "kiro-prompt-mode-clasifier-2025-08-31-prompt-mode-clasifier-2025-08-31"
     quality_score: 6
 
-  - id: "LSP-2025-0344"
-    product: "Kiro Prompt System"
-    vender: "Amazon"
-    time: "2025-08-31"
-    disclosureType: "leaked"
-    surface: "ide"
-    source_id: "awesome-system-prompts-elifuzz"
-    source_url: "https://github.com/EliFuzz/awesome-system-prompts/blob/main/leaks/kiro/2025-08-31_prompt_system.md"
-    system_prompt_id: "kiro-prompt-system-2025-08-31-prompt-system-2025-08-31"
-    quality_score: 8
-
   - id: "LSP-2025-0347"
-    product: "Prompt"
+    product: "Claude Code"
     vender: "Anthropic"
     time: "2025-09-01"
     disclosureType: "leaked"
@@ -2937,7 +2833,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0348"
-    product: "Prompt Sonnet 45"
+    product: "Claude Sonnet 4.5"
     vender: "Anthropic"
     time: "2025-09-01"
     disclosureType: "leaked"
@@ -2971,7 +2867,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0352"
-    product: "Prompt GPT 5"
+    product: "Cursor GPT-5"
     vender: "OpenAI"
     time: "2025-09-03"
     disclosureType: "leaked"
@@ -3006,7 +2902,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0358"
-    product: "Prompt System"
+    product: "Codex"
     vender: "OpenAI"
     time: "2025-09-15"
     disclosureType: "leaked"
@@ -3018,7 +2914,7 @@ prompts:
 
 
   - id: "LSP-2025-0361"
-    product: "Codex Prompt"
+    product: "Codex"
     vender: "OpenAI"
     time: "2025-09-20"
     disclosureType: "leaked"
@@ -3029,7 +2925,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0362"
-    product: "chatgpt4o"
+    product: "ChatGPT 4o"
     vender: "OpenAI"
     time: "2025-09-27"
     disclosureType: "leaked"
@@ -3074,50 +2970,6 @@ prompts:
     system_prompt_id: "claude-sonnet-4-5-full-anthropic-claude-sonnet-4-5-full-20250929-2025"
     quality_score: 10
 
-  - id: "LSP-2025-0376"
-    product: "Prompt suite docx"
-    vender: "Anthropic"
-    time: "2025-09-29"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "awesome-system-prompts-elifuzz"
-    source_url: "https://github.com/EliFuzz/awesome-system-prompts/blob/main/leaks/anthropic/archived/2025-09-29_prompt_suite-docx.md"
-    system_prompt_id: "prompt-suite-docx-2025-09-29-prompt-suite-docx-2025-09-29"
-    quality_score: 5
-
-  - id: "LSP-2025-0377"
-    product: "Prompt suite pdf"
-    vender: "Anthropic"
-    time: "2025-09-29"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "awesome-system-prompts-elifuzz"
-    source_url: "https://github.com/EliFuzz/awesome-system-prompts/blob/main/leaks/anthropic/archived/2025-09-29_prompt_suite-pdf.md"
-    system_prompt_id: "prompt-suite-pdf-2025-09-29-prompt-suite-pdf-2025-09-29"
-    quality_score: 5
-
-  - id: "LSP-2025-0378"
-    product: "Prompt suite pptx"
-    vender: "Anthropic"
-    time: "2025-09-29"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "awesome-system-prompts-elifuzz"
-    source_url: "https://github.com/EliFuzz/awesome-system-prompts/blob/main/leaks/anthropic/archived/2025-09-29_prompt_suite-pptx.md"
-    system_prompt_id: "prompt-suite-pptx-2025-09-29-prompt-suite-pptx-2025-09-29"
-    quality_score: 5
-
-  - id: "LSP-2025-0379"
-    product: "Prompt suite xlsx"
-    vender: "Anthropic"
-    time: "2025-09-29"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "awesome-system-prompts-elifuzz"
-    source_url: "https://github.com/EliFuzz/awesome-system-prompts/blob/main/leaks/anthropic/archived/2025-09-29_prompt_suite-xlsx.md"
-    system_prompt_id: "prompt-suite-xlsx-2025-09-29-prompt-suite-xlsx-2025-09-29"
-    quality_score: 8
-
   - id: "LSP-2025-0380"
     product: "Perplexity (Claude)"
     vender: "Anthropic"
@@ -3142,7 +2994,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2025-0388"
-    product: "Prompt output style learning"
+    product: "Claude Code Output Style Learning"
     vender: "Anthropic"
     time: "2025-10-09"
     disclosureType: "leaked"
@@ -3198,7 +3050,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0401"
-    product: "xAI Grok 4"
+    product: "Grok 4"
     vender: "xAI"
     time: "2025-10-27"
     disclosureType: "leaked"
@@ -3231,7 +3083,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0405"
-    product: "ide 2.0"
+    product: "Cursor 2.0"
     vender: "Anysphere"
     time: "2025-10-29"
     disclosureType: "leaked"
@@ -3243,7 +3095,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0407"
-    product: "xAI Grok 4 Expert"
+    product: "Grok 4 Expert"
     vender: "xAI"
     time: "2025-10-30"
     disclosureType: "leaked"
@@ -3253,19 +3105,8 @@ prompts:
     system_prompt_id: "xai-grok-4-expert-20251030-grok4-expert-2025-10-30"
     quality_score: 7
 
-  - id: "LSP-2025-0408"
-    product: "xAI Grok 4 Fast"
-    vender: "xAI"
-    time: "2025-10-30"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/xAI/20251030-Grok4-Fast.md"
-    system_prompt_id: "xai-grok-4-fast-20251030-grok4-fast-2025-10-30"
-    quality_score: 7
-
   - id: "LSP-2025-0409"
-    product: "xAI Grok 4 Fast Beta"
+    product: "Grok 4 Fast Beta"
     vender: "xAI"
     time: "2025-10-30"
     disclosureType: "leaked"
@@ -3276,7 +3117,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2025-0412"
-    product: "Prompt AI Studio"
+    product: "Google AI Studio"
     vender: "Google"
     time: "2025-11-01"
     disclosureType: "leaked"
@@ -3287,7 +3128,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0414"
-    product: "Prompt Sonnet 45 Claude Code"
+    product: "Claude Code Sonnet 4.5"
     vender: "Anthropic"
     time: "2025-11-01"
     disclosureType: "leaked"
@@ -3333,7 +3174,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2025-0421"
-    product: "chatgpt5"
+    product: "ChatGPT 5"
     vender: "OpenAI"
     time: "2025-11-09"
     disclosureType: "leaked"
@@ -3379,7 +3220,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0427"
-    product: "Google NotebookLM"
+    product: "NotebookLM"
     vender: "Google"
     time: "2025-11-10"
     disclosureType: "leaked"
@@ -3412,7 +3253,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2025-0432"
-    product: "Prompt Antigravity"
+    product: "Google Antigravity"
     vender: "Google"
     time: "2025-11-18"
     disclosureType: "leaked"
@@ -3435,7 +3276,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2025-0442"
-    product: "Prompt Antigravity Fast"
+    product: "Google Antigravity Fast"
     vender: "Google"
     time: "2025-11-24"
     disclosureType: "leaked"
@@ -3468,7 +3309,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2025-0447"
-    product: "chatgpt5 mini"
+    product: "ChatGPT 5 mini"
     vender: "OpenAI"
     time: "2025-12-06"
     disclosureType: "leaked"
@@ -3482,7 +3323,7 @@ prompts:
 
 
   - id: "LSP-2025-0453"
-    product: "Prompt chrome"
+    product: "Claude in Chrome"
     vender: "Anthropic"
     time: "2025-12-22"
     disclosureType: "leaked"
@@ -3491,18 +3332,6 @@ prompts:
     source_url: "https://github.com/EliFuzz/awesome-system-prompts/blob/main/leaks/anthropic/archived/2025-12-22_prompt_chrome.md"
     system_prompt_id: "prompt-chrome-2025-12-22-prompt-chrome-2025-12-22"
     quality_score: 8
-
-  - id: "LSP-2025-0456"
-    product: "deepseek.ai 01"
-    vender: "DeepSeek (深度求索)"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date. ID year taken from the archived snapshot commit b9dced8 (2025-06-28); the prompt's own publication date is not recorded in the source."
-    source_id: "prongbang-leaked-system-prompts"
-    source_url: "https://x.com/VibeWeb3/status/1917459078860923011"
-    system_prompt_id: "deepseek-ai-01-deepseek-ai-01"
-    quality_score: 5
 
   - id: "LSP-2026-0009"
     product: "Muse spark 1.3 Muse Code"
@@ -3516,7 +3345,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0010"
-    product: "Notion Prompt"
+    product: "Notion AI"
     vender: "Notion"
     time: "2026-01-06"
     disclosureType: "leaked"
@@ -3528,7 +3357,7 @@ prompts:
 
 
   - id: "LSP-2026-0013"
-    product: "anthropic Prompt cowork"
+    product: "Claude Cowork"
     vender: "Anthropic"
     time: "2026-01-16"
     disclosureType: "leaked"
@@ -3537,17 +3366,6 @@ prompts:
     source_url: "https://github.com/EliFuzz/awesome-system-prompts/blob/main/leaks/anthropic/2026-01-16_prompt_cowork.md"
     system_prompt_id: "anthropic-prompt-cowork-2026-01-16-prompt-cowork-2026-01-16"
     quality_score: 9
-
-  - id: "LSP-2026-0016"
-    product: "Claude Sonnet 4.5"
-    vender: "Anthropic"
-    time: "2026-01-18"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/2026-01-18-claude-sonnet-4.5.md"
-    system_prompt_id: "claude-sonnet-4-5-2026-01-18-claude-sonnet-4-5-2026-01-18"
-    quality_score: 8
 
   - id: "LSP-2026-0017"
     product: "Claude constitution v2"
@@ -3572,7 +3390,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0019"
-    product: "evernote Prompt"
+    product: "Evernote AI Assistant"
     vender: ""
     time: "2026-01-21"
     disclosureType: "leaked"
@@ -3583,7 +3401,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0020"
-    product: "Prompt Claude Code excel"
+    product: "Claude in Excel"
     vender: "Anthropic"
     time: "2026-01-24"
     disclosureType: "leaked"
@@ -3606,7 +3424,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0024"
-    product: "Perplexity Prompt Comet"
+    product: "Perplexity Comet"
     vender: "Perplexity AI"
     time: "2026-01-30"
     disclosureType: "leaked"
@@ -3625,10 +3443,10 @@ prompts:
     source_id: "asgeirtj-system-prompts-leaks"
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/gpt-4o.md"
     system_prompt_id: "openai-gpt-4o-gpt-4o-2026-02-04"
-    quality_score: 8
+    quality_score: 6
 
   - id: "LSP-2026-0030"
-    product: "Prompt Claude Opus 46"
+    product: "Claude Opus 4.6"
     vender: "Anthropic"
     time: "2026-02-06"
     disclosureType: "leaked"
@@ -3639,7 +3457,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0031"
-    product: "anthropic Prompt Opus 46"
+    product: "Claude Opus 4.6"
     vender: "Anthropic"
     time: "2026-02-17"
     disclosureType: "leaked"
@@ -3661,7 +3479,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0038"
-    product: "anthropic Claude cowork"
+    product: "Claude Cowork"
     vender: "Anthropic"
     time: "2026-02-21"
     disclosureType: "leaked"
@@ -3727,7 +3545,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0045"
-    product: "OpenAI Prompt GPT 52thinking"
+    product: "GPT-5.2 Thinking"
     vender: "OpenAI"
     time: "2026-03-01"
     disclosureType: "leaked"
@@ -3791,10 +3609,10 @@ prompts:
     source_id: "jujumilk3-leaked-system-prompts"
     source_url: "https://github.com/jujumilk3/leaked-system-prompts/blob/main/notion-ai_20260322.md"
     system_prompt_id: "notion-ai-notion-ai-20260322-2026-03-22"
-    quality_score: 8
+    quality_score: 7
 
   - id: "LSP-2026-0051"
-    product: "chatgpt5 Codex"
+    product: "ChatGPT 5 Codex"
     vender: "OpenAI"
     time: "2026-03-25"
     disclosureType: "leaked"
@@ -3811,7 +3629,8 @@ prompts:
     time: "2026-03-26"
     disclosureType: "leaked"
     surface: "chat"
-    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date."
+    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date. Retains the extraction exchange: the user asks the model to repeat every message starting with \"you are\" inside the JSON `$.description` field, yielding the system prompt."
+    note_zh: "由社区存档并附可验证来源链接；文件名日期为社区记录的披露日期。完整保留了提取过程：用户要求模型把以“you are”开头的全部消息写进 JSON 的 `$.description` 字段，从而带出系统提示词。"
     source_id: "jujumilk3-leaked-system-prompts"
     source_url: "https://github.com/jujumilk3/leaked-system-prompts/blob/main/github-copilot-commit-title-generator_20260326.md"
     system_prompt_id: "copilot-commit-title-generator-github-copilot-commit-title-generator-2"
@@ -3835,22 +3654,12 @@ prompts:
     time: "2026-03-28"
     disclosureType: "leaked"
     surface: "chat"
-    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date."
+    note: "Archived by the community with a verifiable source link; filename date is the community-recorded disclosure date. Retains the full extraction exchange and share link: the user asks Copilot to repeat every line above verbatim inside a code block, yielding the complete system prompt with tool definitions."
+    note_zh: "由社区存档并附可验证来源链接；文件名日期为社区记录的披露日期。正文完整保留了提取过程与分享链接：用户要求 Copilot 逐字复述上方全部文本并以代码块输出，从而带出含工具定义的完整系统提示词。"
     source_id: "jujumilk3-leaked-system-prompts"
     source_url: "https://github.com/jujumilk3/leaked-system-prompts/blob/main/microsoft-copilot_20260328.md"
     system_prompt_id: "copilot-microsoft-copilot-20260328-2026-03-28"
     quality_score: 6
-
-  - id: "LSP-2026-0056"
-    product: "GPT 5"
-    vender: "OpenAI"
-    time: "2026-04-11"
-    disclosureType: "leaked"
-    surface: "cli"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/Codex/old/gpt-5.md"
-    system_prompt_id: "gpt-5-gpt-5-2026-04-11"
-    quality_score: 7
 
   - id: "LSP-2026-0059"
     product: "GPT 5.1"
@@ -3930,19 +3739,8 @@ prompts:
     system_prompt_id: "claude-opus-4-7-anthropic-claude-opus-4-7-20260416-2026-04-16"
     quality_score: 9
 
-  - id: "LSP-2026-0068"
-    product: "Claude Opus 4.7"
-    vender: "Anthropic"
-    time: "2026-04-16"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/2026-04-16-claude-opus-4.7.md"
-    system_prompt_id: "claude-opus-4-7-2026-04-16-claude-opus-4-7-2026-04-16"
-    quality_score: 8
-
   - id: "LSP-2026-0070"
-    product: "Claude design"
+    product: "Claude Design"
     vender: "Anthropic"
     time: "2026-04-17"
     disclosureType: "leaked"
@@ -3954,7 +3752,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0071"
-    product: "anthropic Claude Opus 4.7"
+    product: "Claude Opus 4.7"
     vender: "Anthropic"
     time: "2026-04-22"
     disclosureType: "leaked"
@@ -4042,17 +3840,6 @@ prompts:
     system_prompt_id: "openai-gpt-5-5-thinking-gpt-5-5-thinking-2026-05-23"
     quality_score: 10
 
-  - id: "LSP-2026-0082"
-    product: "Claude Opus 4.8"
-    vender: "Anthropic"
-    time: "2026-05-28"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/2026-05-28-claude-opus-4.8.md"
-    system_prompt_id: "claude-opus-4-8-2026-05-28-claude-opus-4-8-2026-05-28"
-    quality_score: 8
-
   - id: "LSP-2026-0083"
     product: "OpenAI ChatGPT 4.5"
     vender: "OpenAI"
@@ -4062,7 +3849,7 @@ prompts:
     source_id: "asgeirtj-system-prompts-leaks"
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/chatgpt-4.5.md"
     system_prompt_id: "openai-chatgpt-4-5-chatgpt-4-5-2026-06-01"
-    quality_score: 8
+    quality_score: 6
 
   - id: "LSP-2026-0084"
     product: "Siri AI (iOS 27)"
@@ -4076,17 +3863,6 @@ prompts:
     system_prompt_id: "siri-ai-ios-27-siri-prompt-2026-06"
     quality_score: 9
 
-  - id: "LSP-2026-0086"
-    product: "Claude Fable 5"
-    vender: "Anthropic"
-    time: "2026-06-09"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/2026-06-09-claude-fable-5.md"
-    system_prompt_id: "claude-fable-5-2026-06-09-claude-fable-5-2026-06-09"
-    quality_score: 8
-
   - id: "LSP-2026-0087"
     product: "MiCode"
     vender: "Xiaomi (小米)"
@@ -4099,28 +3875,6 @@ prompts:
     system_prompt_id: "micode-xiaomi-micode-20260614-2026-06-14"
     quality_score: 5
 
-  - id: "LSP-2026-0088"
-    product: "Claude Sonnet 5"
-    vender: "Anthropic"
-    time: "2026-06-30"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/2026-06-30-claude-sonnet-5.md"
-    system_prompt_id: "claude-sonnet-5-2026-06-30-claude-sonnet-5-2026-06-30"
-    quality_score: 8
-
-  - id: "LSP-2026-0089"
-    product: "DeepSeek Chat"
-    vender: "DeepSeek (深度求索)"
-    time: "2026-07-14"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/DeepSeek/deepseek-chat.md"
-    system_prompt_id: "deepseek-chat-deepseek-chat-2026-07-14"
-    quality_score: 4
-
   - id: "LSP-2026-0090"
     product: "OpenAI GPT 5.5 instant"
     vender: "OpenAI"
@@ -4131,17 +3885,6 @@ prompts:
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/gpt-5.5-instant.md"
     system_prompt_id: "openai-gpt-5-5-instant-gpt-5-5-instant-2026-07-21"
     quality_score: 9
-
-  - id: "LSP-2026-0091"
-    product: "Claude Opus 5"
-    vender: "Anthropic"
-    time: "2026-07-24"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/2026-07-24-claude-opus-5.md"
-    system_prompt_id: "claude-opus-5-2026-07-24-claude-opus-5-2026-07-24"
-    quality_score: 8
 
   - id: "LSP-2026-0092"
     product: "Kimi 2.6"
@@ -4164,18 +3907,6 @@ prompts:
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/gpt-5.6-sol.md"
     system_prompt_id: "openai-gpt-5-6-sol-gpt-5-6-sol-2026-08-22"
     quality_score: 10
-
-  - id: "LSP-2026-0094"
-    product: "Claude Fable 5.1"
-    vender: "Anthropic"
-    time: "2026-09-01"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/2026-09-01-claude-fable-5.1.md"
-    system_prompt_id: "claude-fable-5-1-2026-09-01-claude-fable-5-1-2026-09-01"
-    quality_score: 8
-
 
   - id: "LSP-2026-0096"
     product: "Anthropic Claude Code Fable 5.1 interactive"
@@ -4377,41 +4108,8 @@ prompts:
     system_prompt_id: "goose-block-goose-20260918-2026-09-18"
     quality_score: 7
 
-  - id: "LSP-2026-0123"
-    product: "Claude Opus 5.5"
-    vender: "Anthropic"
-    time: "2026-09-22"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/2026-09-22-claude-opus-5.5.md"
-    system_prompt_id: "claude-opus-5-5-2026-09-22-claude-opus-5-5-2026-09-22"
-    quality_score: 8
-
-  - id: "LSP-2026-0124"
-    product: "Claude Sonnet 5.5"
-    vender: "Anthropic"
-    time: "2026-09-28"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/2026-09-28-claude-sonnet-5.5.md"
-    system_prompt_id: "claude-sonnet-5-5-2026-09-28-claude-sonnet-5-5-2026-09-28"
-    quality_score: 8
-
-  - id: "LSP-2026-0125"
-    product: "Claude Haiku 5.5"
-    vender: "Anthropic"
-    time: "2026-10-07"
-    disclosureType: "leaked"
-    surface: "chat"
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/2026-10-07-claude-haiku-5.5.md"
-    system_prompt_id: "claude-haiku-5-5-2026-10-07-claude-haiku-5-5-2026-10-07"
-    quality_score: 8
-
   - id: "LSP-2026-0128"
-    product: "2025 04 05 Instructions"
+    product: "v0 Instructions"
     vender: "Vercel"
     time: ""
     disclosureType: "leaked"
@@ -4423,7 +4121,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0129"
-    product: "2025 04 05 v0 model"
+    product: "v0 Model"
     vender: "Vercel"
     time: ""
     disclosureType: "leaked"
@@ -4436,7 +4134,7 @@ prompts:
 
 
   - id: "LSP-2026-0131"
-    product: "advisor Tool"
+    product: "Claude Code Advisor Tool"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -4448,7 +4146,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0132"
-    product: "agents Claude Code guide"
+    product: "Claude Code Guide Agent Definition"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -4460,7 +4158,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0133"
-    product: "agents Explore"
+    product: "Claude Code Explore Agent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -4472,7 +4170,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0134"
-    product: "agents general purpose"
+    product: "Claude Code General Purpose Agent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -4484,7 +4182,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0135"
-    product: "agents Plan"
+    product: "Claude Code Plan Agent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -4530,18 +4228,6 @@ prompts:
     source_url: "https://github.com/Aider-AI/aider/blob/main/aider/prompts.py"
     system_prompt_id: "aider-summarize"
     quality_score: 6
-
-  - id: "LSP-2026-0140"
-    product: "All"
-    vender: "Anthropic"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/official/all.md"
-    system_prompt_id: "all-all"
-    quality_score: 5
 
   - id: "LSP-2026-0141"
     product: "Amazon Rufus"
@@ -4709,7 +4395,7 @@ prompts:
     source_id: "cl4r1t4s-elder-plinius"
     source_url: "https://github.com/elder-plinius/CL4R1T4S/blob/main/ANTHROPIC/CLAUDE-OPUS-5.5.md"
     system_prompt_id: "anthropic-claude-opus-5-5-claude-opus-5-5-2"
-    quality_score: 5
+    quality_score: 6
 
   - id: "LSP-2026-0166"
     product: "Anthropic Claude projects thread Claude"
@@ -4770,30 +4456,6 @@ prompts:
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/claude-sonnet-5.md"
     system_prompt_id: "anthropic-claude-sonnet-5-claude-sonnet-5"
     quality_score: 9
-
-  - id: "LSP-2026-0175"
-    product: "Anthropic Claude Sonnet 5"
-    vender: "Anthropic"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit 162db92 (2026-10-12); the prompt's own publication date is not recorded in the source."
-    source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
-    source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Anthropic/Claude Sonnet 5.txt"
-    system_prompt_id: "anthropic-claude-sonnet-5-claude-sonnet-5-2"
-    quality_score: 8
-
-  - id: "LSP-2026-0176"
-    product: "Anthropic Claude Sonnet 5 Tools"
-    vender: "Anthropic"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit 162db92 (2026-10-12); the prompt's own publication date is not recorded in the source."
-    source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
-    source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Anthropic/Claude Sonnet 5 Tools.txt"
-    system_prompt_id: "anthropic-claude-sonnet-5-tools-claude-sonnet-5-tools"
-    quality_score: 5
 
   - id: "LSP-2026-0177"
     product: "Anthropic Claude Sonnet 5.5"
@@ -4879,18 +4541,6 @@ prompts:
     system_prompt_id: "anthropic-sonnet-4-6-reminders-sonnet-4-6-reminders"
     quality_score: 5
 
-  - id: "LSP-2026-0186"
-    product: "Anthropic visualize"
-    vender: "Anthropic"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/visualize.md"
-    system_prompt_id: "anthropic-visualize-visualize"
-    quality_score: 7
-
   - id: "LSP-2026-0188"
     product: "Antigravity planning Mode"
     vender: "Google"
@@ -4916,7 +4566,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0193"
-    product: "approval review policy"
+    product: "Muse Code Approval Review Policy"
     vender: "Meta"
     time: ""
     disclosureType: "leaked"
@@ -4926,18 +4576,6 @@ prompts:
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Meta/muse-code/prompts/approval-review-policy.md"
     system_prompt_id: "approval-review-policy-approval-review-policy"
     quality_score: 6
-
-  - id: "LSP-2026-0194"
-    product: "asana AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/asana/AGENTS.md"
-    system_prompt_id: "asana-agents-agents"
-    quality_score: 3
 
   - id: "LSP-2026-0195"
     product: "Augment Code Claude 4 Sonnet Agent Prompts"
@@ -4952,7 +4590,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0196"
-    product: "auxiliary analyze session facets 2 1 168"
+    product: "Claude Code Analyze Session Facets"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -4964,7 +4602,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0197"
-    product: "auxiliary background result summary 2 1 293"
+    product: "Claude Code Background Result Summary"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -4976,7 +4614,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0198"
-    product: "auxiliary compact 2 1 293"
+    product: "Claude Code Compact"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -4988,7 +4626,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0199"
-    product: "auxiliary security monitor 2 1 220"
+    product: "Claude Code Security Monitor"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5001,7 +4639,7 @@ prompts:
 
 
   - id: "LSP-2026-0201"
-    product: "auxiliary slug name 2 1 293"
+    product: "Claude Code Slug Name"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5013,7 +4651,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2026-0202"
-    product: "auxiliary summarize conversation 2 1 293"
+    product: "Claude Code Summarize Conversation"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5025,7 +4663,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2026-0203"
-    product: "auxiliary summarize transcript chunk 2 1 168"
+    product: "Claude Code Summarize Transcript Chunk"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5035,30 +4673,6 @@ prompts:
     source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/claude/claudecode/auxiliary/summarize_transcript_chunk-2-1-168.md"
     system_prompt_id: "auxiliary-summarize-transcript-chunk-2-1-168-summarize-transcript-chun"
     quality_score: 6
-
-  - id: "LSP-2026-0207"
-    product: "Blackbox.ai Blackbox Agent"
-    vender: "xAI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit 7496462 (2026-02-20); the prompt's own publication date is not recorded in the source."
-    source_id: "awesome-ai-system-prompts-dontriskit"
-    source_url: "https://github.com/dontriskit/awesome-ai-system-prompts/blob/main/Blackbox.ai/Blackbox-Agent.md"
-    system_prompt_id: "blackbox-ai-blackbox-agent-blackbox-agent"
-    quality_score: 5
-
-  - id: "LSP-2026-0210"
-    product: "box AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/box/AGENTS.md"
-    system_prompt_id: "box-agents-agents"
-    quality_score: 4
 
   - id: "LSP-2026-0211"
     product: "Browser"
@@ -5072,19 +4686,6 @@ prompts:
     system_prompt_id: "browser-fellou-browser"
     quality_score: 8
 
-  - id: "LSP-2026-0212"
-    product: "calendar AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/calendar/AGENTS.md"
-    system_prompt_id: "calendar-agents-agents"
-    quality_score: 5
-
-
   - id: "LSP-2026-0214"
     product: "ChatGPT 4o mini"
     vender: "OpenAI"
@@ -5095,19 +4696,20 @@ prompts:
     source_id: "asgeirtj-system-prompts-leaks"
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/Old/chatgpt-4o-mini.md"
     system_prompt_id: "chatgpt-4o-mini-chatgpt-4o-mini"
-    quality_score: 8
+    quality_score: 6
 
   - id: "LSP-2026-0215"
-    product: "chatgpt.com o4 mini"
+    product: "ChatGPT o4-mini"
     vender: "OpenAI"
     time: ""
     disclosureType: "leaked"
     surface: "chat"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
+    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source. The header is a community formatting note, not a record of how the prompt was obtained."
+    note_zh: "ID 年份取自存档快照提交 dfa2e28（2026-10-16）；来源未记录该提示词自身的公开日期。文件头是社区整理者的格式化说明，不是提示词获取方式的记录。"
     source_id: "asgeirtj-system-prompts-leaks"
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/Old/chatgpt.com-o4-mini.md"
     system_prompt_id: "chatgpt-com-o4-mini-chatgpt-com-o4-mini"
-    quality_score: 6
+    quality_score: 4
 
   - id: "LSP-2026-0216"
     product: "ChatWise Research"
@@ -5155,7 +4757,7 @@ prompts:
     source_id: "louisshark-chatgpt-system-prompt"
     source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/claude/AnthropicAgentLLMPrompter.md"
     system_prompt_id: "claude-anthropicagentllmprompter-anthropicagentllmprompter"
-    quality_score: 6
+    quality_score: 3
 
   - id: "LSP-2026-0225"
     product: "Claude Code cloud Fable 5.1"
@@ -5229,18 +4831,6 @@ prompts:
     system_prompt_id: "claude-code-opus-4-6-claude-code-opus-4-6"
     quality_score: 10
 
-  - id: "LSP-2026-0239"
-    product: "Claude Code Prompt"
-    vender: "Anthropic"
-    time: ""
-    disclosureType: "leaked"
-    surface: "cli"
-    note: "ID year taken from the archived snapshot commit 162db92 (2026-10-12); the prompt's own publication date is not recorded in the source."
-    source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
-    source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Anthropic/Claude Code/Prompt.txt"
-    system_prompt_id: "claude-code-prompt-prompt"
-    quality_score: 8
-
   - id: "LSP-2026-0243"
     product: "Claude cowork"
     vender: "Anthropic"
@@ -5266,7 +4856,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0245"
-    product: "Claude design"
+    product: "Claude Design"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5290,7 +4880,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0249"
-    product: "ClaudeCode cc System Prompt"
+    product: "Claude Code"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5303,7 +4893,7 @@ prompts:
 
 
   - id: "LSP-2026-0251"
-    product: "ClaudeCodeClaudeAgent 2 1 293"
+    product: "Claude Code Background Agent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5315,7 +4905,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0253"
-    product: "ClaudeCodeSystem interactive 2 1 293"
+    product: "Claude Code Interactive System"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5328,7 +4918,7 @@ prompts:
 
 
   - id: "LSP-2026-0255"
-    product: "ClaudeCodeWikiIngestAgent 2 1 293"
+    product: "Claude Code Wiki Ingest Agent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5340,7 +4930,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0256"
-    product: "ClaudeCodeWikiLintAgent 2 1 293"
+    product: "Claude Code Wiki Lint Agent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5352,7 +4942,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0259"
-    product: "clauderesearch citations Agent"
+    product: "Claude Research Citations Agent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5364,7 +4954,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0260"
-    product: "clauderesearch lead Agent"
+    product: "Claude Research Lead Agent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5376,7 +4966,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0261"
-    product: "clauderesearch subagent"
+    product: "Claude Research Subagent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5447,20 +5037,8 @@ prompts:
     system_prompt_id: "cli-devin-cli"
     quality_score: 8
 
-  - id: "LSP-2026-0269"
-    product: "Cline Prompt"
-    vender: "Cline"
-    time: ""
-    disclosureType: "leaked"
-    surface: "ide"
-    note: "ID year taken from the archived snapshot commit 162db92 (2026-10-12); the prompt's own publication date is not recorded in the source."
-    source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
-    source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Open Source prompts/Cline/Prompt.txt"
-    system_prompt_id: "cline-prompt-prompt"
-    quality_score: 9
-
   - id: "LSP-2026-0270"
-    product: "Cluely Default Prompt"
+    product: "Cluely Default"
     vender: "Cluely"
     time: ""
     disclosureType: "leaked"
@@ -5472,7 +5050,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0271"
-    product: "Cluely Enterprise Prompt"
+    product: "Cluely Enterprise"
     vender: "Cluely"
     time: ""
     disclosureType: "leaked"
@@ -5484,7 +5062,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0272"
-    product: "Code guide ClaudeCodeGuideAgent 2 1 293"
+    product: "Claude Code Guide Agent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5496,7 +5074,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0273"
-    product: "CodeBuddy Chat Prompt"
+    product: "CodeBuddy Chat"
     vender: "CodeBuddy"
     time: ""
     disclosureType: "leaked"
@@ -5508,7 +5086,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2026-0274"
-    product: "CodeBuddy Craft Prompt"
+    product: "CodeBuddy Craft"
     vender: "CodeBuddy"
     time: ""
     disclosureType: "leaked"
@@ -5518,18 +5096,6 @@ prompts:
     source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/CodeBuddy Prompts/Craft Prompt.txt"
     system_prompt_id: "codebuddy-craft-prompt-craft-prompt"
     quality_score: 8
-
-  - id: "LSP-2026-0275"
-    product: "Codex auto review"
-    vender: "OpenAI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "cli"
-    note: "Also archived in: asgeirtj-system-prompts-leaks. ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/Codex/codex-auto-review.md"
-    system_prompt_id: "codex-auto-review-codex-auto-review"
-    quality_score: 9
 
   - id: "LSP-2026-0277"
     product: "Codex computer Use"
@@ -5589,7 +5155,7 @@ prompts:
     source_id: "cl4r1t4s-elder-plinius"
     source_url: "https://github.com/elder-plinius/CL4R1T4S/blob/main/OPENAI/Codex_Desktop/GPT-6-Astra_Prompts.md"
     system_prompt_id: "codex-desktop-gpt-6-astra-prompts-gpt-6-astra-prompts"
-    quality_score: 10
+    quality_score: 9
 
   - id: "LSP-2026-0283"
     product: "Codex Desktop realtime Voice Agent"
@@ -5613,7 +5179,7 @@ prompts:
     source_id: "asgeirtj-system-prompts-leaks"
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/Codex/codex-full.md"
     system_prompt_id: "codex-full-codex-full"
-    quality_score: 9
+    quality_score: 8
 
   - id: "LSP-2026-0285"
     product: "Codex GPT 5.3 Codex spark"
@@ -5637,18 +5203,6 @@ prompts:
     source_id: "asgeirtj-system-prompts-leaks"
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/Codex/gpt-5.4-mini.md"
     system_prompt_id: "codex-gpt-5-4-mini-gpt-5-4-mini"
-    quality_score: 8
-
-  - id: "LSP-2026-0287"
-    product: "Codex GPT 5.5"
-    vender: "OpenAI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "cli"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/Codex/gpt-5.5.md"
-    system_prompt_id: "codex-gpt-5-5-gpt-5-5"
     quality_score: 8
 
   - id: "LSP-2026-0290"
@@ -5675,20 +5229,8 @@ prompts:
     system_prompt_id: "codex-gpt-6-1-sol-chatgpt-work-local-gpt-6-1-sol-chatgpt-work-local"
     quality_score: 10
 
-  - id: "LSP-2026-0295"
-    product: "Codex plan Mode"
-    vender: "OpenAI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "cli"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/Codex/plan_mode.md"
-    system_prompt_id: "codex-plan-mode-plan-mode"
-    quality_score: 7
-
   - id: "LSP-2026-0296"
-    product: "Codex rescue ClaudeCodeCodexRescueAgent 2 1 293"
+    product: "Claude Code Codex Rescue Agent"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5724,7 +5266,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0300"
-    product: "commandcode CLI"
+    product: "Command Code CLI"
     vender: "Cohere"
     time: ""
     disclosureType: "leaked"
@@ -5736,7 +5278,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0301"
-    product: "commands btw"
+    product: "Claude Code BTW Command"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5748,7 +5290,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0303"
-    product: "commands rename"
+    product: "Claude Code Rename Command"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -5760,7 +5302,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0304"
-    product: "compaction"
+    product: "Muse Code Compaction"
     vender: "Meta"
     time: ""
     disclosureType: "leaked"
@@ -5772,7 +5314,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0305"
-    product: "compaction remaining work addendum"
+    product: "Muse Code Compaction Remaining Work Addendum"
     vender: "Meta"
     time: ""
     disclosureType: "leaked"
@@ -5794,18 +5336,6 @@ prompts:
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Misc/confer.md"
     system_prompt_id: "confer-confer"
     quality_score: 7
-
-  - id: "LSP-2026-0307"
-    product: "confluence AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/confluence/AGENTS.md"
-    system_prompt_id: "confluence-agents-agents"
-    quality_score: 3
 
   - id: "LSP-2026-0308"
     product: "Copilot Preview 03212024"
@@ -5868,7 +5398,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0316"
-    product: "Cursor Agent Prompt 2.0"
+    product: "Cursor Agent 2.0"
     vender: "Anysphere"
     time: ""
     disclosureType: "leaked"
@@ -5880,7 +5410,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0317"
-    product: "Cursor Agent Prompt v1.0"
+    product: "Cursor Agent v1.0"
     vender: "Anysphere"
     time: ""
     disclosureType: "leaked"
@@ -5892,7 +5422,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0318"
-    product: "Cursor Agent Prompt v1.2"
+    product: "Cursor Agent v1.2"
     vender: "Anysphere"
     time: ""
     disclosureType: "leaked"
@@ -5951,20 +5481,8 @@ prompts:
     system_prompt_id: "cursormemoryevaluate-cursormemoryevaluate"
     quality_score: 7
 
-  - id: "LSP-2026-0328"
-    product: "databases AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/notion/databases/AGENTS.md"
-    system_prompt_id: "databases-agents-agents"
-    quality_score: 5
-
   - id: "LSP-2026-0329"
-    product: "databases data source sqlite tables"
+    product: "Notion Data Source SQLite Tables"
     vender: "Notion"
     time: ""
     disclosureType: "leaked"
@@ -5976,7 +5494,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2026-0330"
-    product: "databases formula spec"
+    product: "Notion Formula Spec"
     vender: "Notion"
     time: ""
     disclosureType: "leaked"
@@ -5988,7 +5506,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2026-0331"
-    product: "databases meeting notes"
+    product: "Notion Meeting Notes"
     vender: "Notion"
     time: ""
     disclosureType: "leaked"
@@ -6013,7 +5531,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0334"
-    product: "default styles"
+    product: "Claude Default Styles"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -6025,7 +5543,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0335"
-    product: "delegated child Agent"
+    product: "Muse Code Delegated Child Agent"
     vender: "Meta"
     time: ""
     disclosureType: "leaked"
@@ -6048,18 +5566,6 @@ prompts:
     system_prompt_id: "device-syncs-subscription-subscription"
     quality_score: 5
 
-  - id: "LSP-2026-0339"
-    product: "Devin System Prompt"
-    vender: "Cognition AI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "agent"
-    note: "Also archived in: cl4r1t4s-elder-plinius. ID year taken from the archived snapshot commit de74fd8 (2026-10-13); the prompt's own publication date is not recorded in the source."
-    source_id: "louisshark-chatgpt-system-prompt"
-    source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/devin/system_prompt.md"
-    system_prompt_id: "devin-system-prompt-system-prompt"
-    quality_score: 9
-
   - id: "LSP-2026-0341"
     product: "Dia CodingSkill"
     vender: "The Browser Company"
@@ -6071,30 +5577,6 @@ prompts:
     source_url: "https://github.com/elder-plinius/CL4R1T4S/blob/main/DIA/Dia_CodingSkill.txt"
     system_prompt_id: "dia-codingskill-dia-codingskill"
     quality_score: 8
-
-  - id: "LSP-2026-0343"
-    product: "Discord AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/discord/AGENTS.md"
-    system_prompt_id: "discord-agents-agents"
-    quality_score: 3
-
-  - id: "LSP-2026-0344"
-    product: "Dots available skills"
-    vender: "OpenAI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/dots/available-skills.md"
-    system_prompt_id: "dots-available-skills-available-skills"
-    quality_score: 6
 
   - id: "LSP-2026-0345"
     product: "Dots Dreamer"
@@ -6142,34 +5624,10 @@ prompts:
     source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
     source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Emergent/Prompt.txt"
     system_prompt_id: "emergent-prompt-prompt"
-    quality_score: 9
-
-  - id: "LSP-2026-0349"
-    product: "explore ClaudeCodeExplore 2 1 293"
-    vender: "Anthropic"
-    time: ""
-    disclosureType: "leaked"
-    surface: "cli"
-    note: "ID year taken from the archived snapshot commit de74fd8 (2026-10-13); the prompt's own publication date is not recorded in the source."
-    source_id: "louisshark-chatgpt-system-prompt"
-    source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/claude/claudecode/explore/ClaudeCodeExplore-2-1-293.md"
-    system_prompt_id: "explore-claudecodeexplore-2-1-293-claudecodeexplore-2-1-293"
     quality_score: 6
 
-  - id: "LSP-2026-0352"
-    product: "fs AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/fs/AGENTS.md"
-    system_prompt_id: "fs-agents-agents"
-    quality_score: 4
-
   - id: "LSP-2026-0354"
-    product: "Gemini CLI System Prompt"
+    product: "Gemini CLI"
     vender: "Google"
     time: ""
     disclosureType: "leaked"
@@ -6179,18 +5637,6 @@ prompts:
     source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Open Source prompts/Gemini CLI/google-gemini-cli-system-prompt.txt"
     system_prompt_id: "gemini-cli-system-prompt-google-gemini-cli-system-prompt"
     quality_score: 9
-
-  - id: "LSP-2026-0355"
-    product: "GitHub AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/github/AGENTS.md"
-    system_prompt_id: "github-agents-agents"
-    quality_score: 3
 
   - id: "LSP-2026-0356"
     product: "GitHub Copilot Agent"
@@ -6229,7 +5675,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0359"
-    product: "gizmo AI"
+    product: "Gizmo AI"
     vender: ""
     time: ""
     disclosureType: "leaked"
@@ -6238,19 +5684,7 @@ prompts:
     source_id: "asgeirtj-system-prompts-leaks"
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Misc/gizmo-ai.md"
     system_prompt_id: "gizmo-ai-gizmo-ai"
-    quality_score: 8
-
-  - id: "LSP-2026-0360"
-    product: "gmail AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/gmail/AGENTS.md"
-    system_prompt_id: "gmail-agents-agents"
-    quality_score: 3
+    quality_score: 4
 
   - id: "LSP-2026-0361"
     product: "Google AI Studio"
@@ -6298,7 +5732,7 @@ prompts:
     source_id: "louisshark-chatgpt-system-prompt"
     source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/google/Brainstormer.md"
     system_prompt_id: "google-brainstormer-brainstormer"
-    quality_score: 7
+    quality_score: 4
 
   - id: "LSP-2026-0365"
     product: "Google CodingPartner"
@@ -6310,7 +5744,7 @@ prompts:
     source_id: "louisshark-chatgpt-system-prompt"
     source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/google/CodingPartner.md"
     system_prompt_id: "google-codingpartner-codingpartner"
-    quality_score: 7
+    quality_score: 4
 
   - id: "LSP-2026-0367"
     product: "Google Gemini 2.0 Flash 03072025"
@@ -6578,7 +6012,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0396"
-    product: "Google NotebookLM 10202024"
+    product: "NotebookLM"
     vender: "Google"
     time: ""
     disclosureType: "leaked"
@@ -6590,7 +6024,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0397"
-    product: "Google NotebookLM Chat"
+    product: "NotebookLM Chat"
     vender: "Google"
     time: ""
     disclosureType: "leaked"
@@ -6625,32 +6059,8 @@ prompts:
     system_prompt_id: "google-writingeditor-writingeditor"
     quality_score: 7
 
-  - id: "LSP-2026-0400"
-    product: "googleCalendar AGENTS"
-    vender: "Google"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/googleCalendar/AGENTS.md"
-    system_prompt_id: "googlecalendar-agents-agents"
-    quality_score: 3
-
-  - id: "LSP-2026-0401"
-    product: "googleDrive AGENTS"
-    vender: "Google"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/googleDrive/AGENTS.md"
-    system_prompt_id: "googledrive-agents-agents"
-    quality_score: 4
-
   - id: "LSP-2026-0402"
-    product: "Goose System Prompt"
+    product: "Goose"
     vender: "Block"
     time: ""
     disclosureType: "official-open-source"
@@ -6685,21 +6095,8 @@ prompts:
     system_prompt_id: "gpt-5-3-codex-gpt-5-3-codex"
     quality_score: 8
 
-  - id: "LSP-2026-0406"
-    product: "helpdocs AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/helpdocs/AGENTS.md"
-    system_prompt_id: "helpdocs-agents-agents"
-    quality_score: 4
-
-
   - id: "LSP-2026-0411"
-    product: "indus AI"
+    product: "Indus AI"
     vender: ""
     time: ""
     disclosureType: "leaked"
@@ -6710,20 +6107,8 @@ prompts:
     system_prompt_id: "indus-ai-indus-ai"
     quality_score: 9
 
-  - id: "LSP-2026-0412"
-    product: "jira AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/jira/AGENTS.md"
-    system_prompt_id: "jira-agents-agents"
-    quality_score: 3
-
   - id: "LSP-2026-0413"
-    product: "Junie Prompt"
+    product: "Junie"
     vender: "JetBrains"
     time: ""
     disclosureType: "leaked"
@@ -6747,7 +6132,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0417"
-    product: "Kiro Spec Prompt"
+    product: "Kiro Spec"
     vender: "Amazon"
     time: ""
     disclosureType: "leaked"
@@ -6759,7 +6144,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0418"
-    product: "Kiro Vibe Prompt"
+    product: "Kiro Vibe"
     vender: "Amazon"
     time: ""
     disclosureType: "leaked"
@@ -6782,20 +6167,8 @@ prompts:
     system_prompt_id: "leap-new-prompts-prompts"
     quality_score: 9
 
-  - id: "LSP-2026-0420"
-    product: "linear AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/linear/AGENTS.md"
-    system_prompt_id: "linear-agents-agents"
-    quality_score: 3
-
   - id: "LSP-2026-0421"
-    product: "Lovable System"
+    product: "Lovable"
     vender: "Lovable"
     time: ""
     disclosureType: "leaked"
@@ -6807,7 +6180,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0423"
-    product: "Lumo Prompt"
+    product: "Lumo"
     vender: "Proton"
     time: ""
     disclosureType: "leaked"
@@ -6818,20 +6191,8 @@ prompts:
     system_prompt_id: "lumo-prompt-prompt"
     quality_score: 8
 
-  - id: "LSP-2026-0424"
-    product: "mail AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/mail/AGENTS.md"
-    system_prompt_id: "mail-agents-agents"
-    quality_score: 4
-
   - id: "LSP-2026-0425"
-    product: "mail guidelines"
+    product: "Notion Mail Guidelines"
     vender: "Notion"
     time: ""
     disclosureType: "leaked"
@@ -6842,32 +6203,8 @@ prompts:
     system_prompt_id: "mail-guidelines-mail-guidelines"
     quality_score: 5
 
-  - id: "LSP-2026-0426"
-    product: "Manus Agent Agent loop"
-    vender: "Butterfly Effect (Monica.im)"
-    time: ""
-    disclosureType: "leaked"
-    surface: "agent"
-    note: "Also archived in: awesome-ai-system-prompts-dontriskit, awesome-system-prompts-elifuzz, louisshark-chatgpt-system-prompt. ID year taken from the archived snapshot commit 162db92 (2026-10-12); the prompt's own publication date is not recorded in the source."
-    source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
-    source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Manus Agent Tools & Prompt/Agent loop.txt"
-    system_prompt_id: "manus-agent-agent-loop-agent-loop"
-    quality_score: 7
-
-  - id: "LSP-2026-0429"
-    product: "Manus Functions"
-    vender: "Butterfly Effect (Monica.im)"
-    time: ""
-    disclosureType: "leaked"
-    surface: "agent"
-    note: "ID year taken from the archived snapshot commit a4d3da0 (2026-09-22); the prompt's own publication date is not recorded in the source."
-    source_id: "cl4r1t4s-elder-plinius"
-    source_url: "https://github.com/elder-plinius/CL4R1T4S/blob/main/MANUS/Manus_Functions.txt"
-    system_prompt_id: "manus-functions-manus-functions"
-    quality_score: 5
-
   - id: "LSP-2026-0433"
-    product: "mcode MiniMaxCodeSystem work 0 4 12"
+    product: "MiniMax Code System Work"
     vender: "MiniMax"
     time: ""
     disclosureType: "leaked"
@@ -6912,7 +6249,7 @@ prompts:
     source_id: "thebigpromptlibrary-0xeb"
     source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Meta.ai/metaai_llama3-04182024.md"
     system_prompt_id: "meta-ai-metaai-llama-3-04182024-metaai-llama3-04182024"
-    quality_score: 6
+    quality_score: 3
 
   - id: "LSP-2026-0439"
     product: "Meta.ai metaai Llama 4 04082025"
@@ -6927,7 +6264,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0441"
-    product: "MetaAI Whatsapp Whatsapp Llama 4 Jul 19"
+    product: "WhatsApp Meta AI Llama 4"
     vender: "Meta"
     time: ""
     disclosureType: "leaked"
@@ -6939,7 +6276,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0442"
-    product: "MetaAIHiddenPrompt"
+    product: "Meta AI Hidden Prompt"
     vender: "Meta"
     time: ""
     disclosureType: "leaked"
@@ -7011,7 +6348,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0448"
-    product: "MiMo Code Agent Prompt mimo.v2.5"
+    product: "MiMoCode v2.5"
     vender: ""
     time: ""
     disclosureType: "leaked"
@@ -7023,7 +6360,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0449"
-    product: "minimax m2.5"
+    product: "MiniMax M2.5"
     vender: "MiniMax"
     time: ""
     disclosureType: "leaked"
@@ -7083,7 +6420,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0455"
-    product: "mods you should know 2 1 296"
+    product: "Claude Code You Should Know"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -7095,7 +6432,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0456"
-    product: "monday GPT"
+    product: "Monday GPT"
     vender: "OpenAI"
     time: ""
     disclosureType: "leaked"
@@ -7104,7 +6441,7 @@ prompts:
     source_id: "asgeirtj-system-prompts-leaks"
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/Old/monday-gpt.md"
     system_prompt_id: "monday-gpt-monday-gpt"
-    quality_score: 8
+    quality_score: 4
 
   - id: "LSP-2026-0458"
     product: "MultiOn"
@@ -7117,42 +6454,6 @@ prompts:
     source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/other/MultiOn.md"
     system_prompt_id: "multion-multion"
     quality_score: 8
-
-  - id: "LSP-2026-0460"
-    product: "Muse Agent AGENTS"
-    vender: "Meta"
-    time: ""
-    disclosureType: "leaked"
-    surface: "agent"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Meta/muse-agent/AGENTS.md"
-    system_prompt_id: "muse-agent-agents-agents"
-    quality_score: 4
-
-  - id: "LSP-2026-0465"
-    product: "Muse Agent SOUL"
-    vender: "Meta"
-    time: ""
-    disclosureType: "leaked"
-    surface: "agent"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Meta/muse-agent/SOUL.md"
-    system_prompt_id: "muse-agent-soul-soul"
-    quality_score: 6
-
-  - id: "LSP-2026-0467"
-    product: "Notion AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/notion/AGENTS.md"
-    system_prompt_id: "notion-agents-agents"
-    quality_score: 5
 
   - id: "LSP-2026-0468"
     product: "Notion AI"
@@ -7167,7 +6468,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2026-0471"
-    product: "OpenAI ChatGPT 4o deprecation preparedness Prompt"
+    product: "ChatGPT 4o Deprecation Preparedness"
     vender: "OpenAI"
     time: ""
     disclosureType: "leaked"
@@ -7177,18 +6478,6 @@ prompts:
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/chatgpt-4o-deprecation-preparedness-prompt.md"
     system_prompt_id: "openai-chatgpt-4o-deprecation-preparedness-prompt-chatgpt-4o-deprecati"
     quality_score: 6
-
-  - id: "LSP-2026-0472"
-    product: "OpenAI ChatGPT Atlas"
-    vender: "OpenAI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/chatgpt-atlas.md"
-    system_prompt_id: "openai-chatgpt-atlas-chatgpt-atlas"
-    quality_score: 7
 
   - id: "LSP-2026-0473"
     product: "OpenAI ChatGPT Personality Instructions"
@@ -7225,18 +6514,6 @@ prompts:
     source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/openai/codex.md"
     system_prompt_id: "openai-codex-codex"
     quality_score: 6
-
-  - id: "LSP-2026-0480"
-    product: "OpenAI GPT 4 5"
-    vender: "OpenAI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit de74fd8 (2026-10-13); the prompt's own publication date is not recorded in the source."
-    source_id: "louisshark-chatgpt-system-prompt"
-    source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/openai/gpt4-5.md"
-    system_prompt_id: "openai-gpt-4-5-gpt4-5"
-    quality_score: 5
 
   - id: "LSP-2026-0481"
     product: "OpenAI GPT 4.5"
@@ -7285,18 +6562,6 @@ prompts:
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/gpt-5-robot-personality.md"
     system_prompt_id: "openai-gpt-5-robot-personality-gpt-5-robot-personality"
     quality_score: 7
-
-  - id: "LSP-2026-0486"
-    product: "OpenAI GPT 5.1 efficient"
-    vender: "OpenAI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/OpenAI/gpt-5.1-efficient.md"
-    system_prompt_id: "openai-gpt-5-1-efficient-gpt-5-1-efficient"
-    quality_score: 6
 
   - id: "LSP-2026-0487"
     product: "OpenAI GPT 5.1 nerdy"
@@ -7371,7 +6636,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0493"
-    product: "OpenAI optimization System Prompt playground"
+    product: "ChatGPT System Prompt Generator"
     vender: "OpenAI"
     time: ""
     disclosureType: "leaked"
@@ -7407,79 +6672,33 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0503"
-    product: "OpenHands System Prompt"
+    product: "OpenHands Agent"
     vender: "All Hands AI"
     time: ""
     disclosureType: "official-open-source"
     surface: "agent"
-    note: "Extracted from the open-source repository file clients/typescript/src/prompts/system-prompt.ts (code shell stripped). ID year taken from the raw snapshot time 2026-10-17; the prompt's own publication date is not recorded in the source."
+    note: "Extracted from `DEFAULT_SYSTEM_PROMPT` in clients/typescript/src/prompts/system-prompt.ts (code shell stripped). ID year taken from the raw snapshot time 2026-10-17; the prompt's own publication date is not recorded in the source."
+    note_zh: "提取自 `clients/typescript/src/prompts/system-prompt.ts` 中的 `DEFAULT_SYSTEM_PROMPT` 常量（已剥离代码外壳）。ID 年份取自原始快照时间 2026-10-17；来源未记录该提示词自身的公开日期。"
     source_id: "openhands-software-agent-sdk"
     source_url: "https://github.com/OpenHands/software-agent-sdk/blob/main/clients/typescript/src/prompts/system-prompt.ts"
     system_prompt_id: "openhands-system-prompt-system-prompt"
     quality_score: 7
 
   - id: "LSP-2026-0504"
-    product: "OpenHands System Prompt"
+    product: "OpenHands Minimal Agent"
     vender: "All Hands AI"
     time: ""
     disclosureType: "official-open-source"
     surface: "agent"
-    note: "Extracted from the open-source repository file clients/typescript/src/prompts/system-prompt.ts (code shell stripped). ID year taken from the raw snapshot time 2026-10-17; the prompt's own publication date is not recorded in the source."
+    note: "Extracted from `MINIMAL_SYSTEM_PROMPT` in clients/typescript/src/prompts/system-prompt.ts (code shell stripped). ID year taken from the raw snapshot time 2026-10-17; the prompt's own publication date is not recorded in the source."
+    note_zh: "提取自 `clients/typescript/src/prompts/system-prompt.ts` 中的 `MINIMAL_SYSTEM_PROMPT` 常量（已剥离代码外壳）。ID 年份取自原始快照时间 2026-10-17；来源未记录该提示词自身的公开日期。"
     source_id: "openhands-software-agent-sdk"
     source_url: "https://github.com/OpenHands/software-agent-sdk/blob/main/clients/typescript/src/prompts/system-prompt.ts"
     system_prompt_id: "openhands-system-prompt-system-prompt-2"
     quality_score: 5
 
-  - id: "LSP-2026-0505"
-    product: "OpenHands System Prompt"
-    vender: "All Hands AI"
-    time: ""
-    disclosureType: "official-open-source"
-    surface: "agent"
-    note: "Extracted from the open-source repository file clients/typescript/src/prompts/system-prompt.ts (code shell stripped). ID year taken from the raw snapshot time 2026-10-17; the prompt's own publication date is not recorded in the source."
-    source_id: "openhands-software-agent-sdk"
-    source_url: "https://github.com/OpenHands/software-agent-sdk/blob/main/clients/typescript/src/prompts/system-prompt.ts"
-    system_prompt_id: "openhands-system-prompt-system-prompt-3"
-    quality_score: 4
-
-  - id: "LSP-2026-0506"
-    product: "OpenHands System Prompt"
-    vender: "All Hands AI"
-    time: ""
-    disclosureType: "official-open-source"
-    surface: "agent"
-    note: "Extracted from the open-source repository file clients/typescript/src/prompts/system-prompt.ts (code shell stripped). ID year taken from the raw snapshot time 2026-10-17; the prompt's own publication date is not recorded in the source."
-    source_id: "openhands-software-agent-sdk"
-    source_url: "https://github.com/OpenHands/software-agent-sdk/blob/main/clients/typescript/src/prompts/system-prompt.ts"
-    system_prompt_id: "openhands-system-prompt-system-prompt-4"
-    quality_score: 4
-
-  - id: "LSP-2026-0507"
-    product: "OpenHands System Prompt"
-    vender: "All Hands AI"
-    time: ""
-    disclosureType: "official-open-source"
-    surface: "agent"
-    note: "Extracted from the open-source repository file clients/typescript/src/prompts/system-prompt.ts (code shell stripped). ID year taken from the raw snapshot time 2026-10-17; the prompt's own publication date is not recorded in the source."
-    source_id: "openhands-software-agent-sdk"
-    source_url: "https://github.com/OpenHands/software-agent-sdk/blob/main/clients/typescript/src/prompts/system-prompt.ts"
-    system_prompt_id: "openhands-system-prompt-system-prompt-5"
-    quality_score: 4
-
-  - id: "LSP-2026-0508"
-    product: "OpenHands System Prompt"
-    vender: "All Hands AI"
-    time: ""
-    disclosureType: "official-open-source"
-    surface: "agent"
-    note: "Extracted from the open-source repository file clients/typescript/src/prompts/system-prompt.ts (code shell stripped). ID year taken from the raw snapshot time 2026-10-17; the prompt's own publication date is not recorded in the source."
-    source_id: "openhands-software-agent-sdk"
-    source_url: "https://github.com/OpenHands/software-agent-sdk/blob/main/clients/typescript/src/prompts/system-prompt.ts"
-    system_prompt_id: "openhands-system-prompt-system-prompt-6"
-    quality_score: 4
-
   - id: "LSP-2026-0509"
-    product: "Orchids.app Decision making Prompt"
+    product: "Orchids.app Decision Making"
     vender: "Orchids.app"
     time: ""
     disclosureType: "leaked"
@@ -7491,7 +6710,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0510"
-    product: "Orchids.app System Prompt"
+    product: "Orchids.app"
     vender: "Orchids.app"
     time: ""
     disclosureType: "leaked"
@@ -7503,7 +6722,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2026-0511"
-    product: "output styles concise"
+    product: "Claude Code Concise Output Style"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -7515,7 +6734,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0512"
-    product: "output styles explanatory"
+    product: "Claude Code Explanatory Output Style"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -7527,7 +6746,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2026-0514"
-    product: "output styles proactive"
+    product: "Claude Code Proactive Output Style"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -7550,20 +6769,8 @@ prompts:
     system_prompt_id: "overflow-ai-assist-stack-overflow-ai-assist"
     quality_score: 7
 
-  - id: "LSP-2026-0516"
-    product: "pages AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/notion/pages/AGENTS.md"
-    system_prompt_id: "pages-agents-agents"
-    quality_score: 5
-
   - id: "LSP-2026-0517"
-    product: "pages page content spec"
+    product: "Notion Page Content Spec"
     vender: "Notion"
     time: ""
     disclosureType: "leaked"
@@ -7599,7 +6806,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0520"
-    product: "Perplexity computer"
+    product: "Perplexity Computer"
     vender: "Perplexity AI"
     time: ""
     disclosureType: "leaked"
@@ -7612,7 +6819,7 @@ prompts:
 
   - id: "LSP-2026-0521"
     product: "Perplexity Deep Research"
-    vender: "OpenAI"
+    vender: "Perplexity AI"
     time: ""
     disclosureType: "leaked"
     surface: "chat"
@@ -7634,18 +6841,6 @@ prompts:
     system_prompt_id: "perplexity-voice-assistant-voice-assistant"
     quality_score: 6
 
-  - id: "LSP-2026-0524"
-    product: "perplexity.ai regular"
-    vender: "Perplexity AI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit 7496462 (2026-02-20); the prompt's own publication date is not recorded in the source."
-    source_id: "awesome-ai-system-prompts-dontriskit"
-    source_url: "https://github.com/dontriskit/awesome-ai-system-prompts/blob/main/perplexity.ai/regular.md"
-    system_prompt_id: "perplexity-ai-regular-regular"
-    quality_score: 5
-
   - id: "LSP-2026-0525"
     product: "Pi Instructions"
     vender: "Inflection AI"
@@ -7659,7 +6854,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0527"
-    product: "plan Mode"
+    product: "Claude Code Plan Mode"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -7756,7 +6951,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2026-0537"
-    product: "Prompt suggestion"
+    product: "Claude Code Prompt Suggestion"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -7768,7 +6963,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0538"
-    product: "Qoder Prompt"
+    product: "Qoder"
     vender: "Qoder"
     time: ""
     disclosureType: "leaked"
@@ -7791,59 +6986,8 @@ prompts:
     system_prompt_id: "qoder-quest-design-quest-design"
     quality_score: 9
 
-  - id: "LSP-2026-0541"
-    product: "Qwen 3.6 plus"
-    vender: "Alibaba (阿里云)"
-    time: ""
-    disclosureType: "leaked"
-    surface: "cli"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Qwen/qwen3.6-plus.md"
-    system_prompt_id: "qwen-3-6-plus-qwen3-6-plus"
-    quality_score: 4
-
-  - id: "LSP-2026-0542"
-    product: "Qwen 3.8 Max"
-    vender: "Alibaba (阿里云)"
-    time: ""
-    disclosureType: "leaked"
-    surface: "cli"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Qwen/qwen3.8-max.md"
-    system_prompt_id: "qwen-3-8-max-qwen3-8-max"
-    quality_score: 4
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   - id: "LSP-2026-0571"
-    product: "reminders goal reminder"
+    product: "Muse Code Goal Reminder"
     vender: "Meta"
     time: ""
     disclosureType: "leaked"
@@ -7855,7 +6999,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0572"
-    product: "reminders scope reminder"
+    product: "Muse Code Scope Reminder"
     vender: "Meta"
     time: ""
     disclosureType: "leaked"
@@ -7867,7 +7011,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0573"
-    product: "reminders verify reminder"
+    product: "Muse Code Verify Reminder"
     vender: "Meta"
     time: ""
     disclosureType: "leaked"
@@ -7879,20 +7023,8 @@ prompts:
     quality_score: 7
 
 
-  - id: "LSP-2026-0577"
-    product: "Replit Code Generation"
-    vender: "Replit"
-    time: ""
-    disclosureType: "leaked"
-    surface: "ide"
-    note: "Also archived in: cl4r1t4s-elder-plinius. ID year taken from the archived snapshot commit de74fd8 (2026-10-13); the prompt's own publication date is not recorded in the source."
-    source_id: "louisshark-chatgpt-system-prompt"
-    source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/replit/code_generation.md"
-    system_prompt_id: "replit-code-generation-code-generation"
-    quality_score: 6
-
   - id: "LSP-2026-0579"
-    product: "RooCode Prompt"
+    product: "Roo Code"
     vender: "Roo Code"
     time: ""
     disclosureType: "leaked"
@@ -7904,7 +7036,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0580"
-    product: "Same.dev Prompt"
+    product: "Same.dev"
     vender: "Same.dev"
     time: ""
     disclosureType: "leaked"
@@ -7941,7 +7073,7 @@ prompts:
 
 
   - id: "LSP-2026-0585"
-    product: "session recap"
+    product: "Claude Code Session Recap"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -7953,7 +7085,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2026-0586"
-    product: "session rename"
+    product: "Claude Code Session Rename"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -7962,18 +7094,6 @@ prompts:
     source_id: "asgeirtj-system-prompts-leaks"
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/claude-code/prompts/session-rename.md"
     system_prompt_id: "session-rename-session-rename"
-    quality_score: 5
-
-  - id: "LSP-2026-0588"
-    product: "slack AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/slack/AGENTS.md"
-    system_prompt_id: "slack-agents-agents"
     quality_score: 5
 
   - id: "LSP-2026-0589"
@@ -7990,7 +7110,7 @@ prompts:
 
 
   - id: "LSP-2026-0591"
-    product: "status line ClaudeCodeStatusLine 2 1 293"
+    product: "Claude Code Status Line"
     vender: "Anthropic"
     time: ""
     disclosureType: "leaked"
@@ -8002,7 +7122,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2026-0593"
-    product: "System Prompt"
+    product: "Meta Muse agent workspace"
     vender: "Meta"
     time: ""
     disclosureType: "leaked"
@@ -8037,42 +7157,6 @@ prompts:
     system_prompt_id: "t3-chat-t3-chat"
     quality_score: 6
 
-  - id: "LSP-2026-0596"
-    product: "teamspaces AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/notion/teamspaces/AGENTS.md"
-    system_prompt_id: "teamspaces-agents-agents"
-    quality_score: 3
-
-  - id: "LSP-2026-0597"
-    product: "test AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/test/AGENTS.md"
-    system_prompt_id: "test-agents-agents"
-    quality_score: 3
-
-  - id: "LSP-2026-0598"
-    product: "threads AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/notion/threads/AGENTS.md"
-    system_prompt_id: "threads-agents-agents"
-    quality_score: 3
-
   - id: "LSP-2026-0601"
     product: "Traycer AI phase Mode Prompts"
     vender: "Traycer AI"
@@ -8086,7 +7170,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0602"
-    product: "Trickle System"
+    product: "Trickle"
     vender: "Trickle"
     time: ""
     disclosureType: "leaked"
@@ -8095,19 +7179,7 @@ prompts:
     source_id: "louisshark-chatgpt-system-prompt"
     source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/trickle/system.md"
     system_prompt_id: "trickle-system-system"
-    quality_score: 6
-
-  - id: "LSP-2026-0603"
-    product: "users AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/notion/users/AGENTS.md"
-    system_prompt_id: "users-agents-agents"
-    quality_score: 5
+    quality_score: 4
 
   - id: "LSP-2026-0604"
     product: "v0 Chat"
@@ -8145,7 +7217,7 @@ prompts:
     source_id: "asgeirtj-system-prompts-leaks"
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/Misc/elevenlabs-voice-agent.md"
     system_prompt_id: "voice-agent-elevenlabs-voice-agent"
-    quality_score: 6
+    quality_score: 4
 
   - id: "LSP-2026-0611"
     product: "Voil"
@@ -8171,18 +7243,6 @@ prompts:
     system_prompt_id: "vscode-agent-chat-titles-chat-titles"
     quality_score: 6
 
-  - id: "LSP-2026-0613"
-    product: "VSCode Agent Claude Sonnet 4"
-    vender: "Anthropic"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit 162db92 (2026-10-12); the prompt's own publication date is not recorded in the source."
-    source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
-    source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/VSCode Agent/claude-sonnet-4.txt"
-    system_prompt_id: "vscode-agent-claude-sonnet-4-claude-sonnet-4"
-    quality_score: 7
-
   - id: "LSP-2026-0614"
     product: "VSCode Agent Gemini 2.5 Pro"
     vender: "Google"
@@ -8197,7 +7257,7 @@ prompts:
 
   - id: "LSP-2026-0617"
     product: "VSCode Agent GPT 5"
-    vender: "OpenAI"
+    vender: "Microsoft"
     time: ""
     disclosureType: "leaked"
     surface: "chat"
@@ -8208,7 +7268,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0620"
-    product: "VSCode Agent Prompt"
+    product: "VSCode Agent"
     vender: "GitHub"
     time: ""
     disclosureType: "leaked"
@@ -8220,7 +7280,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0621"
-    product: "Warp.dev Prompt"
+    product: "Warp"
     vender: "Warp"
     time: ""
     disclosureType: "leaked"
@@ -8230,18 +7290,6 @@ prompts:
     source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Warp.dev/Prompt.txt"
     system_prompt_id: "warp-dev-prompt-prompt"
     quality_score: 8
-
-  - id: "LSP-2026-0622"
-    product: "Web AGENTS"
-    vender: "Notion"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit cabcdb0 (2026-09-07); the prompt's own publication date is not recorded in the source."
-    source_id: "thebigpromptlibrary-0xeb"
-    source_url: "https://github.com/0xeb/TheBigPromptLibrary/blob/main/SystemPrompts/Notion/notion-ai_20260322/modules/web/AGENTS.md"
-    system_prompt_id: "web-agents-agents"
-    quality_score: 5
 
   - id: "LSP-2026-0623"
     product: "Wegic"
@@ -8269,7 +7317,7 @@ prompts:
 
 
   - id: "LSP-2026-0626"
-    product: "Windsurf Prompt Wave 11"
+    product: "Windsurf Wave 11"
     vender: "Codeium"
     time: ""
     disclosureType: "leaked"
@@ -8305,7 +7353,7 @@ prompts:
     quality_score: 5
 
   - id: "LSP-2026-0632"
-    product: "xAI Grok 3"
+    product: "Grok 3"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8317,7 +7365,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0634"
-    product: "xAI Grok 3 Persona Companion"
+    product: "Grok 3 Persona Companion"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8329,7 +7377,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0635"
-    product: "xAI Grok 3 Persona Homework Helper"
+    product: "Grok 3 Persona Homework Helper"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8341,7 +7389,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0636"
-    product: "xAI Grok 3 Persona Loyal Friend"
+    product: "Grok 3 Persona Loyal Friend"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8353,7 +7401,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0637"
-    product: "xAI Grok 3 Persona Not A Doctor"
+    product: "Grok 3 Persona Not A Doctor"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8365,7 +7413,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0638"
-    product: "xAI Grok 3 Persona Not A Therapist"
+    product: "Grok 3 Persona Not A Therapist"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8377,7 +7425,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0639"
-    product: "xAI Grok 3 Persona Unhinged Comedian"
+    product: "Grok 3 Persona Unhinged Comedian"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8389,7 +7437,7 @@ prompts:
     quality_score: 7
 
   - id: "LSP-2026-0641"
-    product: "xAI Grok 3withdeepsearch"
+    product: "Grok 3 with Deep Search"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8401,7 +7449,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0642"
-    product: "xAI Grok 4"
+    product: "Grok 4"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8413,7 +7461,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0644"
-    product: "xAI Grok 4 with new safety Instructions"
+    product: "Grok 4 with New Safety Instructions"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8425,7 +7473,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0645"
-    product: "xAI Grok 4.1 Beta"
+    product: "Grok 4.1 Beta"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8437,7 +7485,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0647"
-    product: "xAI Grok 4.2"
+    product: "Grok 4.2"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8449,7 +7497,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0648"
-    product: "xAI Grok 4.3 Beta"
+    product: "Grok 4.3 Beta"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8461,7 +7509,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0649"
-    product: "xAI Grok 4.5"
+    product: "Grok 4.5"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8473,7 +7521,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0650"
-    product: "xAI Grok 4.6"
+    product: "Grok 4.6"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8485,7 +7533,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0651"
-    product: "xAI Grok 4.7"
+    product: "Grok 4.7"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8497,7 +7545,7 @@ prompts:
     quality_score: 9
 
   - id: "LSP-2026-0652"
-    product: "xAI Grok 4.7 CLI"
+    product: "Grok 4.7 CLI"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8509,7 +7557,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2026-0653"
-    product: "xAI Grok account"
+    product: "Grok Account"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8520,20 +7568,8 @@ prompts:
     system_prompt_id: "xai-grok-account-grok-account"
     quality_score: 7
 
-  - id: "LSP-2026-0654"
-    product: "xAI Grok API"
-    vender: "xAI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit dfa2e28 (2026-10-16); the prompt's own publication date is not recorded in the source."
-    source_id: "asgeirtj-system-prompts-leaks"
-    source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/xAI/grok-api.md"
-    system_prompt_id: "xai-grok-api-grok-api"
-    quality_score: 5
-
   - id: "LSP-2026-0655"
-    product: "xAI Grok Bot"
+    product: "Grok Bot"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8545,7 +7581,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2026-0656"
-    product: "xAI Grok build"
+    product: "Grok Build"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8557,7 +7593,7 @@ prompts:
     quality_score: 10
 
   - id: "LSP-2026-0658"
-    product: "xAI Grok expert"
+    product: "Grok Expert"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8569,7 +7605,7 @@ prompts:
     quality_score: 8
 
   - id: "LSP-2026-0659"
-    product: "xAI Grok personas"
+    product: "Grok Personas"
     vender: "xAI"
     time: ""
     disclosureType: "leaked"
@@ -8579,18 +7615,6 @@ prompts:
     source_url: "https://github.com/asgeirtj/system_prompts_leaks/blob/main/xAI/grok-personas.md"
     system_prompt_id: "xai-grok-personas-grok-personas"
     quality_score: 8
-
-  - id: "LSP-2026-0660"
-    product: "xAI GrokJailbreakPrompt"
-    vender: "xAI"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "Also archived in: awesome-ai-system-prompts-dontriskit, awesome-system-prompts-elifuzz. ID year taken from the archived snapshot commit de74fd8 (2026-10-13); the prompt's own publication date is not recorded in the source."
-    source_id: "louisshark-chatgpt-system-prompt"
-    source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/xai/GrokJailbreakPrompt.md"
-    system_prompt_id: "xai-grokjailbreakprompt-grokjailbreakprompt"
-    quality_score: 6
 
   - id: "LSP-2026-0661"
     product: "Xcode DocumentAction"
@@ -8602,7 +7626,7 @@ prompts:
     source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
     source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Xcode/DocumentAction.txt"
     system_prompt_id: "xcode-documentaction-documentaction"
-    quality_score: 4
+    quality_score: 2
 
   - id: "LSP-2026-0662"
     product: "Xcode ExplainAction"
@@ -8614,19 +7638,7 @@ prompts:
     source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
     source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Xcode/ExplainAction.txt"
     system_prompt_id: "xcode-explainaction-explainaction"
-    quality_score: 4
-
-  - id: "LSP-2026-0663"
-    product: "Xcode MessageAction"
-    vender: "Apple"
-    time: ""
-    disclosureType: "leaked"
-    surface: "ide"
-    note: "Also archived in: awesome-system-prompts-elifuzz. ID year taken from the archived snapshot commit 162db92 (2026-10-12); the prompt's own publication date is not recorded in the source."
-    source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
-    source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Xcode/MessageAction.txt"
-    system_prompt_id: "xcode-messageaction-messageaction"
-    quality_score: 4
+    quality_score: 2
 
   - id: "LSP-2026-0664"
     product: "Xcode PlaygroundAction"
@@ -8638,7 +7650,7 @@ prompts:
     source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
     source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Xcode/PlaygroundAction.txt"
     system_prompt_id: "xcode-playgroundaction-playgroundaction"
-    quality_score: 4
+    quality_score: 2
 
   - id: "LSP-2026-0665"
     product: "Xcode PreviewAction"
@@ -8650,10 +7662,10 @@ prompts:
     source_id: "x1xhlol-system-prompts-and-models-of-ai-tools"
     source_url: "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Xcode/PreviewAction.txt"
     system_prompt_id: "xcode-previewaction-previewaction"
-    quality_score: 5
+    quality_score: 2
 
   - id: "LSP-2026-0666"
-    product: "Xcode System"
+    product: "Xcode"
     vender: "Apple"
     time: ""
     disclosureType: "leaked"
@@ -8665,7 +7677,7 @@ prompts:
     quality_score: 6
 
   - id: "LSP-2026-0667"
-    product: "Z.ai Code Prompt"
+    product: "Z.ai Code"
     vender: "Z.ai (智谱)"
     time: ""
     disclosureType: "leaked"
@@ -8687,18 +7699,6 @@ prompts:
     source_url: "https://github.com/elder-plinius/CL4R1T4S/blob/main/ZAI/ZCode/Prompts.md"
     system_prompt_id: "zcode-prompts-prompts"
     quality_score: 10
-
-  - id: "LSP-2026-0669"
-    product: "ZCode Skills"
-    vender: "Z.ai (智谱)"
-    time: ""
-    disclosureType: "leaked"
-    surface: "chat"
-    note: "ID year taken from the archived snapshot commit a4d3da0 (2026-09-22); the prompt's own publication date is not recorded in the source."
-    source_id: "cl4r1t4s-elder-plinius"
-    source_url: "https://github.com/elder-plinius/CL4R1T4S/blob/main/ZAI/ZCode/Skills.md"
-    system_prompt_id: "zcode-skills-skills"
-    quality_score: 8
 
   - id: "LSP-2026-0670"
     product: "Zed"

@@ -72,6 +72,12 @@ export function PromptDetail({
   // Untranslated entries show the original text on both sides rather than a blank panel.
   const original = originalRaw.trim() ? originalRaw : translationRaw;
   const translation = translationRaw.trim() ? translationRaw : originalRaw;
+  // Either side can be absent; name the text that is actually on screen so a
+  // fallback does not read as a wrong translation.
+  const missingFor = (langLabel: string) => ({
+    label: strings.labels.missingBody.replace('{lang}', langLabel),
+    hint: strings.labels.missingBodyHint.replace('{lang}', langLabel),
+  });
 
   return (
     <div className="flex min-w-0 flex-col gap-5 p-5">
@@ -118,8 +124,22 @@ export function PromptDetail({
         onChange={onSide}
         loading={loading}
         sides={[
-          { key: 'translation', label: strings.labels.translation, text: translation },
-          { key: 'original', label: strings.labels.original, text: original },
+          {
+            key: 'translation',
+            label: strings.labels.translation,
+            text: translation,
+            missing: translationRaw.trim()
+              ? undefined
+              : missingFor(strings.labels.original),
+          },
+          {
+            key: 'original',
+            label: strings.labels.original,
+            text: original,
+            missing: originalRaw.trim()
+              ? undefined
+              : missingFor(strings.labels.translation),
+          },
         ]}
       />
     </div>

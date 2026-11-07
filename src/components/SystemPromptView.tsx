@@ -57,6 +57,11 @@ function SystemPromptDetail({
   // Bodies arrive per language on demand; until they land the panel shows a
   // skeleton instead of a misleading empty box.
   const [bodies, setBodies] = useState<Record<string, string>>({});
+  // Languages whose own body is absent; the panel badges them so a fallback
+  // never reads as a bad translation.
+  const [missing, setMissing] = useState<
+    Record<string, { label: string; hint: string } | undefined>
+  >({});
   const [loading, setLoading] = useState(true);
   const bodyId = prompt.system_prompt_id;
   // Languages never change identity while mounted; joining the keys keeps the
@@ -79,9 +84,25 @@ function SystemPromptDetail({
         )
       ) as Record<string, string | null>;
       if (!alive) return;
-      const fallback = loaded['en'] || Object.values(loaded).find((text) => text) || '';
+      const fallbackKey =
+        loaded['en'] != null ? 'en' : languages.find((l) => loaded[l.key] != null)?.key;
+      const fallback = (fallbackKey ? loaded[fallbackKey] : '') || '';
+      const fallbackLabel = languages.find((l) => l.key === fallbackKey)?.label ?? '';
       setBodies(
         Object.fromEntries(languages.map((l) => [l.key, loaded[l.key] || fallback]))
+      );
+      setMissing(
+        Object.fromEntries(
+          languages.map((l) => [
+            l.key,
+            loaded[l.key] != null
+              ? undefined
+              : {
+                  label: strings.labels.missingBody.replace('{lang}', fallbackLabel),
+                  hint: strings.labels.missingBodyHint.replace('{lang}', fallbackLabel),
+                },
+          ])
+        )
       );
       setLoading(false);
     })();
@@ -195,6 +216,7 @@ function SystemPromptDetail({
           key: l.key,
           label: l.label,
           text: bodies[l.key] ?? '',
+          missing: missing[l.key],
         }))}
       />
     </div>

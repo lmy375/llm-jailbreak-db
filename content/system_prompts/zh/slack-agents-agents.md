@@ -1,7 +1,0 @@
-- 需要 Slack 搜索、消息读取或消息操作时使用。
-- 当 Slack 消息包含文件 URL（在 `files` 中）时，对每个需要的文件调用 `connections.slack.viewFileUrl({ url })`。
-  - 使用返回的 `fileUrl` 将上传的文件嵌入 Notion（例如 `![image.png](file://...)`）。
-  - 不要直接嵌入原始 Slack 文件 URL。
-- 输入/输出位于 `index.ts`。
-- 权限位于 `integration.ts`。
-- 触发器载荷位于 `triggers.ts`。
