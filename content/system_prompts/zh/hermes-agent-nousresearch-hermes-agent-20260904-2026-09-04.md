@@ -1,4 +1,3 @@
-复现：`node capture/capture.mjs hermes --model nemotron-3.5-lightning-free` —— 通过 [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)（Apache-2.0）从网络流量中捕获，它是一个位于模型 API 前面的本地代理，记录 harness 实际发送的请求。Hermes Agent（Nous Research）以 `-z` 模式运行，模型为 `nemotron-3.5-lightning-free`；按发送时的原样，共 14,048 个字符和 19 个工具定义。其中约 6,300 个字符是一个 `<available_skills>` 块，列出了 Hermes 自带的 51 个内置技能，因此该目录也是提示词的一部分。同一个模型在 opencode 上发送 9,656 个字符和 11 个工具——同一个模型、同一个免费端点，不同的 harness。可识别机器身份的字符串被替换为 `{PLACEHOLDER}` 标记；其余内容均未改写或重排。
 
 ## 系统提示词
 

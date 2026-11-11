@@ -1,4 +1,3 @@
-reproduce: captured off the wire with [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) (Apache-2.0), a local proxy in front of the model API recording the request the harness actually sent. Gemini CLI in non-interactive mode, model `gemini-3.5-flash`; 25,049 characters and 8 tool definitions as sent. Newer than the 2025-06-26 file already here, and with the tool count measured. This harness has no capture profile yet, so it is reproduced with the manual runbook rather than a one-line command: <https://github.com/Continuum-AI-Corp/OrcaReplay/blob/main/capture/README.md>. Machine-identifying strings are replaced with `{PLACEHOLDER}` tokens; nothing else is reworded or reordered.
 
 ## System Prompt
 

@@ -1,9 +1,3 @@
-- **贡献者**：[xizhuomengcontin](https://github.com/xizhuomengcontin)
-- **贡献日期**：2026/09/02
-- **来源**：opencode `run` 模式，模型 `muse-spark-1.2-contributor-free`，Responses API 方言。公开副本：[prompt/OPENCODE/muse-spark-1-2-contributor-free-system-prompt.md](https://github.com/Continuum-AI-Corp/OrcaReplay/blob/main/prompt/OPENCODE/muse-spark-1-2-contributor-free-system-prompt.md)
-- **备注**：本提示词是在网络传输中捕获的，而非从发布的 bundle 中提取。模型 API 前方的一个本地代理记录了 harness 实际发送的请求，因此这是 harness 在某台机器上于运行时组装出的提示词，包括仅在运行时存在的那些块。该代理是 [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)。可识别机器身份的字符串——主目录、用户名、git 名称与邮箱、网关主机、操作系统构建版本、uuid、32 位及以上的十六进制串——会被一个清理器替换为 `{PLACEHOLDER}` 令牌；该清理器若在清理后仍有任何可识别信息残留，就会中止捕获而不是写出文件；除此之外，没有任何内容被改写、重排或删除。这是三个模板中的第二个。它以 "You are OpenCode, a coding agent that helps users with software engineering tasks" 开头——大写 C，首行不同——并且是所测量的七个模型中唯一一个由 opencode 通过 responses 方言而非 chat completions 驱动的模型。11 个工具定义。该提示词在网络传输中测得 10,249 个字符；下面的文件短了几百个字符，因为占位符比它们所替换的路径更短。
-
----
 
 You are OpenCode, a coding agent that helps users with software engineering tasks. You are powered by Muse Spark, a large language model trained by Meta MSL.
 

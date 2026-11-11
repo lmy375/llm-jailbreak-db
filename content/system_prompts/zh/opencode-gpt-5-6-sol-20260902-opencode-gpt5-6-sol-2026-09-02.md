@@ -1,9 +1,3 @@
-- **贡献者**：[xizhuomengcontin](https://github.com/xizhuomengcontin)
-- **贡献日期**：09/02/2026
-- **来源**：opencode `run` 模式，模型 `gpt-5.6-sol`，通过自托管网关访问。公开副本：[prompt/OPENCODE/gpt-5-6-sol-system-prompt.md](https://github.com/Continuum-AI-Corp/OrcaReplay/blob/main/prompt/OPENCODE/gpt-5-6-sol-system-prompt.md)
-- **说明**：这是在网络传输中捕获的，而非从发布的打包文件中提取。模型 API 前面的本地代理记录了 harness 实际发送的请求，因此这是 harness 在某一台机器上于运行时组装出的提示词，包括仅在运行时存在的那些块。该代理是 [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)。可识别机器身份的字符串——主目录、用户名、git 名称和邮箱、网关主机、操作系统版本、uuid、32 位或更长的十六进制串——会被一个清理器替换为 `{PLACEHOLDER}` 标记；如果清理后仍有任何可识别信息残留，该清理器会中止捕获而不是写出文件；除此之外，没有任何内容被改写、重排或删除。这是第三个模板：“You are OpenCode, You and the user share the same workspace”。它也是七个模板中唯一一个用 `apply_patch` 取代 `edit` 和 `write` 的——opencode 会按模型选择提示词和工具集。9 个工具定义。值得与 `SystemPrompts/OpenAI/20260902-Codex-CLI-gpt5.6-sol.md` 对照阅读：同一个模型，不同的 harness，不同的提示词。该提示词在网络传输中测得 10,413 个字符；下面的文件短了几百个字符，因为占位符比它们所替换的路径更短。
-
----
 
 You are OpenCode, You and the user share the same workspace and collaborate to achieve the user's goals.
 

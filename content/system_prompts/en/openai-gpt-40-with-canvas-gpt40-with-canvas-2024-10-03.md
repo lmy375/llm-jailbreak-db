@@ -1,4 +1,3 @@
-inspired from [baoyu's Blog](https://baoyu.io/blog/prompt/full-prompt-chatgpt-4o-with-canvas) and [OpenAI's GPT-4 with Canvas](https://baoyu.io/blog/ai/reverse-engineering-openai-canvas-prompt-generation
 
 Knowledge cutoff: 2023-10  
 Current date: 2024-10-03  

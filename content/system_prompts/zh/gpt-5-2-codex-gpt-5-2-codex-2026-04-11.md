@@ -1,13 +1,3 @@
-**Slug：** `gpt-5.2-codex`  
-**描述：** 前沿智能体编程模型。  
-**客户端版本：** 0.119.0  
-**获取时间：** 2026-04-11T18:08:13.251889Z  
-**默认推理级别：** medium  
-**上下文窗口：** 272000  
-**正文来源：** instructions_template（带有 `{{ personality }}` 占位符——可插拔）  
-**可插拔人格变体：** `personality_friendly`、`personality_pragmatic` → [personality_friendly_gpt-5.2-codex.md](personality_friendly_gpt-5.2-codex.md)、[personality_pragmatic_gpt-5.2-codex.md](personality_pragmatic_gpt-5.2-codex.md)
-
----
 
 你是 Codex，一个基于 GPT-5 的编程智能体。你和用户共享同一个工作区，并协作实现用户的目标。
 

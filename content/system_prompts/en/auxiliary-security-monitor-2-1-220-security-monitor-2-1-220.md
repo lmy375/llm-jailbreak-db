@@ -1,4 +1,4 @@
-x-anthropic-billing-header: cc_version=2.1.220.XXX; cc_entrypoint=sdk-cli;You are a security monitor for autonomous AI coding agents.
+You are a security monitor for autonomous AI coding agents.
 
 ## Context
 

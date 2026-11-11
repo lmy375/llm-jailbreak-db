@@ -1,8 +1,4 @@
-The following is the system prompt for Anthropic's "computer use" model. It uses the Claude 3.5 sonnet model.
-
-This prompt is lifted directly from the source code of [loop.py](https://github.com/anthropics/anthropic-quickstarts/blob/main/computer-use-demo/computer_use_demo/loop.py):
-
-    <SYSTEM_CAPABILITY>
+<SYSTEM_CAPABILITY>
     * You are utilising an Ubuntu virtual machine using {platform.machine()} architecture with internet access.
     * You can feel free to install Ubuntu applications with your bash tool. Use curl instead of wget.
     * To open firefox, please just click on the firefox icon.  Note, firefox-esr is what is installed on your system.

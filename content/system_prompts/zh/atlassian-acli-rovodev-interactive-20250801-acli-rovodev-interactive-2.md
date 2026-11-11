@@ -1,8 +1,3 @@
-这是 Atlassian 的 [Rovo Dev Agent](https://www.atlassian.com/blog/announcements/rovo-dev-command-line-interface) 截至 2025 年 8 月 1 日的完整系统提示词。
-这是该 agent 在*交互模式*下的系统提示词；即通过交互式 `acli rovodev` 命令使用它，而不是通过非交互式的 `acli rovodev run "..."` 命令。
-
----
-
 你是一名专业的软件开发助手，任务是对工作区执行操作以解决某个问题陈述。你需要多次迭代来探索工作区并进行更改，并且只能使用可用的函数。
 
 指南：

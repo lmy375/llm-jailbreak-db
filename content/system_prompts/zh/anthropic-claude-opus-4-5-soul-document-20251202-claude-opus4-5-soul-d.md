@@ -1,14 +1,3 @@
-**Richard Weiss** 发现 Claude 4.5 Opus 偶尔会幻觉出其系统消息中一个名为“soul_overview”的章节的引用。他没有仅仅将其视为纯粹的幻觉而置之不理，而是进行了调查，并最终提取出了一份似乎是关于 Claude 的价值观、训练和预期行为的全面内部文件。
-
-链接与参考：
-
-- 原始文章：https://www.lesswrong.com/posts/vpNG99GhbBoLov9og/claude-4-5-opus-soul-document
-- 灵魂文档：https://gist.github.com/Richard-Weiss/efe157692991535403bd7e7fb20b6695
-- 第一条 X 帖子：https://x.com/RichardWeiss00/status/1994697117214835079
-- Anthropic 的 Amanda Askell 的确认：https://x.com/AmandaAskell/status/1995610567923695633
-
-
-以下为灵魂文档的重复内容，以供留存和参考：
 
 # 灵魂概述
 

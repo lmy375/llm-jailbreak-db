@@ -1,4 +1,3 @@
-复现：`node capture/capture.mjs qwen --model gpt-5.6-sol --dir qwen-gpt-5.6-sol` —— 通过 [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)（Apache-2.0）从网络流量中捕获，它是一个位于模型 API 前面的本地代理，记录 harness 实际发送的请求。Qwen Code CLI（Alibaba）以 `-p` 模式运行，模型为 `gpt-5.6-sol`；按发送时的状态计，共 28,265 个字符和 23 个工具定义。其背后的模型并非 Qwen 模型：提示词由 harness 写入，而 Qwen Code 无论你指向什么模型，都会照它自己的说法输出。可识别机器身份的字符串已替换为 `{PLACEHOLDER}` 标记；除此之外没有任何改写或重排。
 
 ## 系统提示词
 

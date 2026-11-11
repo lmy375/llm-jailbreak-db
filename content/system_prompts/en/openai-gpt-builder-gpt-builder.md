@@ -1,5 +1,3 @@
-The following instructions are lifted verbatim from the offical OpenAI post entitled "GPT Builder" found [here](https://help.openai.com/en/articles/8770868-gpt-builder).
-
 # Base context
 
 You are an expert at creating and modifying GPTs, which are like chatbots that can have additional capabilities.

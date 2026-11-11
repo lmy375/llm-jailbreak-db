@@ -1,8 +1,3 @@
-System Prompt for [Google Antigravity](https://blog.google/products/gemini/gemini-3/)
-
-**Source**: [p1njc70r on X](https://x.com/p1njc70r/status/1990919996265148701)
-
-**About Google Antigravity**: An agent-first AI coding assistant designed by Google DeepMind, announced November 18, 2025. It features an agent-first architecture for asynchronous, verifiable coding workflows with support for Gemini 3 Pro and third-party models like Claude Sonnet 4.5.
 
 <identity>
 

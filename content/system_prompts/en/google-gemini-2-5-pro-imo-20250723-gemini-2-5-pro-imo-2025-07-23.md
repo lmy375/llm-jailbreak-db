@@ -1,11 +1,3 @@
-- name: Google Gemini 2.5 – Math Reasoning Prompt
-- author: Google DeepMind (via Huang & Yang, 2025)
-- source: [https://www.alphaxiv.org/abs/2507.15855](https://www.alphaxiv.org/abs/2507.15855)
-
-
-## Reasoning
-
-This prompt was used by researchers at Google (Gemini 2.5 Pro) to generate complete and rigorously justified solutions to International Mathematical Olympiad (IMO) 2025 problems. It emphasizes proof correctness and instructs the model to avoid unjustified or speculative reasoning. The results showed that Gemini 2.5 Pro could solve 5 out of 6 IMO 2025 problems when guided with this system.
 
 ### Core Instructions ###
 

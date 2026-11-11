@@ -1,4 +1,3 @@
-reproduce: `node capture/capture.mjs qwen --model gpt-5.6-sol --dir qwen-gpt-5.6-sol` - captured off the wire with [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) (Apache-2.0), a local proxy in front of the model API recording the request the harness actually sent. Qwen Code CLI (Alibaba) in `-p` mode, model `gpt-5.6-sol`; 28,265 characters and 23 tool definitions as sent. The model behind it is not a Qwen model: the harness writes the prompt, and Qwen Code says what it says whatever you point it at. Machine-identifying strings are replaced with `{PLACEHOLDER}` tokens; nothing else is reworded or reordered.
 
 ## System Prompt
 

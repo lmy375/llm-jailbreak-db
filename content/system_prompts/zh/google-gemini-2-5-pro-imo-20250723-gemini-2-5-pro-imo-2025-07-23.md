@@ -1,11 +1,3 @@
-- name: Google Gemini 2.5 – 数学推理提示词
-- author: Google DeepMind（经由 Huang & Yang, 2025）
-- source: [https://www.alphaxiv.org/abs/2507.15855](https://www.alphaxiv.org/abs/2507.15855)
-
-
-## 推理
-
-该提示词被 Google 的研究人员（Gemini 2.5 Pro）用于为 2025 年国际数学奥林匹克（IMO）题目生成完整且具有严格论证的解答。它强调证明的正确性，并指示模型避免未经论证的或推测性的推理。结果表明，在该系统的引导下，Gemini 2.5 Pro 能够解出 2025 年 IMO 六道题目中的五道。
 
 ### 核心指令 ###
 

@@ -1,9 +1,3 @@
-**Source key:** `model_messages.instructions_variables.personality_friendly`  
-**Used by:** `gpt-5.2-codex`  
-**Fetched at:** 2026-04-11T18:08:13.251889Z  
-**Client version:** 0.119.0
-
----
 
 # Personality
 

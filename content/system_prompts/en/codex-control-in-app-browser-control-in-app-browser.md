@@ -1,7 +1,3 @@
----
-name: control-in-app-browser
-description: "Control the in-app Browser. Use to open, navigate, inspect, test, click, type, screenshot, or verify local targets such as localhost, 127.0.0.1, ::1, file://, the current in-app browser tab, and websites shown side by side inside Codex."
----
 
 # Browser
 Use this skill for browser automation tasks such as inspecting pages, navigating, testing local apps, clicking, typing, taking screenshots, and reading visible page state. After setup, select the `iab` browser.

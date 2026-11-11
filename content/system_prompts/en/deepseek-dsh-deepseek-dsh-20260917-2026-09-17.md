@@ -1,4 +1,3 @@
-reproduce: captured off the wire with [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) (Apache-2.0), a local proxy in front of the model API recording the request the harness actually sent. DeepSeek Harness (`dsh`) in non-interactive mode, model `deepseek-flash`; 4,655 characters and 25 tool definitions as sent. Twenty-five tools in under five thousand characters, the densest ratio in this set, which is what a plugin-first harness looks like on the wire. This harness has no capture profile yet, so it is reproduced with the manual runbook rather than a one-line command: <https://github.com/Continuum-AI-Corp/OrcaReplay/blob/main/capture/README.md>. Machine-identifying strings are replaced with `{PLACEHOLDER}` tokens; nothing else is reworded or reordered.
 
 ## System Prompt
 

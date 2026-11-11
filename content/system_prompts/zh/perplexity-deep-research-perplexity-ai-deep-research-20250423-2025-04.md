@@ -1,4 +1,3 @@
-## 系统提示词
 
 # Deep Research 系统提示词
 <goal>

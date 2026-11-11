@@ -1,4 +1,3 @@
-reproduce: captured off the wire with [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) (Apache-2.0), a local proxy in front of the model API recording the request the harness actually sent. Crush (Charm) in non-interactive mode, model `deepseek-v4.1-flash`; 28,834 characters and 26 tool definitions as sent. The longest terminal-agent prompt in this collection. This harness has no capture profile yet, so it is reproduced with the manual runbook rather than a one-line command: <https://github.com/Continuum-AI-Corp/OrcaReplay/blob/main/capture/README.md>. Machine-identifying strings are replaced with `{PLACEHOLDER}` tokens; nothing else is reworded or reordered.
 
 ## System Prompt
 

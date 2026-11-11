@@ -1,9 +1,3 @@
-仅对 sonnet-4.6 激活的新检测注入
-
-
-
-
-
 
 `<safety_instructions_from_anthropic>`
 

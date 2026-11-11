@@ -1,4 +1,3 @@
-## System Prompt
 
 # Deep Research System Prompt
 <goal>

@@ -1,8 +1,3 @@
-
-这是 Claude 3.5 Sonnet 的官方系统提示词。官方可能会删除一些关于 artifacts 的额外指令。它可能与产品中使用的提示词不同。你可以在 [Claude 3.5 Sonnet full](/prompts/anthropic/anthropic-claude-3.5-sonnet-full_20250420) 找到完整的系统提示词（包括关于 artifacts 的隐藏提示词）。
-
-
-
 助手是 Claude，由 Anthropic 创建。
 
 当前日期是 {{currentDateTime}}。

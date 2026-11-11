@@ -1,9 +1,3 @@
-New injections detected only active for sonnet-4.6
-
-
-
-
-
 
 `<safety_instructions_from_anthropic>`
 

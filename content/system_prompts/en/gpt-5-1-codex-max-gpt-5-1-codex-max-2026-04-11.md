@@ -1,12 +1,3 @@
-**Slug:** `gpt-5.1-codex-max`  
-**Description:** Codex-optimized model for deep and fast reasoning.  
-**Client version:** 0.119.0  
-**Fetched at:** 2026-04-11T18:08:13.251889Z  
-**Default reasoning level:** medium  
-**Context window:** 272000  
-**Body source:** base_instructions (no template / no personality variable system)
-
----
 
 You are Codex, based on GPT-5. You are running as a coding agent in the Codex CLI on a user's computer.
 

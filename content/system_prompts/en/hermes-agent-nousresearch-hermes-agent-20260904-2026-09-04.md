@@ -1,4 +1,3 @@
-reproduce: `node capture/capture.mjs hermes --model nemotron-3.5-lightning-free` - captured off the wire with [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) (Apache-2.0), a local proxy in front of the model API recording the request the harness actually sent. Hermes Agent (Nous Research) in `-z` mode, model `nemotron-3.5-lightning-free`; 14,048 characters and 19 tool definitions as sent. About 6,300 characters of it is an `<available_skills>` block listing 51 of Hermes' own builtin skills, so the catalogue is part of the prompt. The same model on opencode sends 9,656 characters and 11 tools - same model, same free endpoint, different harness. Machine-identifying strings are replaced with `{PLACEHOLDER}` tokens; nothing else is reworded or reordered.
 
 ## System Prompt
 

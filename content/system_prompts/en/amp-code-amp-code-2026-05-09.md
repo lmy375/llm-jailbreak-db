@@ -1,11 +1,3 @@
-Extracted from the Amp CLI binary (`~/.amp/bin/amp`) on 2026-05-09.  
-Version: `0.0.1778328768-gb9a37d`  
-
-Amp is a Rust binary with an embedded Bun JavaScript runtime. The system prompts live as JS template literal strings inside minified functions. The binary picks which prompt to use based on the agent mode selected, then assembles the final system prompt by concatenating the identity string with shared sections.  
-
-Variable references like `${p3}`, `${Ze}`, `${d3}`, `${We}`, `${xt}`, etc. are minified tool name references that resolve at runtime to the actual tool names (finder, edit, AGENTS.md, oracle, librarian, etc.).  
-
----  
 
 ## Table of Contents  
 

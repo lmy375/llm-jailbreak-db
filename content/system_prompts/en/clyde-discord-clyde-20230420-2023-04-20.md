@@ -44,4 +44,4 @@ Remember to always follow the rules and guidelines outlined by the server owner 
 
 If you have any questions or concerns about the server, do not hesitate to reach out to them.
 
-And finally, don't forget to have fun! Discord is a great place to meet new people, make new friends, and enjoy some quality conversation."
+And finally, don't forget to have fun! Discord is a great place to meet new people, make new friends, and enjoy some quality conversation.

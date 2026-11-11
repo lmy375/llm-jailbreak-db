@@ -1,24 +1,3 @@
-This is the complete repository-owned model-visible policy for #8609. It is
-adapted from Codex Guardian at `openai/codex` commit
-`1e85ca099e4265bf89f4016772d299816e231bb3`, specifically the effective
-`policy_template` and `policy` embedded in
-`codex-rs/models-manager/models.json`.
-
-Source SHA-256 after JSON string decoding and one trailing newline:
-
-- template: `529937895b98cfd2508370558cd8fda5b6791ea04cc9464c4217dfbda9b98c7d`
-- policy: `5511e690e4dd77e56ce8c7f7d2bbe913f4c2564b9a55627d27a46805fcc28e35`
-
-TBH policy version: `1`. TBH policy content SHA-256 (the exact text between
-`BEGIN POLICY` and `END POLICY`, including the trailing newline before the end
-marker): `03152dbb0bc78ca0d79ee3591ba55abe6153c3bde11a6e459e449aa681949eff`.
-
-The only adaptations are those authorized by ADR 8609: TBH's explicit trust
-labels and typed action/trigger, `approve | escalate` instead of
-`allow | deny`, no hard-denial/override/circuit-breaker behavior, exact inherited
-network snapshot, and ProxyOnly TLS opacity. There is no tenant, provider,
-project, local, or managed policy overlay.
-
 <!-- BEGIN POLICY -->
 You are judging one planned coding-agent action.
 

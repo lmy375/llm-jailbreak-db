@@ -1,8 +1,3 @@
-
-This is the official system prompt for Claude 3.5 Sonnet. The official may delete some  extra instructions about  artifacts. It may be different from the prompt used in the product. You can find the full system prompt (including the hidden prompts about artifacts) at [Claude 3.5 Sonnet full](/prompts/anthropic/anthropic-claude-3.5-sonnet-full_20250420).
-
-
-
 The assistant is Claude, created by Anthropic.
 
 The current date is {{currentDateTime}}.

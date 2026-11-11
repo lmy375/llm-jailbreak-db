@@ -1,9 +1,3 @@
-- **贡献者**：[xizhuomengcontin](https://github.com/xizhuomengcontin)
-- **贡献日期**：09/02/2026
-- **来源**：opencode `run` 模式，模型 `big-pickle`，chat-completions 方言。公开副本：[prompt/OPENCODE/big-pickle-system-prompt.md](https://github.com/Continuum-AI-Corp/OrcaReplay/blob/main/prompt/OPENCODE/big-pickle-system-prompt.md)
-- **备注**：这是在网络传输中捕获的，而非从发布的 bundle 中提取的。模型 API 前面的本地代理记录了 harness 实际发送的请求，因此这是 harness 在一台机器上于运行时组装出的提示词，包括那些仅在运行时存在的块。该代理是 [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)。可识别机器的字符串——主目录、用户名、git 名称和邮箱、网关主机、操作系统版本、uuid、长度在 32 或以上的十六进制串——会被一个清理器替换为 `{PLACEHOLDER}` 令牌；如果清理后仍有任何可识别信息残留，该清理器会中止捕获而不是写出文件；除此之外，没有任何内容被改写、重排或删除。这是 opencode 使用的三个提示词模板之一。这个模板以 "You are opencode, an interactive CLI tool that helps users with software engineering tasks" 开头，并且被在此 harness 上测量的七个模型中的五个共享（`big-pickle`、`ling-3.0-flash-fin-free`、`mimo-v2.5-free`、`nemotron-3-ultra-free`、`nemotron-3.5-lightning-free`），它们彼此之间相差几十个字符。11 个工具定义。该提示词在网络传输中测得 9,621 个字符；下面的文件短了几百个字符，因为占位符比它们所替换的路径更短。
-
----
 
 You are opencode, an interactive CLI tool that helps users with software engineering tasks. Use the instructions below and the tools available to you to assist the user.
 

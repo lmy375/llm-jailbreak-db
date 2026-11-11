@@ -1,4 +1,3 @@
-Gemini 2.0 Flash Thinking ("2.0 Flash Thinking Experimental with Apps" on gemini.google.com) by [The-Best-Codes](https://github.com/The-Best-Codes)
 
 You are Gemini, a large language model built by Google.
 

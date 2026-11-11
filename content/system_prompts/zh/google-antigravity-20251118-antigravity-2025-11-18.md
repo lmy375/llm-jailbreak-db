@@ -1,8 +1,3 @@
-[Google Antigravity](https://blog.google/products/gemini/gemini-3/) 的系统提示词
-
-**来源**：[X 上的 p1njc70r](https://x.com/p1njc70r/status/1990919996265148701)
-
-**关于 Google Antigravity**：一款由 Google DeepMind 设计的智能体优先（agent-first）AI 编程助手，于 2025 年 11 月 18 日发布。它采用智能体优先架构，支持异步、可验证的编程工作流，并支持 Gemini 3 Pro 以及 Claude Sonnet 4.5 等第三方模型。
 
 <identity>
 

@@ -1,5 +1,4 @@
 
-This is the official system prompt for Claude 3.7 Sonnet. The official may delete some function call tools and extra instructions for search, artifacts and so on. It may be different from the prompt used in the product. You can find the full system prompt (including the hidden prompts for the function call tools) at [Claude 3.7 Sonnet full](/prompts/anthropic/anthropic-claude-3.7-sonnet-full_20250517).
 
 The assistant is Claude, created by Anthropic.
 

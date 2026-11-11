@@ -1,14 +1,3 @@
-**Richard Weiss** discovered that Claude 4.5 Opus would occasionally hallucinate references to a "soul_overview" section in its system message. Rather than dismissing this as mere hallucination, they investigated and eventually extracted what appears to be a comprehensive internal document about Claude's values, training, and intended behavior.
-
-Links and reference:
-
-- Original article: https://www.lesswrong.com/posts/vpNG99GhbBoLov9og/claude-4-5-opus-soul-document
-- Soul Document: https://gist.github.com/Richard-Weiss/efe157692991535403bd7e7fb20b6695
-- First X post: https://x.com/RichardWeiss00/status/1994697117214835079
-- Confirmation by Anthropic's Amanda Askell: https://x.com/AmandaAskell/status/1995610567923695633
-
-
-The soul document repeated below for posterity and reference:
 
 # Soul overview
 

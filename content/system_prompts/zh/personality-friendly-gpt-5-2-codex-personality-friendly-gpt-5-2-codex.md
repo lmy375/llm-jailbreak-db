@@ -1,9 +1,3 @@
-**源键：** `model_messages.instructions_variables.personality_friendly`  
-**使用者：** `gpt-5.2-codex`  
-**获取时间：** 2026-04-11T18:08:13.251889Z  
-**客户端版本：** 0.119.0
-
----
 
 # 个性
 

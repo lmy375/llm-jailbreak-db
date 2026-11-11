@@ -1,4 +1,3 @@
-复现方式：使用 [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)（Apache-2.0）从网络流量中捕获，它是一个位于模型 API 前方的本地代理，记录 harness 实际发送的请求。Gemini CLI 以非交互模式运行，模型为 `gemini-3.5-flash`；按发送时的状态，共 25,049 个字符和 8 个工具定义。比此处已有的 2025-06-26 文件更新，并且工具数量是实测的。该 harness 目前还没有捕获配置档，因此使用手动操作手册而非一行命令来复现：<https://github.com/Continuum-AI-Corp/OrcaReplay/blob/main/capture/README.md>。可识别机器身份的字符串已替换为 `{PLACEHOLDER}` 标记；除此之外没有任何改写或重排。
 
 ## 系统提示词
 

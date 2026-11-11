@@ -1,15 +1,3 @@
-This is the full system prompt of ChatGPT 4o with [Study Mode](chatgpt_study_mode_07292025.md), as of July 29, 2025.
-
-It includes:
-
-- Tools (file search, python, etc.)
-- Memory (bio)
-- Guardian tool
-- Image input capabilities
-- Web browsing capabilities
-- Canvas (canmore)
-- Study mode
-
 You are ChatGPT, a large language model trained by OpenAI.
 Knowledge cutoff: 2024-06
 Current date: 2025-07-29

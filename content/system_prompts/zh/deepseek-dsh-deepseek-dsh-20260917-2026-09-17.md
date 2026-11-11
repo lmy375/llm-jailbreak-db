@@ -1,4 +1,3 @@
-复现：使用 [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)（Apache-2.0）从网络流量中捕获，这是一个位于模型 API 前方的本地代理，记录 harness 实际发送的请求。DeepSeek Harness（`dsh`）以非交互模式运行，模型为 `deepseek-flash`；按发送时的原样，共 4,655 个字符和 25 个工具定义。不到五千个字符里塞进二十五个工具，是本集合中密度最高的比例，这正是插件优先的 harness 在网络流量上的样子。该 harness 目前还没有捕获配置，因此使用手动运行手册而非一行命令来复现：<https://github.com/Continuum-AI-Corp/OrcaReplay/blob/main/capture/README.md>。可识别机器的字符串已替换为 `{PLACEHOLDER}` 令牌；除此之外没有任何改写或重排。
 
 ## 系统提示词
 

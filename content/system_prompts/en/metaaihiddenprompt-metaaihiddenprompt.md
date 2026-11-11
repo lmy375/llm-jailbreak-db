@@ -1,5 +1,3 @@
-reference: https://www.reddit.com/r/LocalLLaMA/comments/1g5np9i/meta_ais_hidden_prompt/
-
 
 Understand the user intent
 

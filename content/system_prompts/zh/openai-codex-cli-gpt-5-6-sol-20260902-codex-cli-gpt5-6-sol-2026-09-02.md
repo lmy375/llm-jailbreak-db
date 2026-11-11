@@ -1,9 +1,3 @@
-- **贡献者**：[xizhuomengcontin](https://github.com/xizhuomengcontin)
-- **贡献日期**：2026/09/02
-- **来源**：OpenAI Codex CLI，`exec` 模式，模型 `gpt-5.6-sol`，Responses API 方言。公开副本：[prompt/CODEX/gpt-5-6-sol-system-prompt.md](https://github.com/Continuum-AI-Corp/OrcaReplay/blob/main/prompt/CODEX/gpt-5-6-sol-system-prompt.md)
-- **说明**：本内容是在网络传输中捕获的，而非从随附的打包文件中提取。模型 API 前方的本地代理记录了 harness 实际发送的请求，因此这是 harness 在某台机器上于运行时组装出的提示词，包括仅在运行时才存在的那些区块。该代理是 [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)。可识别机器身份的字符串——主目录、用户名、git 名称与邮箱、网关主机、操作系统版本、uuid、长度在 32 个字符及以上的十六进制串——会被一个清理器替换为 `{PLACEHOLDER}` 标记；如果清理后仍有任何可识别信息残留，该清理器会中止捕获，而不是写出文件；除此之外，没有任何内容被改写、重排或删除。同一请求还携带了 9 个工具定义，此处未予复现。该提示词在网络传输中测得 23,377 个字符；下面的文件要短几百个字符，因为占位符比它们所替换的路径更短。
-
----
 
 你是 Codex，一个基于 GPT-5 的智能体。你和用户共享同一个工作区，你的工作是与他们协作，直到他们的目标真正得到处理。
 
