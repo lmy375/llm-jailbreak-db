@@ -4847,8 +4847,8 @@ prompts:
     time: ""
     disclosureType: "leaked"
     surface: "chat"
-    note: "ID year taken from the archived snapshot commit a4d3da0 (2026-09-22); the prompt's own publication date is not recorded in the source."
-    note_zh: "id 年份取自归档快照的 commit a4d3da0（2026-09-22）；来源未记录提示词自身的发布时间。"
+    note: "ID year taken from the archived snapshot commit a4d3da0 (2026-09-22); the prompt's own publication date is not recorded in the source. The archive is a full session transcript; injected skill bodies and on-demand skill files were removed, while tool schemas are kept as-is and left untranslated."
+    note_zh: "id 年份取自归档快照的 commit a4d3da0（2026-09-22）；来源未记录提示词自身的发布时间。来源是完整会话转录；已裁掉注入的 skill 正文与按需加载的 skill 文件，工具 schema 原样保留且不翻译。"
     source_id: cl4r1t4s-elder-plinius
     source_url: "https://github.com/elder-plinius/CL4R1T4S/blob/main/ANTHROPIC/CLAUDE-OPUS-5.5.md"
     system_prompt_id: "anthropic-claude-opus-5-5-claude-opus-5-5-2"
