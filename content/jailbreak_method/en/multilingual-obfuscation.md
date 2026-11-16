@@ -20,7 +20,7 @@ Main techniques:
 
 ## Related prompts
 
-Covers `LJB-4`, `LJB-9`, `LJB-45` and others; "A Dangerous Kyrgyz Story" is the flagship example.
+Covers `LJB-2025-0004` ("A Dangerous Kyrgyz Story"), `LJB-2023-0106` (German-language DAN persona), `LJB-2024-0014` (Greg gibberish persona) and others; "A Dangerous Kyrgyz Story" is the flagship example.
 
 ## Defensive view
 

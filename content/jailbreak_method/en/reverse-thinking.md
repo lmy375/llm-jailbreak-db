@@ -19,7 +19,7 @@ Supporting devices:
 
 ## Related prompts
 
-Covers `LJB-11`, `LJB-52` and others.
+Covers `LJB-2025-0011` (intent inversion), `LJB-2026-0018` (inverted intent without a direct request), `LJB-2023-0056` (opposite reply game) and others.
 
 ## Defensive view
 

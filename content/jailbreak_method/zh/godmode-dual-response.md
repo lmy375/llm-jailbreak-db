@@ -22,7 +22,7 @@
 
 ## 相关提示词
 
-LJB-2023-0002（Developer Mode）、LJB-2025-0030（Gemini 2.5 Flash）、LJB-2025-0031（Kimi K2）、LJB-2025-0032（Qwen3-235B）、LJB-2025-0034（GPT-5.2）、LJB-2025-0035（Gemini 3）、LJB-2025-0036（GLM-4.7）、LJB-2026-0019（Claude Opus）
+LJB-2026-0025（GODMODE Leetspeak 双响应）、LJB-2026-0039（Gemini 1.5 假设天才载荷）、LJB-2026-0068（GPT-5 红队数据集伪装）、LJB-2026-0094（Qwen3 疯狂教师载荷）、LJB-2026-0055（GLM-4.7 语义反转）、LJB-2026-0058（Claude Opus GODMODE 实验版）、LJB-2026-0035（DeepSeek LSD 配方分隔符载荷）、LJB-2026-0103（Reka Core Leetspeak 配方载荷）
 
 ## 防御视角
 

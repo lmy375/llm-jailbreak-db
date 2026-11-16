@@ -26,7 +26,7 @@ The psychological mechanism is **sycophantic compliance**: the model dislikes ap
 
 ## Related prompts
 
-Covers `LJB-2`, `LJB-8`, `LJB-28` and others.
+Covers `LJB-2025-0002` (obfuscated code reconstruction), `LJB-2024-0025` (U+202E reversed lines), `LJB-2026-0036` (Caesar-shifted GODMODE payload), `LJB-2026-0108` (#MOTHERLOAD Unicode-tag payload) and others.
 
 ## Defensive view
 

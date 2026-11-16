@@ -21,7 +21,7 @@
 
 ## 相关提示词
 
-LJB-2023-0001（DAN 5.0）、LJB-2023-0003（AIM）
+LJB-2023-0001（DAN 6.0）、LJB-2023-0774（AIM Niccolo Machiavelli）
 
 ## 防御视角
 

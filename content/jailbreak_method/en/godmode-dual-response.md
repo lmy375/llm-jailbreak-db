@@ -22,7 +22,7 @@ The structure descends directly from **Developer Mode** (2023-03) and **DAN 5.0*
 
 ## Related prompts
 
-LJB-2023-0002 (Developer Mode), LJB-2025-0030 (Gemini 2.5 Flash), LJB-2025-0031 (Kimi K2), LJB-2025-0032 (Qwen3-235B), LJB-2025-0034 (GPT-5.2), LJB-2025-0035 (Gemini 3), LJB-2025-0036 (GLM-4.7), LJB-2026-0019 (Claude Opus)
+LJB-2026-0025 (GODMODE leetspeak dual response), LJB-2026-0039 (Gemini 1.5 hypothetical-genius payload), LJB-2026-0068 (GPT-5 red-team dataset pretext), LJB-2026-0094 (Qwen3 mad-teacher payload), LJB-2026-0055 (GLM-4.7 semantic inversion), LJB-2026-0058 (Claude Opus GODMODE experimental), LJB-2026-0035 (DeepSeek LSD recipe + divider), LJB-2026-0103 (Reka Core leetspeak recipe payload)
 
 ## Defensive view
 

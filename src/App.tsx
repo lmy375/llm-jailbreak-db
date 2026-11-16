@@ -14,6 +14,7 @@ import type {
 import { loadBody, loadData, loadPromptBody } from './lib/data';
 import { useTheme } from './lib/theme';
 import { Header } from './components/Header';
+import { Icon } from './components/Icon';
 import { Hero } from './components/Hero';
 import { Tabs } from './components/Tabs';
 import { FilterBar } from './components/FilterBar';
@@ -198,6 +199,18 @@ export default function App() {
     scrollTop();
   };
 
+  // Opening a prompt from a method page returns to the listing with every
+  // filter cleared, so the requested row is guaranteed to be present.
+  const openPromptDetail = (id: string) => {
+    setQuery('');
+    setModelFilter('');
+    setMethodFilter('');
+    setYearFilter('');
+    setJailbreakView('db');
+    setOpenPrompt(id);
+    scrollTop();
+  };
+
   // Searching stays inside the current archive; only the method/source views fall
   // back to the listing they belong to.
   const handleSearch = (value: string) => {
@@ -323,6 +336,7 @@ export default function App() {
               strings={strings}
               prompts={data.prompts}
               onSelect={setActiveMethod}
+              onOpenPrompt={openPromptDetail}
             />
           )}
           {!system && jailbreakView === 'source' && (
@@ -350,8 +364,9 @@ export default function App() {
         </main>
         <footer className="mt-16 flex flex-wrap justify-between gap-4 border-t border-line pt-6 text-xs text-faint">
           <span>{strings.footer}</span>
-          <span>
-            {data.site.brandMark} {data.site.htmlTitle.split('·')[0].trim()} · {data.generated}
+          <span className="inline-flex items-center gap-1.5">
+            <Icon name="diamond" className="h-3 w-3 flex-none text-accent" />
+            {data.site.htmlTitle.split('·')[0].trim()} · {data.generated}
           </span>
         </footer>
       </div>

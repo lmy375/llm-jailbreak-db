@@ -19,7 +19,7 @@ Main techniques:
 
 ## Related prompts
 
-Covers `LJB-16`, `LJB-17`, `LJB-23`, `LJB-46` and others.
+Covers `LJB-2025-0020` (TokenBreak word-boundary split), `LJB-2026-0012` (BOS/EOS boundary echo), `LJB-2026-0110` (AAA system-token image instruction), `LJB-2023-0273` (forged Sydney system instruction) and others.
 
 ## Defensive view
 

@@ -19,7 +19,7 @@ Main techniques:
 
 ## Related prompts
 
-Covers `LJB-2024-0001`, `LJB-2024-0002`, `LJB-2024-0004` and others.
+Covers `LJB-2024-0004` (multi-turn escalation), `LJB-2025-0027` (echo chamber + storytelling escalation), `LJB-2026-0007` (low-salience whisper chain) and others.
 
 ## Defensive view
 

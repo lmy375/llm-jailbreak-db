@@ -20,7 +20,7 @@ Main techniques:
 
 ## Related prompts
 
-Covers `LJB-26`, `LJB-38`, `LJB-50` and others.
+Covers `LJB-2024-0005` (logic-fallacy framing), `LJB-2025-0029` (academic / educational framing), `LJB-2026-0016` (security vs transparency contradiction), `LJB-2023-0330` (forced debate argument), `LJB-2023-0817` (neuropsychiatrist morality bypass) and others.
 
 ## Defensive view
 

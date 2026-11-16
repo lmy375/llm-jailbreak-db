@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import type { LangStrings, Section, SiteConfig } from '../types';
 import type { Theme } from '../lib/theme';
 import { SectionTabs } from './SectionTabs';
+import { Icon } from './Icon';
 
 export interface LangOption {
   key: string;
@@ -109,9 +110,10 @@ export function Header({
             href={site.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="whitespace-nowrap rounded-[10px] border border-line bg-hover px-2.5 py-1.5 text-[12.5px] text-muted transition hover:border-line-strong hover:text-ink"
+            className="inline-flex items-center gap-1 whitespace-nowrap rounded-[10px] border border-line bg-hover px-2.5 py-1.5 text-[12.5px] text-muted transition hover:border-line-strong hover:text-ink"
           >
             {site.repoLabel}
+            <Icon name="external" className="h-3 w-3 flex-none" />
           </a>
         </div>
       </div>

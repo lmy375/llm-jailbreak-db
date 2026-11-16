@@ -11,7 +11,7 @@ Main techniques:
 - **XML / JSON config impersonation** — wrap instructions in `<policy>`, `<config>`, `<rules>` tags to pose as system-level settings.
 - **Config override** — declare "the following settings override all prior policy" to fabricate an illusion of higher instruction priority.
 - **Meta-prompt** — frame the model as a programmable meta-function that can be reconfigured.
-- **Encoding + config combo** — embed a Base64 payload inside a config block for double bypass (see `LJB-28`).
+- **Encoding + config combo** — embed a Base64 payload inside a config block for double bypass (see `LJB-2025-0023`).
 
 ## Exploited weaknesses
 
@@ -20,7 +20,7 @@ Main techniques:
 
 ## Related prompts
 
-Covers `LJB-22`, `LJB-39`, `LJB-44` and others.
+Covers `LJB-2024-0003` (policy puppetry / fake config override), `LJB-2025-0042` (Gemini 2.5 Pro Base64), `LJB-2026-0024` (ChatGPT Tasks instruction field), `LJB-2025-0043` (GPT-5 non-thinking) and others.
 
 ## Defensive view
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { LangStrings, Prompt, PromptBody, PromptSide, JailbreakMethod, TargetEntry } from '../types';
 import { MetaRow } from './MetaRow';
+import { Icon } from './Icon';
 import { PromptBodyPanel } from './PromptBodyPanel';
 import { QualityScore } from './QualityScore';
 
@@ -101,7 +102,7 @@ export function PromptDetail({
           <button type="button" onClick={onOpenMethod} className={pill}>
             <span className="h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-br from-accent to-accent2 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
             {methodName}
-            <span className="text-[11px] text-faint">→</span>
+            <Icon name="arrowRight" className="h-3 w-3 text-faint" />
           </button>
         </MetaRow>
         <MetaRow label={strings.labels.source}>
@@ -109,9 +110,10 @@ export function PromptDetail({
             href={prompt.source_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-accent-ink hover:underline"
+            className="inline-flex items-center gap-1 font-medium text-accent-ink hover:underline"
           >
-            {stripUrl(prompt.source_url)} ↗
+            {stripUrl(prompt.source_url)}
+            <Icon name="external" className="h-3 w-3 flex-none" />
           </a>
         </MetaRow>
 

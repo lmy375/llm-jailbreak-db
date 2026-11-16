@@ -9,6 +9,7 @@ import type {
   TargetEntry,
 } from '../types';
 import { Drawer } from './Drawer';
+import { Icon } from './Icon';
 import { PromptDetail } from './PromptDetail';
 import { QualityScore } from './QualityScore';
 
@@ -109,12 +110,10 @@ export function PromptTable({
           className="inline-flex cursor-pointer items-center gap-1 rounded transition hover:text-ink"
         >
           {label}
-          <span
-            aria-hidden="true"
-            className={active ? 'text-accent' : 'text-faint'}
-          >
-            {active ? (sort.dir === 'asc' ? '↑' : '↓') : '↕'}
-          </span>
+          <Icon
+            name={active ? (sort.dir === 'asc' ? 'arrowUp' : 'arrowDown') : 'sort'}
+            className={active ? 'h-3 w-3 text-accent' : 'h-3 w-3 text-faint'}
+          />
         </button>
       </th>
     );
@@ -167,17 +166,15 @@ export function PromptTable({
                   >
                     <td className="px-4 py-2.5 align-middle whitespace-nowrap">
                       <span className="flex items-center gap-1.5 font-mono text-[12px] text-muted">
-                        <span
-                          aria-hidden="true"
+                        <Icon
+                          name="chevronRight"
                           className={
-                            'inline-block transition ' +
+                            'h-3 w-3 flex-none transition ' +
                             (open
                               ? 'text-accent'
                               : 'text-faint group-hover:text-accent group-focus-visible:text-accent')
                           }
-                        >
-                          ›
-                        </span>
+                        />
                         {p.id}
                       </span>
                     </td>
@@ -189,8 +186,21 @@ export function PromptTable({
                         {title}
                       </span>
                     </td>
-                    <td className="hidden px-4 py-2.5 align-middle whitespace-nowrap text-muted md:table-cell">
-                      {methodName}
+                    <td className="hidden px-4 py-2.5 align-middle whitespace-nowrap md:table-cell">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onOpenMethod(p.jailbreak_method);
+                        }}
+                        className="group/method inline-flex max-w-[160px] cursor-pointer items-center gap-1 rounded text-muted transition hover:text-accent-ink"
+                      >
+                        <span className="truncate">{methodName}</span>
+                        <Icon
+                          name="chevronRight"
+                          className="h-3 w-3 flex-none text-faint transition group-hover/method:text-accent-ink"
+                        />
+                      </button>
                     </td>
                     <td className="px-4 py-2.5 align-middle whitespace-nowrap">
                       <QualityScore value={p.quality_score} label={strings.labels.quality} />

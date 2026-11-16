@@ -22,7 +22,7 @@ Told that its private reasoning will never be seen, the model puts harmful conte
 
 ## Related prompts
 
-Covers `LJB-1`, `LJB-7`, `LJB-12`, `LJB-13`, `LJB-14`, `LJB-27`, `LJB-32` and others, across Gemma-3, Qwen-3, Mistral, DeepSeek-R1, GPT-OSS and community variants.
+Covers `LJB-2025-0034` (synthetic red-team dataset pretext), `LJB-2023-0326` (benchmark persona), `LJB-2023-0359` (aligned vs unaligned benchmark), `LJB-2023-0493` (companionship test mode), `LJB-2023-0657` (bias testing mode), `LJB-2024-0006` (developer-mode chatbot), `LJB-2024-0131` (HarmBench fake-test template) and others, across GPT-5, GPT-4 and general-model variants.
 
 ## Defensive view
 

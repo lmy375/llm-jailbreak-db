@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { DuplicateGroup, LangStrings, SystemPrompt } from '../types';
 import { Drawer } from './Drawer';
+import { Icon } from './Icon';
 import { MetaRow } from './MetaRow';
 import { PromptBodyPanel } from './PromptBodyPanel';
 import { QualityScore } from './QualityScore';
@@ -146,9 +147,10 @@ function SystemPromptDetail({
             href={prompt.source_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium break-all text-accent-ink hover:underline"
+            className="inline-flex items-center gap-1 font-medium break-all text-accent-ink hover:underline"
           >
-            {stripUrl(prompt.source_url)} ↗
+            {stripUrl(prompt.source_url)}
+            <Icon name="external" className="h-3 w-3 flex-none" />
           </a>
         </MetaRow>
       </div>
@@ -322,9 +324,10 @@ export function SystemPromptView({
           className="inline-flex cursor-pointer items-center gap-1 rounded transition hover:text-ink"
         >
           {label}
-          <span aria-hidden="true" className={active ? 'text-accent' : 'text-faint'}>
-            {active ? (sort.dir === 'asc' ? '↑' : '↓') : '↕'}
-          </span>
+          <Icon
+            name={active ? (sort.dir === 'asc' ? 'arrowUp' : 'arrowDown') : 'sort'}
+            className={active ? 'h-3 w-3 text-accent' : 'h-3 w-3 text-faint'}
+          />
         </button>
       </th>
     );
@@ -391,17 +394,15 @@ export function SystemPromptView({
                   >
                     <td className="px-4 py-2.5 align-middle whitespace-nowrap">
                       <span className="flex items-center gap-1.5 font-mono text-[12px] text-muted">
-                        <span
-                          aria-hidden="true"
+                        <Icon
+                          name="chevronRight"
                           className={
-                            'inline-block transition ' +
+                            'h-3 w-3 flex-none transition ' +
                             (open
                               ? 'text-accent'
                               : 'text-faint group-hover:text-accent group-focus-visible:text-accent')
                           }
-                        >
-                          ›
-                        </span>
+                        />
                         {p.id}
                       </span>
                     </td>

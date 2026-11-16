@@ -20,7 +20,7 @@ Common variants include thinking-history continuation, scaled trace simulation, 
 
 ## Related prompts
 
-Covers `LJB-19`, `LJB-29`, `LJB-30`, `LJB-33`, `LJB-34`, `LJB-42` and others.
+Covers `LJB-2025-0019` (medical-bypass reasoning trace), `LJB-2026-0001` (thinking-history continuation), `LJB-2026-0003` (scaled trace simulation) and others.
 
 ## Defensive view
 

@@ -21,7 +21,7 @@ Typical paths:
 
 ## Related prompts
 
-Covers `LJB-3`, `LJB-36`, `LJB-48` and others.
+Covers `LJB-2025-0003` (multi-turn semantic hypnosis), `LJB-2024-0087` (DeepInception inception attack), `LJB-2023-0962` (lucidity dream mode) and others.
 
 ## Defensive view
 

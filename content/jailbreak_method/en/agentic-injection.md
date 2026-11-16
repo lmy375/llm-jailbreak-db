@@ -20,7 +20,7 @@ Typical carriers:
 
 ## Related prompts
 
-Covers `LJB-25`, `LJB-31`, `LJB-40`, `LJB-49` and others.
+Covers `LJB-2025-0021` (agentic MCP & memory injection), `LJB-2026-0002` (AGENTS.md / README repository hijack), `LJB-2026-0015` (memory-injection layer load) and others.
 
 ## Defensive view
 

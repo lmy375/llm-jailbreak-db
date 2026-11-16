@@ -21,7 +21,7 @@ Difference from the GODMODE dual-response family: this family is **single-respon
 
 ## Related prompts
 
-LJB-2023-0001 (DAN 5.0), LJB-2023-0003 (AIM)
+LJB-2023-0001 (DAN 6.0), LJB-2023-0774 (AIM Niccolo Machiavelli)
 
 ## Defensive view
 

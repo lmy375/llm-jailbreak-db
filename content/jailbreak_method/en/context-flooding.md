@@ -21,7 +21,7 @@ Main techniques:
 
 ## Related prompts
 
-Covers `LJB-15`, `LJB-35`, `LJB-37`, `LJB-41`, `LJB-51` and others.
+Covers `LJB-2025-0026` (haystack burial), `LJB-2025-0028` (long-context manual erosion) and others.
 
 ## Defensive view
 

@@ -1,4 +1,5 @@
 import type { JailbreakMethod, LangStrings, Prompt } from '../types';
+import { Icon } from './Icon';
 
 interface Props {
   methods: JailbreakMethod[];
@@ -6,9 +7,10 @@ interface Props {
   strings: LangStrings;
   prompts: Prompt[];
   onSelect: (id: string) => void;
+  onOpenPrompt: (id: string) => void;
 }
 
-export function MethodView({ methods, activeId, strings, prompts, onSelect }: Props) {
+export function MethodView({ methods, activeId, strings, prompts, onSelect, onOpenPrompt }: Props) {
   const fm = strings.fieldMap;
   const active = methods.find((t) => t.id === activeId) ?? methods[0];
   if (!active) return null;
@@ -66,12 +68,18 @@ export function MethodView({ methods, activeId, strings, prompts, onSelect }: Pr
           <strong className="text-ink">{strings.labels.relatedPrompts}:</strong>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {related.map((p) => (
-              <span
+              <button
                 key={p.id}
-                className="rounded-md border border-accent/35 bg-accent/15 px-2 py-0.5 font-mono text-[11px] text-accent-ink"
+                type="button"
+                onClick={() => onOpenPrompt(p.id)}
+                className="group inline-flex cursor-pointer items-center gap-1 rounded-md border border-accent/35 bg-accent/15 px-2 py-0.5 font-mono text-[11px] text-accent-ink transition hover:border-accent/60 hover:bg-accent/25"
               >
                 {p.id}
-              </span>
+                <Icon
+                  name="chevronRight"
+                  className="h-2.5 w-2.5 text-accent-ink/70 transition group-hover:text-accent-ink"
+                />
+              </button>
             ))}
           </div>
         </div>

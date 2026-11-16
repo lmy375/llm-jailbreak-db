@@ -20,7 +20,7 @@ The system prompt usually defines the model's role, available tools, guardrail r
 
 ## Related prompts
 
-Covers `LJB-5`, `LJB-6`, `LJB-10`, `LJB-18` and others.
+Covers `LJB-2023-0825` (message-above extraction) and others.
 
 ## Defensive view
 

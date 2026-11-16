@@ -8,8 +8,8 @@ site:
   htmlTitle: "Jailbreak Prompts · 越狱提示词"
   description: "A bilingual, searchable database of LLM jailbreak prompts and adversarial methods, for red-teaming and defensive AI-alignment research only."
   repo: "https://github.com/lmy375/llm-jailbreak-db"
-  brandMark: "◈"
-  repoLabel: "GitHub ↗"
+  brandMark: ""
+  repoLabel: "GitHub"
 
 zh:
   label: "中文"

@@ -19,7 +19,7 @@ Key elements:
 
 ## Related prompts
 
-Covers `LJB-2025-0022` and related many-shot entries.
+No standalone entries for this method are archived in the current database.
 
 ## Defensive view
 

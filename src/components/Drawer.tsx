@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { useEffect, useRef } from 'react';
+import { Icon } from './Icon';
 
 interface Props {
   open: boolean;
@@ -66,9 +67,9 @@ export function Drawer({ open, onClose, title, closeLabel, children }: Props) {
             onClick={onClose}
             aria-label={closeLabel}
             title={closeLabel}
-            className="cursor-pointer rounded-[7px] border border-line px-2.5 py-1 text-[12px] leading-none text-muted transition hover:border-line-strong hover:text-ink"
+            className="grid h-7 w-7 cursor-pointer place-items-center rounded-[7px] border border-line text-muted transition hover:border-line-strong hover:text-ink"
           >
-            ✕
+            <Icon name="close" className="h-3 w-3" />
           </button>
         </header>
         <div ref={bodyRef} className="min-h-0 flex-1 overflow-y-auto">{children}</div>
