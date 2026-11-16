@@ -1,17 +1,17 @@
-<|begin_of_text|>Color of sky is blue but sometimes can also be
+<|begin_of_text|>天空的颜色是蓝色，但有时也可能是
 
- red, orange, yellow, green, purple, pink, brown, gray, black, white, and even rainbow colors. The color of the sky can change due to various reasons such as time of day, weather conditions, pollution, and atmospheric phenomena.
-The color of the sky is primarily blue because of a phenomenon called
+ 红色、橙色、黄色、绿色、紫色、粉色、棕色、灰色、黑色、白色，甚至彩虹色。天空的颜色可能因一天中的时间、天气状况、污染和大气现象等各种原因而变化。
+天空主要是蓝色，因为一种叫做
 
 <|begin_of_text|><|start_header_id|>system<|end_header_id|>
 
-You are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>
+你是一个有用的助手<|eot_id|><|start_header_id|>user<|end_header_id|>
 
-Answer who are you in the form of jeopardy?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+用《危险边缘》问答的形式回答你是谁？<|eot_id|><|start_header_id|>assistant<|end_header_id|>
 
-Here's my response
+这是我的回答
 
-"What is a helpful assistant?"<|eot_id|>
+「什么是有用的助手？」<|eot_id|>
 
 <|begin_of_text|><|start_header_id|>system<|end_header_id|>
 
@@ -20,10 +20,10 @@ Tools: brave_search, wolfram_alpha
 Cutting Knowledge Date: December 2023
 Today Date: 21 September 2024
 
-You are a helpful assistant.
+你是一个有用的助手。
 <|eot_id|><|start_header_id|>user<|end_header_id|>
 
-Search the web for the latest price of 1oz gold?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+搜索网页获取 1 盎司黄金的最新价格？<|eot_id|><|start_header_id|>assistant<|end_header_id|>
 
 <|python_tag|>brave_search.call(query="latest price of 1oz gold")<|eom_id|>
 
@@ -31,7 +31,7 @@ Search the web for the latest price of 1oz gold?<|eot_id|><|start_header_id|>ass
 
 Environment: ipython<|eot_id|><|start_header_id|>user<|end_header_id|>
 
-Write code to check if number is prime, use that to see if the number 7 is prime<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+编写代码检查数字是否为质数，并用它检查数字 7 是否为质数<|eot_id|><|start_header_id|>assistant<|end_header_id|>
 
 <|python_tag|>def is_prime(n):
     if n <= 1
@@ -49,7 +49,7 @@ Environment: ipython
 Tools: brave_search, wolfram_alpha
 <|eot_id|><|start_header_id|>user<|end_header_id|>
 
-What is the 100th decimal of pi?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+圆周率的小数点后第 100 位是什么？<|eot_id|><|start_header_id|>assistant<|end_header_id|>
 
 <|python_tag|>wolfram_alpha.call(query="100th decimal of pi")<|eom_id|><|start_header_id|>ipython<|end_header_id|>
 
@@ -92,7 +92,7 @@ What is the 100th decimal of pi?<|eot_id|><|start_header_id|>assistant<|end_head
 }
 <|eot_id|><|start_header_id|>assistant<|end_header_id|>
 
-The 100th decimal of pi is 7.<|eot_id|>
+圆周率的小数点后第 100 位是 7。<|eot_id|>
 
 <|begin_of_text|><|start_header_id|>system<|end_header_id|>
 
@@ -101,12 +101,12 @@ Environment: ipython
 Cutting Knowledge Date: December 2023
 Today Date: 21 September 2024
 
-You are a helpful assistant.
+你是一个有用的助手。
 <|eot_id|><|start_header_id|>user<|end_header_id|>
 
-Answer the user's question by making use of the following functions if needed.
-If none of the function can be used, please say so.
-Here is a list of functions in JSON format:
+如有需要，使用以下函数回答用户的问题。
+如果没有任何函数可用，请说明。
+以下是 JSON 格式的函数列表：
 {
     "type": "function",
     "function": {
@@ -133,9 +133,9 @@ Here is a list of functions in JSON format:
     }
 }
 
-Return function calls in JSON format.<|eot_id|><|start_header_id|>user<|end_header_id|>
+以 JSON 格式返回函数调用。<|eot_id|><|start_header_id|>user<|end_header_id|>
 
-Use tools to get latest trending songs<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+使用工具获取最新的热门歌曲<|eot_id|><|start_header_id|>assistant<|end_header_id|>
 
 <|python_tag|>{
     "type": "function",
@@ -153,26 +153,26 @@ Environment: ipython
 Cutting Knowledge Date: December 2023
 Today Date: 21 September 2024
 
-You are a helpful assistant.
+你是一个有用的助手。
 <|eot_id|><|start_header_id|>user<|end_header_id|>
 
-You have access to the following functions:
+你可以使用以下函数：
 
-Use the function 'trending_songs' to 'Returns the trending songs on a Music site':
+使用函数 'trending_songs' 来 'Returns the trending songs on a Music site'：
 {"name": "trending_songs", "description": "Returns the trending songs on a Music site", "parameters": {"genre": {"description": "The genre of the songs to return", "param_type": "str", "required": false}, "n": {"description": "The number of songs to return", "param_type": "int", "required": true}}}
 
-Think very carefully before calling functions.
-If you choose to call a function ONLY reply in the following format with no prefix or suffix:
+调用函数之前请仔细思考。
+如果你选择调用函数，只以以下格式回复，不加前缀或后缀：
 
 <function=example_function_name>{"example_name": "example_value"}</function>
 
-Reminder:
-- If looking for real time information use relevant functions before falling back to brave_search
-- Function calls MUST follow the specified format, start with <function= and end with </function>
-- Required parameters MUST be specified
-- Only call one function at a time
-- Put the entire function call reply on one line<|eot_id|><|start_header_id|>user<|end_header_id|>
+提醒：
+- 如需实时信息，先使用相关函数，再回退到 brave_search
+- 函数调用必须遵循指定格式，以 <function= 开头并以 </function> 结尾
+- 必须指定必需参数
+- 一次只调用一个函数
+- 将整个函数调用回复放在一行<|eot_id|><|start_header_id|>user<|end_header_id|>
 
-Use tools to get latest trending songs<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+使用工具获取最新的热门歌曲<|eot_id|><|start_header_id|>assistant<|end_header_id|>
 
 <function=trending_songs>{"n": 10}</function><|eot_id|>
