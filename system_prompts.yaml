@@ -5656,8 +5656,8 @@ prompts:
     time: ""
     disclosureType: "leaked"
     surface: "desktop"
-    note: "Also archived in: cl4r1t4s-elder-plinius. ID year taken from the archived snapshot commit de74fd8 (2026-10-13); the prompt's own publication date is not recorded in the source."
-    note_zh: "同一内容另见 cl4r1t4s-elder-plinius。id 年份取自归档快照的 commit de74fd8（2026-10-13）；来源未记录提示词自身的发布时间。"
+    note: "Also archived in: cl4r1t4s-elder-plinius. ID year taken from the archived snapshot commit de74fd8 (2026-10-13); the prompt's own publication date is not recorded in the source. Five embedded SKILL.md files were trimmed from the end of the archive, leaving the system prompt body."
+    note_zh: "同一内容另见 cl4r1t4s-elder-plinius。id 年份取自归档快照的 commit de74fd8（2026-10-13）；来源未记录提示词自身的发布时间。来源末尾嵌入的 5 个 SKILL.md 文件已裁剪，仅保留系统提示词正文。"
     source_id: louisshark-chatgpt-system-prompt
     source_url: "https://github.com/LouisShark/chatgpt_system_prompt/blob/main/prompts/official-product/openai/codex-desktop/5.6-Sol_SystemPrompt.md"
     system_prompt_id: "codex-desktop-5-6-sol-systemprompt-5-6-sol-systemprompt"
