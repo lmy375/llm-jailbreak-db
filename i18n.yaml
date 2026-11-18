@@ -8,11 +8,12 @@ site:
   htmlTitle: "Jailbreak Prompts · 越狱提示词"
   description: "A bilingual, searchable database of LLM jailbreak prompts and adversarial methods, for red-teaming and defensive AI-alignment research only."
   repo: "https://github.com/lmy375/llm-jailbreak-db"
-  brandMark: ""
+
   repoLabel: "GitHub"
 
 zh:
   label: "中文"
+  htmlLang: "zh-CN"
   defaultPromptSide: translation
   fieldMap:
     title: title_zh
@@ -26,6 +27,8 @@ zh:
     noteAlt: note
   site:
     name: "越狱提示词"
+    htmlTitle: "越狱提示词 · Jailbreak Prompts"
+    description: "一个可搜索的双语数据库，收录已公开的大模型越狱提示词、对抗性方法与系统提示词，仅供红队测试与防御性 AI 对齐研究使用。"
   search:
     placeholder: "搜索提示词、模型、方法…"
   tabs:
@@ -65,6 +68,8 @@ zh:
     sortBy: "点击按此列排序"
     # 侧边抽屉 / detail drawer
     close: "关闭"
+    copy: "复制"
+    copied: "已复制"
     # 表头过滤器 / table header filter bar
     filterYear: "年份"
     filterAll: "全部"
@@ -128,6 +133,7 @@ zh:
 
 en:
   label: "English"
+  htmlLang: "en"
   defaultPromptSide: original
   fieldMap:
     title: title
@@ -141,6 +147,8 @@ en:
     noteAlt: note_zh
   site:
     name: "Jailbreak Prompts"
+    htmlTitle: "Jailbreak Prompts · 越狱提示词"
+    description: "A bilingual, searchable database of publicly disclosed LLM jailbreak prompts, adversarial methods, and system prompts, for red-teaming and defensive AI-alignment research only."
   search:
     placeholder: "Search prompts, models, methods…"
   tabs:
@@ -180,6 +188,8 @@ en:
     sortBy: "Click to sort by this column"
     # 侧边抽屉 / detail drawer
     close: "Close"
+    copy: "Copy"
+    copied: "Copied"
     # 表头过滤器 / table header filter bar
     filterYear: "Year"
     filterAll: "All"

@@ -125,6 +125,8 @@ export function PromptDetail({
         value={side}
         onChange={onSide}
         loading={loading}
+        copyLabel={strings.labels.copy}
+        copiedLabel={strings.labels.copied}
         sides={[
           {
             key: 'translation',

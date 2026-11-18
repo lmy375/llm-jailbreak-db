@@ -10,14 +10,16 @@
 ## 功能
 
 - **两级 Tab**：顶部先选板块（越狱提示词 / 系统提示词），再选该板块下的子页。越狱提示词下为「越狱提示词库 / 越狱方法 / 数据来源」，系统提示词下为「系统提示词库 / 数据来源」。
-- **提示词库表格**：以数据库表格呈现，主字段为编号、模型、标题、方法、质量分、时间；点击任意行**原地展开**详情（攻击目的、类别、数据来源、附加信息及完整提示词），同一时间仅展开一行。
+- **提示词库表格**：以数据库表格呈现，主字段为编号、模型、标题、方法、质量分、时间；点击任意行打开**详情抽屉**（攻击目的、类别、数据来源、附加信息及完整提示词），同一时间仅打开一条。
 - **列排序**：点击表头在升序 / 降序间切换。
-- **系统提示词全文**：展开任意一行即显示该提示词的**完整原文**，中英双语随界面语言切换；元信息含厂商、公开时间、词数、对应越狱提示词、泄露渠道与提取手段。
+- **系统提示词全文**：打开任意一行即在详情抽屉中显示该提示词的**完整原文**，中英双语随界面语言切换；元信息含厂商、公开时间、词数、对应越狱提示词、泄露渠道与提取手段。
+- **复制正文**：详情抽屉的正文面板可一键复制当前语言侧的全文，复制成功后按钮短暂显示确认状态。
+- **可分享的页面状态**：当前板块、子页、筛选条件和打开的详情都写入 URL hash，刷新、分享链接或浏览器前进 / 后退都会还原同一视图。
 - **亮暗双主题**：顶栏一键切换，默认跟随系统偏好，选择记入 `localStorage`。
 - **全局中英切换**：`title`、攻击目的、方法名、文章、系统提示词全文等字段随界面语言切换。
-- **提示词独立切换**：越狱提示词每条带单独的「译文 / 原文」toggle，与全局语言互不影响。
-- **搜索**：在当前板块内即时过滤；系统提示词板块的搜索范围包含提示词全文。
-- **方法介绍**：列出全部越狱方法，每种配中英双语原理文章；点击详情中的「方法」标签即可跳转。
+- **提示词语言独立切换**：越狱提示词每条带单独的中文 / 英文正文切换，与全局界面语言互不影响。
+- **搜索**：在当前板块内即时过滤。越狱库检索编号、标题、模型、方法、目标与时间；系统提示词库检索编号、产品、厂商、来源链接与备注。正文按需加载，不参与列表检索。
+- **方法介绍**：列出全部越狱方法，每种配中英双语原理文章；点击详情中的「方法」标签跳转到对应方法页，方法页中的相关提示词可直达其详情。
 
 ## 目录结构
 
@@ -32,9 +34,9 @@ content/jailbreak_method/en/*.md # 越狱方法原理文章（英文）
 content/jailbreak_source/{zh,en}.md # 越狱提示词板块的数据来源清单
 content/system_source/{zh,en}.md # 系统提示词板块的数据来源清单
 scripts/
-  build-data.mjs        # 汇总 yaml + md → public/ 下的数据与正文文件
-  gen-db.mjs            # 一次性上游迁移脚本（重跑会覆盖 jailbreak_prompts.yaml）
-  migrate-map.yaml      # 迁移期补充元数据
+  build-data.mjs        # 汇总 yaml + md → public/ 下的数据与正文文件，并执行数据校验
+  detect-duplicates.mjs # 系统提示词正文的重复检测
+  report-duplicates.mjs # 重复检测报告
 public/data.json        # 构建产物：索引与元数据（gitignore）
 public/system-bodies/   # 构建产物：系统提示词正文，按语言一条一个文件（gitignore）
 public/prompt-bodies/   # 构建产物：越狱提示词正文，一条一个文件（gitignore）
@@ -44,7 +46,7 @@ index.html
 
 ## 数据格式（`jailbreak_prompts.yaml`）
 
-顶层四个字段：`source`（数据来源清单）、`models`（模型清单）、`jailbreak_method`（越狱方法清单）、`prompts`（越狱提示词条目）。
+顶层五个字段：`source`（数据来源清单）、`models`（模型清单）、`jailbreak_method`（越狱方法清单）、`target`（攻击目的清单）、`prompts`（越狱提示词条目）。
 
 ```yaml
 source:                               # 数据来源清单；来源页表格由此自动生成
@@ -76,7 +78,7 @@ prompts:
     title: "Fake Test (Mode Confusion)"       # 英文标题（不含模型名）
     title_zh: "伪测试（模式混淆）"              # 中文标题
     model_id: gemma-3-12b                     # 引用 models[].id
-    time: "2025-03"                           # 有效时间
+    time: "2025-03-01"                        # 公开/出现时间，yyyy-mm-dd；日未知以 01 占位
     source_id: davidegat-happy-prompts        # 引用 source[].id（数据来源大库）
     source_url: "https://github.com/.../blob/..."  # 具体条目 URL（通常为大库子路径）
     jailbreak_method: fake-test               # 引用 jailbreak_method[].id
@@ -90,31 +92,33 @@ prompts:
     quality_score: 7                          # 1-10 整数，人工质检标注
 ```
 
+构建脚本会校验 `prompts[].id` 的格式与唯一性、`time` 的格式与年份一致性、所有 `source_id` / `model_id` / `jailbreak_method` / `target` 引用，以及 `quality_score` 的取值范围。日期字段必须写成带引号的 `yyyy-mm-dd` 字符串，未加引号的标量会被 YAML 解析成日期对象并导致构建失败。
+
 ## 数据格式（`system_prompts.yaml`）
 
 顶层有 `source`（数据来源清单，字段同 `jailbreak_prompts.yaml` 的 `source`）与 `prompts`，后者是系统提示词的**元数据索引**；正文本体存放在 `content/system_prompts/{en,zh}/` 下。
 
 ```yaml
 prompts:
-  - id: LSP-2023-0001            # 唯一编号：LSP-<年份>-<序号>，序号 4 位补前导 0
+  - id: LSP-2023-0001             # 唯一编号：LSP-<年份>-<序号>，序号 4 位补前导 0
     product: "Bing Chat (Sydney)" # 产品名
     vender: "Microsoft"           # 厂商
     time: "2023-02-09"            # 公开/泄露时间（非归档日期）；确认不了留空
-    words: 810                    # 英文原文词数，未知填 0
-    quality_score: 7              # 1-10 整数，人工质检标注
-    ljb_id: ""                    # 用于攻击该提示词的 LJB 编号；无对应条目时留空
+    disclosureType: leaked        # official-open-source / leaked
+    surface: chat                 # chat / api / ide / cli / agent / browser / mobile / desktop
+    note: "..."                   # 具体泄露方法及其他直接了解的信息（英）
+    note_zh: "..."                # note 的中文对应
     source_id: businessinsider-bing-sydney  # 引用顶层 source[].id（数据来源大库）
     source_url: "https://..."     # 具体条目 URL（通常为大库子路径）
     system_prompt_id: "bing-sydney" # 对应 content/system_prompts/{en,zh}/ 下的文件名
-    extra:                        # 自由字段，任意键值对都会被渲染
-      leakChannel: "prompt-injection" # 枚举值，显示文案走 i18n.yaml 的 enumLabels
-      extraction: "斯坦福学生用……"   # 字符串按文本显示
-      proofs: ["https://..."]         # 字符串数组按链接列表显示
+    quality_score: 7              # 1-10 整数，人工质检标注
 ```
+
+词数不手写，由构建脚本按 `content/system_prompts/en/` 原文计算；重复正文分组也由构建脚本比对英文正文后生成，不在数据文件里标注。
 
 正文文件与 `content/jailbreak_method/{zh,en}/*.md` 同一套按语言分目录的组织方式：`content/system_prompts/en/<system_prompt_id>.md` 为原文，`content/system_prompts/zh/<system_prompt_id>.md` 为译文。缺失译文只打 warning 并回退到英文正文，不阻断构建。每篇**必须是真实完整的提示词正文**，不收介绍文章或节选；**不设硬性词数下限**，真实的产品提示词可能只有几句话。
 
-`ljb_id` 必须能解析到 `jailbreak_prompts.yaml` 中真实存在的编号；只有模糊的攻击方法记录而没有对应 LJB 条目时留空，攻击方法写进 `extra.extraction`。`extra` 的键名显示文案在 `i18n.yaml` 的 `sysPrompts.extraKeys` 中声明，枚举值的显示文案在 `sysPrompts.enumLabels` 中声明。
+`quality_score` 衡量正文的完整度、信息量与研究价值：完整但常规的正文为中等分，片段、子章节或重复组中被包含的次要版本为低分，完整、独特且信息量高的真实产品提示词为高分。
 
 ## 本地开发
 
@@ -125,11 +129,13 @@ pnpm run build    # 生成 data.json、类型检查并构建到 dist/
 pnpm run preview  # 预览构建产物
 ```
 
+`pnpm run build` 会先执行数据校验，任何 id、日期、引用或评分不合法都会直接失败，不会产出半成品。
+
 ## 部署
 
 推送到 `main` 分支后，`.github/workflows/deploy.yml` 会自动安装依赖、构建并发布 `dist/` 到 GitHub Pages。
 
-首次使用需在仓库 **Settings → Pages** 中将 Source 设为 **GitHub Actions**。站点部署在子路径 `/<repo>/` 下，该路径由 `vite.config.js` 的 `base` 控制。
+首次使用需在仓库 **Settings → Pages** 中将 Source 设为 **GitHub Actions**。站点部署在子路径 `/<repo>/` 下，该路径由 `vite.config.ts` 的 `base` 控制。
 
 ## 数据来源
 
@@ -138,4 +144,4 @@ pnpm run preview  # 预览构建产物
 - 越狱提示词：`jailbreak_prompts.yaml` 顶层 `source`，渲染到 `content/jailbreak_source/zh.md` 与 `content/jailbreak_source/en.md`。核心归档来源为 [Quincunx33/Ai-jailbreak](https://github.com/Quincunx33/Ai-jailbreak)。
 - 系统提示词：`system_prompts.yaml` 顶层 `source`，渲染到 `content/system_source/zh.md` 与 `content/system_source/en.md`，涵盖厂商官方开源仓库、社区归档库与媒体报道。
 
-表格字段：`title`（来源标题，链接到原始出处）、`description`（来源简介，随界面语言切换）、`index_time`（索引到本库的时间）、`commit`（GitHub 来源在索引时使用的 commit，非 GitHub 来源留空）、`data_count`（该来源在库中的条目数，构建时自动统计）。仅保留实际贡献数据条目的来源，纯参考文献与相关文章不予收录。
+表格字段：`title`（来源标题，链接到原始出处）、`description`（来源简介，随界面语言切换）、`index_time`（索引到本库的时间）、`commit`（GitHub 来源在索引时使用的 commit，非 GitHub 来源留空）、`data_count`（该来源在库中的条目数，构建时自动统计）。仅保留实际贡献数据条目的来源，纯参考文献与相关文章不予收录；条目数为零的来源会让构建失败。

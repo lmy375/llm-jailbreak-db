@@ -136,6 +136,8 @@ export interface DuplicateGroup {
 
 export interface LangStrings {
   label: string;
+  /** BCP 47 tag published as `<html lang>` for this UI language. */
+  htmlLang: string;
   defaultPromptSide: PromptSide;
   fieldMap: {
     title: 'title' | 'title_zh';
@@ -148,7 +150,7 @@ export interface LangStrings {
     note: 'note' | 'note_zh';
     noteAlt: 'note' | 'note_zh';
   };
-  site: { name: string };
+  site: { name: string; htmlTitle: string; description: string };
   search: { placeholder: string };
   tabs: { db: string; method: string; source: string };
   hero: { title: string; description: string };
@@ -177,6 +179,8 @@ export interface LangStrings {
     time: string;
     // 详情抽屉 / detail drawer
     close: string;
+    copy: string;
+    copied: string;
     note: string;
     viewTech: string;
     // 主题与排序 / theme toggle & sorting
@@ -241,7 +245,7 @@ export interface SiteConfig {
   htmlTitle: string;
   description: string;
   repo: string;
-  brandMark: string;
+
   repoLabel: string;
 }
 

@@ -214,6 +214,8 @@ function SystemPromptDetail({
         value={side}
         onChange={onSide}
         loading={loading}
+        copyLabel={strings.labels.copy}
+        copiedLabel={strings.labels.copied}
         sides={languages.map((l) => ({
           key: l.key,
           label: l.label,

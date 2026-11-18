@@ -6,6 +6,8 @@ export type IconName =
   | 'sort'
   | 'close'
   | 'external'
+  | 'copy'
+  | 'check'
   | 'diamond';
 
 const paths: Record<IconName, string> = {
@@ -16,6 +18,8 @@ const paths: Record<IconName, string> = {
   sort: 'M5 6.25 8 3.25l3 3M5 9.75l3 3 3-3',
   close: 'M4 4l8 8M12 4l-8 8',
   external: 'M9.5 2.5h4v4M13.5 2.5 7.5 8.5M11.5 9.5v3.5h-8v-8H7',
+  copy: 'M5.75 5.75V3.25h7v7h-2.5M3.25 5.75h7.25v7H3.25Z',
+  check: 'M3.25 8.5 6.5 11.75 12.75 4.75',
   diamond: 'M8 2.25 13.75 8 8 13.75 2.25 8Z',
 };
 

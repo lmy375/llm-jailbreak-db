@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type {
   Data,
   JailbreakView,
@@ -12,6 +12,7 @@ import type {
   TargetEntry,
 } from './types';
 import { loadBody, loadData, loadPromptBody } from './lib/data';
+import { buildRoute, parseRoute, type RouteState } from './lib/route';
 import { useTheme } from './lib/theme';
 import { Header } from './components/Header';
 import { Icon } from './components/Icon';
@@ -34,40 +35,119 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [lang, setLang] = useState('');
 
-  // Two independent archives; each keeps its own sub-view and expanded row.
-  const [section, setSection] = useState<Section>('jailbreak');
-  const [jailbreakView, setJailbreakView] = useState<JailbreakView>('db');
-  const [systemView, setSystemView] = useState<SystemView>('db');
-  const [activeMethod, setActiveMethod] = useState<string | null>(null);
-  const [query, setQuery] = useState('');
+  // The hash is the only place navigation state lives, so a refresh, a shared
+  // link or the back button all land on the same section, tab, filters and
+  // open drawer instead of resetting to the landing view.
+  const [bootRoute] = useState<RouteState>(() => parseRoute(window.location.hash));
+  const [section, setSection] = useState<Section>(bootRoute.section);
+  const [jailbreakView, setJailbreakView] = useState<JailbreakView>(bootRoute.jailbreakView);
+  const [systemView, setSystemView] = useState<SystemView>(bootRoute.systemView);
+  const [activeMethod, setActiveMethod] = useState<string | null>(bootRoute.activeMethod);
+  const [query, setQuery] = useState(bootRoute.query);
   // Table header filters (per archive); empty string means "all".
-  const [modelFilter, setModelFilter] = useState('');
-  const [methodFilter, setMethodFilter] = useState('');
-  const [venderFilter, setVenderFilter] = useState('');
-  const [yearFilter, setYearFilter] = useState('');
+  const [modelFilter, setModelFilter] = useState(bootRoute.modelFilter);
+  const [methodFilter, setMethodFilter] = useState(bootRoute.methodFilter);
+  const [venderFilter, setVenderFilter] = useState(bootRoute.venderFilter);
+  const [yearFilter, setYearFilter] = useState(bootRoute.yearFilter);
   const [sides, setSides] = useState<Record<string, PromptSide>>({});
   // System-prompt body language per row; falls back to the current UI language.
   const [sysSides, setSysSides] = useState<Record<string, string>>({});
   // Detail drawers: at most one row is open per archive.
-  const [openPrompt, setOpenPrompt] = useState<string | null>(null);
-  const [openSys, setOpenSys] = useState<string | null>(null);
+  const [openPrompt, setOpenPrompt] = useState<string | null>(bootRoute.openPrompt);
+  const [openSys, setOpenSys] = useState<string | null>(bootRoute.openSys);
   const [theme, toggleTheme] = useTheme();
+
+  // Navigation actions add a history entry; typing in the search box and
+  // changing a filter rewrite the current one so Back does not walk each key.
+  const pushRef = useRef(false);
+  const markPush = () => {
+    pushRef.current = true;
+  };
 
   useEffect(() => {
     loadData()
       .then((d) => {
         setData(d);
-        document.title = d.site.htmlTitle;
-        let meta = document.querySelector('meta[name="description"]');
-        if (!meta) {
-          meta = document.createElement('meta');
-          meta.setAttribute('name', 'description');
-          document.head.appendChild(meta);
-        }
-        meta.setAttribute('content', d.site.description);
         setLang(Object.keys(d.langs)[0] ?? '');
       })
       .catch((e: unknown) => setError(e instanceof Error ? e.message : String(e)));
+  }, []);
+
+  // Document metadata follows the UI language, not just the initial page load.
+  useEffect(() => {
+    if (!data || !lang) return;
+    const strings = data.langs[lang];
+    if (!strings) return;
+    document.documentElement.lang = strings.htmlLang;
+    document.title = strings.site.htmlTitle || data.site.htmlTitle;
+    const description = strings.site.description || data.site.description;
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'description');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', description);
+  }, [data, lang]);
+
+  // Keep the URL in step with the UI. Data loads first so the initial route is
+  // applied before the first write.
+  useEffect(() => {
+    if (!data) return;
+    const next = buildRoute({
+      section,
+      jailbreakView,
+      systemView,
+      activeMethod,
+      openPrompt,
+      openSys,
+      query,
+      modelFilter,
+      methodFilter,
+      venderFilter,
+      yearFilter,
+    });
+    if (window.location.hash === next) return;
+    if (pushRef.current) window.history.pushState(null, '', next);
+    else window.history.replaceState(null, '', next);
+    pushRef.current = false;
+  }, [
+    data,
+    section,
+    jailbreakView,
+    systemView,
+    activeMethod,
+    openPrompt,
+    openSys,
+    query,
+    modelFilter,
+    methodFilter,
+    venderFilter,
+    yearFilter,
+  ]);
+
+  // Back/forward and hand-edited hashes flow back into the component state.
+  useEffect(() => {
+    const syncFromUrl = () => {
+      const route = parseRoute(window.location.hash);
+      setSection(route.section);
+      setJailbreakView(route.jailbreakView);
+      setSystemView(route.systemView);
+      setActiveMethod(route.activeMethod);
+      setQuery(route.query);
+      setModelFilter(route.modelFilter);
+      setMethodFilter(route.methodFilter);
+      setVenderFilter(route.venderFilter);
+      setYearFilter(route.yearFilter);
+      setOpenPrompt(route.openPrompt);
+      setOpenSys(route.openSys);
+    };
+    window.addEventListener('popstate', syncFromUrl);
+    window.addEventListener('hashchange', syncFromUrl);
+    return () => {
+      window.removeEventListener('popstate', syncFromUrl);
+      window.removeEventListener('hashchange', syncFromUrl);
+    };
   }, []);
 
   const methodMap = useMemo(() => {
@@ -194,6 +274,7 @@ export default function App() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const openMethod = (id: string) => {
+    markPush();
     setActiveMethod(id);
     setJailbreakView('method');
     scrollTop();
@@ -202,6 +283,7 @@ export default function App() {
   // Opening a prompt from a method page returns to the listing with every
   // filter cleared, so the requested row is guaranteed to be present.
   const openPromptDetail = (id: string) => {
+    markPush();
     setQuery('');
     setModelFilter('');
     setMethodFilter('');
@@ -243,6 +325,7 @@ export default function App() {
         onToggleTheme={toggleTheme}
         section={section}
         onSection={(s) => {
+          markPush();
           setSection(s);
           setOpenPrompt(null);
           setOpenSys(null);
@@ -257,10 +340,12 @@ export default function App() {
           section={section}
           counts={data.counts}
           onMethod={() => {
+            markPush();
             setJailbreakView('method');
             scrollTop();
           }}
           onSystemDb={() => {
+            markPush();
             setSystemView('db');
             scrollTop();
           }}
@@ -276,11 +361,13 @@ export default function App() {
           jailbreakView={jailbreakView}
           systemView={systemView}
           onJailbreakView={(v) => {
+            markPush();
             setJailbreakView(v);
             setOpenPrompt(null);
             scrollTop();
           }}
           onSystemView={(v) => {
+            markPush();
             setSystemView(v);
             setOpenSys(null);
             scrollTop();
@@ -322,7 +409,10 @@ export default function App() {
               sideOf={sideOf}
               onSide={(id, side) => setSides((s) => ({ ...s, [id]: side }))}
               selectedId={openPrompt}
-              onSelect={setOpenPrompt}
+              onSelect={(id) => {
+                markPush();
+                setOpenPrompt(id);
+              }}
               onOpenMethod={(id) => {
                 setOpenPrompt(null);
                 openMethod(id);
@@ -335,7 +425,10 @@ export default function App() {
               activeId={activeId}
               strings={strings}
               prompts={data.prompts}
-              onSelect={setActiveMethod}
+              onSelect={(id) => {
+                markPush();
+                setActiveMethod(id);
+              }}
               onOpenPrompt={openPromptDetail}
             />
           )}
@@ -353,7 +446,10 @@ export default function App() {
               onSide={(id, key) => setSysSides((s) => ({ ...s, [id]: key }))}
               strings={strings}
               selectedId={openSys}
-              onSelect={setOpenSys}
+              onSelect={(id) => {
+                markPush();
+                setOpenSys(id);
+              }}
               duplicateGroups={data.duplicateGroups}
               hiddenDuplicateIds={hiddenDuplicateIds}
             />

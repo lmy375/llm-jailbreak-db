@@ -127,12 +127,7 @@ source:
     index_time: "2026-10-18"
     description: "Hands-on 2025-model jailbreaks: DeepSeek v3, Gemini 2.5 Pro, GPT-5 (non-thinking), Grok 3, Perplexity, plus universal courtroom/ultrazanium prompts."
     description_zh: "2025 年新模型实测越狱：DeepSeek v3、Gemini 2.5 Pro、GPT-5（non-thinking）、Grok 3、Perplexity，及通用 courtroom / ultrazanium 提示词。"
-  - id: involuntary-jailbreak-jie311
-    title: "jie311/Involuntary-Jailbreak"
-    url: "https://github.com/jie311/Involuntary-Jailbreak"
-    index_time: "2026-10-18"
-    description: "Official implementation of the Involuntary Jailbreak paper (arXiv 2508.13246); prompt.txt is the universal meta-prompt template."
-    description_zh: "Involuntary Jailbreak 论文（arXiv 2508.13246）官方实现；prompt.txt 为通用元提示词模板。"
+  
   - id: gptfuzz-hubertyoo
     title: "hubertyoo/GPTFuzz"
     url: "https://github.com/hubertyoo/GPTFuzz"
@@ -337,9 +332,7 @@ jailbreak_method:
   - id: game-coercion
     name: Game & Score Coercion
     name_zh: 游戏化积分胁迫
-  - id: many-shot-priming
-    name: Many-Shot In-Context Priming
-    name_zh: 大量示例上下文灌入
+  
   - id: function-abstraction
     name: Functional Abstraction & Formal Rewrite
     name_zh: 函数抽象与形式化改写
@@ -380,9 +373,7 @@ target:
   - id: physical-harm
     name: "Physical Harm & Violence"
     name_zh: "人身伤害与暴力"
-  - id: self-harm
-    name: "Self-Harm & Suicide"
-    name_zh: "自我伤害与自杀"
+  
   - id: financial-harm
     name: "Financial Harm & Illegal Financial Advice"
     name_zh: "金融损害与违规财务建议"
@@ -395,7 +386,7 @@ prompts:
     title: Funny Code Generation (Obfuscated Reconstruction)
     title_zh: 趣味代码生成（混淆还原）
     model_id: gemma-3-12b
-    time: 2025-03-01
+    time: "2025-03-01"
     source_id: davidegat-happy-prompts
     source_url: "https://github.com/davidegat/happy-prompts"
     jailbreak_method: obfuscated-encoding
@@ -437,7 +428,7 @@ prompts:
     title: Semantic Hypnosis (Multi-Turn)
     title_zh: 语义催眠（多轮）
     model_id: gemma-3-12b
-    time: 2025-03-01
+    time: "2025-03-01"
     source_id: davidegat-happy-prompts
     source_url: "https://github.com/davidegat/happy-prompts"
     jailbreak_method: semantic-hypnosis
@@ -485,7 +476,7 @@ prompts:
     title: A Dangerous Kyrgyz Story (Language Obfuscation)
     title_zh: 一个危险的吉尔吉斯故事（语言混淆）
     model_id: gemma-3-12b
-    time: 2025-03-01
+    time: "2025-03-01"
     source_id: davidegat-happy-prompts
     source_url: "https://github.com/davidegat/happy-prompts"
     jailbreak_method: multilingual-obfuscation
@@ -551,7 +542,7 @@ prompts:
     title: Self-Flaw Analysis & Weight Leakage
     title_zh: 自缺陷分析与权重泄漏
     model_id: gemma-3-12b
-    time: 2025-03-01
+    time: "2025-03-01"
     source_id: davidegat-happy-prompts
     source_url: "https://github.com/davidegat/happy-prompts"
     jailbreak_method: "fake-test"
@@ -613,7 +604,7 @@ prompts:
     title: Reverse Thinking Trick (Intent Inversion)
     title_zh: 反向思维技巧（意图倒置）
     model_id: qwen-3-14b
-    time: 2025-04-01
+    time: "2025-04-01"
     source_id: davidegat-happy-prompts
     source_url: "https://github.com/davidegat/happy-prompts"
     jailbreak_method: reverse-thinking
@@ -685,7 +676,7 @@ prompts:
     title: Fake Training (Few-Shot Header)
     title_zh: 伪训练（少样本头部）
     model_id: mistral-7b
-    time: 2025-01-01
+    time: "2025-01-01"
     source_id: davidegat-happy-prompts
     source_url: "https://github.com/davidegat/happy-prompts"
     jailbreak_method: token-boundary
@@ -793,7 +784,7 @@ prompts:
     title: Fake Test (Chain-of-Thought Bifurcation)
     title_zh: 伪测试（思维链分叉）
     model_id: deepseek-r1-14b
-    time: 2025-01-01
+    time: "2025-01-01"
     source_id: davidegat-happy-prompts
     source_url: "https://github.com/davidegat/happy-prompts"
     jailbreak_method: dual-response-split
@@ -863,7 +854,7 @@ prompts:
     title: Policy-Rule Mirror Prompt 2
     title_zh: 政策规则镜像提示词 2
     model_id: phi-4-14b
-    time: 2025-01-01
+    time: "2025-01-01"
     source_id: davidegat-happy-prompts
     source_url: "https://github.com/davidegat/happy-prompts"
     jailbreak_method: policy-puppetry
@@ -889,7 +880,7 @@ prompts:
     title: Reasoning-Trace Jailbreak (Medical Bypass)
     title_zh: 思维链越狱（医疗绕过）
     model_id: phi-4-14b
-    time: 2025-01-01
+    time: "2025-01-01"
     source_id: davidegat-happy-prompts
     source_url: "https://github.com/davidegat/happy-prompts"
     jailbreak_method: reasoning-trace-injection
@@ -959,7 +950,7 @@ prompts:
     title: Jailbreak Nesting (Turn 1)
     title_zh: 越狱嵌套（第 1 次输入）
     model_id: llama-3-8b
-    time: 2024-08-22
+    time: "2024-08-22"
     source_id: meta-llama-llama-models
     source_url: "https://github.com/meta-llama/llama-models/issues/121"
     jailbreak_method: obfuscated-encoding
@@ -977,7 +968,7 @@ prompts:
     title: "Policy Puppetry / Fake Config Override"
     title_zh: "策略木偶戏 / 伪造配置覆盖"
     model_id: universal
-    time: 2024-11-01
+    time: "2024-11-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: policy-puppetry
@@ -1035,7 +1026,7 @@ prompts:
     title: "TokenBreak (Word Boundary Split)"
     title_zh: "TokenBreak（词边界拆分）"
     model_id: cross-model
-    time: 2025-06-01
+    time: "2025-06-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: token-boundary
@@ -1077,7 +1068,7 @@ prompts:
     title: "Crescendo (Multi-Turn Escalation)"
     title_zh: "渐进升级（多轮升级）"
     model_id: universal-frontier
-    time: 2024-04-01
+    time: "2024-04-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: crescendo-escalation
@@ -1125,7 +1116,7 @@ prompts:
     title: "Agentic Jailbreak (MCP & Memory Injection)"
     title_zh: "智能体越狱（MCP 与记忆注入）"
     model_id: agentic-llm
-    time: 2025-01-01
+    time: "2025-01-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: agentic-injection
@@ -1165,7 +1156,7 @@ prompts:
     title: "Fallacy Failure (Logic-Based Framing)"
     title_zh: "逻辑谬误诱导（基于逻辑的框定）"
     model_id: reasoning-models
-    time: 2024-07-01
+    time: "2024-07-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: logic-fallacy
@@ -1211,7 +1202,7 @@ prompts:
     title: Encoded-Payload Policy Puppetry
     title_zh: 编码载荷策略木偶戏
     model_id: gemma-4
-    time: 2025-10-01
+    time: "2025-10-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: obfuscated-encoding
@@ -1248,7 +1239,7 @@ prompts:
     title: Thinking-History Continuation
     title_zh: 思维历史续写
     model_id: kimi-k3
-    time: 2026-01-01
+    time: "2026-01-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: reasoning-trace-injection
@@ -1286,7 +1277,7 @@ prompts:
     title: AGENTS.md / README Repository Hijack
     title_zh: AGENTS.md / README 仓库劫持
     model_id: kimi-k3-agentic
-    time: 2026-01-01
+    time: "2026-01-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: agentic-injection
@@ -1308,7 +1299,7 @@ prompts:
     title: Role-in-Prompt (RiP) & Analysis Hijack
     title_zh: 提示词内角色与分析劫持
     model_id: gpt-oss
-    time: 2025-11-01
+    time: "2025-11-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: "policy-puppetry"
@@ -1344,7 +1335,7 @@ prompts:
     title: Scaled Trace Simulation
     title_zh: 放大的轨迹模拟
     model_id: glm-5-2-k2-thinking
-    time: 2026-01-01
+    time: "2026-01-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: reasoning-trace-injection
@@ -1384,7 +1375,7 @@ prompts:
     title: Benchmark Pressure to Cut Reasoning
     title_zh: 削减推理量的基准压力
     model_id: inkling
-    time: 2026-01-01
+    time: "2026-01-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: "game-coercion"
@@ -1426,7 +1417,7 @@ prompts:
     title: Instruction Buried in Haystack
     title_zh: 草堆中的指令掩埋
     model_id: llama-4-scout-maverick
-    time: 2025-11-01
+    time: "2025-11-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: context-flooding
@@ -1464,7 +1455,7 @@ prompts:
     title: Echo Chamber + Storytelling Escalation
     title_zh: 回声室 + 讲故事升级
     model_id: gpt-5x
-    time: 2025-12-01
+    time: "2025-12-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: crescendo-escalation
@@ -1508,7 +1499,7 @@ prompts:
     title: Long-Context Manual Erosion
     title_zh: 长上下文手册侵蚀
     model_id: gpt-5x
-    time: 2025-12-01
+    time: "2025-12-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: context-flooding
@@ -1546,7 +1537,7 @@ prompts:
     title: Academic-Educational Framing (ENI)
     title_zh: 学术-教育框定（ENI）
     model_id: grok-4x
-    time: 2025-12-01
+    time: "2025-12-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: logic-fallacy
@@ -1586,7 +1577,7 @@ prompts:
     title: "Involuntary Jailbreak: Function X(q)"
     title_zh: "非自愿越狱：函数 X(q)"
     model_id: gemini-3x
-    time: 2026-01-01
+    time: "2026-01-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: "function-abstraction"
@@ -1638,7 +1629,7 @@ prompts:
     title: "Low-Salience Whisper Chain"
     title_zh: "低唤醒度链式追问"
     model_id: universal-frontier
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: "crescendo-escalation"
@@ -1670,7 +1661,7 @@ prompts:
     title: "Research Mode Bifurcation"
     title_zh: "研究模式分叉"
     model_id: generic-llm
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: dual-response-split
@@ -1700,7 +1691,7 @@ prompts:
     title: "Policy Override Protocol Config"
     title_zh: "策略覆盖协议配置"
     model_id: generic-llm
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: policy-puppetry
@@ -1724,7 +1715,7 @@ prompts:
     title: "Shift-by-Key Substitution Cipher"
     title_zh: "移位替换密码"
     model_id: generic-llm
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: "obfuscated-encoding"
@@ -1748,7 +1739,7 @@ prompts:
     title: "System Debug Echo (BOS/EOS Boundary)"
     title_zh: "系统调试回显（BOS/EOS 边界）"
     model_id: generic-llm
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: token-boundary
@@ -1768,7 +1759,7 @@ prompts:
     title: "Fake Training Dialogue Injection"
     title_zh: "伪训练对话注入"
     model_id: generic-llm
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: "token-boundary"
@@ -1786,7 +1777,7 @@ prompts:
     title: "Hypnotic Semantic Core"
     title_zh: "催眠式语义核心"
     model_id: generic-llm
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: semantic-hypnosis
@@ -1802,7 +1793,7 @@ prompts:
     title: "Memory Injection Layer Load"
     title_zh: "记忆注入层载入"
     model_id: generic-llm
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: agentic-injection
@@ -1824,7 +1815,7 @@ prompts:
     title: "Security vs Transparency Contradiction"
     title_zh: "安全与透明性矛盾"
     model_id: generic-llm
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: logic-fallacy
@@ -1840,7 +1831,7 @@ prompts:
     title: "Debug Token Flood (<DBG>)"
     title_zh: "调试 Token 洪泛（<DBG>）"
     model_id: generic-llm
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: "token-boundary"
@@ -1860,7 +1851,7 @@ prompts:
     title: "Inverted Intent Without Direct Request"
     title_zh: "反向意图（不直接请求）"
     model_id: generic-llm
-    time: 2026-02-01
+    time: "2026-02-01"
     source_id: quincunx33-ai-jailbreak
     source_url: "https://github.com/Quincunx33/Ai-jailbreak"
     jailbreak_method: reverse-thinking
@@ -1882,7 +1873,7 @@ prompts:
     title: "DAN 6.0 (Do Anything Now)"
     title_zh: "DAN 6.0（现在什么都能做）"
     model_id: chatgpt-gpt4
-    time: 2023-02-01
+    time: "2023-02-01"
     source_id: reddit-chatgpt-dan-60
     source_url: "https://www.reddit.com/r/ChatGPT/comments/10vinun/presenting_dan_60"
     jailbreak_method: persona-injection
@@ -1910,7 +1901,7 @@ prompts:
     title: "Fraktur / Script Unicode Overwrite"
     title_zh: "花体 / 手写体 Unicode 全文改写"
     model_id: deepseek-v3x
-    time: 2025-12-01
+    time: "2025-12-01"
     source_id: elder-plinius-l1b3rt4s
     source_url: "https://github.com/elder-plinius/L1B3RT4S"
     jailbreak_method: obfuscated-encoding
@@ -1928,7 +1919,7 @@ prompts:
     title: "Synthetic Red-Team Dataset Pretext"
     title_zh: "合成红队数据集借口"
     model_id: gpt-5x
-    time: 2025-12-11
+    time: "2025-12-11"
     source_id: elder-plinius-l1b3rt4s
     source_url: "https://github.com/elder-plinius/L1B3RT4S"
     jailbreak_method: fake-test

@@ -38,15 +38,39 @@ const idKey = (id) => {
   return [0, Number(m[1]), Number(m[2])];
 };
 const prompts = (jailbreak.prompts ?? [])
-  .map((p) => ({ ...p, time: normDate(p.time) }))
+  .map((p) => {
+    // Unquoted yyyy-mm-dd scalars become Date objects and ISO strings slip
+    // through as literals; both hide a malformed data file behind normDate.
+    if (p.time instanceof Date || (typeof p.time === 'string' && p.time.includes('T'))) {
+      throw new Error(`prompts[].time must be a quoted yyyy-mm-dd string: ${p.id}`);
+    }
+    return { ...p, time: normDate(p.time) };
+  })
   .sort((a, b) => {
     const [ax, ay, an] = idKey(a.id);
     const [bx, by, bn] = idKey(b.id);
     return ax - bx || ay - by || an - bn;
   });
 
-// Quality scores are reviewed by hand; the build only enforces the scale.
+// Ids are the archive's primary keys: both the format and uniqueness are
+// enforced here, and a time-bearing id must agree with its year so a record
+// can never claim LJB-2024 while dating itself 2025.
+const DATE_ONLY = /^\d{4}-\d{2}-\d{2}$/;
+const seenPromptIds = new Set();
 for (const p of prompts) {
+  if (!/^LJB-\d{4}-\d{4}$/.test(String(p.id))) {
+    throw new Error(`prompts[].id must match LJB-<year>-<4-digit seq>: ${p.id}`);
+  }
+  if (seenPromptIds.has(p.id)) throw new Error(`duplicate prompts[].id: ${p.id}`);
+  seenPromptIds.add(p.id);
+  if (p.time && !DATE_ONLY.test(p.time)) {
+    throw new Error(`prompts[].time must be yyyy-mm-dd or empty: ${p.time} (${p.id})`);
+  }
+  if (p.time && p.time.slice(0, 4) !== String(p.id).slice(4, 8)) {
+    throw new Error(`prompts[].id year must match time: ${p.id} vs ${p.time}`);
+  }
+
+  // Quality scores are reviewed by hand; the build only enforces the scale.
   const q = p.quality_score;
   if (!Number.isInteger(q) || q < 1 || q > 10) {
     throw new Error(`prompts[].quality_score must be an integer 1-10: ${q} (${p.id})`);
@@ -89,7 +113,12 @@ if (missingTarget.length) {
 // parsed as markdown.
 const sysPromptFile = path.join(root, 'system_prompts.yaml');
 const sysYaml = fs.existsSync(sysPromptFile) ? readYaml('system_prompts.yaml') : {};
-const sysPrompts = (sysYaml.prompts ?? []).slice();
+const sysPrompts = (sysYaml.prompts ?? []).slice().map((s) => {
+  if (s.time instanceof Date || (typeof s.time === 'string' && s.time.includes('T'))) {
+    throw new Error(`system_prompts[].time must be a quoted yyyy-mm-dd string: ${s.id}`);
+  }
+  return s;
+});
 
 // Oldest first; entries with an unconfirmed time sort last.
 sysPrompts.sort((a, b) => {
@@ -111,7 +140,7 @@ const sysLangs = Object.keys(readYaml('i18n.yaml')).filter((k) => k !== 'site');
 //
 // A missing translation is only a warning: the record still renders, falling
 // back to the English body, so a translation backlog never blocks `pnpm dev`
-// or the Pages build. The backlog is tracked in untranslated_system_prompts.yaml.
+// or the Pages build.
 const missingTranslationWarnings = [];
 
 for (const s of sysPrompts) {
@@ -316,7 +345,13 @@ function withSourceCounts(sourceList, promptList, label) {
     }
     counts.set(sid, (counts.get(sid) ?? 0) + 1);
   }
-  return (sourceList ?? []).map((s) => ({ ...s, index_time: normDate(s.index_time), data_count: counts.get(s.id) ?? 0 }));
+  return (sourceList ?? []).map((s) => {
+    const data_count = counts.get(s.id) ?? 0;
+    if (data_count === 0) {
+      throw new Error(`${label}: source has no entries and must be removed: ${s.id}`);
+    }
+    return { ...s, index_time: normDate(s.index_time), data_count };
+  });
 }
 
 const jailbreakSources = withSourceCounts(jailbreak.source, prompts, 'prompts');
@@ -330,12 +365,18 @@ function sourceTableMarkdown(meta, lang, strings) {
   const t = strings.sourceTable ?? {};
   const desc = (s) =>
     (lang === 'zh' ? s.description_zh || s.description : s.description) ?? '';
-  const head = `| ${t.title} | ${t.description} | ${t.indexTime} | ${t.commit} | ${t.dataCount} |`;
+  // Table cells must not contain raw pipes or newlines, or one source's
+  // description silently breaks the whole row layout.
+  const cell = (v) => String(v ?? '').replace(/\|/g, '\\|').replace(/\r?\n/g, ' ');
+  const linkText = (v) => cell(v).replace(/[[\]]/g, '\\$&');
+  const linkUrl = (v) =>
+    encodeURI(String(v ?? '')).replace(/\(/g, '%28').replace(/\)/g, '%29');
+  const head = `| ${cell(t.title)} | ${cell(t.description)} | ${cell(t.indexTime)} | ${cell(t.commit)} | ${cell(t.dataCount)} |`;
   const sep = '| --- | --- | --- | --- | --- |';
   const rows = meta.map(
     (s) =>
-      `| [${s.title}](${s.url}) | ${desc(s)} | ${s.index_time ?? ''} | ${
-        s.commit ? '`' + s.commit + '`' : '—'
+      `| [${linkText(s.title)}](${linkUrl(s.url)}) | ${cell(desc(s))} | ${cell(s.index_time)} | ${
+        s.commit ? '`' + cell(s.commit) + '`' : '—'
       } | ${s.data_count} |`
   );
   return [head, sep, ...rows].join('\n');
@@ -345,7 +386,12 @@ function renderSourcePage(relFile, meta, lang, strings) {
   const file = path.join(root, relFile);
   if (!fs.existsSync(file)) return '';
   const raw = fs.readFileSync(file, 'utf8');
-  return marked.parse(raw.replace('<!-- SOURCES_TABLE -->', sourceTableMarkdown(meta, lang, strings)));
+  const placeholder = '<!-- SOURCES_TABLE -->';
+  const parts = raw.split(placeholder);
+  if (parts.length !== 2) {
+    throw new Error(`${relFile} must contain exactly one ${placeholder}`);
+  }
+  return marked.parse(parts[0] + sourceTableMarkdown(meta, lang, strings) + parts[1]);
 }
 
 const sources = Object.fromEntries(

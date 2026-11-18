@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { Icon } from './Icon';
+
 /** One selectable language side of a prompt body. */
 export interface BodySide<T extends string> {
   key: T;
@@ -17,11 +20,15 @@ interface Props<T extends string> {
   onChange: (key: T) => void;
   /** Body text still on its way; shows placeholder lines instead of an empty box. */
   loading?: boolean;
+  /** Copy button label and its success state. */
+  copyLabel: string;
+  copiedLabel: string;
 }
 
 /**
- * Prompt body panel shared by both archive drawers: a header with a language
- * toggle and the raw text below, always fully open (scrolls past its max height).
+ * Prompt body panel shared by both archive drawers: a header with a copy
+ * action and a language toggle, and the raw text below, always fully open
+ * (scrolls past its max height).
  */
 export function PromptBodyPanel<T extends string>({
   label,
@@ -30,8 +37,45 @@ export function PromptBodyPanel<T extends string>({
   value,
   onChange,
   loading = false,
+  copyLabel,
+  copiedLabel,
 }: Props<T>) {
   const active = sides.find((s) => s.key === value) ?? sides[0];
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return;
+    const timer = setTimeout(() => setCopied(false), 1600);
+    return () => clearTimeout(timer);
+  }, [copied]);
+
+  useEffect(() => {
+    setCopied(false);
+  }, [active?.key]);
+
+  const copy = async () => {
+    const text = active?.text;
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      // Clipboard API is unavailable on plain HTTP and in some embedded views;
+      // fall back to the selection-based copy so the action never disappears.
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      try {
+        document.execCommand('copy');
+      } finally {
+        document.body.removeChild(area);
+      }
+    }
+    setCopied(true);
+  };
 
   return (
     <div className="flex min-w-0 flex-col overflow-hidden rounded-[10px] border border-line bg-pre-bg">
@@ -47,6 +91,20 @@ export function PromptBodyPanel<T extends string>({
           </span>
         )}
         <span className="flex-1" />
+        <button
+          type="button"
+          onClick={copy}
+          disabled={!active?.text}
+          aria-label={copied ? copiedLabel : copyLabel}
+          title={copied ? copiedLabel : copyLabel}
+          className={
+            'inline-flex cursor-pointer items-center gap-1 rounded-[7px] border border-line bg-surface px-2 py-1 text-[11px] transition disabled:cursor-default disabled:opacity-40 ' +
+            (copied ? 'text-accent-ink' : 'text-muted hover:text-ink')
+          }
+        >
+          <Icon name={copied ? 'check' : 'copy'} className="h-3 w-3 flex-none" />
+          <span>{copied ? copiedLabel : copyLabel}</span>
+        </button>
         <span className="inline-flex overflow-hidden rounded-[7px] border border-line">
           {sides.map((s) => (
             <button
