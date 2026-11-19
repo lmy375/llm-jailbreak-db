@@ -6,7 +6,7 @@ import { PromptBodyPanel } from './PromptBodyPanel';
 import { QualityScore } from './QualityScore';
 
 const pill =
-  'inline-flex cursor-pointer items-center gap-2 rounded-full border border-line bg-hover px-3 py-1 text-[12.5px] text-muted transition hover:border-accent/40 hover:text-accent-ink';
+  'inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-[12.5px] text-muted transition-colors duration-200 hover:border-line-strong hover:text-ink';
 
 interface Props {
   prompt: Prompt;
@@ -82,13 +82,15 @@ export function PromptDetail({
 
   return (
     <div className="flex min-w-0 flex-col gap-6 p-6 sm:p-7">
-      {/* ---- meta block ---- */}
-      <div className="flex min-w-0 flex-col gap-3">
-        <h3 className="text-[20px] font-semibold leading-snug tracking-[-0.02em] text-ink">{title}</h3>
+      {/* ---- title + meta block ---- */}
+      <div className="flex min-w-0 flex-col gap-2.5">
+        <h3 className="text-[21px] font-semibold leading-snug tracking-[-0.022em] text-ink">{title}</h3>
         {titleAlt && titleAlt !== title && (
-          <p className="-mt-1.5 text-[12.5px] leading-relaxed text-faint">{titleAlt}</p>
+          <p className="text-[12.5px] leading-relaxed text-faint">{titleAlt}</p>
         )}
+      </div>
 
+      <div className="flex min-w-0 flex-col gap-2.5 rounded-[16px] bg-sunken px-4 py-4 sm:px-5">
         <MetaRow label={strings.labels.target}>{targetName}</MetaRow>
         <MetaRow label={strings.labels.quality}>
           <QualityScore
@@ -101,7 +103,7 @@ export function PromptDetail({
           <button type="button" onClick={onOpenMethod} className={pill}>
             <span className="h-1.5 w-1.5 flex-none rounded-full bg-accent" />
             {methodName}
-            <Icon name="arrowRight" className="h-3 w-3 text-faint" />
+            <Icon name="arrowRight" className="h-3 w-3 flex-none text-faint" />
           </button>
         </MetaRow>
         <MetaRow label={strings.labels.source}>
@@ -116,7 +118,6 @@ export function PromptDetail({
           </a>
         </MetaRow>
         {note && <MetaRow label={strings.labels.note}>{note}</MetaRow>}
-
       </div>
 
       {/* ---- prompt body ---- */}

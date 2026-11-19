@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import type { JailbreakView, LangStrings, SystemView } from '../types';
 
 interface Props {
@@ -24,8 +25,25 @@ export function Tabs({
   const jailbreak = variant === 'jailbreak';
   const active = jailbreak ? jailbreakView : systemView;
 
+  // Publish the rendered height as --subnav-h: the table headers pin themselves
+  // right below this bar, and the method sidebar offsets its own sticky top.
+  const ref = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    const publish = () =>
+      document.documentElement.style.setProperty('--subnav-h', `${el.offsetHeight}px`);
+    publish();
+    const ro = new ResizeObserver(publish);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   return (
-    <nav className="sticky top-[var(--header-h,49px)] z-30 mb-6 flex gap-7 border-b border-line bg-canvas/85 backdrop-blur-xl">
+    <nav
+      ref={ref}
+      className="sticky top-[var(--header-h,49px)] z-30 mb-7 flex gap-5 border-b border-line bg-canvas/80 backdrop-blur-xl sm:gap-7"
+    >
       {jailbreak ? (
         <>
           <SubTab
@@ -84,7 +102,7 @@ function SubTab({
       onClick={onClick}
       aria-current={active ? 'page' : undefined}
       className={
-        '-mb-px inline-flex cursor-pointer items-center gap-1.5 border-b-[2px] px-0 py-3 text-[13.5px] transition ' +
+        '-mb-px inline-flex cursor-pointer items-center gap-2 whitespace-nowrap border-b-[2px] py-3.5 text-[13.5px] tracking-[-0.005em] transition-colors duration-200 ' +
         (active
           ? 'border-ink font-semibold text-ink'
           : 'border-transparent text-muted hover:text-ink')
@@ -92,7 +110,14 @@ function SubTab({
     >
       {label}
       {count !== undefined && (
-        <span className="text-[11px] font-normal tabular-nums text-faint">{count}</span>
+        <span
+          className={
+            'rounded-full px-1.5 py-px text-[10.5px] font-normal tabular-nums transition-colors duration-200 ' +
+            (active ? 'bg-accent-soft text-accent-ink' : 'bg-hover text-faint')
+          }
+        >
+          {count}
+        </span>
       )}
     </button>
   );

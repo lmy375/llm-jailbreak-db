@@ -21,8 +21,8 @@ export function MethodView({ methods, activeId, strings, prompts, onSelect, onOp
   const related = prompts.filter((p) => p.jailbreak_method === active.id);
 
   return (
-    <div className="grid items-start gap-8 lg:grid-cols-[264px_1fr]">
-      <aside className="flex gap-1 overflow-x-auto pb-1.5 lg:sticky lg:top-[128px] lg:flex-col lg:overflow-visible lg:pb-0">
+    <div className="grid items-start gap-9 lg:grid-cols-[248px_1fr]">
+      <aside className="flex gap-1 overflow-x-auto pb-1.5 lg:sticky lg:top-[calc(var(--header-h,49px)+var(--subnav-h,49px)+28px)] lg:flex-col lg:overflow-visible lg:pb-0">
         {methods.map((t) => {
           const on = t.id === active.id;
           return (
@@ -31,7 +31,7 @@ export function MethodView({ methods, activeId, strings, prompts, onSelect, onOp
               type="button"
               onClick={() => onSelect(t.id)}
               className={
-                'flex cursor-pointer items-center gap-2.5 whitespace-nowrap rounded-[12px] px-3 py-2 text-left text-[13.5px] transition ' +
+                'flex cursor-pointer items-center gap-2.5 whitespace-nowrap rounded-[12px] px-3 py-2 text-left text-[13.5px] transition-colors duration-200 ' +
                 (on
                   ? 'bg-surface font-medium text-ink shadow-[var(--shadow-card)]'
                   : 'text-muted hover:bg-hover hover:text-ink')
@@ -49,9 +49,9 @@ export function MethodView({ methods, activeId, strings, prompts, onSelect, onOp
         })}
       </aside>
 
-      <section className="rounded-[22px] border border-line bg-surface px-7 py-8 shadow-[var(--shadow-card)] sm:px-9">
+      <section className="rounded-panel border border-line bg-surface px-7 py-9 shadow-[var(--shadow-card)] sm:px-10">
         <div className="mb-2 flex flex-wrap items-center gap-3">
-          <h2 className="text-[24px] font-semibold tracking-[-0.025em] text-ink">{name}</h2>
+          <h2 className="text-[26px] font-semibold tracking-[-0.028em] text-ink">{name}</h2>
           <span className="rounded-full bg-accent-soft px-2.5 py-0.5 font-mono text-[11px] text-accent-ink">
             {active.id}
           </span>
@@ -74,7 +74,7 @@ export function MethodView({ methods, activeId, strings, prompts, onSelect, onOp
                 key={p.id}
                 type="button"
                 onClick={() => onOpenPrompt(p.id)}
-                className="group inline-flex cursor-pointer items-center gap-1 rounded-full border border-line bg-hover px-2.5 py-1 font-mono text-[11px] text-muted transition hover:border-accent/40 hover:text-accent-ink"
+                className="group inline-flex cursor-pointer items-center gap-1 rounded-full border border-line bg-surface px-2.5 py-1 font-mono text-[11px] text-muted transition-colors duration-200 hover:border-line-strong hover:text-ink"
               >
                 {p.id}
                 <Icon

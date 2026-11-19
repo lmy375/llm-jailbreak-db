@@ -55,9 +55,9 @@ export function Header({
   return (
     <header
       ref={ref}
-      className="sticky top-0 z-40 border-b border-line bg-canvas/80 backdrop-blur-2xl"
+      className="sticky top-0 z-40 border-b border-line bg-canvas/75 backdrop-blur-2xl backdrop-saturate-150"
     >
-      <div className="flex w-full flex-wrap items-center gap-x-5 gap-y-1.5 px-8 py-2">
+      <div className="flex w-full flex-wrap items-center gap-x-4 gap-y-1.5 px-5 py-2.5 sm:px-8">
         <SectionTabs
           strings={strings}
           section={section}
@@ -65,7 +65,7 @@ export function Header({
           onSection={onSection}
         />
 
-        <div className="ml-auto flex items-center gap-1.5">
+        <div className="ml-auto flex items-center gap-1">
           <div
             className="inline-flex items-center rounded-full bg-hover p-[3px]"
             role="group"
@@ -77,7 +77,7 @@ export function Header({
                 type="button"
                 onClick={() => onLang(o.key)}
                 className={
-                  'cursor-pointer rounded-full px-3 py-1 text-[12.5px] transition ' +
+                  'cursor-pointer rounded-full px-3 py-1 text-[12.5px] transition-colors duration-200 ' +
                   (o.key === lang
                     ? 'bg-surface font-medium text-ink shadow-[0_1px_2px_rgba(0,0,0,0.08)]'
                     : 'text-muted hover:text-ink')
@@ -93,7 +93,7 @@ export function Header({
             onClick={onToggleTheme}
             aria-label={themeLabel}
             title={themeLabel}
-            className="grid h-8 w-8 cursor-pointer place-items-center rounded-full text-muted transition hover:bg-hover hover:text-ink"
+            className="grid h-8 w-8 cursor-pointer place-items-center rounded-full text-muted transition-colors duration-200 hover:bg-hover hover:text-ink"
           >
             {theme === 'dark' ? (
               <svg viewBox="0 0 16 16" fill="currentColor" className="h-[15px] w-[15px]">
@@ -110,7 +110,7 @@ export function Header({
             href={site.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[12.5px] text-muted transition hover:text-accent-ink"
+            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[12.5px] text-muted transition-colors duration-200 hover:bg-hover hover:text-ink"
           >
             {site.repoLabel}
             <Icon name="external" className="h-3 w-3 flex-none" />

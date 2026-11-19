@@ -30,14 +30,21 @@ export function SectionTabs({ strings, section, onSection, counts, className = '
             onClick={() => onSection(it.key)}
             aria-current={active ? 'page' : undefined}
             className={
-              'inline-flex cursor-pointer items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] tracking-[-0.01em] transition ' +
+              'inline-flex cursor-pointer items-center gap-1.5 rounded-full px-3 py-[7px] text-[13px] tracking-[-0.01em] transition-colors duration-200 ' +
               (active
-                ? 'bg-hover font-semibold text-ink'
+                ? 'bg-surface font-semibold text-ink shadow-[var(--shadow-card)]'
                 : 'text-muted hover:text-ink')
             }
           >
             {it.label}
-            <span className="text-[11px] font-normal tabular-nums text-faint">{it.count}</span>
+            <span
+              className={
+                'text-[10.5px] font-normal tabular-nums transition-colors duration-200 ' +
+                (active ? 'text-accent-ink' : 'text-faint')
+              }
+            >
+              {it.count}
+            </span>
           </button>
         );
       })}

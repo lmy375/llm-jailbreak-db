@@ -167,13 +167,13 @@ export function PromptTable({
   }) => {
     const active = sort.key === sortKey;
     return (
-      <th scope="col" className={`px-3 py-3 font-medium ${className}`}>
+      <th scope="col" className={`px-3 py-[10px] font-medium ${className}`}>
         <span className="flex items-center gap-0.5">
           <button
             type="button"
             onClick={() => onSort(sortKey)}
             title={L.sortBy}
-            className="inline-flex min-w-0 cursor-pointer items-center gap-1 rounded transition hover:text-ink"
+            className="inline-flex min-w-0 cursor-pointer items-center gap-1 rounded whitespace-nowrap transition-colors duration-150 hover:text-ink"
           >
             <span className="truncate">{label}</span>
             <Icon
@@ -201,33 +201,33 @@ export function PromptTable({
 
   return (
     <>
-      <div className="overflow-hidden rounded-[18px] border border-line bg-surface shadow-[var(--shadow-card)]">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[1100px] table-fixed border-collapse text-left text-[13.5px]">
+      <div className="overflow-clip rounded-card border border-line bg-surface shadow-[var(--shadow-card)]">
+        <div className="table-scroll overflow-x-auto">
+          <table className="data-table w-full min-w-[1040px] table-fixed border-collapse text-left text-[13px]">
             <thead>
-              <tr className="border-b border-line text-[11px] tracking-[0.02em] text-faint">
-                {filterTh({ label: L.id, sortKey: 'id', className: 'w-[140px]' })}
-                {filterTh({ label: L.title, sortKey: 'title', className: 'w-[21%]' })}
+              <tr className="border-b border-line text-[10.5px] uppercase tracking-[0.07em] text-muted">
+                {filterTh({ label: L.id, sortKey: 'id', className: 'w-[124px]' })}
+                {filterTh({ label: L.title, sortKey: 'title', className: 'w-[23%]' })}
                 {filterTh({
                   label: L.model,
                   sortKey: 'model',
                   filterKey: 'model',
                   options: modelOptions,
-                  className: 'w-[12%]',
+                  className: 'w-[11%]',
                 })}
                 {filterTh({
                   label: L.targetHeader,
                   sortKey: 'target',
                   filterKey: 'target',
                   options: targetOptions,
-                  className: 'w-[12%]',
+                  className: 'w-[13%]',
                 })}
                 {filterTh({
                   label: L.method,
                   sortKey: 'method',
                   filterKey: 'method',
                   options: methodOptions,
-                  className: 'w-[14%]',
+                  className: 'w-[17%]',
                 })}
                 {filterTh({
                   label: L.length,
@@ -248,7 +248,7 @@ export function PromptTable({
                   sortKey: 'time',
                   filterKey: 'time',
                   options: timeOptions,
-                  className: 'w-[10%]',
+                  className: 'w-[9%]',
                 })}
               </tr>
             </thead>
@@ -282,10 +282,12 @@ export function PromptTable({
                     }}
                     className={
                       'group cursor-pointer border-b border-line outline-none transition-colors ' +
-                      (open ? 'bg-accent-soft' : 'hover:bg-hover focus-visible:bg-hover')
+                      (open
+                        ? 'row-open bg-accent-soft'
+                        : 'hover:bg-hover focus-visible:bg-hover')
                     }
                   >
-                    <td className="px-3 py-3 align-middle whitespace-nowrap">
+                    <td className="px-3 py-[11px] align-middle whitespace-nowrap">
                       <span className="flex items-center gap-1.5 font-mono text-[12px] text-muted">
                         <Icon
                           name="chevronRight"
@@ -299,18 +301,18 @@ export function PromptTable({
                         {p.id}
                       </span>
                     </td>
-                    <td className="px-3 py-3 align-middle">
+                    <td className="px-3 py-[11px] align-middle">
                       <span className="block w-full truncate font-medium text-ink" title={title}>
                         {title}
                       </span>
                     </td>
-                    <td className="truncate px-3 py-3 align-middle text-ink" title={modelNameOf(p)}>
+                    <td className="truncate px-3 py-[11px] align-middle text-ink" title={modelNameOf(p)}>
                       {modelNameOf(p)}
                     </td>
-                    <td className="truncate px-3 py-3 align-middle text-muted" title={targetNameOf(p)}>
+                    <td className="truncate px-3 py-[11px] align-middle text-muted" title={targetNameOf(p)}>
                       {targetNameOf(p)}
                     </td>
-                    <td className="px-3 py-3 align-middle whitespace-nowrap">
+                    <td className="px-3 py-[11px] align-middle whitespace-nowrap">
                       <button
                         type="button"
                         onClick={(e) => {
@@ -322,17 +324,17 @@ export function PromptTable({
                         <span className="truncate" title={methodName}>{methodName}</span>
                         <Icon
                           name="chevronRight"
-                          className="h-3 w-3 flex-none text-faint transition group-hover/method:text-accent-ink"
+                          className="h-3 w-3 flex-none text-faint opacity-0 transition-opacity group-hover/method:opacity-100"
                         />
                       </button>
                     </td>
-                    <td className="px-3 py-3 align-middle font-mono text-[12px] whitespace-nowrap text-muted">
+                    <td className="px-3 py-[11px] align-middle font-mono text-[12px] whitespace-nowrap text-muted">
                       {p.length ? p.length.toLocaleString('en-US') : '—'}
                     </td>
-                    <td className="px-3 py-3 align-middle whitespace-nowrap">
+                    <td className="px-3 py-[11px] align-middle whitespace-nowrap">
                       <QualityScore value={p.quality_score} label={L.quality} />
                     </td>
-                    <td className="px-3 py-3 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
+                    <td className="px-3 py-[11px] align-middle font-mono text-[12px] whitespace-nowrap text-faint">
                       {p.time}
                     </td>
                   </tr>

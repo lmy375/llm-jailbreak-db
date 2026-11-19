@@ -15,13 +15,13 @@ export function QualityScore({ value, max = 10, showMax = false, label }: Props)
   const text = label ? `${label}: ${value}/${max}` : `${value}/${max}`;
   return (
     <span className="inline-flex items-center gap-2" title={text} aria-label={text}>
-      <span aria-hidden="true" className="relative h-[3px] w-7 overflow-hidden rounded-full bg-line">
+      <span aria-hidden="true" className="relative h-1 w-10 overflow-hidden rounded-full bg-line">
         <span
-          className="absolute inset-y-0 left-0 rounded-full bg-accent"
+          className="absolute inset-y-0 left-0 rounded-full bg-accent transition-[width] duration-300 ease-ios"
           style={{ width: `${pct}%` }}
         />
       </span>
-      <span className="font-mono text-[12px] tabular-nums text-muted">
+      <span className="font-mono text-[12px] leading-none tabular-nums text-muted">
         {value}
         {showMax && <span className="text-faint">/{max}</span>}
       </span>

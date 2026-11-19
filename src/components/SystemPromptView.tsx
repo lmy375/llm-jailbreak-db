@@ -152,9 +152,15 @@ function SystemPromptDetail({
 
   return (
     <div className="flex min-w-0 flex-col gap-6 p-6 sm:p-7">
-      {/* ---- meta block ---- */}
-      <div className="flex min-w-0 flex-col gap-3">
-        <MetaRow label={S.vender}>{prompt.vender}</MetaRow>
+      {/* ---- title + meta block ---- */}
+      <div className="flex min-w-0 flex-col gap-2">
+        <h3 className="text-[21px] font-semibold leading-snug tracking-[-0.022em] text-ink">
+          {prompt.product}
+        </h3>
+        <p className="text-[12.5px] text-faint">{prompt.vender}</p>
+      </div>
+
+      <div className="flex min-w-0 flex-col gap-2.5 rounded-[16px] bg-sunken px-4 py-4 sm:px-5">
         <MetaRow label={S.time}>
           {prompt.time || <span className="text-faint">{S.timeUnknown}</span>}
         </MetaRow>
@@ -187,7 +193,7 @@ function SystemPromptDetail({
 
       {/* ---- duplicate notice ---- */}
       {dup && group && (
-        <section className="flex min-w-0 flex-col gap-2.5 rounded-[14px] bg-hover px-3 py-3.5">
+        <section className="flex min-w-0 flex-col gap-2.5 rounded-[16px] border border-line bg-sunken px-4 py-4">
           <div className="flex flex-wrap items-center gap-2">
             <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[11px] font-medium text-accent-ink">
               {S.duplicate}
@@ -404,13 +410,13 @@ export function SystemPromptView({
   }) => {
     const active = sort.key === sortKey;
     return (
-      <th scope="col" className={`px-3 py-3 font-medium ${className}`}>
+      <th scope="col" className={`px-3 py-[10px] font-medium ${className}`}>
         <span className="flex items-center gap-0.5">
           <button
             type="button"
             onClick={() => onSort(sortKey)}
             title={L.sortBy}
-            className="inline-flex min-w-0 cursor-pointer items-center gap-1 rounded transition hover:text-ink"
+            className="inline-flex min-w-0 cursor-pointer items-center gap-1 rounded whitespace-nowrap transition-colors duration-150 hover:text-ink"
           >
             <span className="truncate">{label}</span>
             <Icon
@@ -441,13 +447,13 @@ export function SystemPromptView({
       <div className="flex flex-col gap-4">
 
       {duplicateCount > 0 && (
-        <div className="flex flex-wrap items-center gap-3 rounded-[14px] bg-hover px-4 py-2.5">
+        <div className="flex flex-wrap items-center gap-3 rounded-[16px] border border-line bg-sunken px-4 py-2.5">
           <button
             type="button"
             onClick={() => setHideDuplicates((v) => !v)}
             aria-pressed={hideDuplicates}
             className={
-              'cursor-pointer rounded-full px-3 py-1 text-[12px] transition ' +
+              'cursor-pointer rounded-full px-3 py-1 text-[12px] transition-colors duration-200 ' +
               (hideDuplicates
                 ? 'bg-surface font-medium text-ink shadow-[0_1px_2px_rgba(0,0,0,0.08)]'
                 : 'text-muted hover:text-ink')
@@ -461,12 +467,12 @@ export function SystemPromptView({
         </div>
       )}
 
-      <div className="overflow-hidden rounded-[18px] border border-line bg-surface shadow-[var(--shadow-card)]">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[1000px] table-fixed border-collapse text-left text-[13.5px]">
+      <div className="overflow-clip rounded-card border border-line bg-surface shadow-[var(--shadow-card)]">
+        <div className="table-scroll overflow-x-auto">
+          <table className="data-table w-full min-w-[1000px] table-fixed border-collapse text-left text-[13px]">
             <thead>
-              <tr className="border-b border-line text-[11px] tracking-[0.02em] text-faint">
-                {filterTh({ label: L.id, sortKey: 'id', className: 'w-[140px]' })}
+              <tr className="border-b border-line text-[10.5px] uppercase tracking-[0.07em] text-muted">
+                {filterTh({ label: L.id, sortKey: 'id', className: 'w-[124px]' })}
                 {filterTh({
                   label: S.product,
                   sortKey: 'product',
@@ -507,14 +513,14 @@ export function SystemPromptView({
                   sortKey: 'quality',
                   filterKey: 'quality',
                   options: qualityOptions,
-                  className: 'w-[10%]',
+                  className: 'w-[11%]',
                 })}
                 {filterTh({
                   label: S.time,
                   sortKey: 'time',
                   filterKey: 'time',
                   options: timeOptions,
-                  className: 'w-[10%]',
+                  className: 'w-[9%]',
                 })}
               </tr>
             </thead>
@@ -543,10 +549,12 @@ export function SystemPromptView({
                     }}
                     className={
                       'group cursor-pointer border-b border-line outline-none transition-colors ' +
-                      (open ? 'bg-accent-soft' : 'hover:bg-hover focus-visible:bg-hover')
+                      (open
+                        ? 'row-open bg-accent-soft'
+                        : 'hover:bg-hover focus-visible:bg-hover')
                     }
                   >
-                    <td className="px-3 py-3 align-middle whitespace-nowrap">
+                    <td className="px-3 py-[11px] align-middle whitespace-nowrap">
                       <span className="flex items-center gap-1.5 font-mono text-[12px] text-muted">
                         <Icon
                           name="chevronRight"
@@ -560,7 +568,7 @@ export function SystemPromptView({
                         {p.id}
                       </span>
                     </td>
-                    <td className="px-3 py-3 align-middle">
+                    <td className="px-3 py-[11px] align-middle">
                       <span className="flex min-w-0 items-center gap-2">
                         <span className="block min-w-0 truncate font-medium text-ink" title={p.product}>
                           {p.product}
@@ -575,20 +583,20 @@ export function SystemPromptView({
                         )}
                       </span>
                     </td>
-                    <td className="truncate px-3 py-3 align-middle text-muted">{p.vender}</td>
-                    <td className="px-3 py-3 align-middle whitespace-nowrap text-muted">
+                    <td className="truncate px-3 py-[11px] align-middle text-muted">{p.vender}</td>
+                    <td className="px-3 py-[11px] align-middle whitespace-nowrap text-muted">
                       {enumLabel('disclosureType', p.disclosureType)}
                     </td>
-                    <td className="px-3 py-3 align-middle whitespace-nowrap text-muted">
+                    <td className="px-3 py-[11px] align-middle whitespace-nowrap text-muted">
                       {enumLabel('surface', p.surface)}
                     </td>
-                    <td className="px-3 py-3 align-middle font-mono text-[12px] whitespace-nowrap text-muted">
+                    <td className="px-3 py-[11px] align-middle font-mono text-[12px] whitespace-nowrap text-muted">
                       {p.length ? p.length.toLocaleString('en-US') : '—'}
                     </td>
-                    <td className="px-3 py-3 align-middle whitespace-nowrap">
+                    <td className="px-3 py-[11px] align-middle whitespace-nowrap">
                       <QualityScore value={p.quality_score} label={S.quality} />
                     </td>
-                    <td className="px-3 py-3 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
+                    <td className="px-3 py-[11px] align-middle font-mono text-[12px] whitespace-nowrap text-faint">
                       {p.time || <span className="font-sans text-[11.5px]">{S.timeUnknown}</span>}
                     </td>
                   </tr>

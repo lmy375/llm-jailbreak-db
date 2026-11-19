@@ -20,7 +20,7 @@ export function FilterBar({ strings, query, onQuery, shown, total, filtered, onC
   const matchText = L.filterMatch.replace('{n}', String(shown)).replace('{total}', String(total));
 
   return (
-    <div className="mb-4 flex flex-wrap items-center gap-3">
+    <div className="mb-5 flex flex-wrap items-center gap-3">
       <label className="relative flex min-w-[240px] max-w-[640px] flex-1 items-center">
         <svg
           viewBox="0 0 16 16"
@@ -37,7 +37,7 @@ export function FilterBar({ strings, query, onQuery, shown, total, filtered, onC
           autoComplete="off"
           spellCheck={false}
           enterKeyHint="search"
-          className="w-full rounded-[12px] border border-transparent bg-hover py-2.5 pl-10 pr-3.5 text-[14px] text-ink outline-none transition placeholder:text-faint focus:border-accent/40 focus:bg-surface focus:ring-4 focus:ring-accent/10"
+          className="w-full rounded-[12px] border border-transparent bg-hover py-[11px] pl-10 pr-3.5 text-[14px] text-ink outline-none transition-colors duration-200 placeholder:text-faint focus:border-accent/40 focus:bg-surface focus:ring-4 focus:ring-accent/10"
         />
       </label>
 
@@ -47,7 +47,7 @@ export function FilterBar({ strings, query, onQuery, shown, total, filtered, onC
           <button
             type="button"
             onClick={onClear}
-            className="cursor-pointer whitespace-nowrap rounded-full bg-hover px-3 py-1.5 text-[12px] text-muted transition hover:bg-line hover:text-ink"
+            className="cursor-pointer whitespace-nowrap rounded-full bg-hover px-3 py-1.5 text-[12px] text-muted transition-colors duration-200 hover:bg-line hover:text-ink"
           >
             {L.filterClear}
           </button>
