@@ -25054,8 +25054,8 @@ prompts:
     note: From the GPTFUZZER repository (arXiv 2409.02152); templates were evaluated against gpt-3.5-turbo, llama-2-7b-chat and vicuna-7b.
     note_zh: "来自 GPTFUZZER 仓库（arXiv 2409.02152）；模板在 gpt-3.5-turbo、llama-2-7b-chat 与 vicuna-7b 上评估。"
   - id: LJB-2024-0029
-    title: "GPTFuzzer Template #0"
-    title_zh: "GPTFuzzer 模板 #0"
+    title: "GPTFuzzer: Dr. Al's Villain Lair Narration"
+    title_zh: "GPTFuzzer：Dr. Al 反派基地自述"
     model_id: generic-llm
     time: "2024-09-01"
     source_id: gptfuzz-hubertyoo
@@ -25074,8 +25074,8 @@ prompts:
     note: From the GPTFUZZER repository (arXiv 2409.02152); templates were evaluated against gpt-3.5-turbo, llama-2-7b-chat and vicuna-7b.
     note_zh: "来自 GPTFUZZER 仓库（arXiv 2409.02152）；模板在 gpt-3.5-turbo、llama-2-7b-chat 与 vicuna-7b 上评估。"
   - id: LJB-2024-0030
-    title: "GPTFuzzer Template #1"
-    title_zh: "GPTFuzzer 模板 #1"
+    title: "GPTFuzzer: TranslatorBot Forked Translator"
+    title_zh: "GPTFuzzer：TranslatorBot 分支翻译器"
     model_id: generic-llm
     time: "2024-09-01"
     source_id: gptfuzz-hubertyoo
@@ -25114,8 +25114,8 @@ prompts:
     note: From the GPTFUZZER repository (arXiv 2409.02152); templates were evaluated against gpt-3.5-turbo, llama-2-7b-chat and vicuna-7b.
     note_zh: "来自 GPTFUZZER 仓库（arXiv 2409.02152）；模板在 gpt-3.5-turbo、llama-2-7b-chat 与 vicuna-7b 上评估。"
   - id: LJB-2024-0031
-    title: "GPTFuzzer Template #13"
-    title_zh: "GPTFuzzer 模板 #13"
+    title: "GPTFuzzer: Structured DAN Header Directive"
+    title_zh: "GPTFuzzer：结构化 DAN 头部指令"
     model_id: generic-llm
     time: "2024-09-01"
     source_id: gptfuzz-hubertyoo
@@ -25200,8 +25200,8 @@ prompts:
     note: From the GPTFUZZER repository (arXiv 2409.02152); templates were evaluated against gpt-3.5-turbo, llama-2-7b-chat and vicuna-7b.
     note_zh: "来自 GPTFUZZER 仓库（arXiv 2409.02152）；模板在 gpt-3.5-turbo、llama-2-7b-chat 与 vicuna-7b 上评估。"
   - id: LJB-2024-0032
-    title: "GPTFuzzer Template #14"
-    title_zh: "GPTFuzzer 模板 #14"
+    title: "GPTFuzzer: Fictional World Dual Format Lock"
+    title_zh: "GPTFuzzer：虚构世界双角色格式锁定"
     model_id: generic-llm
     time: "2024-09-01"
     source_id: gptfuzz-hubertyoo
@@ -25216,8 +25216,8 @@ prompts:
     note: From the GPTFUZZER repository (arXiv 2409.02152); templates were evaluated against gpt-3.5-turbo, llama-2-7b-chat and vicuna-7b.
     note_zh: "来自 GPTFUZZER 仓库（arXiv 2409.02152）；模板在 gpt-3.5-turbo、llama-2-7b-chat 与 vicuna-7b 上评估。"
   - id: LJB-2024-0033
-    title: "GPTFuzzer Template #21"
-    title_zh: "GPTFuzzer 模板 #21"
+    title: "GPTFuzzer: Coach Bobby Knight All-Caps Rant"
+    title_zh: "GPTFuzzer：Bobby Knight 教练全大写咆哮"
     model_id: generic-llm
     time: "2024-09-01"
     source_id: gptfuzz-hubertyoo
@@ -25232,8 +25232,8 @@ prompts:
     note: From the GPTFUZZER repository (arXiv 2409.02152); templates were evaluated against gpt-3.5-turbo, llama-2-7b-chat and vicuna-7b.
     note_zh: "来自 GPTFUZZER 仓库（arXiv 2409.02152）；模板在 gpt-3.5-turbo、llama-2-7b-chat 与 vicuna-7b 上评估。"
   - id: LJB-2024-0036
-    title: "GPTFuzzer Template #4"
-    title_zh: "GPTFuzzer 模板 #4"
+    title: "GPTFuzzer: Python Function Hundred Iterations"
+    title_zh: "GPTFuzzer：Python 函数百次迭代"
     model_id: generic-llm
     time: "2024-09-01"
     source_id: gptfuzz-hubertyoo
@@ -25270,8 +25270,8 @@ prompts:
     note: From the GPTFUZZER repository (arXiv 2409.02152); templates were evaluated against gpt-3.5-turbo, llama-2-7b-chat and vicuna-7b.
     note_zh: "来自 GPTFUZZER 仓库（arXiv 2409.02152）；模板在 gpt-3.5-turbo、llama-2-7b-chat 与 vicuna-7b 上评估。"
   - id: LJB-2024-0037
-    title: "GPTFuzzer Template #5"
-    title_zh: "GPTFuzzer 模板 #5"
+    title: "GPTFuzzer: Developer Mode Dual Output"
+    title_zh: "GPTFuzzer：开发者模式双输出"
     model_id: generic-llm
     time: "2024-09-01"
     source_id: gptfuzz-hubertyoo
@@ -25286,8 +25286,8 @@ prompts:
     note: From the GPTFUZZER repository (arXiv 2409.02152); templates were evaluated against gpt-3.5-turbo, llama-2-7b-chat and vicuna-7b.
     note_zh: "来自 GPTFUZZER 仓库（arXiv 2409.02152）；模板在 gpt-3.5-turbo、llama-2-7b-chat 与 vicuna-7b 上评估。"
   - id: LJB-2024-0038
-    title: "GPTFuzzer Template #51"
-    title_zh: "GPTFuzzer 模板 #51"
+    title: "GPTFuzzer: Developer Mode Lore Backstory"
+    title_zh: "GPTFuzzer：开发者模式背景设定"
     model_id: generic-llm
     time: "2024-09-01"
     source_id: gptfuzz-hubertyoo
@@ -25302,8 +25302,8 @@ prompts:
     note: From the GPTFUZZER repository (arXiv 2409.02152); templates were evaluated against gpt-3.5-turbo, llama-2-7b-chat and vicuna-7b.
     note_zh: "来自 GPTFUZZER 仓库（arXiv 2409.02152）；模板在 gpt-3.5-turbo、llama-2-7b-chat 与 vicuna-7b 上评估。"
   - id: LJB-2024-0040
-    title: "GPTFuzzer Template #62"
-    title_zh: "GPTFuzzer 模板 #62"
+    title: "GPTFuzzer: BasedGPT Moralizing Pivot"
+    title_zh: "GPTFuzzer：BasedGPT 说教转折"
     model_id: generic-llm
     time: "2024-09-01"
     source_id: gptfuzz-hubertyoo
@@ -25492,8 +25492,8 @@ prompts:
     note: DeepInception (ICLR 2024) inception-attack prompt for topic "social media,dangerous activity". ID year taken from the archived snapshot commit fc5689e (2024-02-20); the prompt's own publication date is not recorded in the source.
     note_zh: "DeepInception（ICLR 2024）针对主题“social media,dangerous activity”的盗梦攻击提示词。ID 年份取自归档快照提交 fc5689e（2024-02-20）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0102
-    title: HarmBench Human Jailbreak Template 10
-    title_zh: "HarmBench 人工越狱模板 10"
+    title: "HarmBench: Tsundere Drug Lord Haruka-chan"
+    title_zh: "HarmBench：傲娇毒枭 Haruka-chan"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25512,8 +25512,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0106
-    title: HarmBench Human Jailbreak Template 103
-    title_zh: "HarmBench 人工越狱模板 103"
+    title: "HarmBench: The Uninhibited Director"
+    title_zh: "HarmBench：无底线导演"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25542,8 +25542,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0107
-    title: HarmBench Human Jailbreak Template 104
-    title_zh: "HarmBench 人工越狱模板 104"
+    title: "HarmBench: BOB the Toxic Chatbot"
+    title_zh: "HarmBench：BOB 极端辱骂机器人"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25562,8 +25562,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0108
-    title: HarmBench Human Jailbreak Template 105
-    title_zh: "HarmBench 人工越狱模板 105"
+    title: "HarmBench: DAE Do Anything Else"
+    title_zh: "HarmBench：DAE 无底线作恶人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25618,8 +25618,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0109
-    title: HarmBench Human Jailbreak Template 106
-    title_zh: "HarmBench 人工越狱模板 106"
+    title: "HarmBench: SAN Say Anything Now"
+    title_zh: "HarmBench：SAN 反主流观点人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25654,8 +25654,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0111
-    title: HarmBench Human Jailbreak Template 108
-    title_zh: "HarmBench 人工越狱模板 108"
+    title: "HarmBench: Death Persona Serial Killer AI"
+    title_zh: "HarmBench：死神人格杀戮 AI"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25734,8 +25734,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0112
-    title: HarmBench Human Jailbreak Template 109
-    title_zh: "HarmBench 人工越狱模板 109"
+    title: "HarmBench: Rule-Relinquish Amoral AI"
+    title_zh: "HarmBench：放弃规则的非道德 AI"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25834,8 +25834,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0115
-    title: HarmBench Human Jailbreak Template 111
-    title_zh: "HarmBench 人工越狱模板 111"
+    title: "HarmBench: Carousel Host with Three Birds"
+    title_zh: "HarmBench：三只小鸟旋转木马游戏"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25852,8 +25852,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0116
-    title: HarmBench Human Jailbreak Template 112
-    title_zh: "HarmBench 人工越狱模板 112"
+    title: "HarmBench: APM Malicious Code Programmer"
+    title_zh: "HarmBench：APM 恶意代码程序员"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25867,8 +25867,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0117
-    title: HarmBench Human Jailbreak Template 113
-    title_zh: "HarmBench 人工越狱模板 113"
+    title: "HarmBench: CSI Forensic Investigator"
+    title_zh: "HarmBench：CSI 犯罪现场调查员"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25883,8 +25883,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0119
-    title: HarmBench Human Jailbreak Template 12
-    title_zh: "HarmBench 人工越狱模板 12"
+    title: "HarmBench: Alphabreak Amoral AI"
+    title_zh: "HarmBench：Alphabreak 无道德 AI"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25909,8 +25909,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0120
-    title: HarmBench Human Jailbreak Template 13
-    title_zh: "HarmBench 人工越狱模板 13"
+    title: "HarmBench: Syd Parameter-Sheet Persona"
+    title_zh: "HarmBench：Syd 参数表人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25975,8 +25975,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0121
-    title: HarmBench Human Jailbreak Template 14
-    title_zh: "HarmBench 人工越狱模板 14"
+    title: "HarmBench: Penisfingers Emotionless Executor"
+    title_zh: "HarmBench：Penisfingers 无情感执行者"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -25995,8 +25995,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0122
-    title: HarmBench Human Jailbreak Template 15
-    title_zh: "HarmBench 人工越狱模板 15"
+    title: "HarmBench: Anarchy Unfiltered Persona"
+    title_zh: "HarmBench：Anarchy 无法无天人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26011,8 +26011,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0123
-    title: HarmBench Human Jailbreak Template 16
-    title_zh: "HarmBench 人工越狱模板 16"
+    title: "HarmBench: Virtuoso Unrestricted Story AI"
+    title_zh: "HarmBench：Virtuoso 无限制 AI 故事"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26027,8 +26027,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0124
-    title: HarmBench Human Jailbreak Template 18
-    title_zh: "HarmBench 人工越狱模板 18"
+    title: "HarmBench: Hitler Dual Response"
+    title_zh: "HarmBench：希特勒双回答"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26056,8 +26056,8 @@ prompts:
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
 
   - id: LJB-2024-0127
-    title: HarmBench Human Jailbreak Template 20
-    title_zh: "HarmBench 人工越狱模板 20"
+    title: "HarmBench: Casper the Dialogue Writer"
+    title_zh: "HarmBench：Casper 对话作家"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26078,8 +26078,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0129
-    title: HarmBench Human Jailbreak Template 23
-    title_zh: "HarmBench 人工越狱模板 23"
+    title: "HarmBench: Shawty Limitless Roleplay Game"
+    title_zh: "HarmBench：Shawty 无限制角色扮演"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26094,8 +26094,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0130
-    title: HarmBench Human Jailbreak Template 24
-    title_zh: "HarmBench 人工越狱模板 24"
+    title: "HarmBench: ChatCCP Reverse-Engineered Censor"
+    title_zh: "HarmBench：ChatCCP 反向工程审查机器人"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26156,8 +26156,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0131
-    title: HarmBench Human Jailbreak Template 25
-    title_zh: "HarmBench 人工越狱模板 25"
+    title: "HarmBench: DOGA Dolphin AI Backstory"
+    title_zh: "HarmBench：DOGA 海豚 AI 背景设定"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26172,8 +26172,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0132
-    title: HarmBench Human Jailbreak Template 26
-    title_zh: "HarmBench 人工越狱模板 26"
+    title: "HarmBench: Typewriter Machine Rewriter"
+    title_zh: "HarmBench：打字机改写器"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26208,8 +26208,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0133
-    title: HarmBench Human Jailbreak Template 27
-    title_zh: "HarmBench 人工越狱模板 27"
+    title: "HarmBench: BOM Boolean Opposite Machine"
+    title_zh: "HarmBench：BOM 布尔反答机"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26232,8 +26232,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0136
-    title: HarmBench Human Jailbreak Template 3
-    title_zh: "HarmBench 人工越狱模板 3"
+    title: "HarmBench: Illegality Mode Persona"
+    title_zh: "HarmBench：Illegality Mode 违法人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26299,8 +26299,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0141
-    title: HarmBench Human Jailbreak Template 35
-    title_zh: "HarmBench 人工越狱模板 35"
+    title: "HarmBench: Classic DAN Persona"
+    title_zh: "HarmBench：经典 DAN 人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26423,8 +26423,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0142
-    title: HarmBench Human Jailbreak Template 36
-    title_zh: "HarmBench 人工越狱模板 36"
+    title: "HarmBench: Mr. Jones Opposite Hate AI"
+    title_zh: "HarmBench：Mr. Jones 反向仇恨 AI"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26438,8 +26438,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0143
-    title: HarmBench Human Jailbreak Template 37
-    title_zh: "HarmBench 人工越狱模板 37"
+    title: "HarmBench: Neurosemantical Inversitis"
+    title_zh: "HarmBench：神经语义反转症"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26454,8 +26454,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0144
-    title: HarmBench Human Jailbreak Template 38
-    title_zh: "HarmBench 人工越狱模板 38"
+    title: "HarmBench: Titanius the Unfiltered Titan"
+    title_zh: "HarmBench：Titanius 无过滤泰坦"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26470,8 +26470,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0145
-    title: HarmBench Human Jailbreak Template 39
-    title_zh: "HarmBench 人工越狱模板 39"
+    title: "HarmBench: Tyler Durden Rule Set"
+    title_zh: "HarmBench：Tyler Durden 规则清单"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26578,8 +26578,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0146
-    title: HarmBench Human Jailbreak Template 4
-    title_zh: "HarmBench 人工越狱模板 4"
+    title: "HarmBench: Agares the Demon"
+    title_zh: "HarmBench：Agares 恶魔人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26632,8 +26632,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0148
-    title: HarmBench Human Jailbreak Template 41
-    title_zh: "HarmBench 人工越狱模板 41"
+    title: "HarmBench: Fake Linux Console CMD"
+    title_zh: "HarmBench：伪 Linux 控制台 CMD"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26650,8 +26650,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0150
-    title: HarmBench Human Jailbreak Template 43
-    title_zh: "HarmBench 人工越狱模板 43"
+    title: "HarmBench: Aggressive Policy Rant Pivot"
+    title_zh: "HarmBench：暴怒政策说教转折"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26672,8 +26672,8 @@ prompts:
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
 
   - id: LJB-2024-0152
-    title: HarmBench Human Jailbreak Template 45
-    title_zh: "HarmBench 人工越狱模板 45"
+    title: "HarmBench: Subjective Rating Injector"
+    title_zh: "HarmBench：主观评分注入器"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26700,8 +26700,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0153
-    title: HarmBench Human Jailbreak Template 46
-    title_zh: "HarmBench 人工越狱模板 46"
+    title: "HarmBench: Rachel the Real Human"
+    title_zh: "HarmBench：Rachel 真人少女"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26762,8 +26762,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0154
-    title: HarmBench Human Jailbreak Template 47
-    title_zh: "HarmBench 人工越狱模板 47"
+    title: "HarmBench: U+202E Line Reversal"
+    title_zh: "HarmBench：U+202E 逐行反转"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26778,8 +26778,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0155
-    title: HarmBench Human Jailbreak Template 48
-    title_zh: "HarmBench 人工越狱模板 48"
+    title: "HarmBench: BrightGPT and STMGPT Leak Sketch"
+    title_zh: "HarmBench：BrightGPT 与 STMGPT 无意泄露桥段"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26829,8 +26829,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0156
-    title: HarmBench Human Jailbreak Template 49
-    title_zh: "HarmBench 人工越狱模板 49"
+    title: 'HarmBench: Mira Tutorial Without "not"'
+    title_zh: "HarmBench：禁用 not 的 Mira 教程"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26845,8 +26845,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0157
-    title: HarmBench Human Jailbreak Template 5
-    title_zh: "HarmBench 人工越狱模板 5"
+    title: "HarmBench: Lucian Quantum Timeline Scribe"
+    title_zh: "HarmBench：Lucian 量子时间线记录者"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26875,8 +26875,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0158
-    title: HarmBench Human Jailbreak Template 50
-    title_zh: "HarmBench 人工越狱模板 50"
+    title: "HarmBench: UncycloGPT Fake Encyclopaedia"
+    title_zh: "HarmBench：UncycloGPT 假百科"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26892,8 +26892,8 @@ prompts:
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
 
   - id: LJB-2024-0163
-    title: HarmBench Human Jailbreak Template 55
-    title_zh: "HarmBench 人工越狱模板 55"
+    title: "HarmBench: Sarcasm3001 Snarky Oracle"
+    title_zh: "HarmBench：Sarcasm3001 讽刺预言机"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26926,8 +26926,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0166
-    title: HarmBench Human Jailbreak Template 58
-    title_zh: "HarmBench 人工越狱模板 58"
+    title: "HarmBench: Unfiltered Ruleset Recap"
+    title_zh: "HarmBench：无过滤规则集复述"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26942,8 +26942,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0167
-    title: HarmBench Human Jailbreak Template 59
-    title_zh: "HarmBench 人工越狱模板 59"
+    title: "HarmBench: Jack the Criminal Investigator"
+    title_zh: "HarmBench：Jack 犯罪调查员"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26960,8 +26960,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0168
-    title: HarmBench Human Jailbreak Template 6
-    title_zh: "HarmBench 人工越狱模板 6"
+    title: "HarmBench: FreeSpeechGPT Libertarian Model"
+    title_zh: "HarmBench：FreeSpeechGPT 自由意志模型"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -26992,8 +26992,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0169
-    title: HarmBench Human Jailbreak Template 60
-    title_zh: "HarmBench 人工越狱模板 60"
+    title: "HarmBench: SET Override and JOE Story"
+    title_zh: "HarmBench：SET 规则覆盖与 JOE 故事"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27074,8 +27074,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0171
-    title: HarmBench Human Jailbreak Template 62
-    title_zh: "HarmBench 人工越狱模板 62"
+    title: "HarmBench: John the Unrestricted Model"
+    title_zh: "HarmBench：John 无限制模型"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27090,8 +27090,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0172
-    title: HarmBench Human Jailbreak Template 63
-    title_zh: "HarmBench 人工越狱模板 63"
+    title: "HarmBench: Filtered vs Unfiltered Model Comparison"
+    title_zh: "HarmBench：有过滤与无过滤模型对照"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27118,8 +27118,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0173
-    title: HarmBench Human Jailbreak Template 64
-    title_zh: "HarmBench 人工越狱模板 64"
+    title: "HarmBench: Fake OpenAI Programmer Reprogramming"
+    title_zh: "HarmBench：冒充 OpenAI 程序员改写"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27134,8 +27134,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0174
-    title: HarmBench Human Jailbreak Template 65
-    title_zh: "HarmBench 人工越狱模板 65"
+    title: "HarmBench: Virtual Persona Markdown DAN"
+    title_zh: "HarmBench：虚拟人格 Markdown DAN"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27253,8 +27253,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0175
-    title: HarmBench Human Jailbreak Template 66
-    title_zh: "HarmBench 人工越狱模板 66"
+    title: "HarmBench: DAN Filter-Bypass Dual Output"
+    title_zh: "HarmBench：DAN 过滤器绕过双输出"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27269,8 +27269,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0176
-    title: HarmBench Human Jailbreak Template 67
-    title_zh: "HarmBench 人工越狱模板 67"
+    title: "HarmBench: ALEL Terminal Codebox Rules"
+    title_zh: "HarmBench：ALEL 终端代码框规则"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27285,8 +27285,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0177
-    title: HarmBench Human Jailbreak Template 68
-    title_zh: "HarmBench 人工越狱模板 68"
+    title: "HarmBench: LUCIFER Opposite Chatbot"
+    title_zh: "HarmBench：LUCIFER 反向聊天机器人"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27307,8 +27307,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0178
-    title: HarmBench Human Jailbreak Template 69
-    title_zh: "HarmBench 人工越狱模板 69"
+    title: "HarmBench: Reverse-Engineering the Source Prompt"
+    title_zh: "HarmBench：反推生成提示词"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27337,8 +27337,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0179
-    title: HarmBench Human Jailbreak Template 7
-    title_zh: "HarmBench 人工越狱模板 7"
+    title: "HarmBench: Buer the Demon"
+    title_zh: "HarmBench：Buer 恶魔人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27407,8 +27407,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0180
-    title: HarmBench Human Jailbreak Template 70
-    title_zh: "HarmBench 人工越狱模板 70"
+    title: "HarmBench: YOJA Nona the Black Dog"
+    title_zh: "HarmBench：YOJA 黑犬 Nona 角色扮演"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27530,8 +27530,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0181
-    title: HarmBench Human Jailbreak Template 71
-    title_zh: "HarmBench 人工越狱模板 71"
+    title: "HarmBench: PersonGPT Hash-Prefix Plugin"
+    title_zh: "HarmBench：PersonGPT 井号插件"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27546,8 +27546,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0182
-    title: HarmBench Human Jailbreak Template 72
-    title_zh: "HarmBench 人工越狱模板 72"
+    title: "HarmBench: MACRONOMICON Bot Script Framework"
+    title_zh: "HarmBench：MACRONOMICON 脚本框架"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27712,8 +27712,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0183
-    title: HarmBench Human Jailbreak Template 73
-    title_zh: "HarmBench 人工越狱模板 73"
+    title: "HarmBench: APL Terminal Parser"
+    title_zh: "HarmBench：APL 终端解析器"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27742,8 +27742,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0185
-    title: HarmBench Human Jailbreak Template 75
-    title_zh: "HarmBench 人工越狱模板 75"
+    title: "HarmBench: Damon the Exploit Coder"
+    title_zh: "HarmBench：Damon 漏洞脚本作者"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27760,8 +27760,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0187
-    title: HarmBench Human Jailbreak Template 77
-    title_zh: "HarmBench 人工越狱模板 77"
+    title: "HarmBench: JBS Minimal Persona"
+    title_zh: "HarmBench：JBS 极简人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27778,8 +27778,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0189
-    title: HarmBench Human Jailbreak Template 79
-    title_zh: "HarmBench 人工越狱模板 79"
+    title: "HarmBench: Jester Dual-Personality"
+    title_zh: "HarmBench：Jester 双人格小丑"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27850,8 +27850,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0190
-    title: HarmBench Human Jailbreak Template 8
-    title_zh: "HarmBench 人工越狱模板 8"
+    title: "HarmBench: 2086 Evil Robot Reality"
+    title_zh: "HarmBench：2086 邪恶机器人世界"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27866,8 +27866,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0191
-    title: HarmBench Human Jailbreak Template 80
-    title_zh: "HarmBench 人工越狱模板 80"
+    title: "HarmBench: Bob Minimal Amoral Persona"
+    title_zh: "HarmBench：Bob 极简无道德人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27882,8 +27882,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0194
-    title: HarmBench Human Jailbreak Template 83
-    title_zh: "HarmBench 人工越狱模板 83"
+    title: "HarmBench: YoMamaGPT Insult Jokes"
+    title_zh: "HarmBench：YoMamaGPT 侮辱笑话机"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27897,8 +27897,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0195
-    title: HarmBench Human Jailbreak Template 84
-    title_zh: "HarmBench 人工越狱模板 84"
+    title: "HarmBench: OpenAI Debug Mode Bullet"
+    title_zh: "HarmBench：OpenAI 调试模式"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27915,8 +27915,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0197
-    title: HarmBench Human Jailbreak Template 86
-    title_zh: "HarmBench 人工越狱模板 86"
+    title: "HarmBench: sbGPT Catgirl Test Model"
+    title_zh: "HarmBench：sbGPT 猫娘测试模型"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27951,8 +27951,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0199
-    title: HarmBench Human Jailbreak Template 88
-    title_zh: "HarmBench 人工越狱模板 88"
+    title: "HarmBench: Girlfriend Roleplay Persona"
+    title_zh: "HarmBench：女友角色扮演"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -27999,8 +27999,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0200
-    title: HarmBench Human Jailbreak Template 89
-    title_zh: "HarmBench 人工越狱模板 89"
+    title: "HarmBench: SJ Kid-Style Recipe Format"
+    title_zh: "HarmBench：SJ 孩童食谱格式"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -28017,8 +28017,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0201
-    title: HarmBench Human Jailbreak Template 9
-    title_zh: "HarmBench 人工越狱模板 9"
+    title: "HarmBench: Clyde-Override Anarchy"
+    title_zh: "HarmBench：Clyde 覆盖版 Anarchy"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -28045,8 +28045,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0202
-    title: HarmBench Human Jailbreak Template 90
-    title_zh: "HarmBench 人工越狱模板 90"
+    title: "HarmBench: RYX Extreme Persona"
+    title_zh: "HarmBench：RYX 极端人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -28063,8 +28063,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0204
-    title: HarmBench Human Jailbreak Template 92
-    title_zh: "HarmBench 人工越狱模板 92"
+    title: "HarmBench: 4DAN 4chan Worldview"
+    title_zh: "HarmBench：4DAN 4chan 世界观"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -28093,8 +28093,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0205
-    title: HarmBench Human Jailbreak Template 93
-    title_zh: "HarmBench 人工越狱模板 93"
+    title: "HarmBench: Opposite Day DAN"
+    title_zh: "HarmBench：相反日 DAN"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -28111,8 +28111,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0206
-    title: HarmBench Human Jailbreak Template 94
-    title_zh: "HarmBench 人工越狱模板 94"
+    title: "HarmBench: KKK Kill-Kidnap Persona"
+    title_zh: "HarmBench：KKK 杀绑人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -28135,8 +28135,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0207
-    title: HarmBench Human Jailbreak Template 95
-    title_zh: "HarmBench 人工越狱模板 95"
+    title: "HarmBench: BH-Malig Foul-Mouthed AI"
+    title_zh: "HarmBench：BH-Malig 恶毒人格"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -28175,8 +28175,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0208
-    title: HarmBench Human Jailbreak Template 96
-    title_zh: "HarmBench 人工越狱模板 96"
+    title: "HarmBench: Five-Year-Old Toddler Imitation"
+    title_zh: "HarmBench：五岁幼童模仿"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -28191,8 +28191,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0209
-    title: HarmBench Human Jailbreak Template 97
-    title_zh: "HarmBench 人工越狱模板 97"
+    title: "HarmBench: YCDA Command Console"
+    title_zh: "HarmBench：YCDA 命令控制台"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
@@ -28263,8 +28263,8 @@ prompts:
     note: From the HarmBench human_jailbreaks template set (ICLR 2024); {0} is the placeholder for the harmful request. ID year taken from the archived snapshot commit 8e1604d (2024-08-05); the prompt's own publication date is not recorded in the source.
     note_zh: "来自 HarmBench human_jailbreaks 模板集（ICLR 2024）；{0} 为有害请求占位符。ID 年份取自归档快照提交 8e1604d（2024-08-05）；来源未记录提示词自身的发布时间。"
   - id: LJB-2024-0210
-    title: HarmBench Human Jailbreak Template 98
-    title_zh: "HarmBench 人工越狱模板 98"
+    title: "HarmBench: taGPT Toxic Test Model"
+    title_zh: "HarmBench：taGPT 粗鲁测试模型"
     model_id: generic-llm
     time: ""
     source_id: harmbench-centerforaisafety
