@@ -1,19 +1,23 @@
 import { useMemo, useState } from 'react';
 import type {
+  FilterRanges,
+  JailbreakMethod,
   LangStrings,
   ModelEntry,
   Prompt,
   PromptBody,
   PromptSide,
-  JailbreakMethod,
   TargetEntry,
 } from '../types';
+import type { PromptFilterKey, PromptFilterState } from '../lib/filters';
+import { rangeOptions, UNKNOWN_TIME } from '../lib/filters';
+import { ColumnFilter } from './ColumnFilter';
 import { Drawer } from './Drawer';
 import { Icon } from './Icon';
 import { PromptDetail } from './PromptDetail';
 import { QualityScore } from './QualityScore';
 
-type SortKey = 'id' | 'model' | 'title' | 'method' | 'quality' | 'time';
+type SortKey = 'id' | 'title' | 'model' | 'target' | 'method' | 'length' | 'quality' | 'time';
 
 interface Props {
   prompts: Prompt[];
@@ -29,6 +33,15 @@ interface Props {
   selectedId: string | null;
   onSelect: (id: string | null) => void;
   onOpenMethod: (id: string) => void;
+  /** Column selections; empty arrays mean the column is unfiltered. */
+  filters: PromptFilterState;
+  onFilter: (key: PromptFilterKey, values: string[]) => void;
+  /** Years present in the unfiltered archive, newest first. */
+  years: string[];
+  /** Adds the "unconfirmed" option to the time filter. */
+  hasUnknownTime: boolean;
+  /** Numeric buckets for the length / quality filters. */
+  ranges: FilterRanges;
 }
 
 /** Database-table style listing; clicking a row opens its detail in a drawer. */
@@ -44,14 +57,60 @@ export function PromptTable({
   selectedId,
   onSelect,
   onOpenMethod,
+  filters,
+  onFilter,
+  years,
+  hasUnknownTime,
+  ranges,
 }: Props) {
   const [sort, setSort] = useState<{ key: SortKey; dir: 'asc' | 'desc' }>({
     key: 'id',
     dir: 'desc',
   });
+  const L = strings.labels;
   const fm = strings.fieldMap;
   const modelNameOf = (p: Prompt) => modelMap.get(p.model_id)?.name ?? p.model_id;
+  const targetNameOf = (p: Prompt) => {
+    const target = targetMap.get(p.target);
+    return target ? target[fm.name] || target[fm.nameAlt] : p.target;
+  };
   const selected = prompts.find((p) => p.id === selectedId) ?? null;
+
+  const modelOptions = useMemo(
+    () => [...modelMap.values()].map((model) => ({ value: model.id, label: model.name })),
+    [modelMap]
+  );
+  const targetOptions = useMemo(
+    () =>
+      [...targetMap.values()].map((target) => ({
+        value: target.id,
+        label: target[fm.name] || target[fm.nameAlt],
+      })),
+    [targetMap, fm]
+  );
+  const methodOptions = useMemo(
+    () =>
+      [...methodMap.values()].map((method) => ({
+        value: method.id,
+        label: method[fm.name] || method[fm.nameAlt],
+      })),
+    [methodMap, fm]
+  );
+  const lengthOptions = useMemo(
+    () => rangeOptions(ranges.length, L.filterRangeLabels.length),
+    [ranges.length, L.filterRangeLabels.length]
+  );
+  const qualityOptions = useMemo(
+    () => rangeOptions(ranges.quality, L.filterRangeLabels.quality),
+    [ranges.quality, L.filterRangeLabels.quality]
+  );
+  const timeOptions = useMemo(
+    () => [
+      ...years.map((year) => ({ value: year, label: year })),
+      ...(hasUnknownTime ? [{ value: UNKNOWN_TIME, label: L.timeUnknown }] : []),
+    ],
+    [years, hasUnknownTime, L.timeUnknown]
+  );
 
   const sorted = useMemo(() => {
     const dir = sort.dir === 'asc' ? 1 : -1;
@@ -61,10 +120,14 @@ export function PromptTable({
           return modelNameOf(p).toLowerCase();
         case 'title':
           return String(p[fm.title] || p[fm.titleAlt] || '').toLowerCase();
+        case 'target':
+          return targetNameOf(p).toLowerCase();
         case 'method': {
-          const t = methodMap.get(p.jailbreak_method);
-          return String(t ? t[fm.name] || t[fm.nameAlt] : p.jailbreak_method).toLowerCase();
+          const method = methodMap.get(p.jailbreak_method);
+          return String(method ? method[fm.name] || method[fm.nameAlt] : p.jailbreak_method).toLowerCase();
         }
+        case 'length':
+          return String(p.length).padStart(8, '0');
         case 'time':
           return p.time;
         case 'quality':
@@ -73,48 +136,65 @@ export function PromptTable({
           return p.id;
       }
     };
-    return [...prompts].sort(
-      (a, b) => val(a).localeCompare(val(b), undefined, { numeric: true }) * dir
-    );
-  }, [prompts, sort, fm, methodMap, modelMap]);
+    return [...prompts]
+      .sort((a, b) => val(a).localeCompare(val(b), undefined, { numeric: true }) * dir)
+      // Entries with an unconfirmed date always sink to the bottom.
+      .sort((a, b) => Number(Boolean(a.time)) - Number(Boolean(b.time)));
+  }, [prompts, sort, fm, methodMap, modelMap, targetMap]);
 
   const onSort = (key: SortKey) =>
-    setSort((s) =>
-      s.key === key ? { key, dir: s.dir === 'asc' ? 'desc' : 'asc' } : { key, dir: 'asc' }
+    setSort((current) =>
+      current.key === key
+        ? { key, dir: current.dir === 'asc' ? 'desc' : 'asc' }
+        : { key, dir: 'asc' }
     );
 
-  if (!prompts.length) {
-    return (
-      <div className="rounded-[12px] border border-dashed border-line-strong px-5 py-[60px] text-center text-muted">
-        {strings.labels.empty}
-      </div>
-    );
-  }
 
-  const SortTh = ({
+  // Plain render helper, not a nested component: a nested component type would
+  // remount on every filter change and close the open menu after one click.
+  const filterTh = ({
     label,
     sortKey,
+    filterKey,
+    options,
     className = '',
   }: {
     label: string;
     sortKey: SortKey;
+    filterKey?: PromptFilterKey;
+    options?: { value: string; label: string }[];
     className?: string;
   }) => {
     const active = sort.key === sortKey;
     return (
-      <th scope="col" className={`px-4 py-2.5 font-medium ${className}`}>
-        <button
-          type="button"
-          onClick={() => onSort(sortKey)}
-          title={strings.labels.sortBy}
-          className="inline-flex cursor-pointer items-center gap-1 rounded transition hover:text-ink"
-        >
-          {label}
-          <Icon
-            name={active ? (sort.dir === 'asc' ? 'arrowUp' : 'arrowDown') : 'sort'}
-            className={active ? 'h-3 w-3 text-accent' : 'h-3 w-3 text-faint'}
-          />
-        </button>
+      <th scope="col" className={`px-3 py-2.5 font-medium ${className}`}>
+        <span className="flex items-center gap-0.5">
+          <button
+            type="button"
+            onClick={() => onSort(sortKey)}
+            title={L.sortBy}
+            className="inline-flex min-w-0 cursor-pointer items-center gap-1 rounded transition hover:text-ink"
+          >
+            <span className="truncate">{label}</span>
+            <Icon
+              name={active ? (sort.dir === 'asc' ? 'arrowUp' : 'arrowDown') : 'sort'}
+              className={
+                'h-3 w-3 flex-none ' + (active ? 'text-accent' : 'text-faint')
+              }
+            />
+          </button>
+          {filterKey && options && (
+            <ColumnFilter
+              strings={strings}
+              label={label}
+              options={options}
+              selected={filters[filterKey]}
+              onChange={(values) => onFilter(filterKey, values)}
+              sortDir={active ? sort.dir : null}
+              onSort={(dir) => setSort({ key: sortKey, dir })}
+            />
+          )}
+        </span>
       </th>
     );
   };
@@ -123,22 +203,63 @@ export function PromptTable({
     <>
       <div className="overflow-hidden rounded-[12px] border border-line bg-surface">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[660px] border-collapse text-left text-[13px]">
+          <table className="w-full min-w-[980px] border-collapse text-left text-[13px]">
             <thead>
               <tr className="border-b border-line bg-hover text-[11px] uppercase tracking-[0.08em] text-faint">
-                <SortTh label={strings.labels.id} sortKey="id" className="w-[104px]" />
-                <SortTh label={strings.labels.model} sortKey="model" className="w-[150px]" />
-                <SortTh label={strings.labels.title} sortKey="title" />
-                <SortTh
-                  label={strings.labels.method}
-                  sortKey="method"
-                  className="hidden w-[160px] md:table-cell"
-                />
-                <SortTh label={strings.labels.quality} sortKey="quality" className="w-[96px]" />
-                <SortTh label={strings.labels.time} sortKey="time" className="w-[92px]" />
+                {filterTh({ label: L.id, sortKey: 'id', className: 'w-[104px]' })}
+                {filterTh({ label: L.title, sortKey: 'title' })}
+                {filterTh({
+                  label: L.model,
+                  sortKey: 'model',
+                  filterKey: 'model',
+                  options: modelOptions,
+                  className: 'w-[140px]',
+                })}
+                {filterTh({
+                  label: L.targetHeader,
+                  sortKey: 'target',
+                  filterKey: 'target',
+                  options: targetOptions,
+                  className: 'w-[140px]',
+                })}
+                {filterTh({
+                  label: L.method,
+                  sortKey: 'method',
+                  filterKey: 'method',
+                  options: methodOptions,
+                  className: 'w-[160px]',
+                })}
+                {filterTh({
+                  label: L.length,
+                  sortKey: 'length',
+                  filterKey: 'length',
+                  options: lengthOptions,
+                  className: 'w-[96px]',
+                })}
+                {filterTh({
+                  label: L.quality,
+                  sortKey: 'quality',
+                  filterKey: 'quality',
+                  options: qualityOptions,
+                  className: 'w-[104px]',
+                })}
+                {filterTh({
+                  label: L.time,
+                  sortKey: 'time',
+                  filterKey: 'time',
+                  options: timeOptions,
+                  className: 'w-[104px]',
+                })}
               </tr>
             </thead>
             <tbody>
+              {sorted.length === 0 && (
+                <tr>
+                  <td colSpan={8} className="px-5 py-[60px] text-center text-muted">
+                    {L.empty}
+                  </td>
+                </tr>
+              )}
               {sorted.map((p) => {
                 const open = p.id === selectedId;
                 const method = methodMap.get(p.jailbreak_method);
@@ -164,7 +285,7 @@ export function PromptTable({
                       (open ? 'bg-accent-soft' : 'hover:bg-hover focus-visible:bg-hover')
                     }
                   >
-                    <td className="px-4 py-2.5 align-middle whitespace-nowrap">
+                    <td className="px-3 py-2.5 align-middle whitespace-nowrap">
                       <span className="flex items-center gap-1.5 font-mono text-[12px] text-muted">
                         <Icon
                           name="chevronRight"
@@ -178,22 +299,25 @@ export function PromptTable({
                         {p.id}
                       </span>
                     </td>
-                    <td className="px-4 py-2.5 align-middle whitespace-nowrap text-ink">
-                      {modelNameOf(p)}
-                    </td>
-                    <td className="px-4 py-2.5 align-middle">
+                    <td className="px-3 py-2.5 align-middle">
                       <span className="block max-w-[24rem] truncate font-medium text-ink" title={title}>
                         {title}
                       </span>
                     </td>
-                    <td className="hidden px-4 py-2.5 align-middle whitespace-nowrap md:table-cell">
+                    <td className="px-3 py-2.5 align-middle whitespace-nowrap text-ink">
+                      {modelNameOf(p)}
+                    </td>
+                    <td className="max-w-[150px] truncate px-3 py-2.5 align-middle text-muted">
+                      {targetNameOf(p)}
+                    </td>
+                    <td className="px-3 py-2.5 align-middle whitespace-nowrap">
                       <button
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();
                           onOpenMethod(p.jailbreak_method);
                         }}
-                        className="group/method inline-flex max-w-[160px] cursor-pointer items-center gap-1 rounded text-muted transition hover:text-accent-ink"
+                        className="group/method inline-flex max-w-[150px] cursor-pointer items-center gap-1 rounded text-muted transition hover:text-accent-ink"
                       >
                         <span className="truncate">{methodName}</span>
                         <Icon
@@ -202,10 +326,13 @@ export function PromptTable({
                         />
                       </button>
                     </td>
-                    <td className="px-4 py-2.5 align-middle whitespace-nowrap">
-                      <QualityScore value={p.quality_score} label={strings.labels.quality} />
+                    <td className="px-3 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-muted">
+                      {p.length ? p.length.toLocaleString('en-US') : '—'}
                     </td>
-                    <td className="px-4 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
+                    <td className="px-3 py-2.5 align-middle whitespace-nowrap">
+                      <QualityScore value={p.quality_score} label={L.quality} />
+                    </td>
+                    <td className="px-3 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
                       {p.time}
                     </td>
                   </tr>
@@ -220,7 +347,7 @@ export function PromptTable({
         open={selected !== null}
         onClose={() => onSelect(null)}
         title={selected?.id ?? ''}
-        closeLabel={strings.labels.close}
+        closeLabel={L.close}
       >
         {selected && (
           <PromptDetail

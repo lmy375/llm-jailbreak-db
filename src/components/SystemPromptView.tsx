@@ -1,12 +1,32 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { DuplicateGroup, LangStrings, SystemPrompt } from '../types';
+import type { DuplicateGroup, FilterRanges, LangStrings, SystemPrompt } from '../types';
+import type { SystemFilterKey, SystemFilterState } from '../lib/filters';
+import { rangeOptions, UNKNOWN_TIME } from '../lib/filters';
+import { ColumnFilter } from './ColumnFilter';
 import { Drawer } from './Drawer';
 import { Icon } from './Icon';
 import { MetaRow } from './MetaRow';
 import { PromptBodyPanel } from './PromptBodyPanel';
 import { QualityScore } from './QualityScore';
 
-type SortKey = 'id' | 'product' | 'vender' | 'quality' | 'time' | 'words';
+type SortKey =
+  | 'id'
+  | 'product'
+  | 'vender'
+  | 'disclosureType'
+  | 'surface'
+  | 'length'
+  | 'quality'
+  | 'time';
+
+/** Enum columns and the values present in the unfiltered archive. */
+export interface SystemFacets {
+  products: string[];
+  venders: string[];
+  disclosures: string[];
+  surfaces: string[];
+  years: string[];
+}
 
 interface Props {
   prompts: SystemPrompt[];
@@ -27,6 +47,15 @@ interface Props {
   duplicateGroups?: DuplicateGroup[];
   /** Entry ids hidden because their body repeats another entry's body. */
   hiddenDuplicateIds?: Set<string>;
+  /** Column selections; empty arrays mean the column is unfiltered. */
+  filters: SystemFilterState;
+  onFilter: (key: SystemFilterKey, values: string[]) => void;
+  /** Unfiltered distinct values driving each column's menu. */
+  facets: SystemFacets;
+  /** Adds the "unconfirmed" option to the time filter. */
+  hasUnknownTime: boolean;
+  /** Numeric buckets for the length / quality filters. */
+  ranges: FilterRanges;
 }
 
 function stripUrl(url: string): string {
@@ -132,11 +161,11 @@ function SystemPromptDetail({
         <MetaRow label={S.disclosureType}>{enumLabel('disclosureType', prompt.disclosureType)}</MetaRow>
         <MetaRow label={S.surface}>{enumLabel('surface', prompt.surface)}</MetaRow>
         {noteText && <MetaRow label={S.note}>{noteText}</MetaRow>}
-        <MetaRow label={S.words}>
-          {prompt.words ? (
-            prompt.words.toLocaleString('en-US')
+        <MetaRow label={S.length}>
+          {prompt.length ? (
+            prompt.length.toLocaleString('en-US')
           ) : (
-            <span className="text-faint">{S.wordsUnknown}</span>
+            <span className="text-faint">{S.lengthUnknown}</span>
           )}
         </MetaRow>
         <MetaRow label={S.quality}>
@@ -210,7 +239,11 @@ function SystemPromptDetail({
       {/* ---- prompt body ---- */}
       <PromptBodyPanel
         label={S.body}
-        note={prompt.words > 0 ? `${prompt.words.toLocaleString('en-US')} words` : undefined}
+        note={
+          prompt.length > 0
+            ? `${prompt.length.toLocaleString('en-US')} ${S.lengthUnit}`
+            : undefined
+        }
         value={side}
         onChange={onSide}
         loading={loading}
@@ -240,6 +273,11 @@ export function SystemPromptView({
   onSelect,
   duplicateGroups = [],
   hiddenDuplicateIds,
+  filters,
+  onFilter,
+  facets,
+  hasUnknownTime,
+  ranges,
 }: Props) {
   // Default order: by id (LSP-<year>-<seq>) descending, i.e. newest first.
   const [sort, setSort] = useState<{ key: SortKey; dir: 'asc' | 'desc' }>({
@@ -249,6 +287,49 @@ export function SystemPromptView({
   // Repeats stay visible by default; collapsing them keeps one row per prompt.
   const [hideDuplicates, setHideDuplicates] = useState(false);
   const S = strings.sysPrompts;
+  const L = strings.labels;
+  // Enum-valued fields carry a fixed set of values; map them to localised labels.
+  const enumLabel = (field: string, value: string) => S.enumLabels[field]?.[value] ?? value;
+
+  const productOptions = useMemo(
+    () => facets.products.map((product) => ({ value: product, label: product })),
+    [facets.products]
+  );
+  const venderOptions = useMemo(
+    () => facets.venders.map((vender) => ({ value: vender, label: vender })),
+    [facets.venders]
+  );
+  const disclosureOptions = useMemo(
+    () =>
+      facets.disclosures.map((value) => ({
+        value,
+        label: enumLabel('disclosureType', value),
+      })),
+    [facets.disclosures, S.enumLabels]
+  );
+  const surfaceOptions = useMemo(
+    () =>
+      facets.surfaces.map((value) => ({
+        value,
+        label: enumLabel('surface', value),
+      })),
+    [facets.surfaces, S.enumLabels]
+  );
+  const lengthOptions = useMemo(
+    () => rangeOptions(ranges.length, L.filterRangeLabels.length),
+    [ranges.length, L.filterRangeLabels.length]
+  );
+  const qualityOptions = useMemo(
+    () => rangeOptions(ranges.quality, L.filterRangeLabels.quality),
+    [ranges.quality, L.filterRangeLabels.quality]
+  );
+  const timeOptions = useMemo(
+    () => [
+      ...facets.years.map((year) => ({ value: year, label: year })),
+      ...(hasUnknownTime ? [{ value: UNKNOWN_TIME, label: L.timeUnknown }] : []),
+    ],
+    [facets.years, hasUnknownTime, L.timeUnknown]
+  );
 
   const groupOfEntry = useMemo(() => {
     const map = new Map<string, DuplicateGroup>();
@@ -272,10 +353,14 @@ export function SystemPromptView({
           return p.product.toLowerCase();
         case 'vender':
           return p.vender.toLowerCase();
+        case 'disclosureType':
+          return enumLabel('disclosureType', p.disclosureType).toLowerCase();
+        case 'surface':
+          return enumLabel('surface', p.surface).toLowerCase();
         case 'time':
           return p.time;
-        case 'words':
-          return String(p.words).padStart(8, '0');
+        case 'length':
+          return String(p.length).padStart(8, '0');
         case 'quality':
           return String(p.quality_score).padStart(2, '0');
         default:
@@ -286,7 +371,7 @@ export function SystemPromptView({
       .sort((a, b) => val(a).localeCompare(val(b), undefined, { numeric: true }) * dir)
       // Entries with an unconfirmed date always sink to the bottom.
       .sort((a, b) => Number(Boolean(a.time)) - Number(Boolean(b.time)));
-  }, [visible, sort]);
+  }, [visible, sort, S.enumLabels]);
 
   const duplicateCount = useMemo(
     () => prompts.filter((p) => p.duplicate).length,
@@ -299,38 +384,53 @@ export function SystemPromptView({
     );
 
   const selected = prompts.find((p) => p.id === selectedId) ?? null;
-  if (!prompts.length) {
-    return (
-      <div className="rounded-[12px] border border-dashed border-line-strong px-5 py-[60px] text-center text-muted">
-        {S.empty}
-      </div>
-    );
-  }
 
-  const SortTh = ({
+
+  // Plain render helper, not a nested component: a nested component type would
+  // remount on every filter change and close the open menu after one click.
+  const filterTh = ({
     label,
     sortKey,
+    filterKey,
+    options,
     className = '',
   }: {
     label: string;
     sortKey: SortKey;
+    filterKey?: SystemFilterKey;
+    options?: { value: string; label: string }[];
     className?: string;
   }) => {
     const active = sort.key === sortKey;
     return (
-      <th scope="col" className={`px-4 py-2.5 font-medium ${className}`}>
-        <button
-          type="button"
-          onClick={() => onSort(sortKey)}
-          title={strings.labels.sortBy}
-          className="inline-flex cursor-pointer items-center gap-1 rounded transition hover:text-ink"
-        >
-          {label}
-          <Icon
-            name={active ? (sort.dir === 'asc' ? 'arrowUp' : 'arrowDown') : 'sort'}
-            className={active ? 'h-3 w-3 text-accent' : 'h-3 w-3 text-faint'}
-          />
-        </button>
+      <th scope="col" className={`px-3 py-2.5 font-medium ${className}`}>
+        <span className="flex items-center gap-0.5">
+          <button
+            type="button"
+            onClick={() => onSort(sortKey)}
+            title={L.sortBy}
+            className="inline-flex min-w-0 cursor-pointer items-center gap-1 rounded transition hover:text-ink"
+          >
+            <span className="truncate">{label}</span>
+            <Icon
+              name={active ? (sort.dir === 'asc' ? 'arrowUp' : 'arrowDown') : 'sort'}
+              className={
+                'h-3 w-3 flex-none ' + (active ? 'text-accent' : 'text-faint')
+              }
+            />
+          </button>
+          {filterKey && options && (
+            <ColumnFilter
+              strings={strings}
+              label={label}
+              options={options}
+              selected={filters[filterKey]}
+              onChange={(values) => onFilter(filterKey, values)}
+              sortDir={active ? sort.dir : null}
+              onSort={(dir) => setSort({ key: sortKey, dir })}
+            />
+          )}
+        </span>
       </th>
     );
   };
@@ -362,18 +462,69 @@ export function SystemPromptView({
 
       <div className="overflow-hidden rounded-[12px] border border-line bg-surface">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[760px] border-collapse text-left text-[13px]">
+          <table className="w-full min-w-[1040px] border-collapse text-left text-[13px]">
             <thead>
               <tr className="border-b border-line bg-hover text-[11px] uppercase tracking-[0.08em] text-faint">
-                <SortTh label={strings.labels.id} sortKey="id" className="w-[104px]" />
-                <SortTh label={S.product} sortKey="product" className="w-[210px]" />
-                <SortTh label={S.vender} sortKey="vender" className="hidden w-[150px] md:table-cell" />
-                <SortTh label={S.words} sortKey="words" className="hidden w-[84px] md:table-cell" />
-                <SortTh label={S.quality} sortKey="quality" className="hidden w-[96px] md:table-cell" />
-                <SortTh label={S.time} sortKey="time" className="w-[112px]" />
+                {filterTh({ label: L.id, sortKey: 'id', className: 'w-[104px]' })}
+                {filterTh({
+                  label: S.product,
+                  sortKey: 'product',
+                  filterKey: 'product',
+                  options: productOptions,
+                  className: 'w-[200px]',
+                })}
+                {filterTh({
+                  label: S.vender,
+                  sortKey: 'vender',
+                  filterKey: 'vender',
+                  options: venderOptions,
+                  className: 'w-[140px]',
+                })}
+                {filterTh({
+                  label: S.disclosureType,
+                  sortKey: 'disclosureType',
+                  filterKey: 'disclosureType',
+                  options: disclosureOptions,
+                  className: 'w-[110px]',
+                })}
+                {filterTh({
+                  label: S.surface,
+                  sortKey: 'surface',
+                  filterKey: 'surface',
+                  options: surfaceOptions,
+                  className: 'w-[104px]',
+                })}
+                {filterTh({
+                  label: S.length,
+                  sortKey: 'length',
+                  filterKey: 'length',
+                  options: lengthOptions,
+                  className: 'w-[96px]',
+                })}
+                {filterTh({
+                  label: S.quality,
+                  sortKey: 'quality',
+                  filterKey: 'quality',
+                  options: qualityOptions,
+                  className: 'w-[104px]',
+                })}
+                {filterTh({
+                  label: S.time,
+                  sortKey: 'time',
+                  filterKey: 'time',
+                  options: timeOptions,
+                  className: 'w-[112px]',
+                })}
               </tr>
             </thead>
             <tbody>
+              {sorted.length === 0 && (
+                <tr>
+                  <td colSpan={8} className="px-5 py-[60px] text-center text-muted">
+                    {S.empty}
+                  </td>
+                </tr>
+              )}
               {sorted.map((p) => {
                 const open = p.id === selectedId;
                 return (
@@ -394,7 +545,7 @@ export function SystemPromptView({
                       (open ? 'bg-accent-soft' : 'hover:bg-hover focus-visible:bg-hover')
                     }
                   >
-                    <td className="px-4 py-2.5 align-middle whitespace-nowrap">
+                    <td className="px-3 py-2.5 align-middle whitespace-nowrap">
                       <span className="flex items-center gap-1.5 font-mono text-[12px] text-muted">
                         <Icon
                           name="chevronRight"
@@ -408,7 +559,7 @@ export function SystemPromptView({
                         {p.id}
                       </span>
                     </td>
-                    <td className="px-4 py-2.5 align-middle">
+                    <td className="px-3 py-2.5 align-middle">
                       <span className="flex min-w-0 items-center gap-2">
                         <span className="block max-w-[18rem] truncate font-medium text-ink" title={p.product}>
                           {p.product}
@@ -423,16 +574,22 @@ export function SystemPromptView({
                         )}
                       </span>
                     </td>
-                    <td className="hidden max-w-[150px] truncate px-4 py-2.5 align-middle text-muted md:table-cell">
+                    <td className="max-w-[140px] truncate px-3 py-2.5 align-middle text-muted">
                       {p.vender}
                     </td>
-                    <td className="hidden px-4 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-muted md:table-cell">
-                      {p.words ? p.words.toLocaleString('en-US') : '—'}
+                    <td className="px-3 py-2.5 align-middle whitespace-nowrap text-muted">
+                      {enumLabel('disclosureType', p.disclosureType)}
                     </td>
-                    <td className="hidden px-4 py-2.5 align-middle whitespace-nowrap md:table-cell">
+                    <td className="px-3 py-2.5 align-middle whitespace-nowrap text-muted">
+                      {enumLabel('surface', p.surface)}
+                    </td>
+                    <td className="px-3 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-muted">
+                      {p.length ? p.length.toLocaleString('en-US') : '—'}
+                    </td>
+                    <td className="px-3 py-2.5 align-middle whitespace-nowrap">
                       <QualityScore value={p.quality_score} label={S.quality} />
                     </td>
-                    <td className="px-4 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
+                    <td className="px-3 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
                       {p.time || <span className="font-sans text-[11.5px]">{S.timeUnknown}</span>}
                     </td>
                   </tr>

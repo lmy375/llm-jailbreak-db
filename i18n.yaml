@@ -11,6 +11,41 @@ site:
 
   repoLabel: "GitHub"
 
+# 数值范围筛选的档位（语言无关）；显示文案在各语言 labels.filterRangeLabels。
+filterRanges:
+  length:
+    - id: "0-1000"
+      min: 0
+      max: 1000
+    - id: "1001-3000"
+      min: 1001
+      max: 3000
+    - id: "3001-10000"
+      min: 3001
+      max: 10000
+    - id: "10001-30000"
+      min: 10001
+      max: 30000
+    - id: "30001-"
+      min: 30001
+      max: 999999999
+  quality:
+    - id: "9-10"
+      min: 9
+      max: 10
+    - id: "8"
+      min: 8
+      max: 8
+    - id: "7"
+      min: 7
+      max: 7
+    - id: "6"
+      min: 6
+      max: 6
+    - id: "1-5"
+      min: 1
+      max: 5
+
 zh:
   label: "中文"
   htmlLang: "zh-CN"
@@ -71,10 +106,32 @@ zh:
     copy: "复制"
     copied: "已复制"
     # 表头过滤器 / table header filter bar
-    filterYear: "年份"
-    filterAll: "全部"
     filterClear: "清除筛选"
     filterMatch: "匹配 {n} / {total} 条"
+    # 表头列筛选菜单 / per-column filter menu
+    filterColumn: "筛选此列"
+    filterSearch: "搜索选项"
+    filterSelectAll: "全选"
+    filterClearColumn: "清除本列"
+    filterNoOptions: "没有可选值"
+    sortAsc: "升序"
+    sortDesc: "降序"
+    timeUnknown: "未确认"
+    targetHeader: "目标"
+    length: "长度"
+    filterRangeLabels:
+      length:
+        "0-1000": "≤ 1,000 字符"
+        "1001-3000": "1,001–3,000 字符"
+        "3001-10000": "3,001–10,000 字符"
+        "10001-30000": "10,001–30,000 字符"
+        "30001-": "> 30,000 字符"
+      quality:
+        "9-10": "9–10 分"
+        "8": "8 分"
+        "7": "7 分"
+        "6": "6 分"
+        "1-5": "5 分及以下"
   # 数据来源表格表头（构建期渲染来源页用）/ source-page table headers
   sourceTable:
     title: "标题"
@@ -91,8 +148,9 @@ zh:
     heroDescription: "收录已经离开厂商控制流、被外界看到的各家产品系统提示词全文。既包含厂商官方主动公开的，也包含经由提示词注入、客户端逆向或用户分享流出的。每条均保留中英双版本原文。"
     vender: "厂商"
     product: "产品"
-    time: "公开时间"
-    words: "词数"
+    time: "时间"
+    length: "长度"
+    lengthUnit: "字符"
     quality: "质量分"
     disclosureType: "披露类型"
     surface: "产品载体"
@@ -100,7 +158,7 @@ zh:
     source: "数据来源链接"
     body: "提示词全文"
     timeUnknown: "时间未确认"
-    wordsUnknown: "未知"
+    lengthUnknown: "未知"
     empty: "没有匹配的系统提示词，试试其他关键词。"
     duplicate: "重复条目"
     duplicateGroup: "重复组"
@@ -191,10 +249,32 @@ en:
     copy: "Copy"
     copied: "Copied"
     # 表头过滤器 / table header filter bar
-    filterYear: "Year"
-    filterAll: "All"
     filterClear: "Clear filters"
     filterMatch: "{n} of {total} match"
+    # 表头列筛选菜单 / per-column filter menu
+    filterColumn: "Filter this column"
+    filterSearch: "Search options"
+    filterSelectAll: "Select all"
+    filterClearColumn: "Clear column"
+    filterNoOptions: "No options"
+    sortAsc: "Sort ascending"
+    sortDesc: "Sort descending"
+    timeUnknown: "Unconfirmed"
+    targetHeader: "Target"
+    length: "Length"
+    filterRangeLabels:
+      length:
+        "0-1000": "≤ 1,000 chars"
+        "1001-3000": "1,001–3,000 chars"
+        "3001-10000": "3,001–10,000 chars"
+        "10001-30000": "10,001–30,000 chars"
+        "30001-": "> 30,000 chars"
+      quality:
+        "9-10": "9–10"
+        "8": "8"
+        "7": "7"
+        "6": "6"
+        "1-5": "5 or lower"
   # 数据来源表格表头（构建期渲染来源页用）/ source-page table headers
   sourceTable:
     title: "Title"
@@ -211,8 +291,9 @@ en:
     heroDescription: "Full text of vendor system prompts that have already left vendor control — both those released deliberately by their publishers and those that escaped via prompt injection, client reverse engineering, or user sharing. Every entry is kept in both English and Chinese."
     vender: "Vendor"
     product: "Product"
-    time: "Disclosed"
-    words: "Words"
+    time: "Time"
+    length: "Length"
+    lengthUnit: "chars"
     quality: "Quality"
     disclosureType: "Disclosure"
     surface: "Surface"
@@ -220,7 +301,7 @@ en:
     source: "Data Source"
     body: "Full prompt"
     timeUnknown: "Date unconfirmed"
-    wordsUnknown: "Unknown"
+    lengthUnknown: "Unknown"
     empty: "No matching system prompts. Try another keyword."
     duplicate: "Duplicate entries"
     duplicateGroup: "Duplicate group"

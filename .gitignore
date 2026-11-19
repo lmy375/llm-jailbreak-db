@@ -8,4 +8,5 @@ public/prompt-bodies/
 .codeartsdoer/
 .workbuddy/
 *.log
+jailbreak-probe-logs/
 raw/

@@ -43,6 +43,8 @@ export interface Prompt {
   note_zh?: string;
   /** Human-reviewed quality score, 1–10. */
   quality_score: number;
+  /** Character count of the trimmed original prompt; computed by the build script. */
+  length: number;
 }
 
 /** Both language sides of one jailbreak prompt; fetched when its drawer opens. */
@@ -109,8 +111,8 @@ export interface SystemPrompt {
   /** Exact URL of this entry, usually a sub-path of the source archive. */
   source_url: string;
   system_prompt_id: string;
-  /** Word count of the English body; computed by the build script. */
-  words: number;
+  /** Character count of the trimmed English body; computed by the build script. */
+  length: number;
   /** Human-reviewed quality score, 1–10. */
   quality_score: number;
   /** Present when this body heavily repeats another body in the archive. */
@@ -132,6 +134,20 @@ export interface DuplicateGroup {
     relation: 'near-identical' | 'contained';
     canonical: boolean;
   }[];
+}
+
+/** A language-neutral numeric bucket used by the length / quality filters. */
+export interface RangeBucket {
+  /** Stable id carried in the URL, e.g. "201-500". */
+  id: string;
+  min: number;
+  max: number;
+}
+
+/** Numeric range filters shared by both archives; labels are translated. */
+export interface FilterRanges {
+  length: RangeBucket[];
+  quality: RangeBucket[];
 }
 
 export interface LangStrings {
@@ -188,10 +204,22 @@ export interface LangStrings {
     themeToDark: string;
     sortBy: string;
     // 表头过滤器 / table header filter bar
-    filterYear: string;
-    filterAll: string;
     filterClear: string;
     filterMatch: string;
+    // 表头列筛选菜单 / per-column filter menu
+    filterColumn: string;
+    filterSearch: string;
+    filterSelectAll: string;
+    filterClearColumn: string;
+    filterNoOptions: string;
+    sortAsc: string;
+    sortDesc: string;
+    timeUnknown: string;
+    /** 表头列名 / extra column headers */
+    targetHeader: string;
+    length: string;
+    /** Range bucket id -> localised label, keyed by bucket group. */
+    filterRangeLabels: Record<string, Record<string, string>>;
   };
   /** 数据来源表格表头（构建期渲染来源页用）/ source-page table headers */
   sourceTable: {
@@ -210,7 +238,9 @@ export interface LangStrings {
     vender: string;
     product: string;
     time: string;
-    words: string;
+    length: string;
+    /** Unit shown after the length number in the detail drawer. */
+    lengthUnit: string;
     quality: string;
     disclosureType: string;
     surface: string;
@@ -218,7 +248,7 @@ export interface LangStrings {
     source: string;
     body: string;
     timeUnknown: string;
-    wordsUnknown: string;
+    lengthUnknown: string;
     empty: string;
     /** Badge on rows whose body heavily repeats another entry. */
     duplicate: string;
@@ -252,6 +282,7 @@ export interface SiteConfig {
 export interface Data {
   generated: string;
   site: SiteConfig;
+  filterRanges: FilterRanges;
   langs: Record<string, LangStrings>;
   counts: { prompts: number; methods: number; models: number; systemPrompts: number; duplicateGroups: number };
   models: ModelEntry[];

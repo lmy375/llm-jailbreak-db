@@ -4,6 +4,7 @@ export type IconName =
   | 'arrowUp'
   | 'arrowDown'
   | 'sort'
+  | 'filter'
   | 'close'
   | 'external'
   | 'copy'
@@ -16,6 +17,7 @@ const paths: Record<IconName, string> = {
   arrowUp: 'M8 12.5V3.5M4.25 7.25 8 3.5l3.75 3.75',
   arrowDown: 'M8 3.5v9M4.25 8.75 8 12.5l3.75-3.75',
   sort: 'M5 6.25 8 3.25l3 3M5 9.75l3 3 3-3',
+  filter: 'M2.5 3.75h11M4.75 8h6.5M6.5 12.25h3',
   close: 'M4 4l8 8M12 4l-8 8',
   external: 'M9.5 2.5h4v4M13.5 2.5 7.5 8.5M11.5 9.5v3.5h-8v-8H7',
   copy: 'M5.75 5.75V3.25h7v7h-2.5M3.25 5.75h7.25v7H3.25Z',

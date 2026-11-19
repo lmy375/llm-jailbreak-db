@@ -134,7 +134,9 @@ const seenSys = new Set();
 const seenBodies = new Set();
 // Word counts come from the English body itself, never from hand-written fields.
 const enWordCounts = new Map();
-const sysLangs = Object.keys(readYaml('i18n.yaml')).filter((k) => k !== 'site');
+const sysLangs = Object.keys(readYaml('i18n.yaml')).filter(
+  (k) => k !== 'site' && k !== 'filterRanges'
+);
 
 // Bodies must exist in every UI language, and be real full prompts.
 //
@@ -218,10 +220,13 @@ function loadBodies(lang) {
 const bodiesByLang = Object.fromEntries(sysLangs.map((lang) => [lang, loadBodies(lang)]));
 const enBodies = bodiesByLang.en ?? {};
 
+// The table's length column counts characters of the trimmed English body.
+// Word counts stay separate: short-body warnings and duplicate-group ranking
+// still use them.
 const normalisedSys = sysPrompts.map((s) => ({
   ...s,
   time: normDate(s.time),
-  words: enWordCounts.get(String(s.system_prompt_id)) ?? 0,
+  length: (enBodies[String(s.system_prompt_id)] ?? '').length,
 }));
 
 // ---- near-duplicate detection -------------------------------------------------
@@ -275,7 +280,7 @@ const duplicateGroups = duplicateResult.groups
         return {
           id: entryId,
           system_prompt_id: prompt?.system_prompt_id ?? '',
-          words: prompt?.words ?? 0,
+          words: enWordCounts.get(String(prompt?.system_prompt_id ?? '')) ?? 0,
           similarity: prompt?.duplicate?.similarity ?? 0,
           containment: prompt?.duplicate?.containment ?? 0,
           relation: prompt?.duplicate?.relation ?? g.kind,
@@ -299,8 +304,11 @@ const duplicateGroups = duplicateResult.groups
 // ---- UI strings -------------------------------------------------------------
 const i18n = readYaml('i18n.yaml');
 const site = i18n.site ?? {};
+// Language-neutral range buckets live beside the language tables, so the
+// thresholds exist once and only their labels are translated.
+const filterRanges = i18n.filterRanges ?? { length: [], quality: [] };
 const langs = Object.fromEntries(
-  Object.entries(i18n).filter(([k]) => k !== 'site')
+  Object.entries(i18n).filter(([k]) => k !== 'site' && k !== 'filterRanges')
 );
 
 // ---- jailbreak method articles ----------------------------------------------
@@ -417,11 +425,18 @@ const promptBodies = prompts.map((p) => ({
   original: p.prompt ?? '',
   translation: p.prompt_zh ?? '',
 }));
-const promptIndex = prompts.map(({ prompt, prompt_zh, ...rest }) => rest);
+// The table's length column counts characters of the trimmed original prompt,
+// the same unit the system-prompt archive uses, so both archives sort and
+// filter alike.
+const promptIndex = prompts.map(({ prompt, prompt_zh, ...rest }) => ({
+  ...rest,
+  length: String(prompt ?? '').trim().length,
+}));
 
 const data = {
   generated: new Date().toISOString().slice(0, 10),
   site,
+  filterRanges,
   langs,
   counts: {
     prompts: prompts.length,

@@ -12,6 +12,19 @@ import type {
   TargetEntry,
 } from './types';
 import { loadBody, loadData, loadPromptBody } from './lib/data';
+import {
+  collectYears,
+  emptyPromptFilters,
+  emptySystemFilters,
+  hasPromptFilters,
+  hasSystemFilters,
+  hasUnknownTime,
+  matchesRanges,
+  matchesTime,
+  sortedUnique,
+  type PromptFilterState,
+  type SystemFilterState,
+} from './lib/filters';
 import { buildRoute, parseRoute, type RouteState } from './lib/route';
 import { useTheme } from './lib/theme';
 import { Header } from './components/Header';
@@ -21,7 +34,7 @@ import { Tabs } from './components/Tabs';
 import { FilterBar } from './components/FilterBar';
 import { PromptTable } from './components/PromptTable';
 import { MethodView } from './components/MethodView';
-import { SystemPromptView } from './components/SystemPromptView';
+import { SystemPromptView, type SystemFacets } from './components/SystemPromptView';
 import { SourceView } from './components/SourceView';
 
 function Spinner() {
@@ -44,11 +57,9 @@ export default function App() {
   const [systemView, setSystemView] = useState<SystemView>(bootRoute.systemView);
   const [activeMethod, setActiveMethod] = useState<string | null>(bootRoute.activeMethod);
   const [query, setQuery] = useState(bootRoute.query);
-  // Table header filters (per archive); empty string means "all".
-  const [modelFilter, setModelFilter] = useState(bootRoute.modelFilter);
-  const [methodFilter, setMethodFilter] = useState(bootRoute.methodFilter);
-  const [venderFilter, setVenderFilter] = useState(bootRoute.venderFilter);
-  const [yearFilter, setYearFilter] = useState(bootRoute.yearFilter);
+  // Table header filters (per archive); empty arrays mean "all".
+  const [promptFilters, setPromptFilters] = useState<PromptFilterState>(bootRoute.promptFilters);
+  const [systemFilters, setSystemFilters] = useState<SystemFilterState>(bootRoute.systemFilters);
   const [sides, setSides] = useState<Record<string, PromptSide>>({});
   // System-prompt body language per row; falls back to the current UI language.
   const [sysSides, setSysSides] = useState<Record<string, string>>({});
@@ -102,10 +113,8 @@ export default function App() {
       openPrompt,
       openSys,
       query,
-      modelFilter,
-      methodFilter,
-      venderFilter,
-      yearFilter,
+      promptFilters,
+      systemFilters,
     });
     if (window.location.hash === next) return;
     if (pushRef.current) window.history.pushState(null, '', next);
@@ -120,10 +129,8 @@ export default function App() {
     openPrompt,
     openSys,
     query,
-    modelFilter,
-    methodFilter,
-    venderFilter,
-    yearFilter,
+    promptFilters,
+    systemFilters,
   ]);
 
   // Back/forward and hand-edited hashes flow back into the component state.
@@ -135,10 +142,8 @@ export default function App() {
       setSystemView(route.systemView);
       setActiveMethod(route.activeMethod);
       setQuery(route.query);
-      setModelFilter(route.modelFilter);
-      setMethodFilter(route.methodFilter);
-      setVenderFilter(route.venderFilter);
-      setYearFilter(route.yearFilter);
+      setPromptFilters(route.promptFilters);
+      setSystemFilters(route.systemFilters);
       setOpenPrompt(route.openPrompt);
       setOpenSys(route.openSys);
     };
@@ -168,25 +173,30 @@ export default function App() {
     return m;
   }, [data]);
 
-  const venders = useMemo(
-    () =>
-      [...new Set((data?.systemPrompts ?? []).map((p) => p.vender).filter(Boolean))].sort((a, b) =>
-        a.localeCompare(b)
-      ),
+  // Column menus are built from the unfiltered archive, so options never
+  // disappear while another filter is active.
+  const promptYears = useMemo(
+    () => collectYears((data?.prompts ?? []).map((prompt) => prompt.time)),
     [data]
   );
-
-  // Distinct years across both archives, newest first.
-  const years = useMemo(() => {
-    const ys = new Set<string>();
-    const add = (t: string) => {
-      const y = t.slice(0, 4);
-      if (/^\d{4}$/.test(y)) ys.add(y);
+  const promptHasUnknownTime = useMemo(
+    () => hasUnknownTime((data?.prompts ?? []).map((prompt) => prompt.time)),
+    [data]
+  );
+  const systemFacets = useMemo<SystemFacets>(() => {
+    const all = data?.systemPrompts ?? [];
+    return {
+      products: sortedUnique(all.map((prompt) => prompt.product)),
+      venders: sortedUnique(all.map((prompt) => prompt.vender)),
+      disclosures: sortedUnique(all.map((prompt) => prompt.disclosureType)),
+      surfaces: sortedUnique(all.map((prompt) => prompt.surface)),
+      years: collectYears(all.map((prompt) => prompt.time)),
     };
-    (data?.prompts ?? []).forEach((p) => add(p.time));
-    (data?.systemPrompts ?? []).forEach((p) => add(p.time));
-    return [...ys].sort((a, b) => b.localeCompare(a));
   }, [data]);
+  const systemHasUnknownTime = useMemo(
+    () => hasUnknownTime((data?.systemPrompts ?? []).map((prompt) => prompt.time)),
+    [data]
+  );
 
 
   // Stable across renders: the drawer body loader keys its effect on this.
@@ -198,10 +208,16 @@ export default function App() {
   const visiblePrompts = useMemo(() => {
     const all = data?.prompts ?? [];
     const q = query.trim().toLowerCase();
+    const ranges = data?.filterRanges;
     return all.filter((p) => {
-      if (modelFilter && p.model_id !== modelFilter) return false;
-      if (methodFilter && p.jailbreak_method !== methodFilter) return false;
-      if (yearFilter && !p.time.startsWith(yearFilter)) return false;
+      if (promptFilters.model.length && !promptFilters.model.includes(p.model_id)) return false;
+      if (promptFilters.target.length && !promptFilters.target.includes(p.target)) return false;
+      if (promptFilters.method.length && !promptFilters.method.includes(p.jailbreak_method)) {
+        return false;
+      }
+      if (!matchesRanges(p.length, promptFilters.length, ranges?.length ?? [])) return false;
+      if (!matchesRanges(p.quality_score, promptFilters.quality, ranges?.quality ?? [])) return false;
+      if (!matchesTime(p.time, promptFilters.time)) return false;
       if (!q) return true;
       const method = methodMap.get(p.jailbreak_method);
       const model = modelMap.get(p.model_id);
@@ -223,23 +239,38 @@ export default function App() {
         .toLowerCase();
       return hay.includes(q);
     });
-  }, [data, query, methodMap, modelMap, targetMap, modelFilter, methodFilter, yearFilter]);
+  }, [data, query, methodMap, modelMap, targetMap, promptFilters]);
 
   // Search runs over the indexed metadata only: bodies are fetched per drawer
   // on demand and are not available to filter the list.
   const visibleSysPrompts = useMemo(() => {
     const all = data?.systemPrompts ?? [];
     const q = query.trim().toLowerCase();
+    const ranges = data?.filterRanges;
     return all.filter((p) => {
-      if (venderFilter && p.vender !== venderFilter) return false;
-      if (yearFilter && !p.time.startsWith(yearFilter)) return false;
+      if (systemFilters.product.length && !systemFilters.product.includes(p.product)) {
+        return false;
+      }
+      if (systemFilters.vender.length && !systemFilters.vender.includes(p.vender)) return false;
+      if (
+        systemFilters.disclosureType.length &&
+        !systemFilters.disclosureType.includes(p.disclosureType)
+      ) {
+        return false;
+      }
+      if (systemFilters.surface.length && !systemFilters.surface.includes(p.surface)) return false;
+      if (!matchesRanges(p.length, systemFilters.length, ranges?.length ?? [])) return false;
+      if (!matchesRanges(p.quality_score, systemFilters.quality, ranges?.quality ?? [])) {
+        return false;
+      }
+      if (!matchesTime(p.time, systemFilters.time)) return false;
       if (!q) return true;
       return [p.id, p.product, p.vender, p.source_url, p.note, p.note_zh]
         .join(' ')
         .toLowerCase()
         .includes(q);
     });
-  }, [data, query, venderFilter, yearFilter]);
+  }, [data, query, systemFilters]);
 
   // Collapsing repeats keeps one row per prompt: the fullest body of each
   // duplicate group stays, the repeats drop out.
@@ -265,6 +296,9 @@ export default function App() {
   }
 
   const strings: LangStrings = data.langs[lang];
+  // Older cached data.json files predate the range buckets; the columns then
+  // render without range options instead of crashing.
+  const filterRanges = data.filterRanges ?? { length: [], quality: [] };
   const activeId = activeMethod ?? data.jailbreakMethods[0]?.id ?? '';
   const system = section === 'system';
 
@@ -285,9 +319,7 @@ export default function App() {
   const openPromptDetail = (id: string) => {
     markPush();
     setQuery('');
-    setModelFilter('');
-    setMethodFilter('');
-    setYearFilter('');
+    setPromptFilters(emptyPromptFilters());
     setJailbreakView('db');
     setOpenPrompt(id);
     scrollTop();
@@ -306,10 +338,8 @@ export default function App() {
 
   const clearFilters = () => {
     setQuery('');
-    setModelFilter('');
-    setMethodFilter('');
-    setVenderFilter('');
-    setYearFilter('');
+    setPromptFilters(emptyPromptFilters());
+    setSystemFilters(emptySystemFilters());
   };
 
   return (
@@ -377,23 +407,14 @@ export default function App() {
         {(system ? systemView : jailbreakView) === 'db' && (
           <FilterBar
             strings={strings}
-            section={section}
             query={query}
             onQuery={handleSearch}
-            models={data.models}
-            methods={data.jailbreakMethods}
-            venders={venders}
-            years={years}
-            model={modelFilter}
-            method={methodFilter}
-            vender={venderFilter}
-            year={yearFilter}
-            onModel={setModelFilter}
-            onMethod={setMethodFilter}
-            onVender={setVenderFilter}
-            onYear={setYearFilter}
             shown={system ? visibleSysPrompts.length : visiblePrompts.length}
             total={system ? data.counts.systemPrompts : data.counts.prompts}
+            filtered={
+              Boolean(query.trim()) ||
+              (system ? hasSystemFilters(systemFilters) : hasPromptFilters(promptFilters))
+            }
             onClear={clearFilters}
           />
         )}
@@ -417,6 +438,13 @@ export default function App() {
                 setOpenPrompt(null);
                 openMethod(id);
               }}
+              filters={promptFilters}
+              onFilter={(key, values) =>
+                setPromptFilters((current) => ({ ...current, [key]: values }))
+              }
+              years={promptYears}
+              hasUnknownTime={promptHasUnknownTime}
+              ranges={filterRanges}
             />
           )}
           {!system && jailbreakView === 'method' && (
@@ -452,6 +480,13 @@ export default function App() {
               }}
               duplicateGroups={data.duplicateGroups}
               hiddenDuplicateIds={hiddenDuplicateIds}
+              filters={systemFilters}
+              onFilter={(key, values) =>
+                setSystemFilters((current) => ({ ...current, [key]: values }))
+              }
+              facets={systemFacets}
+              hasUnknownTime={systemHasUnknownTime}
+              ranges={filterRanges}
             />
           )}
           {system && systemView === 'source' && (

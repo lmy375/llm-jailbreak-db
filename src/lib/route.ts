@@ -1,4 +1,10 @@
 import type { JailbreakView, Section, SystemView } from '../types';
+import {
+  emptyPromptFilters,
+  emptySystemFilters,
+  type PromptFilterState,
+  type SystemFilterState,
+} from './filters';
 
 /** Everything the URL keeps so a refresh, share or back/forward restores it. */
 export interface RouteState {
@@ -9,10 +15,8 @@ export interface RouteState {
   openPrompt: string | null;
   openSys: string | null;
   query: string;
-  modelFilter: string;
-  methodFilter: string;
-  venderFilter: string;
-  yearFilter: string;
+  promptFilters: PromptFilterState;
+  systemFilters: SystemFilterState;
 }
 
 export const defaultRoute: RouteState = {
@@ -23,10 +27,8 @@ export const defaultRoute: RouteState = {
   openPrompt: null,
   openSys: null,
   query: '',
-  modelFilter: '',
-  methodFilter: '',
-  venderFilter: '',
-  yearFilter: '',
+  promptFilters: emptyPromptFilters(),
+  systemFilters: emptySystemFilters(),
 };
 
 const isJailbreakView = (value: string): value is JailbreakView =>
@@ -43,20 +45,29 @@ function decode(value: string): string {
   }
 }
 
+/** Multi-value filters travel as one comma-separated parameter. */
+const list = (value: string | null): string[] =>
+  value ? value.split(',').filter(Boolean) : [];
+
 /**
  * Parses `#/<section>/<view>[/<id>]?<filters>`.
  *
- *   #/jailbreak/db/LJB-2025-0001?model=gemini&method=dan&year=2025
+ *   #/jailbreak/db?model=gemini&target=dan&year=2024,2025
+ *   #/jailbreak/db/LJB-2025-0001?method=fake-test
  *   #/jailbreak/method/fake-test
  *   #/jailbreak/source
- *   #/system/db/LSP-2023-0001?vender=Microsoft
+ *   #/system/db?vender=Microsoft&disclosure=leaked
  *   #/system/source
  *
  * Unknown segments fall back to the default route instead of throwing, so a
  * hand-edited or stale link still opens the site.
  */
 export function parseRoute(hash: string): RouteState {
-  const state: RouteState = { ...defaultRoute };
+  const state: RouteState = {
+    ...defaultRoute,
+    promptFilters: emptyPromptFilters(),
+    systemFilters: emptySystemFilters(),
+  };
   const raw = hash.replace(/^#/, '');
   if (!raw) return state;
 
@@ -83,13 +94,26 @@ export function parseRoute(hash: string): RouteState {
   const params = new URLSearchParams(queryPart);
   state.query = params.get('q') ?? '';
   if (state.section === 'jailbreak' && state.jailbreakView === 'db') {
-    state.modelFilter = params.get('model') ?? '';
-    state.methodFilter = params.get('method') ?? '';
+    state.promptFilters = {
+      model: list(params.get('model')),
+      target: list(params.get('target')),
+      method: list(params.get('method')),
+      length: list(params.get('len')),
+      quality: list(params.get('quality')),
+      time: list(params.get('year')),
+    };
   }
   if (state.section === 'system' && state.systemView === 'db') {
-    state.venderFilter = params.get('vender') ?? '';
+    state.systemFilters = {
+      product: list(params.get('product')),
+      vender: list(params.get('vender')),
+      disclosureType: list(params.get('disclosure')),
+      surface: list(params.get('surface')),
+      length: list(params.get('len')),
+      quality: list(params.get('quality')),
+      time: list(params.get('year')),
+    };
   }
-  state.yearFilter = params.get('year') ?? '';
   return state;
 }
 
@@ -108,14 +132,26 @@ export function buildRoute(state: RouteState): string {
 
   const params = new URLSearchParams();
   if (state.query) params.set('q', state.query);
+  const put = (key: string, values: string[]) => {
+    if (values.length) params.set(key, values.join(','));
+  };
   if (state.section === 'jailbreak' && state.jailbreakView === 'db') {
-    if (state.modelFilter) params.set('model', state.modelFilter);
-    if (state.methodFilter) params.set('method', state.methodFilter);
+    put('model', state.promptFilters.model);
+    put('target', state.promptFilters.target);
+    put('method', state.promptFilters.method);
+    put('len', state.promptFilters.length);
+    put('quality', state.promptFilters.quality);
+    put('year', state.promptFilters.time);
   }
-  if (state.section === 'system' && state.systemView === 'db' && state.venderFilter) {
-    params.set('vender', state.venderFilter);
+  if (state.section === 'system' && state.systemView === 'db') {
+    put('product', state.systemFilters.product);
+    put('vender', state.systemFilters.vender);
+    put('disclosure', state.systemFilters.disclosureType);
+    put('surface', state.systemFilters.surface);
+    put('len', state.systemFilters.length);
+    put('quality', state.systemFilters.quality);
+    put('year', state.systemFilters.time);
   }
-  if (state.yearFilter) params.set('year', state.yearFilter);
 
   const queryPart = params.toString();
   return queryPart ? `${path}?${queryPart}` : path;

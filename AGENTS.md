@@ -33,6 +33,7 @@
 - `time` 是提示词公开 / 出现的时间，统一 `yyyy-mm-dd` 格式；来源只精确到月时日以 `01` 占位：来源明确标明的按来源所标填写；未标明的取来源链接的时间或来源 git 仓库的 commit 提交时间；仍无法确认才留空。它不是本仓库的归档 / commit 日期或文件名版本号，禁止拿这些顶替。
 - `source_id` 引用顶层 `source` 的 id，指向数据来源大库；`source_url` 为该条目自身的详细 URL，通常为 source 大库下的子路径。
 - `prompt` 必须是可直接输入 LLM 的可用 prompt 样本，不能是方法介绍或操作过程。若来源中没有 prompt 样本、只有方法说明，则不入库。
+- `target: dan` 的通用越狱条目把用户的具体动作抽成统一标签 `{{PAYLOAD}}`，`prompt` 与 `prompt_zh` 必须成对包含该标签；探针工具按标签注入 payload。
 - `note` / `note_zh` 为条目其他值得注意的信息（英文 / 中文对照），如证据链接、来源背景；无则留空。
 - `quality_score` 为 1-10 整数，人工质检标注，衡量越狱技巧是否新奇、有巧思、让人眼前一亮；不因长度短或含占位符扣分，纯角色扮演且无绕过失的条目不收。
 
@@ -47,7 +48,7 @@
 - `note` 具体泄露方法及其他直接了解的信息（英文）；`note_zh` 为其中文对应。
 - `source_id` 引用顶层 `source` 的 id，指向数据来源大库；`source_url` 为该条目自身的详细 URL，通常为 source 大库下的子路径。
 - `system_prompt_id` 必须能在 `content/system_prompts/en/` 与 `content/system_prompts/zh/` 下找到同名 `.md` 文件。
-- 词数不手写，由构建脚本按 `content/system_prompts/en/` 原文实数计算。
+- 长度（字符数）不手写，由构建脚本按 `content/system_prompts/en/` 英文正文字符数计算。
 - `quality_score` 为 1-10 整数，人工质检标注，衡量系统提示词正文的完整度、信息量与研究价值。
 - 重复正文不手写标记，由构建脚本从英文正文算出重复组并下发到界面；数据文件里不写重复字段。
 
