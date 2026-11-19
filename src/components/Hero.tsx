@@ -10,9 +10,9 @@ interface Props {
 
 function Stat({ value, label }: { value: number; label: string }) {
   return (
-    <div className="flex flex-col">
-      <b className="text-[21px] font-semibold tracking-tight text-ink">{value}</b>
-      <span className="text-[11.5px] uppercase tracking-[0.08em] text-faint">{label}</span>
+    <div className="flex flex-col gap-0.5">
+      <b className="text-[28px] font-semibold leading-none tracking-[-0.03em] text-ink">{value}</b>
+      <span className="text-[12px] text-faint">{label}</span>
     </div>
   );
 }
@@ -26,25 +26,23 @@ export function Hero({ strings, section, counts, onMethod, onSystemDb }: Props) 
     : strings.hero.description;
 
   return (
-    <section className="pt-10 pb-2">
-      <h1 className="mb-2.5 bg-gradient-to-b from-hero-from to-hero-to bg-clip-text text-[30px] font-semibold leading-tight tracking-[-0.03em] text-transparent">
+    <section className="pt-14 pb-3 sm:pt-16">
+      <h1 className="mb-4 max-w-[920px] bg-gradient-to-b from-hero-from to-hero-to bg-clip-text text-[clamp(32px,5vw,52px)] font-semibold leading-[1.06] tracking-[-0.035em] text-transparent">
         {title}
       </h1>
-      <p className="max-w-[760px] text-sm text-muted">{description}</p>
+      <p className="max-w-[640px] text-[17px] leading-[1.5] text-muted">{description}</p>
 
-      <div className="mt-5 flex flex-wrap gap-6">
+      <div className="mt-9 flex flex-wrap gap-10">
         {system ? (
           <button
             type="button"
             onClick={onSystemDb}
-            className="flex cursor-pointer flex-col items-start text-left"
+            className="flex cursor-pointer flex-col items-start gap-0.5 text-left"
           >
-            <b className="text-[21px] font-semibold tracking-tight text-ink">
+            <b className="text-[28px] font-semibold leading-none tracking-[-0.03em] text-ink">
               {counts.systemPrompts}
             </b>
-            <span className="text-[11.5px] uppercase tracking-[0.08em] text-faint">
-              {strings.sysPrompts.tabs.db}
-            </span>
+            <span className="text-[12px] text-faint">{strings.sysPrompts.tabs.db}</span>
           </button>
         ) : (
           <>
@@ -52,14 +50,12 @@ export function Hero({ strings, section, counts, onMethod, onSystemDb }: Props) 
             <button
               type="button"
               onClick={onMethod}
-              className="flex cursor-pointer flex-col items-start text-left"
+              className="flex cursor-pointer flex-col items-start gap-0.5 text-left"
             >
-              <b className="text-[21px] font-semibold tracking-tight text-ink">
+              <b className="text-[28px] font-semibold leading-none tracking-[-0.03em] text-ink">
                 {counts.methods}
               </b>
-              <span className="text-[11.5px] uppercase tracking-[0.08em] text-faint">
-                {strings.stats.methods}
-              </span>
+              <span className="text-[12px] text-faint">{strings.stats.methods}</span>
             </button>
             <Stat value={counts.models} label={strings.stats.models} />
           </>

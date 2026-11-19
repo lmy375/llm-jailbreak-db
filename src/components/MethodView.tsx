@@ -21,7 +21,7 @@ export function MethodView({ methods, activeId, strings, prompts, onSelect, onOp
   const related = prompts.filter((p) => p.jailbreak_method === active.id);
 
   return (
-    <div className="grid items-start gap-6 lg:grid-cols-[280px_1fr]">
+    <div className="grid items-start gap-8 lg:grid-cols-[264px_1fr]">
       <aside className="flex gap-1 overflow-x-auto pb-1.5 lg:sticky lg:top-[128px] lg:flex-col lg:overflow-visible lg:pb-0">
         {methods.map((t) => {
           const on = t.id === active.id;
@@ -31,10 +31,10 @@ export function MethodView({ methods, activeId, strings, prompts, onSelect, onOp
               type="button"
               onClick={() => onSelect(t.id)}
               className={
-                'flex cursor-pointer items-center gap-2.5 whitespace-nowrap rounded-[9px] border px-3 py-2 text-left text-[13.5px] transition ' +
+                'flex cursor-pointer items-center gap-2.5 whitespace-nowrap rounded-[12px] px-3 py-2 text-left text-[13.5px] transition ' +
                 (on
-                  ? 'border-accent/40 bg-accent/15 text-accent-ink'
-                  : 'border-transparent text-muted hover:bg-hover hover:text-ink')
+                  ? 'bg-surface font-medium text-ink shadow-[var(--shadow-card)]'
+                  : 'text-muted hover:bg-hover hover:text-ink')
               }
             >
               <span className="min-w-[18px] font-mono text-[11px] text-faint">
@@ -49,35 +49,37 @@ export function MethodView({ methods, activeId, strings, prompts, onSelect, onOp
         })}
       </aside>
 
-      <section className="rounded-[14px] border border-line bg-surface px-6 py-7 sm:px-7">
-        <div className="mb-1.5 flex flex-wrap items-center gap-3">
-          <h2 className="text-lg font-semibold tracking-tight text-ink">{name}</h2>
-          <span className="rounded-md border border-accent/35 bg-accent/15 px-2 py-0.5 font-mono text-[11px] text-accent-ink">
+      <section className="rounded-[22px] border border-line bg-surface px-7 py-8 shadow-[var(--shadow-card)] sm:px-9">
+        <div className="mb-2 flex flex-wrap items-center gap-3">
+          <h2 className="text-[24px] font-semibold tracking-[-0.025em] text-ink">{name}</h2>
+          <span className="rounded-full bg-accent-soft px-2.5 py-0.5 font-mono text-[11px] text-accent-ink">
             {active.id}
           </span>
-          <span className="rounded-md border border-line bg-hover px-2 py-0.5 font-mono text-[11px] text-muted">
+          <span className="rounded-full bg-hover px-2.5 py-0.5 font-mono text-[11px] text-muted">
             {active.count}
             {strings.labels.promptUnit}
           </span>
         </div>
-        {nameAlt && <p className="mb-4 text-xs text-faint">{nameAlt}</p>}
+        {nameAlt && <p className="mb-5 text-[13px] text-faint">{nameAlt}</p>}
 
         <div className="md-content" dangerouslySetInnerHTML={{ __html: body }} />
 
-        <div className="mt-6 border-t border-line pt-5 text-xs text-muted">
-          <strong className="text-ink">{strings.labels.relatedPrompts}:</strong>
-          <div className="mt-2 flex flex-wrap gap-1.5">
+        <div className="mt-8 border-t border-line pt-6 text-xs text-muted">
+          <strong className="text-[11px] font-medium uppercase tracking-[0.08em] text-faint">
+            {strings.labels.relatedPrompts}
+          </strong>
+          <div className="mt-3 flex flex-wrap gap-1.5">
             {related.map((p) => (
               <button
                 key={p.id}
                 type="button"
                 onClick={() => onOpenPrompt(p.id)}
-                className="group inline-flex cursor-pointer items-center gap-1 rounded-md border border-accent/35 bg-accent/15 px-2 py-0.5 font-mono text-[11px] text-accent-ink transition hover:border-accent/60 hover:bg-accent/25"
+                className="group inline-flex cursor-pointer items-center gap-1 rounded-full border border-line bg-hover px-2.5 py-1 font-mono text-[11px] text-muted transition hover:border-accent/40 hover:text-accent-ink"
               >
                 {p.id}
                 <Icon
                   name="chevronRight"
-                  className="h-2.5 w-2.5 text-accent-ink/70 transition group-hover:text-accent-ink"
+                  className="h-2.5 w-2.5 text-faint transition group-hover:text-accent-ink"
                 />
               </button>
             ))}

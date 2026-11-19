@@ -126,10 +126,10 @@ export function ColumnFilter({
         onClick={() => onSort(dir)}
         aria-pressed={active}
         className={
-          'inline-flex flex-1 cursor-pointer items-center justify-center gap-1 rounded-[7px] px-2 py-1.5 text-[12px] transition ' +
+          'inline-flex flex-1 cursor-pointer items-center justify-center gap-1 rounded-[9px] px-2 py-1.5 text-[12px] transition ' +
           (active
-            ? 'bg-accent/15 font-medium text-accent-ink'
-            : 'text-muted hover:bg-hover hover:text-ink')
+            ? 'bg-surface font-medium text-ink shadow-[0_1px_2px_rgba(0,0,0,0.08)]'
+            : 'text-muted hover:text-ink')
         }
       >
         <Icon name={dir === 'asc' ? 'arrowUp' : 'arrowDown'} className="h-3 w-3" />
@@ -149,7 +149,7 @@ export function ColumnFilter({
         title={`${L.filterColumn} · ${label}`}
         onClick={() => setOpen((value) => !value)}
         className={
-          'inline-flex flex-none cursor-pointer items-center gap-0.5 rounded-[6px] p-1 normal-case tracking-normal transition ' +
+          'inline-flex flex-none cursor-pointer items-center gap-0.5 rounded-full p-1 transition ' +
           (selected.length > 0
             ? 'text-accent-ink'
             : 'text-faint hover:bg-hover hover:text-ink')
@@ -157,7 +157,7 @@ export function ColumnFilter({
       >
         <Icon name="filter" className="h-3.5 w-3.5" />
         {selected.length > 0 && (
-          <span className="rounded-full bg-accent/15 px-1.5 py-px text-[10px] font-medium leading-4 text-accent-ink">
+          <span className="rounded-full bg-accent/12 px-1.5 py-px text-[10px] font-medium leading-4 text-accent-ink">
             {selected.length}
           </span>
         )}
@@ -170,15 +170,15 @@ export function ColumnFilter({
             role="dialog"
             aria-label={`${L.filterColumn} · ${label}`}
             style={{ position: 'fixed', width: 288, visibility: 'hidden' }}
-            className="z-[60] max-h-[420px] max-w-[calc(100vw-16px)] overflow-hidden rounded-[12px] border border-line bg-surface p-2 shadow-[0_16px_44px_rgba(0,0,0,0.2)]"
+            className="z-[60] max-h-[420px] max-w-[calc(100vw-16px)] overflow-hidden rounded-[16px] border border-line bg-surface p-2 shadow-[var(--shadow-pop)]"
           >
-            <div className="flex items-center gap-1 border-b border-line pb-2">
+            <div className="flex items-center gap-1 rounded-[10px] bg-hover p-0.5">
               {sortButton('asc', L.sortAsc)}
               {sortButton('desc', L.sortDesc)}
             </div>
 
             {searchable && (
-              <label className="mt-2 flex items-center gap-1.5 rounded-[8px] border border-line bg-hover px-2">
+              <label className="mt-2 flex items-center gap-1.5 rounded-[9px] bg-hover px-2.5">
                 <Icon name="filter" className="h-3 w-3 flex-none text-faint" />
                 <input
                   type="search"
@@ -192,7 +192,7 @@ export function ColumnFilter({
               </label>
             )}
 
-            <div className="mt-2 max-h-[240px] overflow-y-auto overscroll-contain">
+            <div className="mt-1.5 max-h-[240px] overflow-y-auto overscroll-contain">
               {visibleOptions.length === 0 && (
                 <p className="px-2 py-3 text-center text-[12px] text-faint">{L.filterNoOptions}</p>
               )}
@@ -201,7 +201,7 @@ export function ColumnFilter({
                 return (
                   <label
                     key={option.value}
-                    className="flex cursor-pointer items-center gap-2 rounded-[7px] px-2 py-1.5 transition hover:bg-hover"
+                    className="flex cursor-pointer items-center gap-2 rounded-[8px] px-2 py-1.5 transition hover:bg-hover"
                   >
                     <input
                       type="checkbox"
@@ -222,11 +222,11 @@ export function ColumnFilter({
               })}
             </div>
 
-            <div className="mt-2 flex items-center justify-between gap-2 border-t border-line pt-2">
+            <div className="mt-1.5 flex items-center justify-between gap-2 border-t border-line pt-2">
               <button
                 type="button"
                 onClick={() => emit(options.map((option) => option.value))}
-                className="cursor-pointer rounded-[7px] px-2 py-1 text-[12px] text-muted transition hover:bg-hover hover:text-ink"
+                className="cursor-pointer rounded-full px-2.5 py-1 text-[12px] text-muted transition hover:bg-hover hover:text-ink"
               >
                 {L.filterSelectAll}
               </button>
@@ -234,7 +234,7 @@ export function ColumnFilter({
                 type="button"
                 onClick={() => emit([])}
                 disabled={selected.length === 0}
-                className="cursor-pointer rounded-[7px] px-2 py-1 text-[12px] text-muted transition hover:bg-hover hover:text-ink disabled:cursor-default disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-muted"
+                className="cursor-pointer rounded-full px-2.5 py-1 text-[12px] text-muted transition hover:bg-hover hover:text-ink disabled:cursor-default disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-muted"
               >
                 {L.filterClearColumn}
               </button>

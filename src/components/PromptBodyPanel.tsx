@@ -78,14 +78,14 @@ export function PromptBodyPanel<T extends string>({
   };
 
   return (
-    <div className="flex min-w-0 flex-col overflow-hidden rounded-[10px] border border-line bg-pre-bg">
-      <div className="flex flex-wrap items-center gap-2.5 border-b border-line px-3 py-2">
-        <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-faint">{label}</span>
-        {note && <span className="text-[11px] text-faint/80">{note}</span>}
+    <div className="flex min-w-0 flex-col overflow-hidden rounded-[14px] bg-pre-bg">
+      <div className="flex flex-wrap items-center gap-2.5 border-b border-line px-4 py-2.5">
+        <span className="text-[11px] font-medium uppercase tracking-[0.08em] text-faint">{label}</span>
+        {note && <span className="text-[11px] text-faint">{note}</span>}
         {active?.missing && (
           <span
             title={active.missing.hint}
-            className="cursor-help rounded-full border border-line px-1.5 py-px text-[10px] whitespace-nowrap text-faint"
+            className="cursor-help whitespace-nowrap rounded-full border border-line px-1.5 py-px text-[10px] text-faint"
           >
             {active.missing.label}
           </span>
@@ -98,14 +98,14 @@ export function PromptBodyPanel<T extends string>({
           aria-label={copied ? copiedLabel : copyLabel}
           title={copied ? copiedLabel : copyLabel}
           className={
-            'inline-flex cursor-pointer items-center gap-1 rounded-[7px] border border-line bg-surface px-2 py-1 text-[11px] transition disabled:cursor-default disabled:opacity-40 ' +
+            'inline-flex cursor-pointer items-center gap-1 rounded-full border border-line bg-surface px-2.5 py-1 text-[11px] transition disabled:cursor-default disabled:opacity-40 ' +
             (copied ? 'text-accent-ink' : 'text-muted hover:text-ink')
           }
         >
           <Icon name={copied ? 'check' : 'copy'} className="h-3 w-3 flex-none" />
           <span>{copied ? copiedLabel : copyLabel}</span>
         </button>
-        <span className="inline-flex overflow-hidden rounded-[7px] border border-line">
+        <span className="inline-flex items-center overflow-hidden rounded-full border border-line bg-surface p-0.5">
           {sides.map((s) => (
             <button
               key={s.key}
@@ -113,8 +113,10 @@ export function PromptBodyPanel<T extends string>({
               onClick={() => onChange(s.key)}
               title={s.missing?.hint}
               className={
-                'cursor-pointer px-2.5 py-1 text-[11px] transition ' +
-                (active?.key === s.key ? 'bg-accent/15 text-accent-ink' : 'text-muted hover:text-ink')
+                'cursor-pointer rounded-full px-2.5 py-0.5 text-[11px] transition ' +
+                (active?.key === s.key
+                  ? 'bg-hover font-medium text-ink'
+                  : 'text-muted hover:text-ink')
               }
             >
               {s.label}
@@ -124,7 +126,7 @@ export function PromptBodyPanel<T extends string>({
       </div>
       {/* Raw prompt text: whitespace preserved, never parsed as markup. */}
       {loading && !active?.text ? (
-        <div className="flex flex-col gap-2 p-3" aria-busy="true">
+        <div className="flex flex-col gap-2.5 p-4" aria-busy="true">
           {[92, 78, 86, 64, 88, 47].map((w, i) => (
             <span
               key={i}
@@ -134,7 +136,7 @@ export function PromptBodyPanel<T extends string>({
           ))}
         </div>
       ) : (
-        <pre className="m-0 max-h-[520px] overflow-auto whitespace-pre-wrap break-words p-3 font-mono text-xs leading-relaxed text-pre-ink">
+        <pre className="m-0 max-h-[540px] overflow-auto whitespace-pre-wrap break-words p-4 font-mono text-[12.5px] leading-[1.7] text-pre-ink">
           {active?.text ?? ''}
         </pre>
       )}

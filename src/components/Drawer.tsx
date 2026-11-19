@@ -102,7 +102,7 @@ export function Drawer({ open, onClose, title, closeLabel, children }: Props) {
       <div
         onClick={onClose}
         className={
-          'absolute inset-0 bg-black/45 transition-opacity duration-300 ' +
+          'absolute inset-0 bg-black/30 backdrop-blur-[2px] transition-opacity duration-300 ' +
           (open ? 'opacity-100' : 'opacity-0')
         }
       />
@@ -113,11 +113,11 @@ export function Drawer({ open, onClose, title, closeLabel, children }: Props) {
         aria-label={title}
         tabIndex={-1}
         className={
-          'absolute inset-y-0 right-0 flex w-full max-w-[880px] flex-col border-l border-line bg-surface shadow-2xl transition-transform duration-300 ease-out outline-none ' +
+          'absolute inset-y-0 right-0 flex w-full max-w-[840px] flex-col overflow-hidden border-l border-line bg-surface shadow-[-24px_0_60px_rgba(0,0,0,0.18)] transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] outline-none sm:rounded-l-[20px] ' +
           (open ? 'translate-x-0' : 'translate-x-full')
         }
       >
-        <header className="flex flex-none items-center gap-3 border-b border-line px-5 py-3">
+        <header className="flex flex-none items-center gap-3 border-b border-line px-6 py-3.5">
           <span className="font-mono text-[12px] tracking-wide text-muted">{title}</span>
           <span className="flex-1" />
           <button
@@ -125,9 +125,9 @@ export function Drawer({ open, onClose, title, closeLabel, children }: Props) {
             onClick={onClose}
             aria-label={closeLabel}
             title={closeLabel}
-            className="grid h-7 w-7 cursor-pointer place-items-center rounded-[7px] border border-line text-muted transition hover:border-line-strong hover:text-ink"
+            className="grid h-8 w-8 cursor-pointer place-items-center rounded-full bg-hover text-muted transition hover:text-ink"
           >
-            <Icon name="close" className="h-3 w-3" />
+            <Icon name="close" className="h-3.5 w-3.5" />
           </button>
         </header>
         <div ref={bodyRef} className="min-h-0 flex-1 overflow-y-auto">{children}</div>

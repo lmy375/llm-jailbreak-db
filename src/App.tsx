@@ -364,7 +364,7 @@ export default function App() {
         }}
         sectionCounts={{ jailbreak: data.counts.prompts, system: data.counts.systemPrompts }}
       />
-      <div className="mx-auto max-w-[1240px] px-6 pb-24">
+      <div className="w-full px-8 pb-24">
         <Hero
           strings={strings}
           section={section}
@@ -493,10 +493,10 @@ export default function App() {
             <SourceView html={data.sysSources?.[lang] ?? ''} />
           )}
         </main>
-        <footer className="mt-16 flex flex-wrap justify-between gap-4 border-t border-line pt-6 text-xs text-faint">
+        <footer className="mt-20 flex flex-wrap justify-between gap-4 border-t border-line pt-7 text-xs text-faint">
           <span>{strings.footer}</span>
           <span className="inline-flex items-center gap-1.5">
-            <Icon name="diamond" className="h-3 w-3 flex-none text-accent" />
+            <Icon name="diamond" className="h-3 w-3 flex-none text-faint" />
             {data.site.htmlTitle.split('·')[0].trim()} · {data.generated}
           </span>
         </footer>

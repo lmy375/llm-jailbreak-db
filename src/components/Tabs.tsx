@@ -25,7 +25,7 @@ export function Tabs({
   const active = jailbreak ? jailbreakView : systemView;
 
   return (
-    <nav className="sticky top-[var(--header-h,66px)] z-30 mb-6 flex gap-1.5 border-b border-line bg-gradient-to-b from-canvas from-60% to-transparent">
+    <nav className="sticky top-[var(--header-h,49px)] z-30 mb-6 flex gap-7 border-b border-line bg-canvas/85 backdrop-blur-xl">
       {jailbreak ? (
         <>
           <SubTab
@@ -84,13 +84,15 @@ function SubTab({
       onClick={onClick}
       aria-current={active ? 'page' : undefined}
       className={
-        '-mb-px inline-flex cursor-pointer items-center gap-2 border-b-2 px-3.5 py-2.5 text-sm transition ' +
-        (active ? 'border-accent text-ink' : 'border-transparent text-muted hover:text-ink')
+        '-mb-px inline-flex cursor-pointer items-center gap-1.5 border-b-[2px] px-0 py-3 text-[13.5px] transition ' +
+        (active
+          ? 'border-ink font-semibold text-ink'
+          : 'border-transparent text-muted hover:text-ink')
       }
     >
       {label}
       {count !== undefined && (
-        <span className="rounded-full bg-hover px-1.5 text-[11px] text-faint">{count}</span>
+        <span className="text-[11px] font-normal tabular-nums text-faint">{count}</span>
       )}
     </button>
   );

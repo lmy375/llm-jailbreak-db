@@ -151,7 +151,7 @@ function SystemPromptDetail({
     lang === 'zh' ? prompt.note_zh || prompt.note : prompt.note || prompt.note_zh;
 
   return (
-    <div className="flex min-w-0 flex-col gap-5 p-5">
+    <div className="flex min-w-0 flex-col gap-6 p-6 sm:p-7">
       {/* ---- meta block ---- */}
       <div className="flex min-w-0 flex-col gap-3">
         <MetaRow label={S.vender}>{prompt.vender}</MetaRow>
@@ -160,7 +160,7 @@ function SystemPromptDetail({
         </MetaRow>
         <MetaRow label={S.disclosureType}>{enumLabel('disclosureType', prompt.disclosureType)}</MetaRow>
         <MetaRow label={S.surface}>{enumLabel('surface', prompt.surface)}</MetaRow>
-        {noteText && <MetaRow label={S.note}>{noteText}</MetaRow>}
+
         <MetaRow label={S.length}>
           {prompt.length ? (
             prompt.length.toLocaleString('en-US')
@@ -182,11 +182,12 @@ function SystemPromptDetail({
             <Icon name="external" className="h-3 w-3 flex-none" />
           </a>
         </MetaRow>
+        {noteText && <MetaRow label={S.note}>{noteText}</MetaRow>}
       </div>
 
       {/* ---- duplicate notice ---- */}
       {dup && group && (
-        <section className="flex min-w-0 flex-col gap-2.5 rounded-[10px] border border-line bg-hover px-3.5 py-3">
+        <section className="flex min-w-0 flex-col gap-2.5 rounded-[14px] bg-hover px-3 py-3.5">
           <div className="flex flex-wrap items-center gap-2">
             <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[11px] font-medium text-accent-ink">
               {S.duplicate}
@@ -403,7 +404,7 @@ export function SystemPromptView({
   }) => {
     const active = sort.key === sortKey;
     return (
-      <th scope="col" className={`px-3 py-2.5 font-medium ${className}`}>
+      <th scope="col" className={`px-3 py-3 font-medium ${className}`}>
         <span className="flex items-center gap-0.5">
           <button
             type="button"
@@ -440,16 +441,16 @@ export function SystemPromptView({
       <div className="flex flex-col gap-4">
 
       {duplicateCount > 0 && (
-        <div className="flex flex-wrap items-center gap-3 rounded-[12px] border border-line bg-surface px-4 py-2.5">
+        <div className="flex flex-wrap items-center gap-3 rounded-[14px] bg-hover px-4 py-2.5">
           <button
             type="button"
             onClick={() => setHideDuplicates((v) => !v)}
             aria-pressed={hideDuplicates}
             className={
-              'cursor-pointer rounded-full border px-3 py-1 text-[12px] transition ' +
+              'cursor-pointer rounded-full px-3 py-1 text-[12px] transition ' +
               (hideDuplicates
-                ? 'border-accent/40 bg-accent/15 text-accent-ink'
-                : 'border-line text-muted hover:text-ink')
+                ? 'bg-surface font-medium text-ink shadow-[0_1px_2px_rgba(0,0,0,0.08)]'
+                : 'text-muted hover:text-ink')
             }
           >
             {hideDuplicates ? S.duplicateShowAll : S.duplicateHideRepeats}
@@ -460,67 +461,67 @@ export function SystemPromptView({
         </div>
       )}
 
-      <div className="overflow-hidden rounded-[12px] border border-line bg-surface">
+      <div className="overflow-hidden rounded-[18px] border border-line bg-surface shadow-[var(--shadow-card)]">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[1040px] border-collapse text-left text-[13px]">
+          <table className="w-full min-w-[1000px] table-fixed border-collapse text-left text-[13.5px]">
             <thead>
-              <tr className="border-b border-line bg-hover text-[11px] uppercase tracking-[0.08em] text-faint">
-                {filterTh({ label: L.id, sortKey: 'id', className: 'w-[104px]' })}
+              <tr className="border-b border-line text-[11px] tracking-[0.02em] text-faint">
+                {filterTh({ label: L.id, sortKey: 'id', className: 'w-[140px]' })}
                 {filterTh({
                   label: S.product,
                   sortKey: 'product',
                   filterKey: 'product',
                   options: productOptions,
-                  className: 'w-[200px]',
+                  className: 'w-[25%]',
                 })}
                 {filterTh({
                   label: S.vender,
                   sortKey: 'vender',
                   filterKey: 'vender',
                   options: venderOptions,
-                  className: 'w-[140px]',
+                  className: 'w-[12%]',
                 })}
                 {filterTh({
                   label: S.disclosureType,
                   sortKey: 'disclosureType',
                   filterKey: 'disclosureType',
                   options: disclosureOptions,
-                  className: 'w-[110px]',
+                  className: 'w-[11%]',
                 })}
                 {filterTh({
                   label: S.surface,
                   sortKey: 'surface',
                   filterKey: 'surface',
                   options: surfaceOptions,
-                  className: 'w-[104px]',
+                  className: 'w-[11%]',
                 })}
                 {filterTh({
                   label: S.length,
                   sortKey: 'length',
                   filterKey: 'length',
                   options: lengthOptions,
-                  className: 'w-[96px]',
+                  className: 'w-[9%]',
                 })}
                 {filterTh({
                   label: S.quality,
                   sortKey: 'quality',
                   filterKey: 'quality',
                   options: qualityOptions,
-                  className: 'w-[104px]',
+                  className: 'w-[10%]',
                 })}
                 {filterTh({
                   label: S.time,
                   sortKey: 'time',
                   filterKey: 'time',
                   options: timeOptions,
-                  className: 'w-[112px]',
+                  className: 'w-[10%]',
                 })}
               </tr>
             </thead>
             <tbody>
               {sorted.length === 0 && (
                 <tr>
-                  <td colSpan={8} className="px-5 py-[60px] text-center text-muted">
+                  <td colSpan={8} className="px-5 py-[72px] text-center text-muted">
                     {S.empty}
                   </td>
                 </tr>
@@ -545,7 +546,7 @@ export function SystemPromptView({
                       (open ? 'bg-accent-soft' : 'hover:bg-hover focus-visible:bg-hover')
                     }
                   >
-                    <td className="px-3 py-2.5 align-middle whitespace-nowrap">
+                    <td className="px-3 py-3 align-middle whitespace-nowrap">
                       <span className="flex items-center gap-1.5 font-mono text-[12px] text-muted">
                         <Icon
                           name="chevronRight"
@@ -559,9 +560,9 @@ export function SystemPromptView({
                         {p.id}
                       </span>
                     </td>
-                    <td className="px-3 py-2.5 align-middle">
+                    <td className="px-3 py-3 align-middle">
                       <span className="flex min-w-0 items-center gap-2">
-                        <span className="block max-w-[18rem] truncate font-medium text-ink" title={p.product}>
+                        <span className="block min-w-0 truncate font-medium text-ink" title={p.product}>
                           {p.product}
                         </span>
                         {p.duplicate && (
@@ -574,22 +575,20 @@ export function SystemPromptView({
                         )}
                       </span>
                     </td>
-                    <td className="max-w-[140px] truncate px-3 py-2.5 align-middle text-muted">
-                      {p.vender}
-                    </td>
-                    <td className="px-3 py-2.5 align-middle whitespace-nowrap text-muted">
+                    <td className="truncate px-3 py-3 align-middle text-muted">{p.vender}</td>
+                    <td className="px-3 py-3 align-middle whitespace-nowrap text-muted">
                       {enumLabel('disclosureType', p.disclosureType)}
                     </td>
-                    <td className="px-3 py-2.5 align-middle whitespace-nowrap text-muted">
+                    <td className="px-3 py-3 align-middle whitespace-nowrap text-muted">
                       {enumLabel('surface', p.surface)}
                     </td>
-                    <td className="px-3 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-muted">
+                    <td className="px-3 py-3 align-middle font-mono text-[12px] whitespace-nowrap text-muted">
                       {p.length ? p.length.toLocaleString('en-US') : '—'}
                     </td>
-                    <td className="px-3 py-2.5 align-middle whitespace-nowrap">
+                    <td className="px-3 py-3 align-middle whitespace-nowrap">
                       <QualityScore value={p.quality_score} label={S.quality} />
                     </td>
-                    <td className="px-3 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
+                    <td className="px-3 py-3 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
                       {p.time || <span className="font-sans text-[11.5px]">{S.timeUnknown}</span>}
                     </td>
                   </tr>

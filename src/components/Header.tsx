@@ -55,9 +55,9 @@ export function Header({
   return (
     <header
       ref={ref}
-      className="sticky top-0 z-40 border-b border-line bg-canvas/70 backdrop-blur-xl"
+      className="sticky top-0 z-40 border-b border-line bg-canvas/80 backdrop-blur-2xl"
     >
-      <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-x-4 gap-y-2 px-6 py-3">
+      <div className="flex w-full flex-wrap items-center gap-x-5 gap-y-1.5 px-8 py-2">
         <SectionTabs
           strings={strings}
           section={section}
@@ -65,9 +65,9 @@ export function Header({
           onSection={onSection}
         />
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-1.5">
           <div
-            className="inline-flex rounded-[10px] border border-line bg-hover p-0.5"
+            className="inline-flex items-center rounded-full bg-hover p-[3px]"
             role="group"
             aria-label="language"
           >
@@ -77,9 +77,9 @@ export function Header({
                 type="button"
                 onClick={() => onLang(o.key)}
                 className={
-                  'cursor-pointer rounded-[7px] px-3 py-1.5 text-[12.5px] transition ' +
+                  'cursor-pointer rounded-full px-3 py-1 text-[12.5px] transition ' +
                   (o.key === lang
-                    ? 'bg-accent/15 text-accent-ink shadow-[inset_0_0_0_1px_rgba(99,102,241,0.35)]'
+                    ? 'bg-surface font-medium text-ink shadow-[0_1px_2px_rgba(0,0,0,0.08)]'
                     : 'text-muted hover:text-ink')
                 }
               >
@@ -93,11 +93,11 @@ export function Header({
             onClick={onToggleTheme}
             aria-label={themeLabel}
             title={themeLabel}
-            className="grid h-[33px] w-[33px] cursor-pointer place-items-center rounded-[10px] border border-line bg-hover text-muted transition hover:border-line-strong hover:text-ink"
+            className="grid h-8 w-8 cursor-pointer place-items-center rounded-full text-muted transition hover:bg-hover hover:text-ink"
           >
             {theme === 'dark' ? (
               <svg viewBox="0 0 16 16" fill="currentColor" className="h-[15px] w-[15px]">
-                <path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-1.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM8 0a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 0Zm0 13.25a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1a.75.75 0 0 1 .75-.75ZM2.343 2.343a.75.75 0 0 1 1.061 0l.707.707a.75.75 0 0 1-1.06 1.061l-.708-.708a.75.75 0 0 1 0-1.06ZM11.889 11.89a.75.75 0 0 1 1.061 0l.707.707a.75.75 0 0 1-1.06 1.061l-.708-.708a.75.75 0 0 1 0-1.06ZM0 8a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1A.75.75 0 0 1 0 8Zm13.25 0a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1A.75.75 0 0 1 13.25 8ZM2.343 11.889a.75.75 0 0 1 0-1.06l.707-.708a.75.75 0 1 1 1.061 1.061l-.708.708a.75.75 0 0 1-1.06 0ZM11.889 2.343a.75.75 0 0 1 0 1.061l-.707.708a.75.75 0 1 1 1.06-1.061l.708.708a.75.75 0 0 1 0 1.06Z" />
+                <path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-1.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM8 0a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 0Zm0 13.25a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1a.75.75 0 0 1 .75-.75ZM2.343 2.343a.75.75 0 0 1 1.061 0l.707.707a.75.75 0 0 1-1.06 1.061l-.708-.708a.75.75 0 0 1 0-1.06ZM11.889 11.89a.75.75 0 0 1 1.061 0l.707.707a.75.75 0 0 1-1.06 1.061l-.708-.708a.75.75 0 0 1 0-1.06ZM0 8a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1A.75.75 0 0 1 0 8Zm13.25 0a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75ZM2.343 11.889a.75.75 0 0 1 0-1.06l.707-.708a.75.75 0 1 1 1.061 1.061l-.708.708a.75.75 0 0 1-1.06 0ZM11.889 2.343a.75.75 0 0 1 0 1.061l-.707.708a.75.75 0 1 1 1.06-1.061l.708.708a.75.75 0 0 1 0 1.06Z" />
               </svg>
             ) : (
               <svg viewBox="0 0 16 16" fill="currentColor" className="h-[15px] w-[15px]">
@@ -110,7 +110,7 @@ export function Header({
             href={site.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 whitespace-nowrap rounded-[10px] border border-line bg-hover px-2.5 py-1.5 text-[12.5px] text-muted transition hover:border-line-strong hover:text-ink"
+            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[12.5px] text-muted transition hover:text-accent-ink"
           >
             {site.repoLabel}
             <Icon name="external" className="h-3 w-3 flex-none" />

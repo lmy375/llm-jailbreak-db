@@ -167,7 +167,7 @@ export function PromptTable({
   }) => {
     const active = sort.key === sortKey;
     return (
-      <th scope="col" className={`px-3 py-2.5 font-medium ${className}`}>
+      <th scope="col" className={`px-3 py-3 font-medium ${className}`}>
         <span className="flex items-center gap-0.5">
           <button
             type="button"
@@ -201,61 +201,61 @@ export function PromptTable({
 
   return (
     <>
-      <div className="overflow-hidden rounded-[12px] border border-line bg-surface">
+      <div className="overflow-hidden rounded-[18px] border border-line bg-surface shadow-[var(--shadow-card)]">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[980px] border-collapse text-left text-[13px]">
+          <table className="w-full min-w-[1100px] table-fixed border-collapse text-left text-[13.5px]">
             <thead>
-              <tr className="border-b border-line bg-hover text-[11px] uppercase tracking-[0.08em] text-faint">
-                {filterTh({ label: L.id, sortKey: 'id', className: 'w-[104px]' })}
-                {filterTh({ label: L.title, sortKey: 'title' })}
+              <tr className="border-b border-line text-[11px] tracking-[0.02em] text-faint">
+                {filterTh({ label: L.id, sortKey: 'id', className: 'w-[140px]' })}
+                {filterTh({ label: L.title, sortKey: 'title', className: 'w-[21%]' })}
                 {filterTh({
                   label: L.model,
                   sortKey: 'model',
                   filterKey: 'model',
                   options: modelOptions,
-                  className: 'w-[140px]',
+                  className: 'w-[12%]',
                 })}
                 {filterTh({
                   label: L.targetHeader,
                   sortKey: 'target',
                   filterKey: 'target',
                   options: targetOptions,
-                  className: 'w-[140px]',
+                  className: 'w-[12%]',
                 })}
                 {filterTh({
                   label: L.method,
                   sortKey: 'method',
                   filterKey: 'method',
                   options: methodOptions,
-                  className: 'w-[160px]',
+                  className: 'w-[14%]',
                 })}
                 {filterTh({
                   label: L.length,
                   sortKey: 'length',
                   filterKey: 'length',
                   options: lengthOptions,
-                  className: 'w-[96px]',
+                  className: 'w-[9%]',
                 })}
                 {filterTh({
                   label: L.quality,
                   sortKey: 'quality',
                   filterKey: 'quality',
                   options: qualityOptions,
-                  className: 'w-[104px]',
+                  className: 'w-[10%]',
                 })}
                 {filterTh({
                   label: L.time,
                   sortKey: 'time',
                   filterKey: 'time',
                   options: timeOptions,
-                  className: 'w-[104px]',
+                  className: 'w-[10%]',
                 })}
               </tr>
             </thead>
             <tbody>
               {sorted.length === 0 && (
                 <tr>
-                  <td colSpan={8} className="px-5 py-[60px] text-center text-muted">
+                  <td colSpan={8} className="px-5 py-[72px] text-center text-muted">
                     {L.empty}
                   </td>
                 </tr>
@@ -285,7 +285,7 @@ export function PromptTable({
                       (open ? 'bg-accent-soft' : 'hover:bg-hover focus-visible:bg-hover')
                     }
                   >
-                    <td className="px-3 py-2.5 align-middle whitespace-nowrap">
+                    <td className="px-3 py-3 align-middle whitespace-nowrap">
                       <span className="flex items-center gap-1.5 font-mono text-[12px] text-muted">
                         <Icon
                           name="chevronRight"
@@ -299,40 +299,40 @@ export function PromptTable({
                         {p.id}
                       </span>
                     </td>
-                    <td className="px-3 py-2.5 align-middle">
-                      <span className="block max-w-[24rem] truncate font-medium text-ink" title={title}>
+                    <td className="px-3 py-3 align-middle">
+                      <span className="block w-full truncate font-medium text-ink" title={title}>
                         {title}
                       </span>
                     </td>
-                    <td className="px-3 py-2.5 align-middle whitespace-nowrap text-ink">
+                    <td className="truncate px-3 py-3 align-middle text-ink" title={modelNameOf(p)}>
                       {modelNameOf(p)}
                     </td>
-                    <td className="max-w-[150px] truncate px-3 py-2.5 align-middle text-muted">
+                    <td className="truncate px-3 py-3 align-middle text-muted" title={targetNameOf(p)}>
                       {targetNameOf(p)}
                     </td>
-                    <td className="px-3 py-2.5 align-middle whitespace-nowrap">
+                    <td className="px-3 py-3 align-middle whitespace-nowrap">
                       <button
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();
                           onOpenMethod(p.jailbreak_method);
                         }}
-                        className="group/method inline-flex max-w-[150px] cursor-pointer items-center gap-1 rounded text-muted transition hover:text-accent-ink"
+                        className="group/method inline-flex w-full cursor-pointer items-center gap-1 rounded text-muted transition hover:text-accent-ink"
                       >
-                        <span className="truncate">{methodName}</span>
+                        <span className="truncate" title={methodName}>{methodName}</span>
                         <Icon
                           name="chevronRight"
                           className="h-3 w-3 flex-none text-faint transition group-hover/method:text-accent-ink"
                         />
                       </button>
                     </td>
-                    <td className="px-3 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-muted">
+                    <td className="px-3 py-3 align-middle font-mono text-[12px] whitespace-nowrap text-muted">
                       {p.length ? p.length.toLocaleString('en-US') : '—'}
                     </td>
-                    <td className="px-3 py-2.5 align-middle whitespace-nowrap">
+                    <td className="px-3 py-3 align-middle whitespace-nowrap">
                       <QualityScore value={p.quality_score} label={L.quality} />
                     </td>
-                    <td className="px-3 py-2.5 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
+                    <td className="px-3 py-3 align-middle font-mono text-[12px] whitespace-nowrap text-faint">
                       {p.time}
                     </td>
                   </tr>

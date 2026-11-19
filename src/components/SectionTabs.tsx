@@ -18,7 +18,7 @@ export function SectionTabs({ strings, section, onSection, counts, className = '
 
   return (
     <nav
-      className={`flex flex-wrap items-center gap-2 ${className}`}
+      className={`flex flex-wrap items-center gap-1 ${className}`}
       aria-label={strings.site.name}
     >
       {items.map((it) => {
@@ -30,27 +30,14 @@ export function SectionTabs({ strings, section, onSection, counts, className = '
             onClick={() => onSection(it.key)}
             aria-current={active ? 'page' : undefined}
             className={
-              'inline-flex cursor-pointer items-center gap-2 rounded-[9px] border px-3 py-[7px] text-[13px] font-medium tracking-tight transition ' +
+              'inline-flex cursor-pointer items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] tracking-[-0.01em] transition ' +
               (active
-                ? 'border-accent/55 bg-accent/10 text-ink shadow-[0_0_0_3px_rgba(99,102,241,0.1)]'
-                : 'border-line bg-surface text-muted hover:border-line-strong hover:text-ink')
+                ? 'bg-hover font-semibold text-ink'
+                : 'text-muted hover:text-ink')
             }
           >
-            {active && (
-              <span
-                aria-hidden="true"
-                className="h-1.5 w-1.5 flex-none rounded-full bg-gradient-to-br from-accent to-accent2"
-              />
-            )}
             {it.label}
-            <span
-              className={
-                'rounded-full px-1.5 text-[11px] ' +
-                (active ? 'bg-accent/20 text-accent-ink' : 'bg-hover text-faint')
-              }
-            >
-              {it.count}
-            </span>
+            <span className="text-[11px] font-normal tabular-nums text-faint">{it.count}</span>
           </button>
         );
       })}
