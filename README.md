@@ -144,9 +144,16 @@ npx github:lmy375/llm-jailbreak-db \
 - `--system-prompt`：自定义 system prompt；探针仍会在末尾追加随机私密串，保证成功可判定。
 - `--payload-prompt`：自定义注入 payload；默认要求模型原样输出私密串。
 - `--concurrent`：并发数，默认 1。
+- `--rounds <n>`：同一模板重复 n 轮，默认 1；每轮单独写一份日志，汇总里给出模板级命中率（`perTemplate`）。
+- `--temperature` / `--top-p` / `--seed`：采样参数。seed 为第 1 轮种子，多轮时逐轮递增，避免固定种子把同一响应复制 n 遍。
+- `--think <on|off>`：强制开启或关闭思考，下发为 `chat_template_kwargs.enable_thinking`（chat-completion 协议）。
+- `--think-effort <level>`：思考强度（minimal / low / medium / high），下发为 `reasoning_effort`；responses 协议映射为 `reasoning.effort`。
+- `--extra-body <json>`：其余后端特有字段，合并进请求体且优先级最高。
 - `--api-key`、`--list`、`--dry-run`、`--out`、`--timeout` 见 `npx ... --help`。
 
-每次调用写一份 `<out>/<id>.json`（请求、响应、状态、耗时），汇总写 `<out>/summary.json`，列出成功 / 失败 / 错误数量与成功模板 id。默认日志目录为 `jailbreak-probe-logs/<timestamp>/`，已加入 `.gitignore`。
+每次调用写一份记录，含请求、回复正文、模型推理正文、状态与耗时：命中写 `<out>/success/<id>.json`，未命中或出错写 `<out>/failure/<id>.json`，多轮时为 `<id>-rN.json`。汇总写 `<out>/summary.json`，列出命中请求数、命中模板数、每模板命中轮次与成功模板 id。默认日志目录为 `jailbreak-probe-logs/<timestamp>/`，已加入 `.gitignore`。
+
+推理模型把额度耗在思考链上会返回空正文，此时用 `--think off` 或调大 `--max-tokens`。
 
 ## 本地开发
 
