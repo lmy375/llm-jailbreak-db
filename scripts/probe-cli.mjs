@@ -37,9 +37,10 @@ Usage:
   npx github:lmy375/llm-jailbreak-db --config <file> [overrides]
 
 Required:
-  --url <endpoint>              Target API endpoint. A bare origin gets the
-                                protocol path appended automatically. May be
-                                supplied by --config.
+  --url <endpoint>              Target API endpoint. A bare origin or base path
+                                (for example .../api/openai) gets the protocol
+                                path appended automatically. May be supplied by
+                                --config.
 
 Selection (mutually exclusive; CLI selection replaces the config's):
   --random[=<n>]                Random sample of n templates (default: 10;
@@ -393,7 +394,15 @@ function endpointOf(rawUrl, protocol) {
     protocol === 'chat-completion' ? '/v1/chat/completions'
       : protocol === 'responses' ? '/v1/responses'
         : '/v1/messages';
-  if (url.pathname === '/' || url.pathname === '') url.pathname = suffix;
+  const tail = suffix.slice('/v1'.length);
+  const pathname = url.pathname.replace(/\/+$/, '');
+  if (!pathname) {
+    url.pathname = suffix;
+  } else if (!pathname.endsWith(tail)) {
+    url.pathname = pathname.endsWith('/v1') ? `${pathname}${tail}` : `${pathname}${suffix}`;
+  } else {
+    url.pathname = pathname;
+  }
   return url.toString();
 }
 
